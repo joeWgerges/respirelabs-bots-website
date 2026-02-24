@@ -1,0 +1,200 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'So funktioniert RespireLabs',
+  description: 'RespireLabs verbindet Erkennung, Echtzeit-Feedback und Habit-Coaching – smartphone-first, später optional mit Wearable-Insights.',
+  lang: 'de'
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- HERO SECTION -->
+  <section class="relative bg-brand-white min-h-[85vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 border-b border-brand-light/60">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    
+    <!-- Abstract Loop Visuals -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none blur-[100px] mix-blend-multiply">
+      <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-blue rounded-full animate-[spin_15s_linear_infinite]"></div>
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-brand-yellow rounded-full animate-[spin_10s_linear_infinite_reverse]"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 glass-panel px-5 py-2 rounded-full mb-8 shadow-sm">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-dark/80">Die Methode</span>
+      </div>
+      
+      <h1 class="text-6xl sm:text-7xl md:text-8xl font-oddval font-bold text-brand-dark tracking-tighter mb-6 leading-[0.85] drop-shadow-sm">
+        Die <span class="text-gradient">Schleife.</span>
+      </h1>
+      
+      <p class="mt-8 max-w-2xl mx-auto text-xl sm:text-2xl font-montserrat font-light text-brand-grey leading-relaxed mb-16 reveal hero-reveal delay-100">
+        RespireLabs basiert auf einem kontinuierlichen, messbaren Ablauf: <br/><strong class="text-brand-dark font-medium font-oddval mt-4 block">Erkennen → Hinweisen → Trainieren → Messen.</strong>
+      </p>
+      
+      <!-- Interactive Loop Diagram -->
+      <div class="relative w-full max-w-3xl aspect-[2/1] mx-auto mb-12 reveal hero-reveal delay-200 hidden sm:flex items-center justify-center">
+        <!-- Connecting rings -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <svg class="w-full h-full text-brand-light/60" viewBox="0 0 800 400" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="8 8">
+                <path d="M150,200 C150,100 250,50 400,50 C550,50 650,100 650,200 C650,300 550,350 400,350 C250,350 150,300 150,200 Z" class="animate-[dash_30s_linear_infinite]" />
+            </svg>
+        </div>
+        
+        <!-- Nodes -->
+        <div class="absolute top-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center bg-white p-4 rounded-2xl shadow-lg border border-brand-light z-10 w-40">
+            <div class="w-10 h-10 bg-brand-blue/10 rounded-full flex items-center justify-center mb-2"><span class="font-oddval text-brand-blue font-bold">1</span></div>
+            <span class="font-montserrat text-sm font-semibold text-brand-dark">Erkennen</span>
+        </div>
+        
+        <div class="absolute top-1/2 right-[10%] -translate-y-1/2 flex flex-col items-center bg-white p-4 rounded-2xl shadow-lg border border-brand-light z-10 w-40">
+            <div class="w-10 h-10 bg-brand-blue/10 rounded-full flex items-center justify-center mb-2"><span class="font-oddval text-brand-blue font-bold">2</span></div>
+            <span class="font-montserrat text-sm font-semibold text-brand-dark">Verstehen</span>
+        </div>
+        
+        <div class="absolute bottom-[10%] left-1/2 -translate-x-1/2 flex flex-col items-center bg-white p-4 rounded-2xl shadow-lg border border-brand-light z-10 w-40">
+            <div class="w-10 h-10 bg-brand-blue/10 rounded-full flex items-center justify-center mb-2"><span class="font-oddval text-brand-blue font-bold">3</span></div>
+            <span class="font-montserrat text-sm font-semibold text-brand-dark">Trainieren</span>
+        </div>
+        
+        <div class="absolute top-1/2 left-[10%] -translate-y-1/2 flex flex-col items-center bg-white p-4 rounded-2xl shadow-lg border border-brand-light z-10 w-40">
+            <div class="w-10 h-10 bg-brand-yellow/20 rounded-full flex items-center justify-center mb-2"><span class="font-oddval text-brand-yellow font-bold">4</span></div>
+            <span class="font-montserrat text-sm font-semibold text-brand-dark">Messen</span>
+        </div>
+      </div>
+      
+      <style>
+          @keyframes dash {
+              to { stroke-dashoffset: 1000; }
+          }
+      </style>
+
+      <div class="flex justify-center reveal hero-reveal delay-300">
+        <Button href="#step-by-step" variant="ghost" class="text-base">Schritt-für-Schritt Erklärung &darr;</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP-BY-STEP VERTICAL SCROLL -->
+  <section id="step-by-step" class="py-32 bg-brand-dark relative text-white">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="relative border-l border-white/10 ml-6 md:ml-12 pb-16">
+        
+        <!-- Step 1 -->
+        <div class="relative pl-10 md:pl-20 py-16 reveal-right">
+            <!-- Timeline Node -->
+            <div class="absolute top-16 -left-[2.1rem] md:-left-[2.5rem] w-16 h-16 rounded-full bg-brand-dark border-4 border-brand-blue flex items-center justify-center z-10">
+                <span class="font-oddval text-2xl text-brand-blue font-bold">1</span>
+            </div>
+            
+            <div class="inline-block px-4 py-1.5 bg-brand-blue/20 rounded-full text-brand-blue font-montserrat text-xs font-bold uppercase tracking-widest mb-6">Smartphone-First</div>
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-6">Start mit der App.</h2>
+            <p class="text-xl font-montserrat font-light text-brand-light/70 leading-relaxed mb-8 max-w-2xl">
+                Du hast die Kontrolle. Du startest eine Session nur dann, wenn du Atem-Bewusstsein willst (tagsüber oder nachts). Die App nutzt das Mikrofon deines Smartphones, um Mundatmung zu erkennen, und gibt dir sanftes Echtzeit-Feedback.
+            </p>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-lg backdrop-blur-md">
+                <div class="flex items-center gap-4">
+                    <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Mic" class="w-8 h-8 opacity-70 invert" />
+                    <p class="font-montserrat text-sm text-brand-light font-light">Audio wird lokal verarbeitet. Ohne explizite Zustimmung speichern wir keine Rohdaten.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative pl-10 md:pl-20 py-16 reveal-right">
+            <div class="absolute top-16 -left-[2.1rem] md:-left-[2.5rem] w-16 h-16 rounded-full bg-brand-dark border-4 border-brand-blue flex items-center justify-center z-10">
+                <span class="font-oddval text-2xl text-brand-blue font-bold">2</span>
+            </div>
+            
+            <div class="inline-block px-4 py-1.5 bg-brand-blue/20 rounded-full text-brand-blue font-montserrat text-xs font-bold uppercase tracking-widest mb-6">Insights</div>
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-6">Baseline verstehen.</h2>
+            <p class="text-xl font-montserrat font-light text-brand-light/70 leading-relaxed mb-8 max-w-2xl">
+                Nach der Session siehst du Zusammenfassungen und Trends. Du erfährst nicht nur, dass du schlecht geschlafen hast, sondern <em>in welchen konkreten Situationen</em> Mundatmung aufgetreten ist.
+            </p>
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 font-garamond text-brand-light text-sm">Stress</span>
+                <span class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 font-garamond text-brand-light text-sm">Bildschirmzeit</span>
+                <span class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 font-garamond text-brand-light text-sm">Schlafposition</span>
+                <span class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 font-garamond text-brand-light text-sm">Training</span>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative pl-10 md:pl-20 py-16 reveal-right">
+            <div class="absolute top-16 -left-[2.1rem] md:-left-[2.5rem] w-16 h-16 rounded-full bg-brand-dark border-4 border-brand-blue flex items-center justify-center z-10">
+                <span class="font-oddval text-2xl text-brand-blue font-bold">3</span>
+            </div>
+            
+            <div class="inline-block px-4 py-1.5 bg-brand-blue/20 rounded-full text-brand-blue font-montserrat text-xs font-bold uppercase tracking-widest mb-6">Coaching</div>
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-6">Nasenatmung trainieren.</h2>
+            <p class="text-xl font-montserrat font-light text-brand-light/70 leading-relaxed mb-8 max-w-2xl">
+                Wissen allein reicht nicht; das Verhalten muss sich ändern. Folge kurzen, geführten Übungen direkt in der App. Erinnerungen und Streaks helfen dir, am Ball zu bleiben.
+            </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative pl-10 md:pl-20 py-16 reveal-right">
+            <div class="absolute top-16 -left-[2.1rem] md:-left-[2.5rem] w-16 h-16 rounded-full bg-brand-dark border-4 border-brand-yellow flex items-center justify-center z-10 shadow-[0_0_20px_rgba(255,220,49,0.4)]">
+                <span class="font-oddval text-2xl text-brand-yellow font-bold">4</span>
+            </div>
+            
+            <div class="inline-block px-4 py-1.5 bg-brand-yellow/20 rounded-full text-brand-yellow font-montserrat text-xs font-bold uppercase tracking-widest mb-6">Hardware Upgrade (Optional)</div>
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-6">Tiefere Nacht-Insights.</h2>
+            <p class="text-xl font-montserrat font-light text-brand-light/70 leading-relaxed mb-8 max-w-2xl">
+                Für alle, die genaueste Daten über ihre Atmung im Schlaf wollen: Das Smart Mouth Tape Wearable liefert als optionales Upgrade tiefe Einblicke, um Fortschritte exakt zu messen.
+            </p>
+            <Button href="/de/smart-mouth-tape" variant="ghost" class="text-brand-yellow hover:bg-brand-yellow/10 border border-brand-yellow/20">Mehr zum Tape &rarr;</Button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTANT DISCLAIMERS (Educational panel) -->
+  <section class="py-32 bg-[#F5F5F7] border-y border-brand-light/50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-[2.5rem] p-10 md:p-16 shadow-lg border border-black/[0.05] relative overflow-hidden reveal">
+        <!-- Warning styling decoration -->
+        <div class="absolute top-0 left-0 w-2 h-full bg-brand-yellow"></div>
+        
+        <h2 class="text-3xl md:text-5xl font-oddval font-bold text-brand-dark mb-8">Was RespireLabs <span class="text-red-500 line-through decoration-4">NICHT</span> ist.</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="flex flex-col gap-3">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold">✕</div>
+                <h4 class="font-oddval text-xl font-bold">Kein Medizinprodukt.</h4>
+            </div>
+            <div class="flex flex-col gap-3">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold">✕</div>
+                <h4 class="font-oddval text-xl font-bold">Kein Diagnosetool.</h4>
+            </div>
+            <div class="flex flex-col gap-3">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-500 font-bold">✕</div>
+                <h4 class="font-oddval text-xl font-bold">Kein Ersatz für einen Arztbesuch.</h4>
+            </div>
+        </div>
+        
+        <div class="bg-brand-light/30 p-6 rounded-2xl border border-brand-light">
+            <p class="font-montserrat text-brand-dark/80 font-medium">
+                <span class="text-brand-dark font-bold">Wichtig:</span> Bei Verdacht auf Schlafapnoe, starkem Schnarchen oder anderen Atembeschwerden kontaktiere bitte medizinisches Fachpersonal. RespireLabs dient rein der Wellness, dem Habit-Tracking und dem Coaching.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-white py-32 sm:py-40 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
+      <h2 class="text-5xl md:text-7xl font-oddval font-bold text-brand-dark tracking-tight mb-8">Bereit zu starten?</h2>
+      <p class="text-xl md:text-2xl font-montserrat font-light text-brand-grey mb-12 max-w-xl mx-auto leading-relaxed">
+        Beginne noch heute damit, gesündere Atemgewohnheiten zu trainieren.
+      </p>
+      <Button href="/de/waitlist" variant="primary" class="text-lg px-12 py-5 shadow-xl hover:-translate-y-1">Warteliste beitreten</Button>
+    </div>
+  </section>
+</Layout>

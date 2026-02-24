@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'FAQ – Frequently Asked Questions',
+  description: 'Frequently asked questions about RespireLabs, the app, privacy, and Smart Mouth Tape.',
+  lang: 'en'
+};
+
+const faqs = [
+  {
+    category: "Product basics",
+    items: [
+      {
+        question: "What is RespireLabs?",
+        answer: "RespireLabs is a breathing coach (mobile app + optional wearable concept) designed to reduce mouth breathing and build healthier nasal breathing habits."
+      },
+      {
+        question: "Is RespireLabs a medical device?",
+        answer: "No. RespireLabs is a wellness product and does not diagnose or treat medical conditions. If you suspect a sleep disorder, please consult a clinician."
+      },
+      {
+        question: "Do I need the Smart Mouth Tape to start?",
+        answer: "No. The app is designed to work phone-first. You can start detecting and training your habits immediately without any extra hardware."
+      }
+    ]
+  },
+  {
+    category: "Privacy",
+    items: [
+      {
+        question: "Does RespireLabs record me all night?",
+        answer: "RespireLabs is designed so you control when a session is started and what is stored. Sensitive audio is treated as private and processed locally on your device by default."
+      },
+      {
+        question: "Will you sell my data?",
+        answer: "No. RespireLabs is built with privacy-first principles from the ground up. You are in control of sharing and consent."
+      }
+    ]
+  },
+  {
+    category: "Smart Mouth Tape",
+    items: [
+      {
+        question: "What sensors are planned?",
+        answer: "Our current concept-level targets include a MEMS microphone, airflow/pressure sensing, a SpO₂ sensor, and an accelerometer to provide a complete picture of your night."
+      },
+      {
+        question: "Is mouth taping safe?",
+        answer: "Mouth taping is not right for everyone. If you have nasal obstruction, breathing difficulties, or suspect sleep apnea, consult a clinician first. We will provide clear safety guidance."
+      }
+    ]
+  },
+  {
+    category: "Beta",
+    items: [
+      {
+        question: "How do I get early access?",
+        answer: "You can get early access by joining our waitlist today. We'll send you invitations and product updates as they become available."
+      }
+    ]
+  }
+];
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- HERO SECTION -->
+  <section class="relative bg-[#F5F5F7] min-h-[50vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 border-b border-black/[0.05]">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 bg-white px-5 py-2 rounded-full mb-8 shadow-sm border border-brand-light">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-dark/80">Support</span>
+      </div>
+      
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-oddval font-bold text-brand-dark tracking-tighter mb-6 leading-[0.9] drop-shadow-sm">
+        Frequently <br/>
+        <span class="text-gradient">Asked Questions.</span>
+      </h1>
+      
+      <p class="mt-4 max-w-2xl mx-auto text-xl font-montserrat font-light text-brand-grey leading-relaxed reveal hero-reveal delay-100">
+        Everything you need to know about the product, privacy, and our beta program.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDIONS -->
+  <section class="py-24 bg-brand-white relative">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      {faqs.map((category, catIndex) => (
+        <div class={`mb-16 reveal delay-${(catIndex % 5) * 100}`}>
+          <h2 class="text-2xl font-oddval font-bold text-brand-dark mb-6 pl-4 border-l-4 border-brand-blue">{category.category}</h2>
+          
+          <div class="space-y-4">
+            {category.items.map((item, itemIndex) => (
+              <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
+                <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
+                  <span class="pr-6">{item.question}</span>
+                  <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
+                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                  </span>
+                </summary>
+                <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
+                  <div class="pt-4">{item.answer}</div>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+      
+    </div>
+  </section>
+
+  <!-- STILL HAVE QUESTIONS -->
+  <section class="py-24 bg-brand-dark text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
+      <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-6">Still have questions?</h2>
+      <p class="text-lg md:text-xl font-montserrat font-light text-brand-light/70 mb-10">
+        We're here to help. Reach out to our team directly.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <Button href="/en/contact" variant="primary" class="bg-white text-brand-dark hover:bg-brand-light border-transparent shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:scale-[1.03]">Contact Support</Button>
+          <Button href="/en/waitlist" variant="outline" class="border-white/20 text-white hover:bg-white/5">Join Waitlist</Button>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Details tag animations */
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary ~ * {
+      animation: sweep .3s ease-in-out;
+    }
+    @keyframes sweep {
+      0%    {opacity: 0; transform: translateY(-10px)}
+      100%  {opacity: 1; transform: translateY(0)}
+    }
+  </style>
+</Layout>

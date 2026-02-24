@@ -1,0 +1,212 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'Smart Mouth Tape – Sensorbasiertes Mouth Tape',
+  description: 'Wearable-Konzept: Mouth Tape + Sensoren (Mic, Airflow, SpO2, Bewegung) für Atem-Insights in der Nacht – privacy-first gebaut.',
+  lang: 'de',
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "RespireLabs Smart Mouth Tape",
+    "brand": "RespireLabs",
+    "description": "Wearable-Konzept für Atem-Insights in der Nacht. Wellness-Positionierung (keine Diagnose).",
+    "category": "Health & Wellness",
+    "isRelatedTo": [{
+      "@type": "SoftwareApplication",
+      "name": "RespireLabs App",
+      "operatingSystem": "iOS, Android"
+    }]
+  }
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- PRODUCT HERO (Dark Mode) -->
+  <section class="relative bg-brand-dark min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 border-b border-white/10">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-20 pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-30 pointer-events-none blur-[150px]">
+      <div class="absolute inset-0 bg-brand-blue rounded-full mix-blend-screen animate-[pulse_8s_ease-in-out_infinite]"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 glass-panel-dark px-5 py-2 rounded-full mb-8 shadow-2xl">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-yellow">Hardware-Konzept</span>
+      </div>
+      
+      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-oddval font-bold text-white tracking-tighter mb-6 leading-[0.85] drop-shadow-lg">
+        Smart <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-orange-400">Mouth Tape.</span>
+      </h1>
+      
+      <p class="mt-8 max-w-2xl mx-auto text-xl sm:text-2xl font-montserrat font-light text-brand-light/70 leading-relaxed mb-16 reveal hero-reveal delay-100">
+        Ein Wearable-Konzept, das Mouth Tape mit fortschrittlichen Sensoren kombiniert, um Atemmuster in der Nacht zu verstehen. Privacy-first entwickelt.
+      </p>
+      
+      <!-- Abstract Product Visualization -->
+      <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-white/10 flex items-center justify-center mb-16 reveal hero-reveal delay-200 group">
+        <div class="absolute inset-0 bg-brand-yellow/10 rounded-full blur-2xl group-hover:bg-brand-yellow/20 transition-colors duration-700"></div>
+        <img src="/assets/icons/respire-labs-icons_tape.svg" alt="Tape Hardware" class="w-32 h-32 opacity-90 brightness-0 invert transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+        
+        <!-- Animated Sensor Dots -->
+        <div class="absolute top-1/4 right-1/4 w-3 h-3 bg-brand-blue rounded-full animate-ping"></div>
+        <div class="absolute bottom-1/3 left-1/4 w-2 h-2 bg-brand-yellow rounded-full animate-ping delay-300"></div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 reveal hero-reveal delay-300">
+        <Button href="/de/waitlist" variant="secondary" class="text-base px-10 py-5 bg-brand-yellow text-brand-dark hover:bg-yellow-400 hover:shadow-[0_8px_20px_rgba(255,220,49,0.3)] border-transparent">Early Access sichern</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM VS SOLUTION -->
+  <section class="py-32 bg-brand-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="mb-20 text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Daten für eine simple Gewohnheit.</h2>
+            <p class="text-xl text-brand-grey font-montserrat font-light max-w-2xl mx-auto">Klassisches Mouth Tape ist „blind“. Man sieht weder, was sich verändert hat, noch welche Gewohnheit wirklich geholfen hat.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center max-w-6xl mx-auto">
+            <!-- Problem -->
+            <div class="bg-[#F5F5F7] rounded-[2.5rem] p-10 md:p-14 reveal-left">
+                <div class="w-12 h-12 rounded-full bg-brand-dark/5 flex items-center justify-center mb-8">
+                    <span class="text-xl font-oddval text-brand-dark/40">?</span>
+                </div>
+                <h3 class="text-3xl font-oddval font-bold text-brand-dark mb-4">Das Problem</h3>
+                <p class="text-lg text-brand-grey font-montserrat font-light leading-relaxed mb-6">
+                    Du klebst dir nachts ein Tape auf, wachst aber trotzdem müde auf. Hast du durch die Nase geatmet? Geschnarcht? Ohne Daten bleibt es Raten.
+                </p>
+                <ul class="space-y-3 font-garamond text-lg text-brand-dark/70">
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand-grey"></span> Keine Insights über nächtliche Events</li>
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand-grey"></span> Keine Feedback-Schleife für Fortschritt</li>
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand-grey"></span> Schwer, nachhaltige Gewohnheiten aufzubauen</li>
+                </ul>
+            </div>
+            
+            <!-- Solution -->
+            <div class="bg-brand-dark text-white rounded-[2.5rem] p-10 md:p-14 shadow-2xl relative overflow-hidden reveal-right delay-100">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-yellow/10 rounded-bl-full blur-2xl pointer-events-none"></div>
+                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-8 backdrop-blur-md">
+                    <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <h3 class="text-3xl font-oddval font-bold mb-4">Die Lösung</h3>
+                <p class="text-lg text-brand-light/80 font-montserrat font-light leading-relaxed mb-6">
+                    Smart Mouth Tape fügt deiner Nachtroutine strukturierte Insights, Feedback-Loops und ein Privacy-First-Design hinzu.
+                </p>
+                <ul class="space-y-3 font-garamond text-lg text-brand-light">
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span> Tracken von Atemmuster-Trends</li>
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span> Veränderungen über die Zeit messen</li>
+                    <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand-yellow"></span> Direkte Guidance für die nächsten Schritte</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- HARDWARE SPECS (Apple Style Feature List) -->
+  <section class="py-32 bg-[#F7F7F9] border-y border-brand-light/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-oddval font-bold tracking-tight text-brand-dark mb-6">Innenleben des Pods.</h2>
+        <p class="text-lg md:text-xl font-montserrat text-brand-grey font-light">Ein kleiner Sensor-Pod + hautfreundliches Tape. Designt für Komfort und Daten.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <!-- Spec 1 -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-100">
+            <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6">
+                <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Mic" class="w-5 h-5 opacity-70" />
+            </div>
+            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">MEMS-Mikrofon</h4>
+            <p class="font-montserrat text-sm text-brand-grey font-light">Hochwertige akustische Sensorik, um Atemgeräusche und Schnarchen lokal zu erkennen.</p>
+        </div>
+        <!-- Spec 2 -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-200">
+            <div class="w-10 h-10 rounded-full bg-brand-yellow/10 flex items-center justify-center mb-6">
+                <img src="/assets/icons/respire-labs-icons_nose.svg" alt="Airflow" class="w-5 h-5 opacity-70" />
+            </div>
+            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">Airflow / Pressure</h4>
+            <p class="font-montserrat text-sm text-brand-grey font-light">Zwei Sensoren, die zuverlässig den Luftfluss durch Nase vs. Mund unterscheiden.</p>
+        </div>
+        <!-- Spec 3 -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-300">
+            <div class="w-10 h-10 rounded-full bg-brand-dark/5 flex items-center justify-center mb-6">
+                <svg class="w-5 h-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+            </div>
+            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">SpO₂ Sensor</h4>
+            <p class="font-montserrat text-sm text-brand-grey font-light">Kontinuierliches Monitoring der Blutsauerstoffsättigung passend zu den Atem-Events.</p>
+        </div>
+        <!-- Spec 4 -->
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-400">
+            <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6">
+                <img src="/assets/icons/respire-labs-icons_monitor.svg" alt="Motion" class="w-5 h-5 opacity-70" />
+            </div>
+            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">Accelerometer</h4>
+            <p class="font-montserrat text-sm text-brand-grey font-light">Erfasst Schlafposition und Bewegung für vollen Kontext beim nächtlichen Aufwachen.</p>
+        </div>
+      </div>
+
+      <!-- UX Design Targets -->
+      <div class="mt-16 flex flex-wrap justify-center gap-4 max-w-4xl mx-auto reveal delay-500">
+        <span class="px-4 py-2 bg-white rounded-full border border-brand-light text-brand-dark/80 font-montserrat text-sm shadow-sm">Multi-Stunden Betrieb (Overnight)</span>
+        <span class="px-4 py-2 bg-white rounded-full border border-brand-light text-brand-dark/80 font-montserrat text-sm shadow-sm">USB-C Laden & Transfer</span>
+        <span class="px-4 py-2 bg-white rounded-full border border-brand-light text-brand-dark/80 font-montserrat text-sm shadow-sm">Keine sichtbaren Lichter</span>
+        <span class="px-4 py-2 bg-white rounded-full border border-brand-light text-brand-dark/80 font-montserrat text-sm shadow-sm">Hautschonendes Design</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP SYNC & PRIVACY -->
+  <section class="py-32 bg-brand-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        <!-- Content -->
+        <div class="reveal-left">
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-6">Synchronisieren & Lernen.</h2>
+            <p class="text-xl text-brand-grey font-montserrat font-light leading-relaxed mb-8">
+                So funktioniert's: Das Tape wird nachts getragen und zeichnet die Sensordaten lokal auf. Morgens via USB-C oder App synchronisieren – für einen klaren, umsetzbaren Report.
+            </p>
+            
+            <div class="p-6 bg-brand-yellow/10 border border-brand-yellow/30 rounded-2xl mb-8">
+                <h4 class="font-oddval text-lg text-brand-dark mb-2">Sicherheit zuerst.</h4>
+                <p class="font-garamond text-brand-dark/80 text-lg leading-relaxed">
+                    Mouth Taping ist nicht für jeden geeignet. Bei Verdacht auf eine Schlafstörung (inkl. Schlafapnoe), sprich vorab mit qualifiziertem medizinischem Fachpersonal. Reine Wellness-Positionierung.
+                </p>
+            </div>
+            
+            <Button href="/de/app" variant="outline" class="text-base px-8 py-4">App entdecken &rarr;</Button>
+        </div>
+        
+        <!-- Abstract Visual -->
+        <div class="relative w-full aspect-square max-w-lg mx-auto bg-[#F5F5F7] rounded-[3rem] p-12 flex items-center justify-center shadow-inner reveal-right border border-black/[0.02]">
+            <div class="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
+            <!-- Sync Graphic -->
+            <div class="relative w-full h-full border-2 border-dashed border-brand-blue/30 rounded-full animate-[spin_30s_linear_infinite] flex items-center justify-center">
+                <div class="absolute w-3 h-3 bg-brand-blue rounded-full -top-1.5 left-1/2 -translate-x-1/2"></div>
+                <div class="w-3/4 h-3/4 border-2 border-brand-yellow/30 rounded-full animate-[spin_20s_linear_infinite_reverse] flex items-center justify-center">
+                    <img src="/assets/logo/respire-labs-symbol_blue-symbol.png" alt="RespireLabs" class="w-16 h-16 animate-none !rotate-0" style="animation: spin 30s linear infinite reverse;" />
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-dark py-32 sm:py-48 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-brand-yellow/10 blur-[150px] pointer-events-none mix-blend-screen"></div>
+    
+    <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
+      <h2 class="text-5xl md:text-7xl lg:text-8xl font-oddval font-bold text-white tracking-tight mb-8">Early Access sichern.</h2>
+      <p class="text-xl md:text-2xl font-montserrat font-light text-brand-light/70 mb-12 max-w-xl mx-auto leading-relaxed">
+        Das Smart Mouth Tape ist in Entwicklung. Komm auf die Warteliste, um Updates und Beta-Infos zu erhalten.
+      </p>
+      <Button href="/de/waitlist" variant="primary" class="text-lg px-12 py-5 shadow-[0_0_40px_rgba(255,255,255,0.1)] bg-white text-brand-dark hover:bg-brand-light border-transparent hover:scale-[1.03]">Warteliste beitreten</Button>
+    </div>
+  </section>
+</Layout>

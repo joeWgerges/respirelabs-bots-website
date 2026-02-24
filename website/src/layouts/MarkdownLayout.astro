@@ -1,0 +1,103 @@
+---
+import Layout from './Layout.astro';
+import type { MarkdownLayoutProps } from 'astro';
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+  lang: string;
+}>;
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout frontmatter={frontmatter}>
+  <div class="relative bg-brand-white overflow-hidden min-h-screen">
+    
+    <!-- Abstract Header Background -->
+    <div class="absolute inset-0 h-[400px] bg-[#F5F5F7] border-b border-black/[0.02] pointer-events-none" aria-hidden="true">
+      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[100px] mix-blend-multiply"></div>
+      <div class="absolute top-20 -left-20 w-[400px] h-[400px] bg-brand-yellow/10 rounded-full blur-[100px] mix-blend-multiply"></div>
+    </div>
+
+    <!-- Article Header -->
+    <header class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 text-left reveal">
+      <a href={`/${frontmatter.lang}/blog`} class="inline-flex items-center text-brand-grey hover:text-brand-blue font-montserrat font-semibold text-sm uppercase tracking-widest mb-10 transition-colors focus-ring rounded-md p-1 -ml-1">
+        &larr; Back to articles
+      </a>
+      
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-oddval font-bold text-brand-dark tracking-tighter mb-8 leading-[1.1] drop-shadow-sm">
+        {frontmatter.title}
+      </h1>
+      
+      {frontmatter.description && (
+        <p class="text-xl font-garamond italic text-brand-grey leading-relaxed mb-10 border-l-4 border-brand-yellow/50 pl-6">
+          {frontmatter.description}
+        </p>
+      )}
+
+      <!-- Author/Meta Info -->
+      <div class="flex items-center gap-4 pt-6 border-t border-black/[0.05]">
+          <div class="w-12 h-12 rounded-full bg-brand-light/50 flex items-center justify-center text-xl border border-white shadow-sm">
+              👋
+          </div>
+          <div>
+              <div class="font-montserrat font-bold text-brand-dark text-sm">RespireLabs Team</div>
+              <div class="font-montserrat font-light text-brand-grey text-xs mt-0.5">Health &amp; Wellness Research</div>
+          </div>
+      </div>
+    </header>
+
+    <!-- Main Content Content -->
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 reveal delay-100">
+      <article class="
+        prose prose-lg lg:prose-xl 
+        prose-headings:font-oddval prose-headings:text-brand-dark prose-headings:font-bold prose-headings:tracking-tight
+        prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:border-b prose-h2:border-brand-light/50 prose-h2:pb-4
+        prose-h3:text-2xl prose-h3:text-brand-dark/90 prose-h3:mt-10 prose-h3:mb-4
+        prose-p:font-garamond prose-p:text-brand-dark/80 prose-p:leading-relaxed
+        prose-a:font-montserrat prose-a:font-medium prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline hover:prose-a:text-blue-800
+        prose-strong:font-montserrat prose-strong:font-semibold prose-strong:text-brand-dark
+        prose-ul:font-garamond prose-ul:list-disc marker:prose-ul:text-brand-blue/60
+        prose-ol:font-garamond prose-ol:list-decimal marker:prose-ol:text-brand-dark/50
+        prose-li:my-2
+        prose-blockquote:font-garamond prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-brand-blue/30 prose-blockquote:bg-brand-blue/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-brand-dark/70
+        prose-table:font-montserrat prose-table:text-sm prose-table:w-full prose-table:border-collapse prose-table:rounded-xl prose-table:overflow-hidden
+        prose-th:bg-[#F5F5F7] prose-th:p-4 prose-th:text-left prose-th:border-b prose-th:border-brand-light
+        prose-td:p-4 prose-td:border-b prose-td:border-brand-light/50
+        prose-hr:border-brand-light prose-hr:my-16
+        prose-img:rounded-3xl prose-img:shadow-lg prose-img:border prose-img:border-black/[0.02]
+        max-w-none
+      ">
+        <slot />
+      </article>
+
+      <!-- Bottom Decorative Element & Share -->
+       <div class="mt-24 pt-10 border-t border-brand-light flex flex-col sm:flex-row justify-between items-center gap-6">
+         <img src="/assets/icons/respire-labs-icons_sleep.svg" alt="Sleep Icon" class="w-8 h-8 opacity-20" />
+         
+         <div class="flex items-center gap-4">
+            <span class="font-montserrat font-bold text-xs uppercase tracking-widest text-brand-grey">Share</span>
+            <div class="flex gap-2">
+                <button class="w-10 h-10 rounded-full bg-[#F5F5F7] hover:bg-brand-light flex items-center justify-center text-brand-dark transition-colors focus-ring">X</button>
+                <button class="w-10 h-10 rounded-full bg-[#F5F5F7] hover:bg-brand-light flex items-center justify-center text-brand-dark transition-colors focus-ring">in</button>
+            </div>
+         </div>
+       </div>
+    </div>
+  </div>
+</Layout>
+
+<style is:global>
+  /* Custom prose adjustments */
+  .prose p > strong:first-child {
+    display: inline-block;
+    color: var(--color-brand-blue);
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-montserrat);
+  }
+</style>

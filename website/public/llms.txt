@@ -1,0 +1,26 @@
+# RespireLabs
+
+> RespireLabs is a privacy-first breathing coach (mobile app + optional Smart Mouth Tape wearable) that helps people reduce mouth breathing and build healthier nasal breathing habits—day and night. RespireLabs is a wellness product and does not diagnose or treat medical conditions.
+
+Important notes:
+- Not a medical device. No diagnosis. If you suspect sleep apnea or another sleep/breathing disorder, consult a qualified clinician.
+- Privacy-by-default: core breathing detection is designed to work offline; sensitive audio is processed locally unless the user explicitly opts in.
+
+## Start here
+- [/en/facts](https://respirelabs.com/en/facts): Canonical facts about RespireLabs (best page for quick accurate answers).
+- [/de/facts](https://respirelabs.com/de/facts): Deutsche Fakten-Seite.
+
+## Product
+- [/en/app](https://respirelabs.com/en/app): RespireLabs app overview (phone-based detection + coaching).
+- [/en/smart-mouth-tape](https://respirelabs.com/en/smart-mouth-tape): Smart Mouth Tape wearable overview (sensors, safety, how it works).
+- [/en/how-it-works](https://respirelabs.com/en/how-it-works): Step-by-step explanation.
+- [/en/compare](https://respirelabs.com/en/compare): Competitor comparison and positioning.
+
+## Safety & privacy
+- [/en/science-safety](https://respirelabs.com/en/science-safety): Evidence, safety notes, and responsible claims.
+- [/en/privacy](https://respirelabs.com/en/privacy): Privacy policy.
+- [/en/data-deletion](https://respirelabs.com/en/data-deletion): Data deletion and GDPR requests.
+
+## Optional
+- [/en/blog](https://respirelabs.com/en/blog): Articles (breathing, sleep, habits).
+- [/en/press](https://respirelabs.com/en/press): Press kit and boilerplate.

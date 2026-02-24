@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://respirelabs.com/sitemap-index.xml

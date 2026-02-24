@@ -1,0 +1,124 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'About RespireLabs',
+  description: 'Our mission, principles, and why we’re building a privacy-first breathing coach.',
+  lang: 'en'
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- HERO SECTION -->
+  <section class="relative bg-brand-white min-h-[60vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 border-b border-brand-light/60">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none blur-[100px] mix-blend-multiply">
+      <div class="absolute inset-0 bg-brand-blue rounded-full animate-[pulse_10s_ease-in-out_infinite]"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 glass-panel px-5 py-2 rounded-full mb-8 shadow-sm">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-dark/80">About Us</span>
+      </div>
+      
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-oddval font-bold text-brand-dark tracking-tighter mb-6 leading-[0.9] drop-shadow-sm">
+        We're building a <br/>
+        <span class="text-gradient">breathing coach.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="py-32 bg-[#F5F5F7]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <h2 class="text-xl font-montserrat font-bold text-brand-blue uppercase tracking-widest mb-6">Our Mission</h2>
+      <p class="text-3xl md:text-5xl font-garamond italic text-brand-dark/90 leading-tight">
+        "We want to make healthier breathing habits accessible, measurable, and privacy-respecting—so more people can wake up with better sleep and more energy."
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE ARE BUILDING -->
+  <section class="py-32 bg-brand-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">What we're building.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-[2rem] p-10 shadow-sm border border-black/[0.03] reveal-left">
+              <div class="w-16 h-16 rounded-2xl bg-brand-blue/10 flex items-center justify-center mb-8">
+                  <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="App" class="w-8 h-8 opacity-70" />
+              </div>
+              <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-4">The App</h3>
+              <p class="text-lg font-montserrat font-light text-brand-grey">A phone-first breathing coach detecting patterns and providing real-time nudges without extra hardware.</p>
+          </div>
+          
+          <div class="bg-white rounded-[2rem] p-10 shadow-sm border border-black/[0.03] reveal delay-100">
+              <div class="w-16 h-16 rounded-2xl bg-brand-yellow/10 flex items-center justify-center mb-8">
+                  <img src="/assets/icons/respire-labs-icons_tape.svg" alt="Tape" class="w-8 h-8 opacity-70" />
+              </div>
+              <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-4">Smart Mouth Tape</h3>
+              <p class="text-lg font-montserrat font-light text-brand-grey">An optional wearable hardware concept for precise, clinical-level data on your breathing during the night.</p>
+          </div>
+          
+          <div class="bg-white rounded-[2rem] p-10 shadow-sm border border-black/[0.03] reveal-right">
+              <div class="w-16 h-16 rounded-2xl bg-[#F5F5F7] flex items-center justify-center mb-8">
+                  <span class="text-2xl">🌱</span>
+              </div>
+              <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-4">Wellness Platform</h3>
+              <p class="text-lg font-montserrat font-light text-brand-grey">A long-term respiratory wellness platform offering deep education, trend tracking, and habit coaching.</p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section class="py-32 bg-brand-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-4">Our Principles.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div class="glass-panel-dark rounded-[2rem] p-10 reveal-left">
+              <h3 class="text-2xl font-oddval font-bold text-brand-yellow mb-3">Privacy-first by default</h3>
+              <p class="font-montserrat font-light text-brand-light/70">Local processing and explicit consent. Your breathing audio never leaves your device unless you tell it to.</p>
+          </div>
+          <div class="glass-panel-dark rounded-[2rem] p-10 reveal-right">
+              <h3 class="text-2xl font-oddval font-bold text-brand-yellow mb-3">Responsible claims</h3>
+              <p class="font-montserrat font-light text-brand-light/70">We build wellness tools, not diagnostic medical devices. We are honest about what our tools can and cannot do.</p>
+          </div>
+          <div class="glass-panel-dark rounded-[2rem] p-10 reveal-left delay-100">
+              <h3 class="text-2xl font-oddval font-bold text-brand-yellow mb-3">Habit change over hype</h3>
+              <p class="font-montserrat font-light text-brand-light/70">We don't just sell you hardware. We provide the coaching loops necessary to actually change your breathing behavior.</p>
+          </div>
+          <div class="glass-panel-dark rounded-[2rem] p-10 reveal-right delay-100">
+              <h3 class="text-2xl font-oddval font-bold text-brand-yellow mb-3">Clear, usable insights</h3>
+              <p class="font-montserrat font-light text-brand-light/70">We translate complex acoustic and sensor data into simple "next best actions" that anyone can understand.</p>
+          </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- TEAM -->
+  <section class="py-32 bg-[#F5F5F7]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+        <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-12">The Team</h2>
+        <div class="bg-white rounded-[2rem] p-12 shadow-sm border border-brand-light">
+            <div class="w-24 h-24 rounded-full bg-brand-light/50 mx-auto flex items-center justify-center text-4xl mb-6">👋</div>
+            <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-2">Krzysztof Dąbrowski</h3>
+            <p class="font-montserrat font-medium text-brand-blue uppercase tracking-widest text-sm mb-6">Founder / Vision / Oxygen</p>
+            <p class="font-garamond text-xl text-brand-grey max-w-2xl mx-auto">
+                Passionate about health-tech and respiratory wellness. Building the future of sleep comfort from Tirol, Austria.
+            </p>
+            <div class="mt-8">
+                <a href="mailto:kdabrowski@respirelabs.com" class="font-montserrat font-semibold text-brand-dark hover:text-brand-blue transition-colors">kdabrowski@respirelabs.com</a>
+            </div>
+        </div>
+    </div>
+  </section>
+
+</Layout>

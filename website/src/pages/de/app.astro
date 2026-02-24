@@ -1,0 +1,215 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'RespireLabs App – Mundatmung erkennen & Nasenatmung trainieren',
+  description: 'Smartphone-first Atem-Erkennung + Coaching. Echtzeit-Hinweise, Trends und geführte Übungen – privacy-first und offline-fähig konzipiert.',
+  lang: 'de',
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "RespireLabs App",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "HealthApplication",
+    "description": "Ein privacy-first Atem-Coach zur Reduzierung von Mundatmung und zum Training der Nasenatmung. Kein Medizinprodukt."
+  }
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- APP HERO (Light & Clean) -->
+  <section class="relative bg-brand-white min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 border-b border-brand-light/60">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    
+    <!-- Abstract Phone/App Representation -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none blur-[120px]">
+      <div class="absolute inset-0 bg-brand-blue rounded-full mix-blend-multiply animate-[pulse_10s_ease-in-out_infinite]"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 glass-panel px-5 py-2 rounded-full mb-8 shadow-sm">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-blue">Software-App</span>
+      </div>
+      
+      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-oddval font-bold text-brand-dark tracking-tighter mb-6 leading-[0.85] drop-shadow-sm">
+        Dein digitaler <br/>
+        <span class="text-gradient">Coach.</span>
+      </h1>
+      
+      <p class="mt-8 max-w-2xl mx-auto text-xl sm:text-2xl font-montserrat font-light text-brand-grey leading-relaxed mb-16 reveal hero-reveal delay-100">
+        Smartphone-first Atem-Erkennung und Habit-Training. Starte sofort – ohne Wearable oder zusätzliche Hardware.
+      </p>
+      
+      <!-- Abstract App Visual -->
+      <div class="relative w-64 h-80 md:w-80 md:h-[400px] bg-white rounded-[3rem] border border-black/[0.05] shadow-[0_20px_50px_rgb(0,0,0,0.06)] flex flex-col items-center pt-12 pb-8 mb-16 reveal hero-reveal delay-200 group">
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-brand-light rounded-full"></div>
+        <div class="flex-grow flex flex-col items-center justify-center space-y-6">
+           <div class="w-24 h-24 rounded-full border-[6px] border-brand-blue/20 flex items-center justify-center relative">
+               <div class="absolute inset-0 border-[6px] border-brand-blue rounded-full border-t-transparent animate-spin"></div>
+               <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Mic" class="w-10 h-10 opacity-80" />
+           </div>
+           <div class="text-center px-6">
+               <div class="text-3xl font-oddval font-bold text-brand-dark mb-1">Erkenne...</div>
+               <div class="text-brand-grey font-montserrat text-sm uppercase tracking-widest">Nasenatmung</div>
+           </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 reveal hero-reveal delay-300">
+        <Button href="/de/waitlist" variant="primary" class="text-base px-10 py-5">Zur App-Beta</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CORE LOOP -->
+  <section class="py-32 bg-[#F7F7F9] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="mb-20 text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Was die App macht.</h2>
+            <p class="text-xl text-brand-grey font-montserrat font-light max-w-2xl mx-auto">Mundatmung reduzieren und stabile Nasenatmung aufbauen – durch einen einfachen, messbaren Ablauf.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.02] reveal delay-100 group">
+                <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-blue">1</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Start</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Starte eine Session (Tag oder Nacht). Du entscheidest immer selbst, wann die Erkennung läuft.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.02] reveal delay-200 group">
+                <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-blue">2</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Analyse</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Die App analysiert sicher Atemsignale und erkennt Mundatmung lokal auf dem Gerät.</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.02] reveal delay-300 group">
+                <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-blue">3</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Hinweis</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Erhalte sanfte Hinweise in Echtzeit sowie eine klare Zusammenfassung nach der Session.</p>
+            </div>
+            
+            <div class="bg-brand-dark text-white rounded-3xl p-8 shadow-xl border border-white/10 reveal delay-400 group relative overflow-hidden">
+                <div class="absolute inset-0 bg-brand-yellow/5 group-hover:bg-brand-yellow/10 transition-colors"></div>
+                <div class="w-12 h-12 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-yellow">4</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-white mb-3 relative z-10">Training</h3>
+                <p class="text-brand-light/80 font-montserrat font-light leading-relaxed relative z-10">Folge einem Plan aus kleinen Übungen, um die neue Gewohnheit nachhaltig zu festigen.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES (Bento Grid) -->
+  <section class="py-32 bg-brand-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-oddval font-bold tracking-tight text-brand-dark mb-6">Marketing-Level Features.</h2>
+        <p class="text-lg md:text-xl font-montserrat text-brand-grey font-light">Entwickelt für eine nahtlose Integration in deinen Alltag.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+        
+        <!-- Large Block -->
+        <div class="md:col-span-8 bg-[#F5F5F7] rounded-[2rem] p-10 shadow-sm border border-black/[0.03] reveal-left">
+            <h3 class="text-3xl font-oddval font-bold text-brand-dark mb-6">Erkennung & Feedback</h3>
+            <ul class="space-y-6 font-montserrat font-light text-lg text-brand-dark/80">
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0"><span class="w-2 h-2 bg-brand-blue rounded-full"></span></div>
+                    Erkennt Mundatmung während einer vom Nutzer gestarteten Session.
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0"><span class="w-2 h-2 bg-brand-blue rounded-full"></span></div>
+                    Echtzeit-Feedback innerhalb von Sekunden, wenn Mundatmung auftritt.
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0"><span class="w-2 h-2 bg-brand-blue rounded-full"></span></div>
+                    Session-Summaries: Counts, Trends und ein einfacher Fortschritts-Score.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Medium Block -->
+        <div class="md:col-span-4 bg-brand-blue text-white rounded-[2rem] p-10 shadow-xl reveal-right delay-100">
+            <img src="/assets/icons/respire-labs-icons_sleep.svg" alt="Coach" class="w-10 h-10 mb-6 brightness-0 invert opacity-90" />
+            <h3 class="text-2xl font-oddval font-bold mb-4">Aktives Coaching</h3>
+            <p class="font-montserrat font-light text-white/80 leading-relaxed mb-6">
+                Kurze, geführte Übungen. „Next best action“-Coaching mit konkreten, umsetzbaren Schritten.
+            </p>
+            <div class="inline-block px-4 py-2 bg-white/10 rounded-full font-montserrat text-sm font-semibold">Streaks & Visuals</div>
+        </div>
+
+        <!-- Full Width Block -->
+        <div class="md:col-span-12 bg-white rounded-[2rem] p-10 border border-brand-light shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 reveal delay-200">
+            <div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Integrationen (Optional)</h3>
+                <p class="font-montserrat font-light text-brand-grey max-w-xl">
+                    Unterstützung für Apple Health und Android Health Connect (mit Einwilligung). Ergänzt bestehende Wearables perfekt.
+                </p>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-2xl font-oddval text-brand-dark/30"></div>
+                <div class="w-16 h-16 rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-2xl font-oddval text-brand-dark/30">A</div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY CALLOUT -->
+  <section class="py-32 bg-brand-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-brand-yellow/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+        <h2 class="text-4xl md:text-6xl font-oddval font-bold mb-8">Datenschutz als Produktfeature.</h2>
+        <p class="text-xl md:text-2xl font-garamond italic text-brand-light/80 leading-relaxed mb-12">
+            „Atem-Audio ist hochsensibel. Deine Daten bleiben bei dir.“
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
+                    <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
+                </div>
+                <h4 class="font-oddval text-lg font-bold mb-2">Klare Permissions</h4>
+                <p class="font-montserrat text-sm font-light text-brand-light/60">Du bestimmst aktiv, wann eine Aufzeichnung gestartet wird.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
+                    <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
+                </div>
+                <h4 class="font-oddval text-lg font-bold mb-2">Lokale Verarbeitung</h4>
+                <p class="font-montserrat text-sm font-light text-brand-light/60">Die Erkennung läuft standardmäßig lokal auf deinem Smartphone ab.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
+                    <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
+                </div>
+                <h4 class="font-oddval text-lg font-bold mb-2">Explizite Einwilligung</h4>
+                <p class="font-montserrat text-sm font-light text-brand-light/60">Optionales Teilen der Daten erfolgt nur mit deiner ausdrücklichen Zustimmung.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-white py-32 sm:py-40 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
+      <h2 class="text-5xl md:text-7xl font-oddval font-bold text-brand-dark tracking-tight mb-8">Bereit für den Start?</h2>
+      <p class="text-xl md:text-2xl font-montserrat font-light text-brand-grey mb-12 max-w-xl mx-auto leading-relaxed">
+        RespireLabs ist aktuell in Entwicklung. Sichere dir eine Beta-Einladung und hilf uns, das Produkt zu verbessern.
+      </p>
+      <Button href="/de/waitlist" variant="primary" class="text-lg px-12 py-5 shadow-xl hover:-translate-y-1">Zur App-Beta</Button>
+    </div>
+  </section>
+</Layout>

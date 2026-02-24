@@ -1,0 +1,263 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'RespireLabs – Der Atem-Coach für besseren Schlaf & mehr Energie',
+  description: 'Mundatmung reduzieren mit privacy-first, On-Device-Erkennung und Coaching. Starte nur mit deinem Smartphone. Jetzt Warteliste für App & Smart Mouth Tape.',
+  lang: 'de'
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- HERO SECTION -->
+  <section class="relative bg-brand-white min-h-[95vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-20">
+    <!-- Subtle Grid Background & Gradient Orbs -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-40 mix-blend-multiply pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none blur-[120px]">
+      <div class="absolute inset-0 bg-brand-blue rounded-full mix-blend-multiply animate-[pulse_8s_ease-in-out_infinite]"></div>
+      <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-brand-yellow rounded-full mix-blend-multiply animate-[pulse_12s_ease-in-out_infinite_alternate]"></div>
+    </div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal">
+      <div class="inline-flex items-center space-x-2 glass-panel px-5 py-2 rounded-full mb-8 shadow-sm">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-blue"></span>
+        </span>
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-dark/80">In Entwicklung • Zur Beta</span>
+      </div>
+      
+      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[11rem] font-oddval font-bold text-brand-dark tracking-tighter mb-6 leading-[0.85] drop-shadow-sm">
+        Atmen. <br/>
+        <span class="text-gradient">Schlafen.</span>
+      </h1>
+      
+      <p class="mt-8 max-w-2xl mx-auto text-xl sm:text-2xl font-montserrat font-light text-brand-grey leading-relaxed mb-12 reveal hero-reveal delay-100">
+        Ein neues System für Atem-Wellness. Erkenne Atemmuster und verbessere sie mit einfachen Gewohnheiten. Starte nur mit deinem Smartphone.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 reveal hero-reveal delay-200">
+        <Button href="/de/waitlist" variant="primary" class="text-base px-10 py-5">Warteliste beitreten</Button>
+        <Button href="/de/how-it-works" variant="glass" class="text-base px-10 py-5 !text-brand-dark !border-brand-dark/20 hover:!bg-brand-dark/5">So funktioniert's</Button>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50 reveal delay-500">
+        <svg class="w-6 h-6 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="border-y border-brand-light/60 bg-white/50 backdrop-blur-sm py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-center text-sm font-montserrat font-semibold tracking-widest text-brand-grey uppercase mb-8">Unterstützt von</p>
+      <div class="flex flex-wrap justify-center items-center gap-12 sm:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+        <span class="font-oddval text-xl tracking-tight text-brand-dark">aws <span class="font-light">First Incubator</span></span>
+        <span class="font-oddval text-xl tracking-tight text-brand-dark">WKO <span class="font-light">Tirol</span></span>
+        <span class="font-oddval text-xl tracking-tight text-brand-dark">Tiroler <span class="font-light">Innovationspreis</span></span>
+        <span class="font-oddval text-xl tracking-tight text-brand-dark">Austria <span class="font-light">Wirtschaftsservice</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM AGITATION -->
+  <section class="py-32 lg:py-48 bg-brand-white flex items-center justify-center px-4 relative">
+    <div class="max-w-5xl mx-auto text-center reveal">
+      <h2 class="text-4xl md:text-5xl lg:text-7xl font-garamond italic text-brand-dark/80 leading-tight mb-8">
+        "Viele Tracker zeigen, was war.<br/> 
+        <span class="text-brand-dark not-italic font-medium">Wir fokussieren uns darauf, warum du erschöpft bist."</span>
+      </h2>
+      <p class="text-lg md:text-xl font-montserrat text-brand-grey max-w-3xl mx-auto font-light leading-relaxed">
+        Du wachst müde auf. Trockener Mund. Vielleicht Schnarchen. RespireLabs setzt bei der Atmung an: Mundatmung kann den Schlafkomfort massiv beeinflussen.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE LOOP / STEPS -->
+  <section class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="mb-20 text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Eine Gewohnheits‑Schleife.</h2>
+            <p class="text-lg text-brand-grey font-montserrat font-light">Erkennen, hinweisen, trainieren, Fortschritt messen.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Step 1 -->
+            <div class="relative group reveal delay-100">
+                <div class="text-brand-blue/20 font-oddval text-8xl absolute -top-10 -left-4 -z-10 group-hover:text-brand-blue/30 transition-colors">1</div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Erkennen</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Smartphone-first. Wir erkennen Mundatmungs-Muster direkt über das Mikrofon.</p>
+            </div>
+            <!-- Step 2 -->
+            <div class="relative group reveal delay-200">
+                <div class="text-brand-blue/20 font-oddval text-8xl absolute -top-10 -left-4 -z-10 group-hover:text-brand-blue/30 transition-colors">2</div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Verstehen</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Zusammenfassungen deiner Sessions. Lerne, in welchen Situationen Mundatmung auftritt.</p>
+            </div>
+            <!-- Step 3 -->
+            <div class="relative group reveal delay-300">
+                <div class="text-brand-blue/20 font-oddval text-8xl absolute -top-10 -left-4 -z-10 group-hover:text-brand-blue/30 transition-colors">3</div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Trainieren</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Geführte Atemübungen. Reminders und Streaks helfen bei der Konsistenz.</p>
+            </div>
+            <!-- Step 4 -->
+            <div class="relative group reveal delay-400">
+                <div class="text-brand-yellow/30 font-oddval text-8xl absolute -top-10 -left-4 -z-10 group-hover:text-brand-yellow/50 transition-colors">4</div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Messen</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Noch tiefere Insights in der Nacht gefällig? Upgrade auf das Smart Mouth Tape.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- BENTO BOX ECOSYSTEM -->
+  <section class="py-32 bg-[#F7F7F9] border-y border-brand-light/50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl font-oddval font-bold tracking-tight text-brand-dark mb-6">Zwei Produkte. Ein Ziel.</h2>
+        <p class="text-lg md:text-xl font-montserrat text-brand-grey font-light">Speziell für Mund- vs. Nasenatmung gedacht.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+        
+        <!-- Large Feature: App -->
+        <div class="md:col-span-8 bg-white rounded-[2rem] p-10 md:p-14 shadow-sm border border-black/[0.03] relative overflow-hidden group reveal-left">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div class="relative z-10 h-full flex flex-col justify-between">
+            <div>
+                <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Erkennen" class="w-12 h-12 mb-8 opacity-80" />
+                <h3 class="text-3xl md:text-4xl font-oddval font-bold mb-4">RespireLabs App</h3>
+                <p class="text-lg text-brand-dark/70 font-montserrat font-light max-w-md mb-8">
+                  Echtzeit-Hinweise und Session-Daten. Folge kurzen Übungen zum Aufbau von Nasenatmung – alles per Smartphone.
+                </p>
+            </div>
+            <div>
+               <a href="/de/app" class="inline-flex items-center font-montserrat font-semibold text-brand-blue hover:text-blue-700 transition-colors">
+                  App entdecken <span class="ml-2 text-xl leading-none">&rarr;</span>
+               </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Small Feature: Privacy -->
+        <div class="md:col-span-4 glass-panel-dark rounded-[2rem] p-10 shadow-xl text-white flex flex-col justify-between relative overflow-hidden reveal-right delay-100">
+          <div class="absolute inset-0 bg-grid-pattern-dark opacity-20 pointer-events-none"></div>
+          <div>
+             <svg class="w-10 h-10 text-brand-yellow/90 mb-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+             </svg>
+            <h3 class="text-2xl font-oddval font-bold mb-3 text-brand-white">Privacy by design.</h3>
+            <p class="text-base text-brand-light/70 font-montserrat font-light">
+              Audio ist sensibel. Die Kern-Erkennung läuft offline ab. Keine Daten-Weitergabe ohne Zustimmung.
+            </p>
+          </div>
+        </div>
+
+        <!-- Large Feature: Wearable Hardware Detail -->
+        <div class="md:col-span-12 bg-white rounded-[2rem] p-10 md:p-16 shadow-sm border border-black/[0.03] relative overflow-hidden group reveal delay-200">
+          <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-brand-yellow/10 to-transparent"></div>
+          <div class="relative z-10 flex flex-col md:flex-row gap-12 items-center">
+            <div class="flex-1">
+                <div class="inline-block px-3 py-1 bg-brand-yellow/20 text-brand-dark font-montserrat text-xs font-bold rounded-full uppercase tracking-wider mb-6">In Entwicklung</div>
+                <h3 class="text-3xl md:text-5xl font-oddval font-bold mb-6">Smart Mouth Tape.</h3>
+                <p class="text-lg text-brand-dark/70 font-montserrat font-light mb-8 max-w-lg">
+                  Ein Wearable-Konzept für tiefere Atem-Insights nachts. Klassisches Tape ist „blind“ – wir ergänzen es um strukturiertes Feedback.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <div class="font-montserrat font-bold text-sm text-brand-dark uppercase tracking-wide border-b border-brand-light pb-2 mb-2">Sensoren</div>
+                        <ul class="font-garamond text-brand-grey space-y-1">
+                            <li>MEMS-Mikrofon</li>
+                            <li>Airflow/Pressure</li>
+                            <li>SpO₂ Sensor</li>
+                            <li>Accelerometer</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="font-montserrat font-bold text-sm text-brand-dark uppercase tracking-wide border-b border-brand-light pb-2 mb-2">Details</div>
+                        <ul class="font-garamond text-brand-grey space-y-1">
+                            <li>Multi-Stunden-Betrieb</li>
+                            <li>USB-C Datentransfer</li>
+                            <li>Keine sichtbaren Lichter</li>
+                            <li>Hautschonendes Design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="/de/smart-mouth-tape" class="inline-flex items-center font-montserrat font-semibold text-brand-dark hover:text-brand-yellow transition-colors">
+                  Mehr zur Hardware <span class="ml-2 text-xl leading-none">&rarr;</span>
+                </a>
+            </div>
+            
+            <!-- Abstract Graphic Representation of the Tape -->
+            <div class="flex-1 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 bg-brand-white rounded-full border border-brand-light shadow-inner flex items-center justify-center group-hover:shadow-2xl transition-all duration-700">
+                    <img src="/assets/icons/respire-labs-icons_tape.svg" alt="Tape Konzept" class="w-32 h-32 opacity-70 transform group-hover:scale-110 transition-transform duration-700 ease-out" />
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="py-32 bg-brand-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-3xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Vergleich.</h2>
+        <p class="text-lg font-montserrat text-brand-grey font-light">Wo RespireLabs den Unterschied macht.</p>
+      </div>
+
+      <div class="overflow-x-auto reveal delay-100 pb-8">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr>
+                    <th class="py-6 px-4 font-montserrat font-bold text-brand-dark border-b border-brand-dark/10 bg-brand-white sticky left-0 z-10">Kategorie</th>
+                    <th class="py-6 px-4 font-montserrat font-bold text-brand-dark border-b border-brand-dark/10">Was sie gut können</th>
+                    <th class="py-6 px-4 font-montserrat font-bold text-brand-blue border-b border-brand-blue bg-brand-blue/5 rounded-t-xl">Wie RespireLabs sich abhebt</th>
+                </tr>
+            </thead>
+            <tbody class="font-garamond text-lg text-brand-dark/80">
+                <tr class="hover:bg-brand-light/30 transition-colors">
+                    <td class="py-6 px-4 border-b border-brand-light font-montserrat font-medium bg-brand-white sticky left-0 z-10">Ringe / Watches</td>
+                    <td class="py-6 px-4 border-b border-brand-light">Sehr gute allgemeine Recovery- und Schlafmetriken.</td>
+                    <td class="py-6 px-4 border-b border-brand-blue/20 bg-brand-blue/5">Fokussiert sich gezielt auf das Mund-/Nasen-Verhalten und aktives Coaching.</td>
+                </tr>
+                <tr class="hover:bg-brand-light/30 transition-colors">
+                    <td class="py-6 px-4 border-b border-brand-light font-montserrat font-medium bg-brand-white sticky left-0 z-10">Sleep-Audio-Apps</td>
+                    <td class="py-6 px-4 border-b border-brand-light">Erkennen Schnarchen/Geräusche und zeichnen sie auf.</td>
+                    <td class="py-6 px-4 border-b border-brand-blue/20 bg-brand-blue/5">Betont Habit-Change statt nur Audio-Playback.</td>
+                </tr>
+                <tr class="hover:bg-brand-light/30 transition-colors">
+                    <td class="py-6 px-4 border-b border-transparent font-montserrat font-medium bg-brand-white sticky left-0 z-10">Klassisches Tape</td>
+                    <td class="py-6 px-4 border-b border-transparent">Einfache verhaltensbedingte Einschränkung.</td>
+                    <td class="py-6 px-4 border-b border-transparent bg-brand-blue/5 rounded-b-xl">Fügt Daten, Feedback und eine privacy-first Coaching-Schleife hinzu.</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-dark py-32 sm:py-48 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-brand-blue/20 blur-[150px] pointer-events-none mix-blend-screen"></div>
+    
+    <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
+      <h2 class="text-5xl md:text-7xl lg:text-8xl font-oddval font-bold text-white tracking-tight mb-8">Bereit zu starten?</h2>
+      <p class="text-xl md:text-2xl font-montserrat font-light text-brand-light/70 mb-12 max-w-xl mx-auto leading-relaxed">
+        Sichere dir Early Access zur App, Produkt-Updates und die Chance, die Beta mitzugestalten.
+      </p>
+      <Button href="/de/waitlist" variant="secondary" class="text-lg px-12 py-5 shadow-[0_0_40px_rgba(32,111,247,0.4)] hover:-translate-y-1">Warteliste beitreten</Button>
+      <p class="mt-8 text-sm font-garamond text-brand-light/40 italic">Kein Medizinprodukt. Stellt keine Diagnose oder Behandlung von Krankheiten dar.</p>
+    </div>
+  </section>
+</Layout>

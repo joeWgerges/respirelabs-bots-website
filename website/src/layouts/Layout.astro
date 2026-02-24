@@ -1,0 +1,117 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  structuredData?: object;
+  frontmatter?: any;
+}
+
+const { 
+  frontmatter, 
+  title = frontmatter?.title || 'RespireLabs', 
+  description = frontmatter?.description || '', 
+  lang = frontmatter?.lang || 'en', 
+  structuredData = frontmatter?.structuredData 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth bg-brand-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" type="image/png" href="/assets/logo/respire-labs-symbol_blue-symbol.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#FAFAFA" />
+    
+    <link rel="alternate" hreflang="en" href={`https://respirelabs.com/en${Astro.url.pathname.replace(/^\/(en|de)/, '')}`} />
+    <link rel="alternate" hreflang="de" href={`https://respirelabs.com/de${Astro.url.pathname.replace(/^\/(en|de)/, '')}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://respirelabs.com/en${Astro.url.pathname.replace(/^\/(en|de)/, '')}`} />
+    <link rel="canonical" href={`https://respirelabs.com${Astro.url.pathname}`} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`https://respirelabs.com${Astro.url.pathname}`} />
+    <meta property="og:image" content="https://respirelabs.com/assets/logo/respire-labs-logo_primary-logo.png" />
+
+    {structuredData && (
+      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
+    <!-- Global Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RespireLabs",
+      "url": "https://respirelabs.com",
+      "logo": "https://respirelabs.com/assets/logo/respire-labs-logo_primary-logo.png",
+      "sameAs": [
+        "https://youtube.com/respirelabs",
+        "https://linkedin.com/company/respirelabs",
+        "https://x.com/respirelabs"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@respirelabs.com"
+      }]
+    })} />
+    <!-- Global WebSite Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "RespireLabs",
+      "url": "https://respirelabs.com",
+      "inLanguage": ["de", "en"]
+    })} />
+  </head>
+  <body class="text-brand-dark antialiased selection:bg-brand-blue selection:text-white flex flex-col min-h-screen relative overflow-x-hidden">
+    <Header lang={lang} />
+    
+    <main id="main-content" class="flex-grow pt-16 md:pt-20 outline-none" tabindex="-1">
+      <slot />
+    </main>
+    
+    <Footer lang={lang} />
+
+    <!-- Intersection Observer for scroll animations -->
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Stop observing once animated to prevent re-triggering
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Run on load and view transitions if used
+      const initAnimations = () => {
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        revealElements.forEach((el) => {
+          observer.observe(el);
+        });
+      };
+      
+      initAnimations();
+      // Wait a tiny bit for DOM paint before revealing hero
+      setTimeout(() => {
+          document.querySelectorAll('.hero-reveal').forEach(el => el.classList.add('active'));
+      }, 50);
+    </script>
+  </body>
+</html>

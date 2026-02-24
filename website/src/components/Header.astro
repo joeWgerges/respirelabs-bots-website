@@ -1,0 +1,180 @@
+---
+const { lang } = Astro.props;
+
+const navLinks = {
+  en: [
+    { label: 'App', href: '/en/app' },
+    { label: 'Smart Tape', href: '/en/smart-mouth-tape' },
+    { label: 'How it works', href: '/en/how-it-works' },
+    { label: 'Compare', href: '/en/compare' },
+    { label: 'FAQ', href: '/en/faq' },
+  ],
+  de: [
+    { label: 'App', href: '/de/app' },
+    { label: 'Smart Tape', href: '/de/smart-mouth-tape' },
+    { label: 'Funktion', href: '/de/how-it-works' },
+    { label: 'Vergleich', href: '/de/compare' },
+    { label: 'FAQ', href: '/de/faq' },
+  ]
+};
+
+const currentLinks = navLinks[lang as keyof typeof navLinks] || navLinks.en;
+const waitlistLabel = lang === 'de' ? 'Warteliste' : 'Waitlist';
+const alternateLang = lang === 'en' ? 'de' : 'en';
+const alternateUrl = Astro.url.pathname.replace(`/${lang}`, `/${alternateLang}`);
+---
+
+<!-- Skip to content link for accessibility -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-blue text-white px-4 py-2 rounded-md z-[100] focus-ring">
+  Skip to main content
+</a>
+
+<header class="fixed top-0 w-full z-50 transition-all duration-500 ease-in-out border-b border-transparent" id="main-header" role="banner">
+  <div class="absolute inset-0 bg-white/70 backdrop-blur-xl -z-10 transition-opacity duration-500 opacity-0" id="header-bg"></div>
+  <div class="max-w-[88rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16 md:h-20 transition-all duration-500" id="header-container">
+      
+      <!-- Logo -->
+      <a href={`/${lang}`} class="flex-shrink-0 flex items-center group focus-ring rounded-lg p-1" aria-label="RespireLabs Home">
+        <img class="h-7 md:h-8 w-auto transition-transform duration-500 ease-out group-hover:scale-105" src="/assets/logo/respire-labs-logo_primary-logo.png" alt="" aria-hidden="true" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-1 items-center bg-white/40 backdrop-blur-md px-2 py-1.5 rounded-full border border-black/[0.05] shadow-sm" aria-label="Main Navigation">
+        {currentLinks.map((link) => (
+          <a href={link.href} class="text-brand-dark/70 hover:text-brand-dark hover:bg-black/[0.03] focus-ring px-5 py-2 rounded-full font-montserrat text-sm font-medium transition-all duration-300">
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA & Lang Switcher -->
+      <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
+        <a href={alternateUrl} class="text-brand-grey hover:text-brand-dark focus-ring rounded-sm font-montserrat text-xs font-bold uppercase tracking-widest transition-colors" aria-label={`Switch to ${alternateLang === 'en' ? 'English' : 'German'}`}>
+          {alternateLang}
+        </a>
+        <a href={`/${lang}/waitlist`} class="bg-brand-dark text-white hover:bg-black hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-ring font-montserrat text-sm font-semibold py-2 px-6 rounded-full transition-all duration-300 whitespace-nowrap">
+          {waitlistLabel}
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-blue focus-ring p-2 rounded-full hover:bg-black/5 transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-white/95 backdrop-blur-xl z-40 hidden flex-col justify-center items-center h-[100dvh] w-screen transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <button id="close-menu-btn" class="absolute top-4 right-4 p-4 text-brand-dark focus-ring rounded-full hover:bg-black/5 transition-colors" aria-label="Close menu">
+        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+    
+    <nav class="flex flex-col space-y-6 text-center w-full px-6">
+      {currentLinks.map((link) => (
+        <a href={link.href} class="text-brand-dark font-oddval text-3xl sm:text-4xl transition-colors hover:text-brand-blue focus-ring py-2 rounded-xl">
+          {link.label}
+        </a>
+      ))}
+      <div class="pt-8 flex flex-col items-center space-y-6 w-full max-w-sm mx-auto">
+        <a href={`/${lang}/waitlist`} class="bg-brand-blue text-white font-montserrat font-semibold py-4 px-10 rounded-full text-lg shadow-[0_8px_20px_rgba(32,111,247,0.3)] hover:scale-105 transition-all w-full focus-ring focus-ring-dark">
+          {waitlistLabel}
+        </a>
+        <a href={alternateUrl} class="text-brand-grey font-montserrat font-semibold uppercase tracking-widest text-sm focus-ring py-2 px-4 rounded-md hover:text-brand-dark transition-colors">
+          Switch to {alternateLang === 'en' ? 'English' : 'Deutsch'}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Advanced Scroll Effect for Header
+  const header = document.getElementById('main-header');
+  const headerBg = document.getElementById('header-bg');
+  const container = document.getElementById('header-container');
+  
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll > 20) {
+      header?.classList.add('border-black/[0.05]');
+      header?.classList.remove('border-transparent');
+      headerBg?.classList.remove('opacity-0');
+      headerBg?.classList.add('opacity-100');
+      
+      // Slight shrink effect on scroll (Apple style)
+      if (container) {
+        container.classList.remove('md:h-20');
+        container.classList.add('md:h-16');
+      }
+    } else {
+      header?.classList.remove('border-black/[0.05]');
+      header?.classList.add('border-transparent');
+      headerBg?.classList.add('opacity-0');
+      headerBg?.classList.remove('opacity-100');
+      
+      if (container) {
+        container.classList.add('md:h-20');
+        container.classList.remove('md:h-16');
+      }
+    }
+    lastScroll = currentScroll;
+  }, { passive: true });
+
+  // Mobile menu toggle with accessibility
+  const btn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+  const openMenu = () => {
+    if(!menu || !btn) return;
+    menu.classList.remove('hidden');
+    // Force reflow
+    void menu.offsetWidth;
+    menu.classList.remove('opacity-0', 'pointer-events-none');
+    menu.classList.add('opacity-100', 'pointer-events-auto');
+    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded', 'true');
+    
+    // Focus management
+    const firstFocusable = menu.querySelectorAll(focusableElements)[0] as HTMLElement;
+    if(firstFocusable) firstFocusable.focus();
+  };
+
+  const closeMenu = () => {
+    if(!menu || !btn) return;
+    menu.classList.add('opacity-0', 'pointer-events-none');
+    menu.classList.remove('opacity-100', 'pointer-events-auto');
+    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.focus();
+    
+    // Delay hiding to allow transition
+    setTimeout(() => {
+        menu.classList.add('hidden');
+    }, 300);
+  };
+
+  if (btn && closeBtn && menu) {
+    btn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+            closeMenu();
+        }
+    });
+  }
+</script>
