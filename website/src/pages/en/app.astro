@@ -206,6 +206,60 @@ const frontmatter = {
     </div>
   </section>
 
+  <!-- USE CASES -->
+  <section class="py-32 bg-[#F7F7F9] border-y border-brand-light/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl font-oddval font-bold tracking-tight text-brand-dark mb-6">Use it your way.</h2>
+        <p class="text-lg font-montserrat text-brand-grey font-light">Whether you're at home, at the gym, or in bed — the app adapts to your context.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-sm reveal delay-100 group hover:shadow-md transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-brand-dark flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+          </div>
+          <h3 class="text-xl font-oddval font-bold text-brand-dark mb-3">Night mode</h3>
+          <p class="text-brand-grey font-montserrat font-light leading-relaxed">Run a quiet overnight session. The app monitors in the background and gives you a morning summary.</p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-sm reveal delay-200 group hover:shadow-md transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-brand-blue flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+          </div>
+          <h3 class="text-xl font-oddval font-bold text-brand-dark mb-3">Day mode</h3>
+          <p class="text-brand-grey font-montserrat font-light leading-relaxed">Practice mindful breathing during work, exercise, or meditation with real-time nudges and awareness prompts.</p>
+        </div>
+
+        <div class="bg-white rounded-[2rem] p-8 border border-black/[0.03] shadow-sm reveal delay-300 group hover:shadow-md transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-brand-yellow flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-brand-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+          </div>
+          <h3 class="text-xl font-oddval font-bold text-brand-dark mb-3">Progress tracking</h3>
+          <p class="text-brand-grey font-montserrat font-light leading-relaxed">View trends over days and weeks. See your nasal breathing ratio improve and celebrate your streaks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INLINE WAITLIST CTA -->
+  <section class="py-24 bg-[#F5F5F7] border-b border-brand-light/40">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <h2 class="text-3xl md:text-4xl font-oddval font-bold text-brand-dark mb-4">Be an early adopter.</h2>
+        <p class="text-base font-montserrat font-light text-brand-grey mb-10">Join the waitlist to get beta access to the RespireLabs app. Help us shape the features that matter most to you.</p>
+      </div>
+      <form action="/en/waitlist" method="get" class="reveal delay-100">
+        <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <label for="app-cta-email" class="sr-only">Enter your email</label>
+          <input id="app-cta-email" type="email" name="email" placeholder="Enter your email" required class="flex-1 px-6 py-3.5 rounded-full border border-brand-light bg-white text-brand-dark font-montserrat text-sm placeholder:text-brand-grey/60 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20 transition-all duration-200" />
+          <button type="submit" class="px-8 py-3.5 rounded-full bg-brand-blue text-white font-montserrat font-semibold text-sm hover:bg-blue-600 hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(32,111,247,0.3)] transition-all duration-300 whitespace-nowrap focus-ring">Join the beta</button>
+        </div>
+        <p class="mt-4 text-xs font-montserrat text-brand-grey/60">No spam. Unsubscribe anytime.</p>
+      </form>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="bg-brand-white py-32 sm:py-40 text-center relative overflow-hidden">
     <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>

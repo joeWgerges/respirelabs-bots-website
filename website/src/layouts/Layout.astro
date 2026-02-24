@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import StickyBar from '../components/StickyBar.astro';
+import ExitIntentPopup from '../components/ExitIntentPopup.astro';
 
 interface Props {
   title?: string;
@@ -139,6 +140,7 @@ const breadcrumbSchema = {
     <Footer lang={lang} />
 
     <StickyBar lang={lang} />
+    <ExitIntentPopup lang={lang} />
     <CookieConsent lang={lang} />
 
     <!-- Intersection Observer for CSS .reveal animations (fallback / legacy) -->

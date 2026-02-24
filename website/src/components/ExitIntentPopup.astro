@@ -1,0 +1,250 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  en: {
+    badge: 'Before you go',
+    heading: "Don't miss the breathing revolution.",
+    subtext: 'Join 2,000+ people already on the waitlist for RespireLabs. Get early access to our app and be first to try the Smart Mouth Tape.',
+    placeholder: 'Enter your email',
+    button: 'Join the waitlist',
+    privacy: 'No spam. Unsubscribe anytime.',
+    dismiss: 'Close popup',
+    noThanks: 'No thanks, I\'ll pass'
+  },
+  de: {
+    badge: 'Bevor du gehst',
+    heading: 'Verpasse die Atem-Revolution nicht.',
+    subtext: 'Schliesse dich 2.000+ Personen an, die bereits auf der RespireLabs-Warteliste stehen. Erhalte frühzeitigen Zugang zur App.',
+    placeholder: 'E-Mail eingeben',
+    button: 'Warteliste beitreten',
+    privacy: 'Kein Spam. Jederzeit abmeldbar.',
+    dismiss: 'Popup schliessen',
+    noThanks: 'Nein danke'
+  },
+  pl: {
+    badge: 'Zanim wyjdziesz',
+    heading: 'Nie przegap rewolucji oddychania.',
+    subtext: 'Dolacz do ponad 2000 osob juz na liscie oczekujacych RespireLabs. Uzyskaj wczesny dostep do naszej aplikacji i badz pierwszym, ktory wyprubuje Smart Mouth Tape.',
+    placeholder: 'Wpisz swoj e-mail',
+    button: 'Dolacz do listy',
+    privacy: 'Bez spamu. Mozesz zrezygnowac w kazdej chwili.',
+    dismiss: 'Zamknij popup',
+    noThanks: 'Nie, dziekuje'
+  }
+};
+
+const c = content[lang as keyof typeof content] || content.en;
+const waitlistHrefs: Record<string, string> = { en: '/en/waitlist', de: '/de/warteliste', pl: '/pl/lista-oczekujacych' };
+const waitlistHref = waitlistHrefs[lang] || waitlistHrefs.en;
+---
+
+<!-- Exit Intent Popup Overlay -->
+<div
+  id="exit-intent-popup"
+  class="fixed inset-0 z-[60] hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label={c.heading}
+>
+  <!-- Backdrop -->
+  <div id="exit-intent-backdrop" class="absolute inset-0 bg-brand-dark/60 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+  <!-- Modal -->
+  <div class="absolute inset-0 flex items-center justify-center p-4">
+    <div
+      id="exit-intent-modal"
+      class="relative bg-white dark:bg-[var(--surface-card)] rounded-[2rem] shadow-2xl max-w-lg w-full overflow-hidden opacity-0 scale-95 transition-all duration-400 ease-out"
+    >
+      <!-- Close button -->
+      <button
+        id="exit-intent-close"
+        type="button"
+        class="absolute top-4 right-4 z-10 p-2 rounded-full text-brand-grey hover:text-brand-dark dark:hover:text-white hover:bg-brand-light/50 dark:hover:bg-white/10 transition-all duration-200 focus-ring"
+        aria-label={c.dismiss}
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Decorative top gradient -->
+      <div class="h-2 bg-gradient-to-r from-brand-blue via-brand-blue/80 to-brand-yellow"></div>
+
+      <div class="p-8 sm:p-10">
+        <!-- Badge -->
+        <div class="inline-flex items-center space-x-2 bg-brand-blue/10 dark:bg-brand-blue/20 px-4 py-1.5 rounded-full mb-6">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
+          </span>
+          <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-blue">{c.badge}</span>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-3xl sm:text-4xl font-oddval font-bold text-brand-dark mb-4 leading-tight tracking-tight">
+          {c.heading}
+        </h2>
+
+        <!-- Subtext -->
+        <p class="text-base font-montserrat font-light text-brand-grey leading-relaxed mb-8">
+          {c.subtext}
+        </p>
+
+        <!-- Email form -->
+        <form action={waitlistHref} method="get" class="mb-4">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <label for="exit-intent-email" class="sr-only">{c.placeholder}</label>
+            <input
+              id="exit-intent-email"
+              type="email"
+              name="email"
+              placeholder={c.placeholder}
+              required
+              class="flex-1 px-5 py-3.5 rounded-full border border-brand-light dark:border-white/20 bg-[#F7F7F9] dark:bg-white/10 text-brand-dark dark:text-white font-montserrat text-sm placeholder:text-brand-grey/60 dark:placeholder:text-white/40 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20 transition-all duration-200"
+            />
+            <button
+              type="submit"
+              class="px-8 py-3.5 rounded-full bg-brand-blue text-white font-montserrat font-semibold text-sm hover:bg-blue-600 hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(32,111,247,0.3)] transition-all duration-300 whitespace-nowrap focus-ring"
+            >
+              {c.button}
+            </button>
+          </div>
+          <p class="mt-3 text-xs font-montserrat text-brand-grey/60 dark:text-white/40 text-center">{c.privacy}</p>
+        </form>
+
+        <!-- Dismiss link -->
+        <button
+          id="exit-intent-no-thanks"
+          type="button"
+          class="w-full text-center text-sm font-montserrat text-brand-grey/60 hover:text-brand-grey dark:text-white/40 dark:hover:text-white/60 transition-colors duration-200 py-2"
+        >
+          {c.noThanks}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initExitIntentPopup() {
+    const popup = document.getElementById('exit-intent-popup');
+    const backdrop = document.getElementById('exit-intent-backdrop');
+    const modal = document.getElementById('exit-intent-modal');
+    const closeBtn = document.getElementById('exit-intent-close');
+    const noThanksBtn = document.getElementById('exit-intent-no-thanks');
+
+    if (!popup || !backdrop || !modal || !closeBtn || !noThanksBtn) return;
+
+    // Don't show on waitlist pages
+    const path = window.location.pathname;
+    const isWaitlistPage = path.includes('/waitlist') || path.includes('/warteliste') || path.includes('/lista-oczekujacych');
+    const isDismissed = sessionStorage.getItem('exit-popup-dismissed') === 'true';
+    const hasSubmitted = sessionStorage.getItem('waitlist-submitted') === 'true';
+
+    if (isWaitlistPage || isDismissed || hasSubmitted) return;
+
+    let shown = false;
+    let timeOnPage = 0;
+    const SHOW_AFTER_SECONDS = 45;
+    const MOBILE_SCROLL_THRESHOLD = 0.6;
+
+    // Timer: track time on page
+    const timer = setInterval(() => {
+      timeOnPage++;
+    }, 1000);
+
+    const showPopup = () => {
+      if (shown) return;
+      shown = true;
+      clearInterval(timer);
+
+      popup.classList.remove('hidden');
+      // Force reflow before animating
+      void popup.offsetWidth;
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+      modal.classList.remove('opacity-0', 'scale-95');
+      modal.classList.add('opacity-100', 'scale-100');
+      document.body.style.overflow = 'hidden';
+
+      // Focus the close button for accessibility
+      setTimeout(() => closeBtn.focus(), 300);
+    };
+
+    const hidePopup = () => {
+      backdrop.classList.add('opacity-0');
+      backdrop.classList.remove('opacity-100');
+      modal.classList.add('opacity-0', 'scale-95');
+      modal.classList.remove('opacity-100', 'scale-100');
+      document.body.style.overflow = '';
+      sessionStorage.setItem('exit-popup-dismissed', 'true');
+
+      setTimeout(() => {
+        popup.classList.add('hidden');
+      }, 300);
+    };
+
+    // Desktop: exit intent (mouse leaves viewport from top)
+    const onMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && timeOnPage >= SHOW_AFTER_SECONDS) {
+        showPopup();
+        document.removeEventListener('mouseout', onMouseLeave);
+      }
+    };
+    document.addEventListener('mouseout', onMouseLeave);
+
+    // Mobile: show after scrolling 60% + enough time on page
+    const onMobileScroll = () => {
+      if (shown) return;
+      const isMobile = window.innerWidth < 768;
+      if (!isMobile) return;
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) return;
+      const scrollPercent = window.scrollY / docHeight;
+
+      if (scrollPercent > MOBILE_SCROLL_THRESHOLD && timeOnPage >= SHOW_AFTER_SECONDS) {
+        showPopup();
+        window.removeEventListener('scroll', onMobileScroll);
+      }
+    };
+    window.addEventListener('scroll', onMobileScroll, { passive: true });
+
+    // Fallback: show after 90 seconds regardless
+    setTimeout(() => {
+      if (!shown) {
+        showPopup();
+      }
+    }, 90000);
+
+    // Close handlers
+    closeBtn.addEventListener('click', hidePopup);
+    noThanksBtn.addEventListener('click', hidePopup);
+    backdrop.addEventListener('click', hidePopup);
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && shown && !popup.classList.contains('hidden')) {
+        hidePopup();
+      }
+    });
+
+    // Prevent modal click from closing
+    modal.addEventListener('click', (e) => e.stopPropagation());
+  }
+
+  // Initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExitIntentPopup);
+  } else {
+    initExitIntentPopup();
+  }
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:after-swap', initExitIntentPopup);
+</script>
