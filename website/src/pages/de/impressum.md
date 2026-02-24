@@ -2,7 +2,7 @@
 layout: "../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Impressum"
-description: "Rechtliche Anbieterkennzeichnung."
+description: "Rechtliche Anbieterkennzeichnung gemäss österreichischem Recht."
 ---
 # Impressum
 

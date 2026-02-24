@@ -5,6 +5,10 @@ title: "Nasenatmung tagsüber trainieren: kleine Gewohnheiten mit großer Wirkun
 description: "Praktische Schritte, um Trigger für Mundatmung zu erkennen und tagsüber Nasenatmung als Gewohnheit aufzubauen."
 date: "2026-02-05"
 readTime: "6 Min. Lesezeit"
+alternatePaths:
+  en: "/en/blog/03-daytime-nasal-breathing-training"
+  de: "/de/blog/03-nasenatmung-tagsueber-trainieren"
+  pl: "/pl/blog/03-dzienny-trening-oddychania-nosem"
 ---
 # Nasenatmung tagsüber trainieren: kleine Gewohnheiten mit großer Wirkung
 

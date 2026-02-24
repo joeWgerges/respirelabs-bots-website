@@ -5,12 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# Redirect non-www to www (or vice versa - configured at DNS level)
-# Root redirect to /en
-[[redirects]]
-  from = "/"
-  to = "/en"
-  status = 301
+# Root language detection handled by index.astro (JS-based Accept-Language detection)
+# Fallback for non-JS: meta refresh to /en after 1s
 
 # Security headers
 [[headers]]
@@ -84,4 +80,19 @@
 [[redirects]]
   from = "/de/privacy"
   to = "/de/datenschutz"
+  status = 301
+
+[[redirects]]
+  from = "/de/pricing"
+  to = "/de/plaene"
+  status = 301
+
+[[redirects]]
+  from = "/de/press"
+  to = "/de/presse"
+  status = 301
+
+[[redirects]]
+  from = "/de/facts"
+  to = "/de/fakten"
   status = 301

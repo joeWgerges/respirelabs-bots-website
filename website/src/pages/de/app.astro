@@ -6,6 +6,11 @@ const frontmatter = {
   title: 'RespireLabs App – Mundatmung erkennen & Nasenatmung trainieren',
   description: 'Smartphone-first Atem-Erkennung + Coaching. Echtzeit-Hinweise, Trends und geführte Übungen – privacy-first und offline-fähig konzipiert.',
   lang: 'de',
+  alternatePaths: {
+    en: '/en/app',
+    de: '/de/app',
+    pl: '/pl/aplikacja'
+  },
   structuredData: {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
@@ -138,7 +143,7 @@ const frontmatter = {
 
         <!-- Medium Block -->
         <div class="md:col-span-4 bg-brand-blue text-white rounded-[2rem] p-10 shadow-xl reveal-right delay-100">
-            <img src="/assets/icons/respire-labs-icons_sleep.svg" alt="Coach" class="w-10 h-10 mb-6 brightness-0 invert opacity-90" />
+            <img src="/assets/icons/respire-labs-icons_sleep.svg" alt="" aria-hidden="true" class="w-10 h-10 mb-6 brightness-0 invert opacity-90" />
             <h3 class="text-2xl font-oddval font-bold mb-4">Aktives Coaching</h3>
             <p class="font-montserrat font-light text-white/80 leading-relaxed mb-6">
                 Kurze, geführte Übungen. „Next best action“-Coaching mit konkreten, umsetzbaren Schritten.
@@ -180,21 +185,21 @@ const frontmatter = {
                 <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
                     <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
                 </div>
-                <h4 class="font-oddval text-lg font-bold mb-2">Klare Permissions</h4>
+                <h3 class="font-oddval text-lg font-bold mb-2">Klare Permissions</h4>
                 <p class="font-montserrat text-sm font-light text-brand-light/60">Du bestimmst aktiv, wann eine Aufzeichnung gestartet wird.</p>
             </div>
             <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
                 <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
                     <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
                 </div>
-                <h4 class="font-oddval text-lg font-bold mb-2">Lokale Verarbeitung</h4>
+                <h3 class="font-oddval text-lg font-bold mb-2">Lokale Verarbeitung</h4>
                 <p class="font-montserrat text-sm font-light text-brand-light/60">Die Erkennung läuft standardmäßig lokal auf deinem Smartphone ab.</p>
             </div>
             <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
                 <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
                     <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
                 </div>
-                <h4 class="font-oddval text-lg font-bold mb-2">Explizite Einwilligung</h4>
+                <h3 class="font-oddval text-lg font-bold mb-2">Explizite Einwilligung</h4>
                 <p class="font-montserrat text-sm font-light text-brand-light/60">Optionales Teilen der Daten erfolgt nur mit deiner ausdrücklichen Zustimmung.</p>
             </div>
         </div>

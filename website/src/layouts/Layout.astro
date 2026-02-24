@@ -11,7 +11,7 @@ interface Props {
   description?: string;
   lang?: string;
   structuredData?: object;
-  alternatePaths?: { en?: string; de?: string };
+  alternatePaths?: { en?: string; de?: string; pl?: string };
   frontmatter?: any;
 }
 
@@ -26,16 +26,17 @@ const {
 
 const siteUrl = 'https://smartmouthtape.com';
 const altPaths = alternatePaths || frontmatter?.alternatePaths;
-const currentPath = Astro.url.pathname.replace(/^\/(en|de)/, '');
+const currentPath = Astro.url.pathname.replace(/^\/(en|de|pl)/, '');
 const enPath = altPaths?.en || `/en${currentPath}`;
 const dePath = altPaths?.de || `/de${currentPath}`;
+const plPath = altPaths?.pl || `/pl${currentPath}`;
 
 // Generate BreadcrumbList structured data from URL path
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 const breadcrumbItems = pathSegments.map((segment, index) => {
   let name;
-  if (index === 0 && (segment === 'en' || segment === 'de')) {
-    name = segment === 'de' ? 'Startseite' : 'Home';
+  if (index === 0 && (segment === 'en' || segment === 'de' || segment === 'pl')) {
+    name = segment === 'de' ? 'Startseite' : segment === 'pl' ? 'Strona glowna' : 'Home';
   } else {
     name = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
   }
@@ -48,7 +49,7 @@ const breadcrumbItems = pathSegments.map((segment, index) => {
 });
 
 // Determine og:type — 'article' for blog post pages, 'website' for everything else
-const isBlogPost = /^\/(en|de)\/blog\/.+/.test(Astro.url.pathname);
+const isBlogPost = /^\/(en|de|pl)\/blog\/.+/.test(Astro.url.pathname);
 const ogType = isBlogPost ? 'article' : 'website';
 
 const breadcrumbSchema = {
@@ -71,6 +72,7 @@ const breadcrumbSchema = {
 
     <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
     <link rel="alternate" hreflang="de" href={`${siteUrl}${dePath}`} />
+    <link rel="alternate" hreflang="pl" href={`${siteUrl}${plPath}`} />
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}${enPath}`} />
     <link rel="canonical" href={`${siteUrl}${Astro.url.pathname}`} />
 
@@ -79,7 +81,7 @@ const breadcrumbSchema = {
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={`${siteUrl}${Astro.url.pathname}`} />
     <meta property="og:image" content={`${siteUrl}/assets/logo/respire-labs-logo_primary-logo.png`} />
-    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : lang === 'pl' ? 'pl_PL' : 'en_US'} />
     <meta property="og:site_name" content="RespireLabs" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -114,7 +116,7 @@ const breadcrumbSchema = {
       "@type": "WebSite",
       "name": "RespireLabs",
       "url": siteUrl,
-      "inLanguage": ["de", "en"]
+      "inLanguage": ["en", "de", "pl"]
     })} />
     <ClientRouter />
   </head>

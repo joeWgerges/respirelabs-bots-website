@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'Aplikacja RespireLabs – Wykrywaj oddychanie przez usta i trenuj oddychanie nosem',
+  description: 'Wykrywanie oddychania i coaching z telefonu. Powiadomienia w czasie rzeczywistym, trendy i cwiczenia — prywatnosc na pierwszym miejscu.',
+  lang: 'pl',
+  alternatePaths: {
+    en: '/en/app',
+    de: '/de/app',
+    pl: '/pl/aplikacja'
+  },
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "RespireLabs App",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "HealthApplication",
+    "description": "Trener oddychania z priorytetem prywatnosci, zaprojektowany w celu zmniejszenia oddychania przez usta i wspierania treningu nawykow oddychania nosem. To nie jest urzadzenie medyczne."
+  }
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- APP HERO (Light & Clean) -->
+  <section class="relative bg-brand-white min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-20 border-b border-brand-light/60">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+
+    <!-- Abstract Phone/App Representation -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20 pointer-events-none blur-[120px]">
+      <div class="absolute inset-0 bg-brand-blue rounded-full mix-blend-multiply animate-[pulse_10s_ease-in-out_infinite]"></div>
+    </div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 glass-panel px-5 py-2 rounded-full mb-8 shadow-sm">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-blue">Aplikacja</span>
+      </div>
+
+      <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-[10rem] font-oddval font-bold text-brand-dark tracking-tighter mb-6 leading-[0.85] drop-shadow-sm">
+        Twoj kieszonkowy <br/>
+        <span class="text-gradient">trener.</span>
+      </h1>
+
+      <p class="mt-8 max-w-2xl mx-auto text-xl sm:text-2xl font-montserrat font-light text-brand-grey leading-relaxed mb-16 reveal hero-reveal delay-100">
+        Wykrywanie oddychania i trening nawykow bezposrednio z telefonu. Zacznij juz teraz, bez dodatkowego sprzetu.
+      </p>
+
+      <!-- Abstract App Visual -->
+      <div class="relative w-64 h-80 md:w-80 md:h-[400px] bg-white rounded-[3rem] border border-black/[0.05] shadow-[0_20px_50px_rgb(0,0,0,0.06)] flex flex-col items-center pt-12 pb-8 mb-16 reveal hero-reveal delay-200 group">
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-brand-light rounded-full"></div>
+        <div class="flex-grow flex flex-col items-center justify-center space-y-6">
+           <div class="w-24 h-24 rounded-full border-[6px] border-brand-blue/20 flex items-center justify-center relative">
+               <div class="absolute inset-0 border-[6px] border-brand-blue rounded-full border-t-transparent animate-spin"></div>
+               <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Ikona mikrofonu reprezentujaca wykrywanie oddychania" class="w-10 h-10 opacity-80" />
+           </div>
+           <div class="text-center px-6">
+               <div class="text-3xl font-oddval font-bold text-brand-dark mb-1">Wykrywanie...</div>
+               <div class="text-brand-grey font-montserrat text-sm uppercase tracking-widest">Oddychanie nosem</div>
+           </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 reveal hero-reveal delay-300">
+        <Button href="/pl/lista-oczekujacych" variant="primary" class="text-base px-10 py-5">Dolacz do bety aplikacji</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CORE LOOP -->
+  <section class="py-32 bg-[#F7F7F9] relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="mb-20 text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Co robi aplikacja.</h2>
+            <p class="text-xl text-brand-grey font-montserrat font-light max-w-2xl mx-auto">Zmniejsz oddychanie przez usta i buduj konsekwentne nawyki oddychania nosem dzieki prostej, mierzalnej petli.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.02] reveal delay-100 group">
+                <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-blue">1</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Rozpocznij</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Uruchom sesje (tryb dzienny lub nocny). Zawsze masz kontrole nad tym, kiedy dziala wykrywanie.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.02] reveal delay-200 group">
+                <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-blue">2</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Analizuj</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Aplikacja bezpiecznie analizuje sygnaly oddechowe i wykrywa wzorce oddychania przez usta lokalnie.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.02] reveal delay-300 group">
+                <div class="w-12 h-12 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-blue">3</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Koryguj</h3>
+                <p class="text-brand-grey font-montserrat font-light leading-relaxed">Otrzymuj delikatne przypomnienie podczas sesji i jasne podsumowanie zliczajace wzorce po zakonczeniu.</p>
+            </div>
+
+            <div class="bg-brand-dark text-white rounded-3xl p-8 shadow-xl border border-white/10 reveal delay-400 group relative overflow-hidden">
+                <div class="absolute inset-0 bg-brand-yellow/5 group-hover:bg-brand-yellow/10 transition-colors"></div>
+                <div class="w-12 h-12 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 transition-transform">
+                    <span class="font-oddval text-xl text-brand-yellow">4</span>
+                </div>
+                <h3 class="text-2xl font-oddval font-bold text-white mb-3 relative z-10">Wdrazaj</h3>
+                <p class="text-brand-light/80 font-montserrat font-light leading-relaxed relative z-10">Realizuj spersonalizowany plan malych, mierzalnych cwiczen, aby utrwalic nawyk.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES (Bento Grid) -->
+  <section class="py-32 bg-brand-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-oddval font-bold tracking-tight text-brand-dark mb-6">Kluczowe funkcje.</h2>
+        <p class="text-lg md:text-xl font-montserrat text-brand-grey font-light">Stworzone, aby plynnie wpisac sie w twoje codzienne zycie.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-6xl mx-auto">
+
+        <!-- Large Block -->
+        <div class="md:col-span-8 bg-[#F5F5F7] rounded-[2rem] p-10 shadow-sm border border-black/[0.03] reveal-left">
+            <h3 class="text-3xl font-oddval font-bold text-brand-dark mb-6">Wykrywanie i informacje zwrotne</h3>
+            <ul class="space-y-6 font-montserrat font-light text-lg text-brand-dark/80">
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0"><span class="w-2 h-2 bg-brand-blue rounded-full"></span></div>
+                    Wykrywanie wzorcow oddychania przez usta podczas sesji uruchomionej przez uzytkownika.
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0"><span class="w-2 h-2 bg-brand-blue rounded-full"></span></div>
+                    Informacja zwrotna w czasie rzeczywistym w ciagu sekund po wykryciu oddychania przez usta.
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-brand-blue/10 flex items-center justify-center flex-shrink-0"><span class="w-2 h-2 bg-brand-blue rounded-full"></span></div>
+                    Podsumowania sesji: zliczenia, trendy i prosty wynik postepu.
+                </li>
+            </ul>
+        </div>
+
+        <!-- Medium Block -->
+        <div class="md:col-span-4 bg-brand-blue text-white rounded-[2rem] p-10 shadow-xl reveal-right delay-100">
+            <img src="/assets/icons/respire-labs-icons_sleep.svg" alt="" aria-hidden="true" class="w-10 h-10 mb-6 brightness-0 invert opacity-90" />
+            <h3 class="text-2xl font-oddval font-bold mb-4">Aktywny coaching</h3>
+            <p class="font-montserrat font-light text-white/80 leading-relaxed mb-6">
+                Krotkie cwiczenia z przewodnikiem. Portal coachingowy "najlepsze nastepne dzialanie" z prostymi, wykonalnymi krokami.
+            </p>
+            <div class="inline-block px-4 py-2 bg-white/10 rounded-full font-montserrat text-sm font-semibold">Serie i wizualizacje postepu</div>
+        </div>
+
+        <!-- Full Width Block -->
+        <div class="md:col-span-12 bg-white rounded-[2rem] p-10 border border-brand-light shadow-sm flex flex-col md:flex-row items-center justify-between gap-8 reveal delay-200">
+            <div>
+                <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-3">Integracje (opcjonalne)</h3>
+                <p class="font-montserrat font-light text-brand-grey max-w-xl">
+                    Obsluga Apple Health i Android Health Connect (gdy nadane sa uprawnienia). Zaprojektowane jako uzupelnienie urzadzen do noszenia, a nie ich zamiennik.
+                </p>
+            </div>
+            <div class="flex gap-4">
+                <div class="w-16 h-16 rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-2xl font-oddval text-brand-dark/30" aria-hidden="true"></div>
+                <div class="w-16 h-16 rounded-2xl bg-[#F5F5F7] flex items-center justify-center text-2xl font-oddval text-brand-dark/30" aria-hidden="true">A</div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY CALLOUT -->
+  <section class="py-32 bg-brand-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-brand-yellow/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal">
+        <h2 class="text-4xl md:text-6xl font-oddval font-bold mb-8">Prywatnosc w projekcie.</h2>
+        <p class="text-xl md:text-2xl font-garamond italic text-brand-light/80 leading-relaxed mb-12">
+            "Traktujemy audio oddechowe jako wysoce wrazliwe. Twoje dane pozostaja twoje."
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
+                    <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
+                </div>
+                <h3 class="font-oddval text-lg font-bold mb-2">Jasne komunikaty</h4>
+                <p class="font-montserrat text-sm font-light text-brand-light/60">Zawsze sam decydujesz, kiedy rozpoczac sesje.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
+                    <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
+                </div>
+                <h3 class="font-oddval text-lg font-bold mb-2">Lokalne przetwarzanie</h4>
+                <p class="font-montserrat text-sm font-light text-brand-light/60">Podstawowe wykrywanie domyslnie dziala lokalnie na twoim urzadzeniu.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div class="w-8 h-8 rounded-full bg-brand-yellow/20 flex items-center justify-center mb-4">
+                    <div class="w-2 h-2 bg-brand-yellow rounded-full"></div>
+                </div>
+                <h3 class="font-oddval text-lg font-bold mb-2">Wyrazna zgoda</h4>
+                <p class="font-montserrat text-sm font-light text-brand-light/60">Opcjonalne udostepnianie odbywa sie wylacznie za twoja zgoda.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-white py-32 sm:py-40 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
+      <h2 class="text-5xl md:text-7xl font-oddval font-bold text-brand-dark tracking-tight mb-8">Gotowy do proby?</h2>
+      <p class="text-xl md:text-2xl font-montserrat font-light text-brand-grey mb-12 max-w-xl mx-auto leading-relaxed">
+        RespireLabs jest obecnie w fazie rozwoju. Dolacz do listy oczekujacych, aby otrzymac wczesne zaproszenia do bety i pomoc w ksztaltowaniu produktu.
+      </p>
+      <Button href="/pl/lista-oczekujacych" variant="primary" class="text-lg px-12 py-5 shadow-xl hover:-translate-y-1">Dolacz do bety aplikacji</Button>
+    </div>
+  </section>
+</Layout>

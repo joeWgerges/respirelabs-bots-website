@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Datenlöschung"
 description: "So beantragen Sie die Löschung Ihrer personenbezogenen Daten bei RespireLabs."
+alternatePaths:
+  en: "/en/data-deletion"
+  de: "/de/data-deletion"
+  pl: "/pl/usuwanie-danych"
 ---
 # Datenlöschung
 

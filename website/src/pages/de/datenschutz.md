@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Datenschutzerklärung"
 description: "Wie RespireLabs personenbezogene Daten auf dieser Website erhebt und verarbeitet."
+alternatePaths:
+  en: "/en/privacy"
+  de: "/de/datenschutz"
+  pl: "/pl/polityka-prywatnosci"
 ---
 # Datenschutzerklärung
 

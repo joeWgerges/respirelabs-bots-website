@@ -20,12 +20,20 @@ const content = {
     placeholder: 'E-Mail eingeben',
     button: 'Beitreten',
     privacy: 'Wir respektieren Ihre Privatsphäre. Jederzeit abmeldbar.'
+  },
+  pl: {
+    heading: 'Dolacz do listy oczekujacych.',
+    subtext: 'Badz wsrod pierwszych, ktorzy wyprobuja aplikacje RespireLabs. Bez spamu, tylko aktualizacje.',
+    placeholder: 'Wpisz swoj e-mail',
+    button: 'Dolacz',
+    privacy: 'Szanujemy Twoja prywatnosc. Mozesz zrezygnowac w kazdej chwili.'
   }
 };
 
 const c = content[lang as keyof typeof content] || content.en;
 const isDark = variant === 'dark';
-const waitlistHref = lang === 'de' ? '/de/warteliste' : '/en/waitlist';
+const waitlistHrefs: Record<string, string> = { en: '/en/waitlist', de: '/de/warteliste', pl: '/pl/lista-oczekujacych' };
+const waitlistHref = waitlistHrefs[lang] || waitlistHrefs.en;
 ---
 
 <section class:list={[

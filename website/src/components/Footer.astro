@@ -13,6 +13,7 @@ const footerLinks = {
       { label: 'Data deletion', href: '/en/data-deletion' }
     ],
     contact: 'Contact',
+    legal: 'Legal',
     disclaimerTitle: 'Medical disclaimer',
     disclaimerText: 'RespireLabs is a wellness product. It does not diagnose, treat, cure, or prevent any disease.',
   },
@@ -25,8 +26,22 @@ const footerLinks = {
       { label: 'Datenlöschung', href: '/de/data-deletion' }
     ],
     contact: 'Kontakt',
+    legal: 'Rechtliches',
     disclaimerTitle: 'Medizinischer Hinweis',
     disclaimerText: 'RespireLabs ist ein Wellness-Produkt. Es stellt keine Diagnose und ersetzt keine medizinische Beratung.',
+  },
+  pl: {
+    links: [
+      { label: 'Prasa', href: '/pl/prasa' },
+      { label: 'Polityka prywatnosci', href: '/pl/polityka-prywatnosci' },
+      { label: 'Regulamin', href: '/pl/regulamin' },
+      { label: 'Cookies', href: '/pl/cookies' },
+      { label: 'Usuwanie danych', href: '/pl/usuwanie-danych' }
+    ],
+    contact: 'Kontakt',
+    legal: 'Prawne',
+    disclaimerTitle: 'Zastrzezenie medyczne',
+    disclaimerText: 'RespireLabs jest produktem wellness. Nie diagnozuje, nie leczy ani nie zapobiega zadnym chorobom.',
   }
 };
 
@@ -50,7 +65,7 @@ const content = footerLinks[lang as keyof typeof footerLinks] || footerLinks.en;
 
       <!-- Links -->
       <div class="md:col-span-1">
-        <h4 class="font-oddval text-lg mb-4 text-brand-yellow">{lang === 'de' ? 'Rechtliches' : 'Legal'}</h4>
+        <h2 class="font-oddval text-lg mb-4 text-brand-yellow">{content.legal}</h2>
         <ul class="space-y-2">
           {content.links.map((link) => (
             <li>
@@ -65,11 +80,11 @@ const content = footerLinks[lang as keyof typeof footerLinks] || footerLinks.en;
       <!-- Medical Disclaimer -->
       <div class="md:col-span-2 bg-white/5 p-6 rounded-xl border border-brand-grey/30">
         <div class="flex items-start space-x-3">
-          <svg class="h-6 w-6 text-brand-yellow flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-6 w-6 text-brand-yellow flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <div>
-            <h4 class="font-oddval text-base mb-2 text-brand-yellow">{content.disclaimerTitle}</h4>
+            <h2 class="font-oddval text-base mb-2 text-brand-yellow">{content.disclaimerTitle}</h2>
             <p class="text-sm font-montserrat text-brand-light leading-relaxed">
               {content.disclaimerText}
             </p>

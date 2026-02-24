@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+
+const frontmatter = {
+  title: 'Dolacz do listy oczekujacych',
+  description: 'Uzyskaj wczesny dostep do aplikacji RespireLabs i Smart Mouth Tape. Powiedz nam o swoich preferencjach i pomoz ksztaltowac bete.',
+  lang: 'pl',
+  alternatePaths: {
+    en: '/en/waitlist',
+    de: '/de/warteliste',
+    pl: '/pl/lista-oczekujacych'
+  }
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <div class="bg-brand-white min-h-[calc(100vh-200px)] py-16 sm:py-24 lg:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+
+        <!-- Info Column -->
+        <div class="flex flex-col justify-center">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-oddval font-bold text-brand-dark tracking-tight mb-6">
+            Dolacz do <span class="text-brand-blue">listy oczekujacych</span>
+          </h1>
+          <p class="text-xl font-garamond text-brand-grey leading-relaxed mb-10">
+            Uzyskaj wczesny dostep do aplikacji RespireLabs i Smart Mouth Tape. Powiedz nam o swoich preferencjach i pomoz ksztaltowac bete.
+          </p>
+
+          <div class="bg-brand-light/30 border border-brand-light rounded-2xl p-8 mb-8">
+            <h2 class="text-2xl font-oddval text-brand-dark mb-6">Co otrzymasz</h2>
+            <ul class="space-y-4 font-garamond text-lg text-brand-dark">
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Zaproszenia do wczesnego dostepu
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Aktualizacje produktu (niska czestotliwosc)
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Szansa na wplywanie na funkcje i wytyczne bezpieczenstwa
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="bg-white rounded-3xl shadow-xl border border-brand-light p-8 sm:p-12 relative overflow-hidden">
+          <!-- Decorative subtle blur -->
+          <div class="absolute -top-32 -right-32 w-64 h-64 bg-brand-yellow/20 rounded-full blur-[80px] pointer-events-none"></div>
+
+          <form class="relative z-10 space-y-6" id="waitlist-form">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <!-- First Name -->
+              <div>
+                <label for="first-name" class="block text-sm font-montserrat font-semibold text-brand-dark mb-2">Imie (opcjonalne)</label>
+                <input type="text" name="first-name" id="first-name" class="block w-full rounded-xl border-brand-light bg-brand-white px-4 py-3 text-brand-dark focus:border-brand-blue focus:ring-brand-blue sm:text-sm transition-colors" placeholder="Anna" />
+              </div>
+
+              <!-- Email -->
+              <div>
+                <label for="email" class="block text-sm font-montserrat font-semibold text-brand-dark mb-2">Email (wymagany)</label>
+                <input type="email" name="email" id="email" required class="block w-full rounded-xl border-brand-light bg-brand-white px-4 py-3 text-brand-dark focus:border-brand-blue focus:ring-brand-blue sm:text-sm transition-colors" placeholder="anna@example.com" />
+              </div>
+            </div>
+
+            <!-- Country -->
+            <div>
+              <label for="country" class="block text-sm font-montserrat font-semibold text-brand-dark mb-2">Kraj (opcjonalny)</label>
+              <input type="text" name="country" id="country" class="block w-full rounded-xl border-brand-light bg-brand-white px-4 py-3 text-brand-dark focus:border-brand-blue focus:ring-brand-blue sm:text-sm transition-colors" placeholder="Polska" />
+            </div>
+
+            <!-- Interest -->
+            <fieldset>
+              <legend class="block text-sm font-montserrat font-semibold text-brand-dark mb-3">Interesuje mnie:</legend>
+              <div class="space-y-3 font-garamond text-lg">
+                <div class="flex items-center">
+                  <input id="interest-app" name="interest" type="radio" value="app" class="h-5 w-5 border-brand-light text-brand-blue focus:ring-brand-blue">
+                  <label for="interest-app" class="ml-3 block text-brand-dark">Tylko aplikacja</label>
+                </div>
+                <div class="flex items-center">
+                  <input id="interest-tape" name="interest" type="radio" value="tape" class="h-5 w-5 border-brand-light text-brand-blue focus:ring-brand-blue">
+                  <label for="interest-tape" class="ml-3 block text-brand-dark">Urzadzenie Smart Mouth Tape</label>
+                </div>
+                <div class="flex items-center">
+                  <input id="interest-both" name="interest" type="radio" value="both" checked class="h-5 w-5 border-brand-light text-brand-blue focus:ring-brand-blue">
+                  <label for="interest-both" class="ml-3 block text-brand-dark">Oba</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Phone OS -->
+            <fieldset>
+              <legend class="block text-sm font-montserrat font-semibold text-brand-dark mb-3">System telefonu:</legend>
+              <div class="flex space-x-6 font-garamond text-lg">
+                <div class="flex items-center">
+                  <input id="os-ios" name="os" type="radio" value="ios" checked class="h-5 w-5 border-brand-light text-brand-blue focus:ring-brand-blue">
+                  <label for="os-ios" class="ml-3 block text-brand-dark">iOS</label>
+                </div>
+                <div class="flex items-center">
+                  <input id="os-android" name="os" type="radio" value="android" class="h-5 w-5 border-brand-light text-brand-blue focus:ring-brand-blue">
+                  <label for="os-android" class="ml-3 block text-brand-dark">Android</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Anything Else -->
+            <div>
+              <label for="notes" class="block text-sm font-montserrat font-semibold text-brand-dark mb-2">Czy jest cos, co powinnismy wiedziec? (opcjonalne)</label>
+              <textarea id="notes" name="notes" rows="3" class="block w-full rounded-xl border-brand-light bg-brand-white px-4 py-3 text-brand-dark focus:border-brand-blue focus:ring-brand-blue sm:text-sm transition-colors" placeholder="Jakie konkretne problemy ze snem probujasz rozwiazac..."></textarea>
+            </div>
+
+            <!-- Consent -->
+            <div class="flex items-start pt-4 border-t border-brand-light">
+              <div class="flex h-5 items-center">
+                <input id="consent" name="consent" type="checkbox" required class="h-5 w-5 rounded border-brand-light text-brand-blue focus:ring-brand-blue">
+              </div>
+              <div class="ml-3 text-sm font-montserrat">
+                <label for="consent" class="font-medium text-brand-dark">Akceptuje <a href="/pl/prywatnosc" class="text-brand-blue hover:underline">Polityke Prywatnosci</a> i chce otrzymywac aktualizacje o wczesnym dostepie.</label>
+              </div>
+            </div>
+
+            <div class="pt-4">
+              <Button type="submit" class="w-full">Dolacz do listy oczekujacych</Button>
+            </div>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="success-message" class="hidden mt-4 p-4 bg-green-50 text-green-800 rounded-xl font-montserrat text-sm text-center font-medium">
+              Dziekujemy — jestes na liscie. Sprawdz skrzynke odbiorcza w celu potwierdzenia.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Simple form interaction simulation
+  const form = document.getElementById('waitlist-form') as HTMLFormElement;
+  const successMsg = document.getElementById('success-message');
+
+  if (form && successMsg) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Here you would normally send data to a Serverless function (e.g. Astro endpoint or Cloudflare Worker)
+
+      // Simulate success
+      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (button) {
+        button.disabled = true;
+        button.innerText = 'Wysylanie...';
+
+        setTimeout(() => {
+          successMsg.classList.remove('hidden');
+          button.innerText = 'Wyslano';
+          form.reset();
+        }, 1000);
+      }
+    });
+  }
+</script>

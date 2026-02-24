@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "app": "Aplikacja",
+    "smartTape": "Smart Tape",
+    "howItWorks": "Jak to dziala",
+    "compare": "Porownanie",
+    "faq": "FAQ"
+  },
+  "header": {
+    "waitlist": "Lista oczekujacych",
+    "switchLang": "Zmien jezyk",
+    "switchLangMobile": "Zmien jezyk",
+    "openMenu": "Otworz menu",
+    "closeMenu": "Zamknij menu",
+    "skipToContent": "Przejdz do tresci"
+  },
+  "footer": {
+    "legal": "Prawne",
+    "press": "Prasa",
+    "privacy": "Polityka prywatnosci",
+    "terms": "Regulamin",
+    "cookies": "Cookies",
+    "dataDeletion": "Usuwanie danych",
+    "contact": "Kontakt",
+    "disclaimerTitle": "Zastrzezenie medyczne",
+    "disclaimerText": "RespireLabs jest produktem wellness. Nie diagnozuje, nie leczy ani nie zapobiega zadnym chorobom."
+  },
+  "blog": {
+    "sectionTitle": "Z bloga",
+    "sectionSubtitle": "Najnowsze artykuly o oddychaniu, snie i zdrowiu.",
+    "viewAll": "Zobacz wszystkie artykuly",
+    "readArticle": "Przeczytaj artykul",
+    "read": "Czytaj",
+    "backToArticles": "Powrot do artykulow",
+    "author": "Zespol RespireLabs",
+    "authorSubtitle": "Badania nad zdrowiem i wellness",
+    "share": "Udostepnij",
+    "resources": "Zasoby",
+    "heroSubtitle": "Praktyczne artykuly o oddychaniu, nauce o snie i budowaniu zdrowszych nawykow.",
+    "stayUpdated": "Badz na biezaco.",
+    "stayUpdatedSubtitle": "Otrzymuj najnowsze artykuly o snie i oddychaniu prosto na swoja skrzynke.",
+    "category": "Oddychanie",
+    "blogLabel": "Blog"
+  },
+  "cookie": {
+    "ariaLabel": "Zgoda na cookies",
+    "message": "Uzywamy plikow cookie, aby poprawic Twoje doswiadczenie. Kontynuujac, akceptujesz nasza",
+    "linkText": "polityke cookies",
+    "accept": "Akceptuj",
+    "reject": "Odrzuc"
+  },
+  "common": {
+    "joinWaitlist": "Dolacz do listy oczekujacych",
+    "learnMore": "Dowiedz sie wiecej",
+    "readMore": "Czytaj dalej"
+  }
+}

@@ -5,6 +5,10 @@ title: "Daytime nasal breathing training: small habits that compound"
 description: "Simple, practical ways to notice mouth breathing triggers and build nasal breathing habits during the day."
 date: "2026-02-05"
 readTime: "6 min read"
+alternatePaths:
+  en: "/en/blog/03-daytime-nasal-breathing-training"
+  de: "/de/blog/03-nasenatmung-tagsueber-trainieren"
+  pl: "/pl/blog/03-dzienny-trening-oddychania-nosem"
 ---
 # Daytime nasal breathing training: small habits that compound
 

@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Allgemeine Geschäftsbedingungen (AGB)"
 description: "Nutzungsbedingungen für die RespireLabs-Website und Dienstleistungen."
+alternatePaths:
+  en: "/en/terms"
+  de: "/de/terms"
+  pl: "/pl/regulamin"
 ---
 # Allgemeine Geschäftsbedingungen (AGB)
 

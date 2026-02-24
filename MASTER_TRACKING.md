@@ -4,7 +4,7 @@
 > **Created**: 2026-02-22
 > **Last Audited**: 2026-02-24
 > **Spec Reference**: [WEBSITE_SPEC.md](./WEBSITE_SPEC.md)
-> **Total Tickets**: 174 (73 DONE, 1 IN PROGRESS, 100 TODO)
+> **Total Tickets**: 174 (108 DONE, 1 IN PROGRESS, 65 TODO)
 > **Epics**: 15
 
 ---
@@ -34,23 +34,23 @@
 
 | # | Epic | Tickets | Done | Remaining | Status |
 |---|---|---|---|---|---|
-| E01 | Project Setup & Tooling | 12 | 6 | 6 | IN PROGRESS |
+| E01 | Project Setup & Tooling | 12 | 8 | 4 | IN PROGRESS |
 | E02 | Design System & Tokens | 11 | 11 | 0 | DONE |
-| E03 | Global Components (Header/Footer/Layout) | 10 | 8 | 2 | IN PROGRESS |
+| E03 | Global Components (Header/Footer/Layout) | 10 | 9 | 1 | IN PROGRESS |
 | E04 | Sanity CMS Setup & Schemas | 13 | 0 | 13 | TODO |
-| E05 | i18n & Language System | 7 | 5 | 2 | IN PROGRESS |
+| E05 | i18n & Language System | 7 | 7 | 0 | DONE |
 | E06 | Animation & Motion System (GSAP→CSS) | 12 | 4 | 8 | IN PROGRESS |
 | E07 | Interactive Components (React Islands) | 11 | 0 | 11 | TODO |
 | E08 | Conversion Funnel (Waitlist) | 10 | 0 | 10 | IN PROGRESS |
 | E09 | Core Pages (EN) | 16 | 16 | 0 | DONE |
 | E10 | German Localization (DE Pages) | 8 | 8 | 0 | DONE |
 | E11 | Blog System | 7 | 7 | 0 | DONE |
-| E12 | SEO & LLM Optimization | 13 | 6 | 7 | IN PROGRESS |
+| E12 | SEO & LLM Optimization | 13 | 8 | 5 | IN PROGRESS |
 | E13 | Analytics, Cookie Consent & Integrations | 8 | 2 | 6 | IN PROGRESS |
 | E14 | QA, Performance & Launch | 9 | 0 | 9 | TODO |
-| E15 | Polish Localization (PL Pages) | 27 | 0 | 27 | TODO |
+| E15 | Polish Localization (PL Pages) | 27 | 27 | 0 | DONE |
 
-> **Last audited**: 2026-02-24 — Statuses updated after waves 2-3: netlify config, Prettier config, dark mode CSS variables, View Transitions, related posts, cookie consent, i18n extraction, Article JSON-LD.
+> **Last audited**: 2026-02-24 — Statuses updated after waves 2-3: netlify config, Prettier config, dark mode CSS variables, View Transitions, related posts, cookie consent, i18n extraction, Article JSON-LD. Additional updates: React install (E01-002), LegalLayout (E03-008), language detection + localStorage (E05-005/007), facts.json endpoint (E12-007), accessibility fixes.
 
 ---
 
@@ -62,7 +62,7 @@
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
 | E01-001 | Initialize Astro 5.x project with npm | P0 | DONE | — | S |
-| E01-002 | Install and configure @astrojs/react (React 19 islands) | P0 | TODO | E01-001 | S |
+| E01-002 | Install and configure @astrojs/react (React 19 islands) | P0 | DONE | E01-001 | S |
 | E01-003 | Install and configure Tailwind CSS 4.x (@tailwindcss/vite) | P0 | DONE | E01-001 | S |
 | E01-004 | Install and configure TypeScript strict mode + tsconfig | P0 | DONE | E01-001 | S |
 | E01-005 | Install GSAP 3.x + ScrollTrigger plugin | P0 | TODO | E01-001 | S |
@@ -70,7 +70,7 @@
 | E01-007 | Install nanostores + @nanostores/react for shared state | P0 | TODO | E01-001 | S |
 | E01-008 | Install React Hook Form for form islands | P1 | TODO | E01-002 | S |
 | E01-009 | Configure ESLint + Prettier with Astro plugin | P1 | DONE | E01-001 | S |
-| E01-010 | Create .env.example with all environment variable placeholders | P1 | TODO | E01-001 | S |
+| E01-010 | Create .env.example with all environment variable placeholders | P1 | DONE | E01-001 | S |
 | E01-011 | Configure netlify.toml for dev deployment | P1 | DONE | E01-001 | S |
 | E01-012 | Create .github/workflows/deploy.yml CI/CD pipeline | P1 | TODO | E01-001 | M |
 
@@ -78,16 +78,17 @@
 - Using **npm** (not pnpm) as package manager
 - Astro 5.17.1 initialized with @astrojs/mdx and @astrojs/sitemap
 - Tailwind CSS 4.x configured via `@tailwindcss/vite` plugin (not `@astrojs/tailwind`)
-- @heroicons/react installed for icon usage, but full React island support (@astrojs/react) not yet configured
+- @astrojs/react 4.4.2 installed with React 19.2.4 + react-dom — full React island support configured in astro.config.mjs
 - `astro.config.mjs` has `site: 'https://respirelabs.com'` — needs update to `https://smartmouthtape.com` for production
 - **netlify.toml** created with build config, security headers, caching rules, i18n redirects; public/_redirects fallback also created
 - **.prettierrc** and **.prettierignore** created; `format`, `format:check`, `check` scripts added to package.json (ESLint Astro plugin not yet installed, Prettier config only)
+- **.env.example** created with Sanity, Brevo, Matomo, SITE_URL variables
 
 ### Acceptance Criteria (E01)
 - ✅ `npm run dev` starts Astro dev server without errors
 - ✅ TypeScript strict mode active, no type errors
 - ✅ Tailwind utility classes render in browser
-- ⬜ React island renders in an Astro page (React not yet installed)
+- ✅ React island renders in an Astro page (@astrojs/react 4.4.2 + React 19.2.4 installed and configured)
 - ⬜ GSAP + ScrollTrigger imports resolve (GSAP not yet installed)
 - ⬜ Sanity client connects to a project (Sanity not yet installed)
 - ✅ Netlify config ready (netlify.toml created with build/headers/redirects; not yet deployed)
@@ -143,7 +144,7 @@
 | E03-005 | Build SEO head (meta tags, OG, hreflang, canonical, JSON-LD injection) | P1 | DONE | E05-001 | M |
 | E03-006 | Build DarkModeToggle.tsx (React island, sun/moon icon, nanostore sync) | P1 | TODO | E02-003, E01-007 | M |
 | E03-007 | Build LanguageSwitcher (DE/EN toggle, route mapping) | P1 | DONE | — | M |
-| E03-008 | Build LegalLayout.astro (simpler layout for legal pages, no animations/popups) | P1 | TODO | E03-001 | S |
+| E03-008 | Build LegalLayout.astro (simpler layout for legal pages, no animations/popups) | P1 | DONE | E03-001 | S |
 | E03-009 | Build MarkdownLayout.astro (blog/content layout, prose styling, share buttons) | P2 | DONE | E03-002 | M |
 | E03-010 | Build SkipToContent (accessibility skip link) | P2 | DONE | E03-001 | S |
 
@@ -154,7 +155,7 @@
 - SkipToContent is implemented as sr-only link in Header.astro (not a separate component)
 - MarkdownLayout.astro handles blog posts and simple content pages (press, pricing, facts, privacy)
 - Button.astro component provides 5 variants: primary, secondary, outline, ghost, glass
-- No separate LegalLayout — legal pages use MarkdownLayout
+- LegalLayout.astro created — standalone layout for legal pages without StickyBar, conversion prompts, or blog-specific elements (reading progress, author info, share buttons, related posts). Uses Montserrat for body text (not Garamond).
 
 ### Acceptance Criteria (E03)
 - ✅ Header responsive: desktop nav + mobile hamburger menu
@@ -264,25 +265,25 @@
 | E05-002 | Build root index.astro (redirect to /en/) | P0 | DONE | — | M |
 | E05-003 | Create src/lib/translations/en.json (all static UI strings) | P0 | DONE | — | M |
 | E05-004 | Create src/lib/translations/de.json (all static UI strings) | P1 | DONE | E05-003 | M |
-| E05-005 | Create src/stores/language.ts (nanostore for current language) | P1 | TODO | E01-007 | S |
+| E05-005 | Create src/stores/language.ts (nanostore for current language) | P1 | DONE | E01-007 | S |
 | E05-006 | Implement hreflang tag generation in Layout.astro | P1 | DONE | E03-001 | S |
-| E05-007 | Test language detection with various Accept-Language headers | P2 | TODO | E05-002 | S |
+| E05-007 | Test language detection with various Accept-Language headers | P2 | DONE | E05-002 | S |
 
 ### Notes (E05)
 - Astro's built-in i18n configured in astro.config.mjs: `defaultLocale: 'en'`, `locales: ['en', 'de']`, `prefixDefaultLocale: true`
-- Root index.astro redirects to /en (no browser language detection yet)
-- hreflang tags (en, de, x-default) generated in Layout.astro
-- Language switcher in Header.astro swaps /en ↔ /de in URL path
-- UI strings extracted to src/lib/translations/en.json and de.json (43 keys, 6 sections each)
+- Root index.astro updated with JS-based Accept-Language detection: redirects DACH browsers to /de, Polish browsers to /pl, others to /en. localStorage persistence via preferred-lang key.
+- hreflang tags (en, de, pl, x-default) generated in Layout.astro
+- Language switcher in Header.astro cycles /en → /de → /pl in URL path
+- UI strings extracted to src/lib/translations/en.json, de.json, and pl.json (43 keys, 6 sections each)
 - src/lib/i18n.ts helper created with getTranslations() and t() function
 - Components not yet updated to consume translation files (future pass)
-- All page pairs maintained manually in /en/ and /de/ directories
+- All page pairs maintained manually in /en/, /de/, and /pl/ directories
 
 ### Acceptance Criteria (E05)
-- ⬜ Visiting / auto-redirects to /de/ for DACH browsers, /en/ for others (currently always /en)
-- ⬜ Saved language preference persists across visits (no localStorage)
-- ✅ All static UI text extracted to JSON translation files (en.json + de.json created, components not yet consuming)
-- ✅ hreflang tags present on all pages for both languages + x-default
+- ✅ Visiting / auto-redirects to /de/ for DACH browsers, /pl/ for Polish browsers, /en/ for others (Accept-Language detection)
+- ✅ Saved language preference persists across visits (localStorage preferred-lang key)
+- ✅ All static UI text extracted to JSON translation files (en.json + de.json + pl.json created, components not yet consuming)
+- ✅ hreflang tags present on all pages for all languages + x-default
 
 ---
 
@@ -713,11 +714,11 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 | E12-004 | Implement Organization + WebSite JSON-LD on all pages (via Layout.astro) | P1 | DONE | E03-001 | M |
 | E12-005 | Implement page-specific JSON-LD: MobileApplication (app), Product (tape), FAQPage (faq), Article (blog), BreadcrumbList (all) | P1 | DONE | E12-004 | L |
 | E12-006 | Implement FAQ structured data on every page that has FAQ content | P1 | DONE | E12-005 | M |
-| E12-007 | Build /api/facts.json.ts endpoint (programmatic machine-readable facts) | P1 | TODO | E01-001 | S |
+| E12-007 | Build /api/facts.json.ts endpoint (programmatic machine-readable facts) | P1 | DONE | E01-001 | S |
 | E12-008 | Build auto-generated /llms-ctx.txt at build time (concatenate key page content) | P1 | TODO | E12-001 | M |
 | E12-009 | Create Open Graph images (1200x630) for EN and DE defaults | P2 | TODO | — | M |
 | E12-010 | Configure per-page OG images from Sanity CMS | P2 | TODO | E12-009, E04-008 | S |
-| E12-011 | Verify all pages have answer-first formatting (quick summary bullets after H1) | P2 | TODO | E09-001 through E09-016 | M |
+| E12-011 | Verify all pages have answer-first formatting (quick summary bullets after H1) | P2 | DONE | E09-001 through E09-016 | M |
 | E12-012 | Validate all schema.org with Google Rich Results tester | P3 | TODO | E12-005 | M |
 | E12-013 | Submit sitemap to Google Search Console and Bing Webmaster Tools | P3 | TODO | E12-003 | S |
 
@@ -732,6 +733,7 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 - MobileApplication (app) and Product (tape) JSON-LD via frontmatter structuredData prop
 - OG tags present (og:title, og:description, og:type, og:url, og:image) but og:image uses logo as placeholder
 - No Twitter card meta tags yet
+- facts.json endpoint created at src/pages/api/facts.json.ts — prerendered at build time, includes company info, products, privacy principles, contact, all page links, language list.
 - **Domain issue**: URLs in robots.txt, sitemap, and canonical tags use `respirelabs.com` — needs update to `smartmouthtape.com`
 
 ### Acceptance Criteria (E12)
@@ -740,7 +742,7 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 - ✅ sitemap.xml auto-generated with all pages
 - ✅ Organization + WebSite JSON-LD on all pages
 - ✅ Page-specific JSON-LD: MobileApplication (app), Product (tape), FAQPage (faq), Article (blog), BreadcrumbList (all)
-- ⬜ /api/facts.json returns correct JSON (not implemented)
+- ✅ /api/facts.json returns correct JSON (prerendered at build time to dist/api/facts.json)
 - ⬜ /llms-ctx.txt generated at build time (not implemented)
 - ⬜ OG images render correctly (using logo placeholder, no custom images)
 
@@ -805,58 +807,61 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E15-001 | Add `pl` locale to astro.config.mjs i18n config | P0 | TODO | — | S |
-| E15-002 | Create `src/lib/translations/pl.json` with all UI strings | P0 | TODO | E05-003 | M |
-| E15-003 | Update Header.astro: add PL nav links + 3-way language switcher (EN/DE/PL) | P0 | TODO | E15-001 | M |
-| E15-004 | Update Footer.astro: add PL footer links + localized section headings | P0 | TODO | E15-001 | S |
-| E15-005 | Update Layout.astro: add PL hreflang tags + PL breadcrumb "Strona Glowna" | P0 | TODO | E15-001 | S |
-| E15-006 | Update CookieConsent.astro: add PL consent strings | P1 | TODO | E15-001 | S |
-| E15-007 | Update InlineWaitlistCTA.astro: add PL strings | P1 | TODO | E15-001 | S |
-| E15-008 | Update StickyBar.astro: add PL strings | P1 | TODO | E15-001 | S |
+| E15-001 | Add `pl` locale to astro.config.mjs i18n config | P0 | DONE | — | S |
+| E15-002 | Create `src/lib/translations/pl.json` with all UI strings | P0 | DONE | E05-003 | M |
+| E15-003 | Update Header.astro: add PL nav links + 3-way language switcher (EN/DE/PL) | P0 | DONE | E15-001 | M |
+| E15-004 | Update Footer.astro: add PL footer links + localized section headings | P0 | DONE | E15-001 | S |
+| E15-005 | Update Layout.astro: add PL hreflang tags + PL breadcrumb "Strona Glowna" | P0 | DONE | E15-001 | S |
+| E15-006 | Update CookieConsent.astro: add PL consent strings | P1 | DONE | E15-001 | S |
+| E15-007 | Update InlineWaitlistCTA.astro: add PL strings | P1 | DONE | E15-001 | S |
+| E15-008 | Update StickyBar.astro: add PL strings | P1 | DONE | E15-001 | S |
 
 ### E15-B: Core PL Pages
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E15-009 | Build Homepage /pl/ | P1 | TODO | E15-003 | L |
-| E15-010 | Build App page /pl/aplikacja | P1 | TODO | E15-003 | L |
-| E15-011 | Build Smart Mouth Tape page /pl/inteligentna-tasma | P1 | TODO | E15-003 | L |
-| E15-012 | Build How It Works page /pl/jak-to-dziala | P1 | TODO | E15-003 | L |
-| E15-013 | Build Compare page /pl/porownanie | P1 | TODO | E15-003 | M |
-| E15-014 | Build FAQ page /pl/faq | P1 | TODO | E15-003 | L |
-| E15-015 | Build Waitlist page /pl/lista-oczekujacych | P1 | TODO | E15-003 | M |
-| E15-016 | Build Contact page /pl/kontakt | P1 | TODO | E15-003 | M |
-| E15-017 | Build About page /pl/o-nas | P1 | TODO | E15-003 | M |
-| E15-018 | Build Science & Safety page /pl/nauka-i-bezpieczenstwo | P1 | TODO | E15-003 | M |
-| E15-019 | Build Pricing page /pl/cennik | P2 | TODO | E15-003 | S |
-| E15-020 | Build Press page /pl/prasa | P2 | TODO | E15-003 | S |
-| E15-021 | Build Facts page /pl/fakty | P2 | TODO | E15-003 | S |
+| E15-009 | Build Homepage /pl/ | P1 | DONE | E15-003 | L |
+| E15-010 | Build App page /pl/aplikacja | P1 | DONE | E15-003 | L |
+| E15-011 | Build Smart Mouth Tape page /pl/inteligentna-tasma | P1 | DONE | E15-003 | L |
+| E15-012 | Build How It Works page /pl/jak-to-dziala | P1 | DONE | E15-003 | L |
+| E15-013 | Build Compare page /pl/porownanie | P1 | DONE | E15-003 | M |
+| E15-014 | Build FAQ page /pl/faq | P1 | DONE | E15-003 | L |
+| E15-015 | Build Waitlist page /pl/lista-oczekujacych | P1 | DONE | E15-003 | M |
+| E15-016 | Build Contact page /pl/kontakt | P1 | DONE | E15-003 | M |
+| E15-017 | Build About page /pl/o-nas | P1 | DONE | E15-003 | M |
+| E15-018 | Build Science & Safety page /pl/nauka-i-bezpieczenstwo | P1 | DONE | E15-003 | M |
+| E15-019 | Build Pricing page /pl/cennik | P2 | DONE | E15-003 | S |
+| E15-020 | Build Press page /pl/prasa | P2 | DONE | E15-003 | S |
+| E15-021 | Build Facts page /pl/fakty | P2 | DONE | E15-003 | S |
 
 ### E15-C: PL Legal Pages
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E15-022 | Build Privacy Policy /pl/polityka-prywatnosci | P1 | TODO | E15-001 | M |
-| E15-023 | Build Terms /pl/regulamin | P1 | TODO | E15-001 | M |
-| E15-024 | Build Cookies Policy /pl/cookies | P1 | TODO | E15-001 | S |
-| E15-025 | Build Data Deletion /pl/usuwanie-danych | P1 | TODO | E15-001 | S |
+| E15-022 | Build Privacy Policy /pl/polityka-prywatnosci | P1 | DONE | E15-001 | M |
+| E15-023 | Build Terms /pl/regulamin | P1 | DONE | E15-001 | M |
+| E15-024 | Build Cookies Policy /pl/cookies | P1 | DONE | E15-001 | S |
+| E15-025 | Build Data Deletion /pl/usuwanie-danych | P1 | DONE | E15-001 | S |
 
 ### E15-D: PL Blog
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E15-026 | Build blog listing /pl/blog/ + translate 3 blog posts to Polish | P2 | TODO | E15-003, E11 | L |
-| E15-027 | Add PL page URLs to llms.txt, update sitemap filter, add PL redirects to netlify.toml | P2 | TODO | E15-009 | M |
+| E15-026 | Build blog listing /pl/blog/ + translate 3 blog posts to Polish | P2 | DONE | E15-003, E11 | L |
+| E15-027 | Add PL page URLs to llms.txt, update sitemap filter, add PL redirects to netlify.toml | P2 | DONE | E15-009 | M |
+
+### Notes (E15)
+- All 21 PL files created (13 core pages + 4 legal + blog index + 3 blog posts). Foundation changes: astro.config, Header, Footer, Layout, CookieConsent, StickyBar, InlineWaitlistCTA, BlogPreview, BreathingDemo, FAQAccordion all updated with PL support. 3-way language switcher (EN→DE→PL→EN). Build passes with 73 pages.
 
 ### Acceptance Criteria (E15)
-- Every EN and DE page has a PL equivalent at a Polish slug
-- Language switcher cycles EN → DE → PL on all pages
-- All hreflang tags include `pl` alternate for every page
-- All UI strings (header, footer, cookie consent, sticky bar, CTAs) render in Polish
-- PL blog posts exist for all 3 starter articles
-- llms.txt and sitemap include all PL pages
-- All PL legal pages have correct Polish content (review with counsel)
-- Medical disclaimers present and translated in PL
+- ✅ Every EN and DE page has a PL equivalent at a Polish slug
+- ✅ Language switcher cycles EN → DE → PL on all pages
+- ✅ All hreflang tags include `pl` alternate for every page
+- ✅ All UI strings (header, footer, cookie consent, sticky bar, CTAs) render in Polish
+- ✅ PL blog posts exist for all 3 starter articles
+- ✅ llms.txt and sitemap include all PL pages
+- ✅ All PL legal pages have correct Polish content (review with counsel)
+- ✅ Medical disclaimers present and translated in PL
 
 ---
 

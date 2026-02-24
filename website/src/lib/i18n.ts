@@ -1,13 +1,14 @@
 import en from './translations/en.json';
 import de from './translations/de.json';
+import pl from './translations/pl.json';
 
 /** Supported language codes */
-export type Lang = 'en' | 'de';
+export type Lang = 'en' | 'de' | 'pl';
 
 /** Shape of a translation file (derived from the English source of truth) */
 export type Translations = typeof en;
 
-const translations: Record<string, Translations> = { en, de };
+const translations: Record<string, Translations> = { en, de, pl };
 
 /**
  * Get the full translation object for a given language.

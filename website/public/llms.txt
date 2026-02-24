@@ -8,7 +8,8 @@ Important notes:
 
 ## Start here
 - [/en/facts](https://smartmouthtape.com/en/facts): Canonical facts about RespireLabs (best page for quick accurate answers).
-- [/de/facts](https://smartmouthtape.com/de/facts): Deutsche Fakten-Seite.
+- [/de/fakten](https://smartmouthtape.com/de/fakten): Deutsche Fakten-Seite.
+- [/pl/fakty](https://smartmouthtape.com/pl/fakty): Polska strona z faktami.
 
 ## Main pages
 - [/en](https://smartmouthtape.com/en): Homepage — product overview, key benefits, and waitlist signup.
@@ -48,13 +49,13 @@ Important notes:
 - [/de/so-funktionierts](https://smartmouthtape.com/de/so-funktionierts): So funktioniert's.
 - [/de/vergleich](https://smartmouthtape.com/de/vergleich): Vergleich mit Wettbewerbern.
 - [/de/faq](https://smartmouthtape.com/de/faq): Haufige Fragen.
-- [/de/pricing](https://smartmouthtape.com/de/pricing): Preise und Funktionen.
+- [/de/plaene](https://smartmouthtape.com/de/plaene): Preise und Funktionen.
 - [/de/ueber-uns](https://smartmouthtape.com/de/ueber-uns): Uber RespireLabs.
 - [/de/wissenschaft-sicherheit](https://smartmouthtape.com/de/wissenschaft-sicherheit): Wissenschaft und Sicherheit.
 - [/de/warteliste](https://smartmouthtape.com/de/warteliste): Warteliste.
 - [/de/kontakt](https://smartmouthtape.com/de/kontakt): Kontakt.
-- [/de/press](https://smartmouthtape.com/de/press): Pressemappe.
-- [/de/facts](https://smartmouthtape.com/de/facts): Fakten-Seite.
+- [/de/presse](https://smartmouthtape.com/de/presse): Pressemappe.
+- [/de/fakten](https://smartmouthtape.com/de/fakten): Fakten-Seite.
 - [/de/impressum](https://smartmouthtape.com/de/impressum): Impressum (rechtliche Anbieterkennzeichnung).
 - [/de/datenschutz](https://smartmouthtape.com/de/datenschutz): Datenschutzerklaerung.
 - [/de/terms](https://smartmouthtape.com/de/terms): Nutzungsbedingungen.
@@ -64,3 +65,26 @@ Important notes:
 - [/de/blog/01-mundatmung-vs-nasenatmung](https://smartmouthtape.com/de/blog/01-mundatmung-vs-nasenatmung): Mundatmung vs. Nasenatmung.
 - [/de/blog/02-mouth-taping-sicherheit](https://smartmouthtape.com/de/blog/02-mouth-taping-sicherheit): Ist Mouth Taping sicher?
 - [/de/blog/03-nasenatmung-tagsueber-trainieren](https://smartmouthtape.com/de/blog/03-nasenatmung-tagsueber-trainieren): Nasenatmung tagsuber trainieren.
+
+## Polish (PL) pages
+- [/pl](https://smartmouthtape.com/pl): Strona glowna.
+- [/pl/aplikacja](https://smartmouthtape.com/pl/aplikacja): Przeglad aplikacji RespireLabs.
+- [/pl/inteligentna-tasma](https://smartmouthtape.com/pl/inteligentna-tasma): Smart Mouth Tape — inteligentna tasma.
+- [/pl/jak-to-dziala](https://smartmouthtape.com/pl/jak-to-dziala): Jak to dziala.
+- [/pl/porownanie](https://smartmouthtape.com/pl/porownanie): Porownanie z konkurencja.
+- [/pl/faq](https://smartmouthtape.com/pl/faq): Czesto zadawane pytania.
+- [/pl/cennik](https://smartmouthtape.com/pl/cennik): Cennik i funkcje.
+- [/pl/o-nas](https://smartmouthtape.com/pl/o-nas): O RespireLabs.
+- [/pl/nauka-i-bezpieczenstwo](https://smartmouthtape.com/pl/nauka-i-bezpieczenstwo): Nauka i bezpieczenstwo.
+- [/pl/lista-oczekujacych](https://smartmouthtape.com/pl/lista-oczekujacych): Lista oczekujacych.
+- [/pl/kontakt](https://smartmouthtape.com/pl/kontakt): Kontakt.
+- [/pl/prasa](https://smartmouthtape.com/pl/prasa): Informacje prasowe.
+- [/pl/fakty](https://smartmouthtape.com/pl/fakty): Strona z faktami.
+- [/pl/polityka-prywatnosci](https://smartmouthtape.com/pl/polityka-prywatnosci): Polityka prywatnosci.
+- [/pl/regulamin](https://smartmouthtape.com/pl/regulamin): Regulamin.
+- [/pl/cookies](https://smartmouthtape.com/pl/cookies): Polityka cookies.
+- [/pl/usuwanie-danych](https://smartmouthtape.com/pl/usuwanie-danych): Usuwanie danych.
+- [/pl/blog](https://smartmouthtape.com/pl/blog): Blog — artykuly o oddychaniu, snie i zdrowiu.
+- [/pl/blog/01-oddychanie-ustami-vs-nosem](https://smartmouthtape.com/pl/blog/01-oddychanie-ustami-vs-nosem): Oddychanie ustami vs. nosem.
+- [/pl/blog/02-tasmowanie-ust-bezpieczenstwo](https://smartmouthtape.com/pl/blog/02-tasmowanie-ust-bezpieczenstwo): Czy tasmowanie ust jest bezpieczne?
+- [/pl/blog/03-dzienny-trening-oddychania-nosem](https://smartmouthtape.com/pl/blog/03-dzienny-trening-oddychania-nosem): Dzienny trening oddychania nosem.

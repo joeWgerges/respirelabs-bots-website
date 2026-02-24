@@ -5,7 +5,12 @@ import Button from '../../components/ui/Button.astro';
 const frontmatter = {
   title: 'Join the waitlist',
   description: 'Get early access to the RespireLabs app and Smart Mouth Tape. Tell us your preferences and help shape the beta.',
-  lang: 'en'
+  lang: 'en',
+  alternatePaths: {
+    en: '/en/waitlist',
+    de: '/de/warteliste',
+    pl: '/pl/lista-oczekujacych'
+  }
 };
 ---
 
@@ -27,19 +32,19 @@ const frontmatter = {
             <h2 class="text-2xl font-oddval text-brand-dark mb-6">What you'll get</h2>
             <ul class="space-y-4 font-garamond text-lg text-brand-dark">
               <li class="flex items-start">
-                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 Early access invitations
               </li>
               <li class="flex items-start">
-                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 Product updates (low frequency)
               </li>
               <li class="flex items-start">
-                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
                 A chance to influence features and safety guidance

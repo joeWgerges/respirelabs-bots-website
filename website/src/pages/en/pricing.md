@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Plans"
 description: "Start phone-first. Upgrade only if it helps. RespireLabs is in development—join the waitlist for early access."
+alternatePaths:
+  en: "/en/pricing"
+  de: "/de/plaene"
+  pl: "/pl/cennik"
 ---
 # Plans
 

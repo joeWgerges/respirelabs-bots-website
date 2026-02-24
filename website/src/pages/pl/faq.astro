@@ -1,0 +1,126 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/ui/Button.astro';
+import FAQAccordion from '../../components/interactive/FAQAccordion';
+
+const faqs = [
+  {
+    category: "Podstawy produktu",
+    items: [
+      {
+        question: "Czym jest RespireLabs?",
+        answer: "RespireLabs to trener oddychania (aplikacja mobilna + opcjonalny koncept urzadzenia do noszenia) zaprojektowany w celu zmniejszenia oddychania przez usta i budowania zdrowszych nawykow oddychania nosem."
+      },
+      {
+        question: "Czy RespireLabs jest urzadzeniem medycznym?",
+        answer: "Nie. RespireLabs jest produktem wellness i nie diagnozuje ani nie leczy stanow chorobowych. Jesli podejrzewasz zaburzenia snu, skonsultuj sie z lekarzem."
+      },
+      {
+        question: "Czy potrzebuje Smart Mouth Tape, zeby zaczac?",
+        answer: "Nie. Aplikacja jest zaprojektowana tak, aby dzialac przede wszystkim z telefonem. Mozesz natychmiast zaczac wykrywac i trenowac swoje nawyki bez dodatkowego sprzetu."
+      }
+    ]
+  },
+  {
+    category: "Prywatnosc",
+    items: [
+      {
+        question: "Czy RespireLabs nagrywa mnie cala noc?",
+        answer: "RespireLabs jest zaprojektowany tak, abys kontrolowal, kiedy sesja jest uruchamiana i co jest przechowywane. Wrazliwe audio jest traktowane jako prywatne i domyslnie przetwarzane lokalnie na twoim urzadzeniu."
+      },
+      {
+        question: "Czy bedziesz sprzedawac moje dane?",
+        answer: "Nie. RespireLabs jest zbudowany z zasadami prywatnosci na pierwszym miejscu od samego poczatku. Masz kontrole nad udostepnianiem i zgoda."
+      }
+    ]
+  },
+  {
+    category: "Smart Mouth Tape",
+    items: [
+      {
+        question: "Jakie czujniki sa planowane?",
+        answer: "Nasze obecne cele na poziomie koncepcji obejmuja mikrofon MEMS, czujnik przeplywu powietrza/cisnienia, czujnik SpO\u2082 i akcelerometr, aby zapewnic pelny obraz twojej nocy."
+      },
+      {
+        question: "Czy zaklejanie ust jest bezpieczne?",
+        answer: "Zaklejanie ust nie jest odpowiednie dla kazdego. Jesli masz niedrozonosc nosa, trudnosci z oddychaniem lub podejrzewasz bezdech senny, najpierw skonsultuj sie z lekarzem. Zapewnimy jasne wytyczne dotyczace bezpieczenstwa."
+      }
+    ]
+  },
+  {
+    category: "Beta",
+    items: [
+      {
+        question: "Jak moge uzyskac wczesny dostep?",
+        answer: "Mozesz uzyskac wczesny dostep dolaczajac do naszej listy oczekujacych juz dzis. Wysylemy ci zaproszenia i aktualizacje produktu, gdy beda dostepne."
+      }
+    ]
+  }
+];
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.flatMap(category =>
+    category.items.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  )
+};
+
+const frontmatter = {
+  title: 'FAQ – Czesto zadawane pytania',
+  description: 'Czesto zadawane pytania o RespireLabs, aplikacji, prywatnosci i Smart Mouth Tape.',
+  lang: 'pl',
+  structuredData: faqStructuredData
+};
+---
+
+<Layout frontmatter={frontmatter}>
+  <!-- HERO SECTION -->
+  <section class="relative bg-[#F5F5F7] min-h-[50vh] flex flex-col items-center justify-center overflow-hidden pt-24 pb-16 border-b border-black/[0.05]">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal hero-reveal flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 bg-white px-5 py-2 rounded-full mb-8 shadow-sm border border-brand-light">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-dark/80">Pomoc</span>
+      </div>
+
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-oddval font-bold text-brand-dark tracking-tighter mb-6 leading-[0.9] drop-shadow-sm">
+        Czesto zadawane <br/>
+        <span class="text-gradient">pytania.</span>
+      </h1>
+
+      <p class="mt-4 max-w-2xl mx-auto text-xl font-montserrat font-light text-brand-grey leading-relaxed reveal hero-reveal delay-100">
+        Wszystko, co musisz wiedziec o produkcie, prywatnosci i naszym programie beta.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDIONS -->
+  <section class="py-24 bg-brand-white relative">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <FAQAccordion client:visible faqs={faqs} lang="pl" />
+    </div>
+  </section>
+
+  <!-- STILL HAVE QUESTIONS -->
+  <section class="py-24 bg-brand-dark text-white text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
+      <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-6">Nadal masz pytania?</h2>
+      <p class="text-lg md:text-xl font-montserrat font-light text-brand-light/70 mb-10">
+        Jestesmy tu, aby pomoc. Skontaktuj sie bezposrednio z naszym zespolem.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <Button href="/pl/kontakt" variant="primary" class="bg-white text-brand-dark hover:bg-brand-light border-transparent shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:scale-[1.03]">Skontaktuj sie z nami</Button>
+          <Button href="/pl/lista-oczekujacych" variant="outline" class="border-white/20 text-white hover:bg-white/5">Dolacz do listy oczekujacych</Button>
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,37 +1,12 @@
 ---
 layout: "../../layouts/MarkdownLayout.astro"
 lang: "de"
-title: "RespireLabs Fakten"
-description: "Verlässliche Fakten zu RespireLabs (für Nutzer, Presse und AI‑Systeme)."
+title: "Fakten – RespireLabs"
+description: "Verlässliche Fakten zu RespireLabs (für Nutzer, Presse und AI-Systeme)."
+alternatePaths:
+  en: "/en/facts"
+  de: "/de/fakten"
+  pl: "/pl/fakty"
 ---
-# RespireLabs Fakten
-
-## Was ist RespireLabs?
-RespireLabs ist ein Atem‑Coach: eine mobile App (smartphone‑first) plus ein optionales Smart Mouth Tape Wearable‑Konzept (in Entwicklung). Ziel: Mundatmung reduzieren und Nasenatmung als Gewohnheit stärken.
-
-## Was RespireLabs NICHT ist
-- Kein Medizinprodukt
-- Kein Diagnosetool
-- Kein „Schlafapnoe‑Diagnose“‑Service
-
-## Produkte
-### RespireLabs App
-- Smartphone-first Atem‑Sessions
-- Echtzeit‑Hinweise + Zusammenfassungen
-- Geführte Atemübungen
-- Privacy-first Design
-
-### Smart Mouth Tape (Konzept / in Entwicklung)
-- Sensor‑Pod + Tape für nächtliche Atem‑Insights
-- Geplante Sensoren: Mikrofon, Airflow/Pressure, SpO₂, Accelerometer
-- Multi‑Stunden‑Use + sicherer Datentransfer
-
-## Datenschutz‑Prinzipien
-- Du entscheidest, wann Sessions starten
-- Sensibles Audio wird standardmäßig lokal verarbeitet
-- Teilen nur mit expliziter Einwilligung
-
-## Kontakt
-Support: support@respirelabs.com  
-Presse: press@respirelabs.com  
-Partnerschaften: partners@respirelabs.com
+<meta http-equiv="refresh" content="0;url=/de/fakten">
+<script>window.location.href='/de/fakten';</script>

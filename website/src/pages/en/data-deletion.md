@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Data deletion"
 description: "How to request deletion of your personal data from RespireLabs."
+alternatePaths:
+  en: "/en/data-deletion"
+  de: "/de/data-deletion"
+  pl: "/pl/usuwanie-danych"
 ---
 # Data deletion
 

@@ -1,0 +1,223 @@
+---
+/**
+ * LegalLayout.astro — E03-008
+ *
+ * Simpler layout for legal / policy pages (privacy, terms, cookies, data-deletion, etc.).
+ * Differences from MarkdownLayout:
+ *   - No StickyBar (conversion prompt)
+ *   - No reading-progress bar
+ *   - No author / date / read-time block
+ *   - No social share buttons
+ *   - No related-posts (BlogPreview)
+ *   - Clean, neutral header area (no decorative gradient orbs)
+ * Retains: Header, Footer, CookieConsent, prose typography, scroll-reveal animations.
+ *
+ * Usage in .md frontmatter:
+ *   layout: "../../layouts/LegalLayout.astro"
+ *   lang: "en"            # or "de" / "pl"
+ *   title: "Privacy policy"
+ *   description: "How RespireLabs handles your data."
+ */
+
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import type { MarkdownLayoutProps } from 'astro';
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+  lang: string;
+}>;
+
+const { frontmatter } = Astro.props;
+
+const lang = frontmatter.lang || 'en';
+const title = frontmatter.title || 'RespireLabs';
+const description = frontmatter.description || '';
+
+const siteUrl = 'https://smartmouthtape.com';
+
+// Alternate-language paths
+const currentPath = Astro.url.pathname.replace(/^\/(en|de|pl)/, '');
+const enPath = `/en${currentPath}`;
+const dePath = `/de${currentPath}`;
+const plPath = `/pl${currentPath}`;
+
+// BreadcrumbList structured data
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = pathSegments.map((segment, index) => {
+  let name;
+  if (index === 0 && (segment === 'en' || segment === 'de' || segment === 'pl')) {
+    name = segment === 'de' ? 'Startseite' : segment === 'pl' ? 'Strona glowna' : 'Home';
+  } else {
+    name = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
+  }
+  return {
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": name,
+    "item": `${siteUrl}/${pathSegments.slice(0, index + 1).join('/')}`
+  };
+});
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems
+};
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth bg-brand-white">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/assets/logo/respire-labs-symbol_blue-symbol.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#FAFAFA" />
+
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
+    <link rel="alternate" hreflang="de" href={`${siteUrl}${dePath}`} />
+    <link rel="alternate" hreflang="pl" href={`${siteUrl}${plPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${enPath}`} />
+    <link rel="canonical" href={`${siteUrl}${Astro.url.pathname}`} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`${siteUrl}${Astro.url.pathname}`} />
+    <meta property="og:image" content={`${siteUrl}/assets/logo/respire-labs-logo_primary-logo.png`} />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : lang === 'pl' ? 'pl_PL' : 'en_US'} />
+    <meta property="og:site_name" content="RespireLabs" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
+    <!-- Global Organization Schema -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RespireLabs",
+      "url": siteUrl,
+      "logo": `${siteUrl}/assets/logo/respire-labs-logo_primary-logo.png`,
+      "sameAs": [
+        "https://youtube.com/respirelabs",
+        "https://linkedin.com/company/respirelabs",
+        "https://x.com/respirelabs"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@respirelabs.com"
+      }]
+    })} />
+    <!-- Global WebSite Schema -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "RespireLabs",
+      "url": siteUrl,
+      "inLanguage": ["en", "de", "pl"]
+    })} />
+    <ClientRouter />
+  </head>
+  <body class="text-brand-dark antialiased selection:bg-brand-blue selection:text-white flex flex-col min-h-screen relative overflow-x-hidden">
+    <Header lang={lang} />
+
+    <main id="main-content" class="flex-grow pt-16 md:pt-20 outline-none" tabindex="-1" transition:animate="fade">
+
+      <!-- Minimal header area — clean, no decorative orbs -->
+      <div class="relative bg-brand-white overflow-hidden">
+        <div class="absolute inset-0 h-[260px] bg-[#F5F5F7] border-b border-black/[0.02] pointer-events-none" aria-hidden="true">
+          <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+        </div>
+
+        <!-- Page title -->
+        <header class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 text-left reveal">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-oddval font-bold text-brand-dark tracking-tight leading-tight">
+            {title}
+          </h1>
+          {description && (
+            <p class="mt-4 text-lg font-montserrat text-brand-grey font-light leading-relaxed max-w-2xl">
+              {description}
+            </p>
+          )}
+        </header>
+
+        <!-- Prose content -->
+        <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-32 reveal delay-100">
+          <article class="
+            prose prose-lg
+            prose-headings:font-oddval prose-headings:text-brand-dark prose-headings:font-bold prose-headings:tracking-tight
+            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:border-b prose-h2:border-brand-light/50 prose-h2:pb-3
+            prose-h3:text-xl prose-h3:text-brand-dark/90 prose-h3:mt-8 prose-h3:mb-3
+            prose-p:font-montserrat prose-p:text-brand-dark/80 prose-p:leading-relaxed prose-p:text-base
+            prose-a:font-montserrat prose-a:font-medium prose-a:text-brand-blue prose-a:no-underline hover:prose-a:underline hover:prose-a:text-blue-800
+            prose-strong:font-montserrat prose-strong:font-semibold prose-strong:text-brand-dark
+            prose-ul:font-montserrat prose-ul:list-disc marker:prose-ul:text-brand-blue/60
+            prose-ol:font-montserrat prose-ol:list-decimal marker:prose-ol:text-brand-dark/50
+            prose-li:my-1.5 prose-li:text-base
+            prose-blockquote:font-montserrat prose-blockquote:italic prose-blockquote:border-l-4 prose-blockquote:border-brand-blue/30 prose-blockquote:bg-brand-blue/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-xl prose-blockquote:text-brand-dark/70
+            prose-table:font-montserrat prose-table:text-sm prose-table:w-full prose-table:border-collapse prose-table:rounded-xl prose-table:overflow-hidden
+            prose-th:bg-[#F5F5F7] prose-th:p-4 prose-th:text-left prose-th:border-b prose-th:border-brand-light
+            prose-td:p-4 prose-td:border-b prose-td:border-brand-light/50
+            prose-hr:border-brand-light prose-hr:my-12
+            max-w-none
+          ">
+            <slot />
+          </article>
+
+          <!-- Bottom decorative divider -->
+          <div class="mt-16 pt-8 border-t border-brand-light flex items-center justify-center">
+            <img src="/assets/icons/respire-labs-icons_sleep.svg" alt="" class="w-6 h-6 opacity-15" aria-hidden="true" />
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <Footer lang={lang} />
+
+    <!-- No StickyBar — legal pages should not include conversion prompts -->
+
+    <CookieConsent lang={lang} />
+
+    <!-- Intersection Observer for scroll animations -->
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      const initAnimations = () => {
+        const revealElements = document.querySelectorAll('.reveal:not(.active), .reveal-left:not(.active), .reveal-right:not(.active)');
+        revealElements.forEach((el) => {
+          observer.observe(el);
+        });
+      };
+
+      // Run on initial load
+      initAnimations();
+
+      // Re-run after View Transition navigation
+      document.addEventListener('astro:after-swap', initAnimations);
+    </script>
+  </body>
+</html>

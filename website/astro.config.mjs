@@ -11,7 +11,7 @@ export default defineConfig({
   site: 'https://smartmouthtape.com',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'de'],
+    locales: ['en', 'de', 'pl'],
     routing: {
       prefixDefaultLocale: true
     }

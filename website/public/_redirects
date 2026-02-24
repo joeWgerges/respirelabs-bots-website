@@ -1,3 +1,4 @@
+# German slug redirects (old English slugs → localized German slugs)
 /de/how-it-works /de/so-funktionierts 301
 /de/science-safety /de/wissenschaft-sicherheit 301
 /de/compare /de/vergleich 301
@@ -7,3 +8,6 @@
 /de/agb /de/terms 301
 /de/datenloeschung /de/data-deletion 301
 /de/privacy /de/datenschutz 301
+/de/pricing /de/plaene 301
+/de/press /de/presse 301
+/de/facts /de/fakten 301

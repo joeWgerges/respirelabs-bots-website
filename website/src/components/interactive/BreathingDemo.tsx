@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 
 interface BreathingDemoProps {
-  lang: 'en' | 'de';
+  lang: 'en' | 'de' | 'pl';
 }
 
 export default function BreathingDemo({ lang }: BreathingDemoProps) {
@@ -37,8 +37,18 @@ export default function BreathingDemo({ lang }: BreathingDemoProps) {
       title: 'Jetzt ausprobieren.',
       subtitle: 'Folge dem Kreis. Atme durch die Nase ein.',
     },
+    pl: {
+      inhale: 'Wdech',
+      hold: 'Wstrzymaj',
+      exhale: 'Wydech',
+      start: 'Start',
+      stop: 'Stop',
+      cycles: 'Cykle',
+      title: 'Sprobuj teraz.',
+      subtitle: 'Podazaj za kolem. Oddychaj przez nos.',
+    },
   };
-  const t = labels[lang];
+  const t = labels[lang] || labels.en;
 
   useEffect(() => {
     if (!isActive) {

@@ -5,6 +5,10 @@ title: "Mundatmung vs. Nasenatmung: was es für Schlaf und Energie bedeuten kann
 description: "Praktischer, nicht-medizinischer Überblick zu Mund- vs. Nasenatmung – warum Gewohnheiten zählen und wie Awareness entsteht."
 date: "2026-02-15"
 readTime: "5 Min. Lesezeit"
+alternatePaths:
+  en: "/en/blog/01-mouth-breathing-vs-nasal-breathing"
+  de: "/de/blog/01-mundatmung-vs-nasenatmung"
+  pl: "/pl/blog/01-oddychanie-ustami-vs-nosem"
 ---
 # Mundatmung vs. Nasenatmung: was es für Schlaf und Energie bedeuten kann
 

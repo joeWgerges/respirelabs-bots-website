@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Press kit"
 description: "RespireLabs press resources, boilerplate, and media contact."
+alternatePaths:
+  en: "/en/press"
+  de: "/de/presse"
+  pl: "/pl/prasa"
 ---
 # Press kit
 

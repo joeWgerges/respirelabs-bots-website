@@ -15,18 +15,24 @@ const content = {
     text: 'Bereit, besser zu atmen?',
     cta: 'Warteliste beitreten',
     dismiss: 'Benachrichtigungsleiste schliessen'
+  },
+  pl: {
+    text: 'Gotowy, by oddychac lepiej?',
+    cta: 'Dolacz do listy',
+    dismiss: 'Zamknij pasek powiadomien'
   }
 };
 
 const c = content[lang as keyof typeof content] || content.en;
-const waitlistHref = lang === 'de' ? '/de/warteliste' : '/en/waitlist';
+const waitlistHrefs: Record<string, string> = { en: '/en/waitlist', de: '/de/warteliste', pl: '/pl/lista-oczekujacych' };
+const waitlistHref = waitlistHrefs[lang] || waitlistHrefs.en;
 ---
 
 <div
   id="sticky-bar"
   class="fixed bottom-0 left-0 right-0 z-40 translate-y-full transition-transform duration-500 ease-out"
   role="complementary"
-  aria-label={lang === 'de' ? 'Warteliste-Hinweis' : 'Waitlist prompt'}
+  aria-label={lang === 'de' ? 'Warteliste-Hinweis' : lang === 'pl' ? 'Informacja o liscie oczekujacych' : 'Waitlist prompt'}
 >
   <div class="bg-brand-blue">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
@@ -64,7 +70,7 @@ const waitlistHref = lang === 'de' ? '/de/warteliste' : '/en/waitlist';
 
     // Don't show on waitlist pages
     const path = window.location.pathname;
-    const isWaitlistPage = path.includes('/waitlist') || path.includes('/warteliste');
+    const isWaitlistPage = path.includes('/waitlist') || path.includes('/warteliste') || path.includes('/lista-oczekujacych');
     const isDismissed = sessionStorage.getItem('sticky-bar-dismissed') === 'true';
 
     if (isWaitlistPage || isDismissed) return;

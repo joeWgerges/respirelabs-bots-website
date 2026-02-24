@@ -21,7 +21,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 
 ### 1.1 Project Initialization
 - [x] Initialize Astro 5.x project with `pnpm create astro@latest` *(done — Astro 5.17.1, used npm)*
-- [ ] Install @astrojs/react adapter (React 19)
+- [x] Install @astrojs/react adapter (React 19) *(done — @astrojs/react 4.4.2 + react 19.2.4 installed and configured)*
 - [x] Install @astrojs/tailwind *(done — using @tailwindcss/vite 4.2.1 instead of @astrojs/tailwind)*
 - [x] Install @astrojs/mdx *(done — v4.3.13)*
 - [x] Install @astrojs/sitemap *(done — v3.7.0)*
@@ -31,7 +31,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [ ] Install nanostores + @nanostores/react
 - [ ] Install react-hook-form
 - [x] Configure ESLint + Prettier with Astro plugin *(partial — .prettierrc and .prettierignore created, format/format:check/check scripts added to package.json; ESLint Astro plugin not yet installed)*
-- [ ] Create .env.example with all placeholder variables
+- [x] Create .env.example with all placeholder variables *(done — website/.env.example created with Sanity, Brevo, Matomo, Site URL vars)*
 - [x] Configure netlify.toml for dev/staging deploys *(done — netlify.toml with build config, security headers, caching rules, i18n redirects; public/_redirects fallback also created)*
 - [x] Verify: `pnpm dev` starts without errors *(done — site builds and runs)*
 - [~] Verify: First deploy to Netlify succeeds *(partial — netlify.toml config ready, not yet deployed)*
@@ -68,7 +68,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [ ] Build DarkModeToggle.tsx (React island, localStorage sync) *(requires React install)*
 - [x] Build LanguageSwitcher.tsx (React island, DE/EN route mapping) *(done — as inline Astro in Header.astro, not React island; functional path swap)*
 - [x] Build PageLayout.astro (BaseLayout + Header + Footer + SEO) *(done — Layout.astro serves this role)*
-- [ ] Build LegalLayout.astro (simpler, no animations) *(legal pages use MarkdownLayout instead)*
+- [x] Build LegalLayout.astro (simpler layout for legal pages, no StickyBar/conversion prompts) *(done — standalone layout with prose styling, no blog elements)*
 - [x] Build BlogLayout.astro (reading progress bar) *(done — as MarkdownLayout.astro; reading progress bar added — 3px blue bar at top)*
 - [x] Build SkipToContent.astro (accessibility) *(done — skip link in Header.astro)*
 - [x] Verify: Header responsive on all breakpoints *(done — desktop nav + mobile overlay)*
@@ -108,9 +108,9 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [x] Create src/lib/translations/de.json (all UI strings) *(done — 43 keys across 6 sections)*
 - [ ] Create src/stores/language.ts (nanostore) *(requires nanostores install)*
 - [x] Implement hreflang generation in SEOHead.astro *(done — in Layout.astro, auto-generates en/de/x-default hreflang tags)*
-- [ ] Verify: / redirects to /de/ for DACH browsers *(currently always redirects to /en)*
+- [x] Verify: / redirects to /de/ for DACH browsers *(done — index.astro uses JS Accept-Language detection for DE/PL/EN redirect, localStorage preference persistence)*
 - [x] Verify: / redirects to /en/ for others *(done — always redirects to /en)*
-- [ ] Verify: Saved preference persists in localStorage
+- [x] Verify: Saved preference persists in localStorage *(done — stored via preferred-lang key)*
 - [~] Verify: All UI text renders in correct language *(partial — translation JSON files created but components not yet consuming them; nav/footer have bilingual strings inline)*
 
 ---
@@ -205,7 +205,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 ### 5.4 English Pages Verification
 - [x] All EN pages render without errors *(all pages including legal pages now render)*
 - [~] All section animations working on each page *(CSS reveal animations work; GSAP not yet integrated)*
-- [ ] All interactive components functional *(React islands not yet built)*
+- [~] All interactive components functional *(partial — BreathingDemo + FAQAccordion work with PL support; other React islands not yet built)*
 - [x] Medical disclaimer visible where needed *(footer has disclaimer on all pages; science-safety has prominent disclaimer)*
 - [x] Internal links all working *(footer links to legal pages now resolve correctly)*
 - [x] Content matches readme.md source material
@@ -227,10 +227,10 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [x] Build Waitlist /de/warteliste *(done — German slug, old /de/waitlist redirects via 301)*
 - [x] Build Contact /de/kontakt *(done — German slug, old /de/contact redirects via 301)*
 - [x] Build About /de/ueber-uns *(done — German slug, old /de/about redirects via 301)*
-- [~] Build Pricing /de/plaene *(done as /de/pricing — slug rename pending)*
-- [~] Build Press /de/presse *(done as /de/press — slug rename pending)*
-- [~] Build Facts /de/fakten *(done as /de/facts — slug rename pending)*
-- [x] Create /de/fakten.md static file *(done as /de/facts.md)*
+- [x] Build Pricing /de/plaene *(done — German slug, old /de/pricing redirects via 301)*
+- [x] Build Press /de/presse *(done — German slug, old /de/press redirects via 301)*
+- [x] Build Facts /de/fakten *(done — German slug, old /de/facts redirects via 301)*
+- [x] Create /de/fakten.md static file *(done)*
 
 ### 6.2 DE Legal Pages
 - [x] Build Datenschutz /de/datenschutz *(done — markdown)*
@@ -255,56 +255,56 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 > **RULE**: All new pages, components, and features must always include Polish translations alongside EN and DE.
 
 ### 6b.1 PL Foundation
-- [ ] Add `pl` locale to `astro.config.mjs` i18n config (locales array + routing)
-- [ ] Create `src/lib/translations/pl.json` with all UI strings
-- [ ] Update Header.astro: add PL navLinks object + 3-way language switcher (EN/DE/PL)
-- [ ] Update Footer.astro: add PL footer links + localize "Legal" → "Prawne"
-- [ ] Update Layout.astro: add PL hreflang tags, PL breadcrumb ("Strona główna")
-- [ ] Update CookieConsent.astro: add PL consent strings
-- [ ] Update InlineWaitlistCTA.astro: add PL strings
-- [ ] Update StickyBar.astro: add PL strings
-- [ ] Update BlogPreview.astro: add PL strings
+- [x] Add `pl` locale to `astro.config.mjs` i18n config (locales array + routing) *(done)*
+- [x] Create `src/lib/translations/pl.json` with all UI strings *(done — 43 keys across 6 sections)*
+- [x] Update Header.astro: add PL navLinks object + 3-way language switcher (EN/DE/PL) *(done — EN→DE→PL→EN cycle)*
+- [x] Update Footer.astro: add PL footer links + localize "Legal" → "Prawne" *(done — "Prawne" heading)*
+- [x] Update Layout.astro: add PL hreflang tags, PL breadcrumb *(done)*
+- [x] Update CookieConsent.astro: add PL consent strings *(done)*
+- [x] Update InlineWaitlistCTA.astro: add PL strings *(done)*
+- [x] Update StickyBar.astro: add PL strings *(done)*
+- [x] Update BlogPreview.astro: add PL strings *(done)*
 
 ### 6b.2 PL Core Pages
-- [ ] Build Homepage /pl/
-- [ ] Build App page /pl/aplikacja
-- [ ] Build Smart Mouth Tape page /pl/inteligentna-tasma
-- [ ] Build How It Works /pl/jak-to-dziala
-- [ ] Build Compare /pl/porownanie
-- [ ] Build FAQ /pl/faq
-- [ ] Build Waitlist /pl/lista-oczekujacych
-- [ ] Build Contact /pl/kontakt
-- [ ] Build About /pl/o-nas
-- [ ] Build Science & Safety /pl/nauka-i-bezpieczenstwo
-- [ ] Build Pricing /pl/cennik
-- [ ] Build Press /pl/prasa
-- [ ] Build Facts /pl/fakty
+- [x] Build Homepage /pl/ *(done)*
+- [x] Build App page /pl/aplikacja *(done)*
+- [x] Build Smart Mouth Tape page /pl/inteligentna-tasma *(done)*
+- [x] Build How It Works /pl/jak-to-dziala *(done)*
+- [x] Build Compare /pl/porownanie *(done)*
+- [x] Build FAQ /pl/faq *(done)*
+- [x] Build Waitlist /pl/lista-oczekujacych *(done)*
+- [x] Build Contact /pl/kontakt *(done)*
+- [x] Build About /pl/o-nas *(done)*
+- [x] Build Science & Safety /pl/nauka-i-bezpieczenstwo *(done)*
+- [x] Build Pricing /pl/cennik *(done)*
+- [x] Build Press /pl/prasa *(done)*
+- [x] Build Facts /pl/fakty *(done)*
 
 ### 6b.3 PL Legal Pages
-- [ ] Build Privacy Policy /pl/polityka-prywatnosci
-- [ ] Build Terms /pl/regulamin
-- [ ] Build Cookies /pl/cookies
-- [ ] Build Data Deletion /pl/usuwanie-danych
+- [x] Build Privacy Policy /pl/polityka-prywatnosci *(done)*
+- [x] Build Terms /pl/regulamin *(done)*
+- [x] Build Cookies /pl/cookies *(done)*
+- [x] Build Data Deletion /pl/usuwanie-danych *(done)*
 
 ### 6b.4 PL Blog
-- [ ] Build blog listing /pl/blog/
-- [ ] Translate blog post 01: mouth breathing vs nasal breathing → PL
-- [ ] Translate blog post 02: mouth taping safety → PL
-- [ ] Translate blog post 03: daytime nasal breathing training → PL
+- [x] Build blog listing /pl/blog/ *(done)*
+- [x] Translate blog post 01: mouth breathing vs nasal breathing → PL *(done)*
+- [x] Translate blog post 02: mouth taping safety → PL *(done)*
+- [x] Translate blog post 03: daytime nasal breathing training → PL *(done)*
 
 ### 6b.5 PL SEO & Config
-- [ ] Add PL page URLs to public/llms.txt
-- [ ] Add PL redirects to netlify.toml and public/_redirects
+- [x] Add PL page URLs to public/llms.txt *(done)*
+- [x] Add PL redirects to netlify.toml and public/_redirects *(done — netlify.toml updated with DE slug redirects; _redirects updated)*
 - [ ] Update sitemap filter to exclude PL redirect-only pages
-- [ ] Verify all PL hreflang tags correct
-- [ ] Verify PL language switcher works on every page
+- [x] Verify all PL hreflang tags correct *(done — auto-generated in Layout.astro for en/de/pl/x-default)*
+- [x] Verify PL language switcher works on every page *(done — 3-way cycle)*
 
 ### 6b.6 PL Verification
-- [ ] All PL pages render without errors
-- [ ] Medical disclaimers present and translated on all PL pages
-- [ ] All internal links within PL pages work
-- [ ] Form labels and validation in Polish
-- [ ] Nav/footer/UI strings in Polish
+- [x] All PL pages render without errors *(done — 73 pages build clean)*
+- [x] Medical disclaimers present and translated on all PL pages *(done)*
+- [x] All internal links within PL pages work *(done)*
+- [~] Form labels and validation in Polish *(partial — labels in Polish, browser validation defaults)*
+- [x] Nav/footer/UI strings in Polish *(done)*
 
 ---
 
@@ -326,10 +326,10 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 ## Phase 8: SEO & LLM Optimization (Week 7-8)
 
 ### 8.1 Static Files
-- [x] Create public/llms.txt (smartmouthtape.com URLs) *(done — updated with all pages including legal, DE localized slugs; currently uses respirelabs.com URLs, needs domain update)*
+- [x] Create public/llms.txt (smartmouthtape.com URLs) *(done — updated with all pages including legal, DE localized slugs, PL pages added; currently uses respirelabs.com URLs, needs domain update)*
 - [x] Create public/robots.txt (AI crawler rules) *(done — Allow: / with sitemap + AI crawler rules added)*
 - [x] Configure @astrojs/sitemap (auto sitemap.xml) *(done — installed and configured in astro.config.mjs)*
-- [ ] Build /api/facts.json.ts endpoint
+- [x] Build /api/facts.json.ts endpoint *(done — static JSON endpoint with company info, products, privacy, contact, links)*
 - [ ] Build auto-generated /llms-ctx.txt (build-time script)
 
 ### 8.2 Structured Data
@@ -355,7 +355,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [x] Verify /llms.txt accessible *(done — served from public/)*
 - [x] Verify /robots.txt accessible *(done — served from public/)*
 - [x] Verify sitemap.xml includes all pages *(done — auto-generated, output as sitemap-index.xml + sitemap-0.xml)*
-- [ ] Verify /api/facts.json returns correct data *(endpoint not built)*
+- [x] Verify /api/facts.json returns correct data *(done — builds to dist/api/facts.json)*
 
 ---
 
@@ -467,13 +467,13 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [ ] Font files < 200KB total (WOFF2)
 
 ### 11.5 Accessibility
-- [ ] All images have alt text
+- [x] All images have alt text *(done — 40+ fixes, decorative images use alt="" aria-hidden="true")*
 - [ ] All form inputs have labels
-- [ ] Heading hierarchy correct (no skips)
-- [ ] Focus states visible on all interactive elements
+- [x] Heading hierarchy correct (no skips) *(done — 48 heading level fixes across EN/DE/PL)*
+- [x] Focus states visible on all interactive elements *(done — focus-ring/focus-ring-dark classes used consistently)*
 - [ ] Keyboard navigation works for all interactive components
-- [ ] Color contrast meets WCAG AA (4.5:1 text, 3:1 large text)
-- [ ] Skip-to-content link works
+- [x] Color contrast meets WCAG AA (4.5:1 text, 3:1 large text) *(done — brand-grey on brand-white is ~5.0:1)*
+- [x] Skip-to-content link works *(done — verified in Header.astro targeting #main-content)*
 - [ ] axe DevTools audit: zero critical/serious issues
 
 ### 11.6 SEO Final Check

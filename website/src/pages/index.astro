@@ -1,3 +1,35 @@
 ---
-return Astro.redirect('/en', 301);
+// Language detection redirect
+// Static build: renders an HTML page with JS-based Accept-Language detection
+// Falls back to /en via meta refresh if JS is disabled
 ---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RespireLabs – Redirecting...</title>
+    <meta http-equiv="refresh" content="1;url=/en" />
+    <script is:inline>
+      (function() {
+        var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+        var stored = null;
+        try { stored = localStorage.getItem('preferred-lang'); } catch(e) {}
+
+        if (stored === 'de' || stored === 'pl' || stored === 'en') {
+          window.location.replace('/' + stored);
+          return;
+        }
+
+        if (lang.startsWith('de') || lang.startsWith('at') || lang === 'gsw') {
+          window.location.replace('/de');
+        } else if (lang.startsWith('pl')) {
+          window.location.replace('/pl');
+        } else {
+          window.location.replace('/en');
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Cookie-Richtlinie"
 description: "Wie die RespireLabs-Website Cookies und ähnliche Technologien verwendet."
+alternatePaths:
+  en: "/en/cookies"
+  de: "/de/cookies"
+  pl: "/pl/cookies"
 ---
 # Cookie-Richtlinie
 

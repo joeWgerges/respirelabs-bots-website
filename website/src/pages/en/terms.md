@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Terms of service"
 description: "Terms and conditions governing the use of the RespireLabs website and services."
+alternatePaths:
+  en: "/en/terms"
+  de: "/de/terms"
+  pl: "/pl/regulamin"
 ---
 # Terms of service
 

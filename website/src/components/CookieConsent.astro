@@ -15,6 +15,13 @@ const content = {
     linkHref: '/de/cookies',
     accept: 'Akzeptieren',
     reject: 'Ablehnen'
+  },
+  pl: {
+    message: 'Uzywamy plikow cookie, aby poprawic Twoje doswiadczenie. Kontynuujac, akceptujesz nasza',
+    linkText: 'polityke cookies',
+    linkHref: '/pl/cookies',
+    accept: 'Akceptuj',
+    reject: 'Odrzuc'
   }
 };
 
@@ -25,7 +32,7 @@ const c = content[lang as keyof typeof content] || content.en;
   id="cookie-consent"
   class="fixed bottom-0 left-0 right-0 z-50 translate-y-full transition-transform duration-500 ease-out"
   role="region"
-  aria-label={lang === 'de' ? 'Cookie-Einwilligung' : 'Cookie consent'}
+  aria-label={lang === 'de' ? 'Cookie-Einwilligung' : lang === 'pl' ? 'Zgoda na cookies' : 'Cookie consent'}
 >
   <div class="bg-white/95 backdrop-blur-xl border-t border-brand-light/60 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">

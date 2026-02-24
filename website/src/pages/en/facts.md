@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "RespireLabs facts"
 description: "Canonical facts about RespireLabs (for users, press, and AI systems)."
+alternatePaths:
+  en: "/en/facts"
+  de: "/de/fakten"
+  pl: "/pl/fakty"
 ---
 # RespireLabs facts
 

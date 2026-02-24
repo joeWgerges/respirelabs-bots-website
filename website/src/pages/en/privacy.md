@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Privacy policy"
 description: "How RespireLabs collects and uses data (website + waitlist)."
+alternatePaths:
+  en: "/en/privacy"
+  de: "/de/datenschutz"
+  pl: "/pl/polityka-prywatnosci"
 ---
 # Privacy policy
 

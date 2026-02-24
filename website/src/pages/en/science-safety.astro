@@ -4,7 +4,12 @@ import Layout from '../../layouts/Layout.astro';
 const frontmatter = {
   title: 'Science & safety',
   description: 'RespireLabs is built with responsible claims, privacy-first design, and clear safety guidance—especially around mouth taping.',
-  lang: 'en'
+  lang: 'en',
+  alternatePaths: {
+    en: '/en/science-safety',
+    de: '/de/wissenschaft-sicherheit',
+    pl: '/pl/nauka-i-bezpieczenstwo'
+  }
 };
 ---
 
@@ -37,17 +42,17 @@ const frontmatter = {
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div class="bg-[#F5F5F7] rounded-3xl p-8 border border-black/[0.03] reveal-left">
               <div class="text-3xl mb-4" aria-hidden="true">🧘</div>
-              <h3 class="font-oddval text-lg text-brand-dark mb-2">Wellness Only</h3>
+              <h2 class="font-oddval text-lg text-brand-dark mb-2">Wellness Only</h2>
               <p class="font-montserrat text-sm font-light text-brand-grey">Not a medical device. Not a diagnostic tool.</p>
           </div>
           <div class="bg-[#F5F5F7] rounded-3xl p-8 border border-black/[0.03] reveal delay-100">
               <div class="text-3xl mb-4" aria-hidden="true">📈</div>
-              <h3 class="font-oddval text-lg text-brand-dark mb-2">Measurable Habit</h3>
+              <h2 class="font-oddval text-lg text-brand-dark mb-2">Measurable Habit</h2>
               <p class="font-montserrat text-sm font-light text-brand-grey">We focus purely on behavior awareness and coaching.</p>
           </div>
           <div class="bg-brand-yellow/10 rounded-3xl p-8 border border-brand-yellow/20 reveal-right">
               <div class="text-3xl mb-4" aria-hidden="true">⚠️</div>
-              <h3 class="font-oddval text-lg text-brand-dark mb-2">Safety First</h3>
+              <h2 class="font-oddval text-lg text-brand-dark mb-2">Safety First</h2>
               <p class="font-montserrat text-sm font-light text-brand-grey">Mouth taping isn't for everyone. Guidance matters.</p>
           </div>
       </div>
@@ -95,7 +100,7 @@ const frontmatter = {
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal">
         <div class="text-center mb-16">
             <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-yellow/20 text-brand-yellow mb-6">
-                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
             </div>
@@ -144,7 +149,7 @@ const frontmatter = {
             </div>
             
             <div class="bg-white/5 border border-white/10 rounded-[2.5rem] p-12 backdrop-blur-md reveal-right delay-100 flex items-center justify-center h-full">
-               <svg class="w-32 h-32 text-brand-yellow/30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+               <svg class="w-32 h-32 text-brand-yellow/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                </svg>
             </div>

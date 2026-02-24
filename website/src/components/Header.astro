@@ -17,45 +17,70 @@ const navLinks = {
     { label: 'Vergleich', href: '/de/vergleich' },
     { label: 'Blog', href: '/de/blog' },
     { label: 'FAQ', href: '/de/faq' },
+  ],
+  pl: [
+    { label: 'Aplikacja', href: '/pl/aplikacja' },
+    { label: 'Smart Tape', href: '/pl/inteligentna-tasma' },
+    { label: 'Jak to dziala', href: '/pl/jak-to-dziala' },
+    { label: 'Porownanie', href: '/pl/porownanie' },
+    { label: 'Blog', href: '/pl/blog' },
+    { label: 'FAQ', href: '/pl/faq' },
   ]
 };
 
 const currentLinks = navLinks[lang as keyof typeof navLinks] || navLinks.en;
-const waitlistLabel = lang === 'de' ? 'Warteliste' : 'Waitlist';
-const waitlistHref = lang === 'de' ? '/de/warteliste' : '/en/waitlist';
-const alternateLang = lang === 'en' ? 'de' : 'en';
+const waitlistLabels: Record<string, string> = { en: 'Waitlist', de: 'Warteliste', pl: 'Lista oczekujacych' };
+const waitlistHrefs: Record<string, string> = { en: '/en/waitlist', de: '/de/warteliste', pl: '/pl/lista-oczekujacych' };
+const waitlistLabel = waitlistLabels[lang as string] || waitlistLabels.en;
+const waitlistHref = waitlistHrefs[lang as string] || waitlistHrefs.en;
 
-// Slug mapping for language switcher (handles different slugs between EN and DE)
-const slugMap: Record<string, string> = {
-  '/en/how-it-works': '/de/so-funktionierts',
-  '/de/so-funktionierts': '/en/how-it-works',
-  '/en/science-safety': '/de/wissenschaft-sicherheit',
-  '/de/wissenschaft-sicherheit': '/en/science-safety',
-  '/en/compare': '/de/vergleich',
-  '/de/vergleich': '/en/compare',
-  '/en/waitlist': '/de/warteliste',
-  '/de/warteliste': '/en/waitlist',
-  '/en/contact': '/de/kontakt',
-  '/de/kontakt': '/en/contact',
-  '/en/about': '/de/ueber-uns',
-  '/de/ueber-uns': '/en/about',
-  '/en/privacy': '/de/datenschutz',
-  '/de/datenschutz': '/en/privacy',
-  '/en/terms': '/de/terms',
-  '/de/terms': '/en/terms',
-  '/en/data-deletion': '/de/data-deletion',
-  '/de/data-deletion': '/en/data-deletion',
-  // Old English-slugged DE paths (redirect targets)
-  '/de/how-it-works': '/en/how-it-works',
-  '/de/science-safety': '/en/science-safety',
-  '/de/compare': '/en/compare',
-  '/de/waitlist': '/en/waitlist',
-  '/de/contact': '/en/contact',
-  '/de/about': '/en/about',
+// 3-way language cycle: en → de → pl → en
+const langCycle: Record<string, string> = { en: 'de', de: 'pl', pl: 'en' };
+const langNames: Record<string, string> = { en: 'English', de: 'Deutsch', pl: 'Polski' };
+const alternateLang = langCycle[lang as string] || 'en';
+
+// Canonical paths for each language (maps page key → localized path)
+const localizedPaths: Record<string, Record<string, string>> = {
+  'app':              { en: '/en/app',              de: '/de/app',                    pl: '/pl/aplikacja' },
+  'smart-mouth-tape': { en: '/en/smart-mouth-tape', de: '/de/smart-mouth-tape',       pl: '/pl/inteligentna-tasma' },
+  'how-it-works':     { en: '/en/how-it-works',     de: '/de/so-funktionierts',       pl: '/pl/jak-to-dziala' },
+  'science-safety':   { en: '/en/science-safety',   de: '/de/wissenschaft-sicherheit', pl: '/pl/nauka-i-bezpieczenstwo' },
+  'compare':          { en: '/en/compare',           de: '/de/vergleich',              pl: '/pl/porownanie' },
+  'waitlist':         { en: '/en/waitlist',          de: '/de/warteliste',             pl: '/pl/lista-oczekujacych' },
+  'contact':          { en: '/en/contact',           de: '/de/kontakt',                pl: '/pl/kontakt' },
+  'about':            { en: '/en/about',             de: '/de/ueber-uns',              pl: '/pl/o-nas' },
+  'privacy':          { en: '/en/privacy',           de: '/de/datenschutz',            pl: '/pl/polityka-prywatnosci' },
+  'terms':            { en: '/en/terms',             de: '/de/terms',                  pl: '/pl/regulamin' },
+  'data-deletion':    { en: '/en/data-deletion',     de: '/de/data-deletion',          pl: '/pl/usuwanie-danych' },
+  'cookies':          { en: '/en/cookies',           de: '/de/cookies',                pl: '/pl/cookies' },
+  'faq':              { en: '/en/faq',               de: '/de/faq',                    pl: '/pl/faq' },
+  'blog':             { en: '/en/blog',              de: '/de/blog',                   pl: '/pl/blog' },
+  'pricing':          { en: '/en/pricing',           de: '/de/pricing',                pl: '/pl/cennik' },
+  'press':            { en: '/en/press',             de: '/de/press',                  pl: '/pl/prasa' },
+  'facts':            { en: '/en/facts',             de: '/de/facts',                  pl: '/pl/fakty' },
+  'index':            { en: '/en',                   de: '/de',                        pl: '/pl' },
 };
 
+// Build reverse lookup: path → { pageKey, lang }
+const pathToPage: Record<string, { key: string; lang: string }> = {};
+for (const [pageKey, langs] of Object.entries(localizedPaths)) {
+  for (const [l, path] of Object.entries(langs)) {
+    pathToPage[path] = { key: pageKey, lang: l };
+  }
+}
+// Also map old DE English-slug paths
+pathToPage['/de/how-it-works'] = { key: 'how-it-works', lang: 'de' };
+pathToPage['/de/science-safety'] = { key: 'science-safety', lang: 'de' };
+pathToPage['/de/compare'] = { key: 'compare', lang: 'de' };
+pathToPage['/de/waitlist'] = { key: 'waitlist', lang: 'de' };
+pathToPage['/de/contact'] = { key: 'contact', lang: 'de' };
+pathToPage['/de/about'] = { key: 'about', lang: 'de' };
+
 const currentPath = Astro.url.pathname.replace(/\/$/, ''); // Remove trailing slash
-const alternateUrl = slugMap[currentPath] || currentPath.replace(`/${lang}`, `/${alternateLang}`);
+const pageInfo = pathToPage[currentPath];
+const alternateUrl = pageInfo
+  ? (localizedPaths[pageInfo.key]?.[alternateLang] || currentPath.replace(`/${lang}`, `/${alternateLang}`))
+  : currentPath.replace(`/${lang}`, `/${alternateLang}`);
 ---
 
 <!-- Skip to content link for accessibility -->
@@ -84,8 +109,8 @@ const alternateUrl = slugMap[currentPath] || currentPath.replace(`/${lang}`, `/$
 
       <!-- CTA & Lang Switcher -->
       <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
-        <a href={alternateUrl} class="text-brand-grey hover:text-brand-dark focus-ring rounded-sm font-montserrat text-xs font-bold uppercase tracking-widest transition-colors" aria-label={`Switch to ${alternateLang === 'en' ? 'English' : 'German'}`}>
-          {alternateLang}
+        <a href={alternateUrl} class="text-brand-grey hover:text-brand-dark focus-ring rounded-sm font-montserrat text-xs font-bold uppercase tracking-widest transition-colors" aria-label={`Switch to ${langNames[alternateLang] || 'English'}`}>
+          {alternateLang.toUpperCase()}
         </a>
         <a href={waitlistHref} class="bg-brand-dark text-white hover:bg-black hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-ring font-montserrat text-sm font-semibold py-2 px-6 rounded-full transition-all duration-300 whitespace-nowrap">
           {waitlistLabel}
@@ -111,7 +136,7 @@ const alternateUrl = slugMap[currentPath] || currentPath.replace(`/${lang}`, `/$
         </svg>
     </button>
 
-    <nav class="flex flex-col space-y-6 text-center w-full px-6">
+    <nav class="flex flex-col space-y-6 text-center w-full px-6" aria-label="Mobile Navigation">
       {currentLinks.map((link) => (
         <a href={link.href} class="text-brand-dark font-oddval text-3xl sm:text-4xl transition-colors hover:text-brand-blue focus-ring py-2 rounded-xl">
           {link.label}
@@ -122,7 +147,7 @@ const alternateUrl = slugMap[currentPath] || currentPath.replace(`/${lang}`, `/$
           {waitlistLabel}
         </a>
         <a href={alternateUrl} class="text-brand-grey font-montserrat font-semibold uppercase tracking-widest text-sm focus-ring py-2 px-4 rounded-md hover:text-brand-dark transition-colors">
-          Switch to {alternateLang === 'en' ? 'English' : 'Deutsch'}
+          {langNames[alternateLang] || 'English'}
         </a>
       </div>
     </nav>

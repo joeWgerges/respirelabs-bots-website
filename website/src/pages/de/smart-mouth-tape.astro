@@ -6,6 +6,11 @@ const frontmatter = {
   title: 'Smart Mouth Tape – Sensorbasiertes Mouth Tape',
   description: 'Wearable-Konzept: Mouth Tape + Sensoren (Mic, Airflow, SpO2, Bewegung) für Atem-Insights in der Nacht – privacy-first gebaut.',
   lang: 'de',
+  alternatePaths: {
+    en: '/en/smart-mouth-tape',
+    de: '/de/smart-mouth-tape',
+    pl: '/pl/inteligentna-tasma'
+  },
   structuredData: {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -89,7 +94,7 @@ const frontmatter = {
             <div class="bg-brand-dark text-white rounded-[2.5rem] p-10 md:p-14 shadow-2xl relative overflow-hidden reveal-right delay-100">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-yellow/10 rounded-bl-full blur-2xl pointer-events-none"></div>
                 <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-8 backdrop-blur-md">
-                    <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                 </div>
@@ -119,33 +124,33 @@ const frontmatter = {
         <!-- Spec 1 -->
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-100">
             <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6">
-                <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Mic" class="w-5 h-5 opacity-70" />
+                <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="" aria-hidden="true" class="w-5 h-5 opacity-70" />
             </div>
-            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">MEMS-Mikrofon</h4>
+            <h3 class="font-oddval text-xl font-bold text-brand-dark mb-2">MEMS-Mikrofon</h4>
             <p class="font-montserrat text-sm text-brand-grey font-light">Hochwertige akustische Sensorik, um Atemgeräusche und Schnarchen lokal zu erkennen.</p>
         </div>
         <!-- Spec 2 -->
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-200">
             <div class="w-10 h-10 rounded-full bg-brand-yellow/10 flex items-center justify-center mb-6">
-                <img src="/assets/icons/respire-labs-icons_nose.svg" alt="Airflow" class="w-5 h-5 opacity-70" />
+                <img src="/assets/icons/respire-labs-icons_nose.svg" alt="" aria-hidden="true" class="w-5 h-5 opacity-70" />
             </div>
-            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">Airflow / Pressure</h4>
+            <h3 class="font-oddval text-xl font-bold text-brand-dark mb-2">Airflow / Pressure</h4>
             <p class="font-montserrat text-sm text-brand-grey font-light">Zwei Sensoren, die zuverlässig den Luftfluss durch Nase vs. Mund unterscheiden.</p>
         </div>
         <!-- Spec 3 -->
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-300">
             <div class="w-10 h-10 rounded-full bg-brand-dark/5 flex items-center justify-center mb-6">
-                <svg class="w-5 h-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                <svg class="w-5 h-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
             </div>
-            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">SpO₂ Sensor</h4>
+            <h3 class="font-oddval text-xl font-bold text-brand-dark mb-2">SpO₂ Sensor</h4>
             <p class="font-montserrat text-sm text-brand-grey font-light">Kontinuierliches Monitoring der Blutsauerstoffsättigung passend zu den Atem-Events.</p>
         </div>
         <!-- Spec 4 -->
         <div class="bg-white rounded-3xl p-8 shadow-sm border border-black/[0.03] reveal delay-400">
             <div class="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center mb-6">
-                <img src="/assets/icons/respire-labs-icons_monitor.svg" alt="Motion" class="w-5 h-5 opacity-70" />
+                <img src="/assets/icons/respire-labs-icons_monitor.svg" alt="" aria-hidden="true" class="w-5 h-5 opacity-70" />
             </div>
-            <h4 class="font-oddval text-xl font-bold text-brand-dark mb-2">Accelerometer</h4>
+            <h3 class="font-oddval text-xl font-bold text-brand-dark mb-2">Accelerometer</h4>
             <p class="font-montserrat text-sm text-brand-grey font-light">Erfasst Schlafposition und Bewegung für vollen Kontext beim nächtlichen Aufwachen.</p>
         </div>
       </div>
@@ -172,7 +177,7 @@ const frontmatter = {
             </p>
             
             <div class="p-6 bg-brand-yellow/10 border border-brand-yellow/30 rounded-2xl mb-8">
-                <h4 class="font-oddval text-lg text-brand-dark mb-2">Sicherheit zuerst.</h4>
+                <h3 class="font-oddval text-lg text-brand-dark mb-2">Sicherheit zuerst.</h4>
                 <p class="font-garamond text-brand-dark/80 text-lg leading-relaxed">
                     Mouth Taping ist nicht für jeden geeignet. Bei Verdacht auf eine Schlafstörung (inkl. Schlafapnoe), sprich vorab mit qualifiziertem medizinischem Fachpersonal. Reine Wellness-Positionierung.
                 </p>
@@ -188,7 +193,7 @@ const frontmatter = {
             <div class="relative w-full h-full border-2 border-dashed border-brand-blue/30 rounded-full animate-[spin_30s_linear_infinite] flex items-center justify-center">
                 <div class="absolute w-3 h-3 bg-brand-blue rounded-full -top-1.5 left-1/2 -translate-x-1/2"></div>
                 <div class="w-3/4 h-3/4 border-2 border-brand-yellow/30 rounded-full animate-[spin_20s_linear_infinite_reverse] flex items-center justify-center">
-                    <img src="/assets/logo/respire-labs-symbol_blue-symbol.png" alt="RespireLabs" class="w-16 h-16 animate-none !rotate-0" style="animation: spin 30s linear infinite reverse;" />
+                    <img src="/assets/logo/respire-labs-symbol_blue-symbol.png" alt="" aria-hidden="true" class="w-16 h-16 animate-none !rotate-0" style="animation: spin 30s linear infinite reverse;" />
                 </div>
             </div>
         </div>

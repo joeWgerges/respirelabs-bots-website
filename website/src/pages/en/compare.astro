@@ -5,7 +5,12 @@ import Button from '../../components/ui/Button.astro';
 const frontmatter = {
   title: 'RespireLabs vs. sleep trackers, audio apps, and mouth tape',
   description: 'A fair comparison: what RespireLabs is built to do—and how it complements existing sleep tools.',
-  lang: 'en'
+  lang: 'en',
+  alternatePaths: {
+    en: '/en/compare',
+    de: '/de/vergleich',
+    pl: '/pl/porownanie'
+  }
 };
 ---
 
@@ -40,7 +45,7 @@ const frontmatter = {
         <div class="reveal-left">
           <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-6">Why we're building this.</h2>
           <p class="text-xl font-montserrat font-light text-brand-grey leading-relaxed mb-8">
-            There’s a gap in the market between passive tracking and blind interventions. We believe you need a complete loop to see real change.
+            There's a gap in the market between passive tracking and blind interventions. We believe you need a complete loop to see real change.
           </p>
         </div>
         
@@ -142,19 +147,19 @@ const frontmatter = {
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="glass-panel-dark rounded-3xl p-8 reveal delay-100">
-                <h4 class="font-oddval text-xl mb-4 text-brand-light">General Recovery</h4>
+                <h3 class="font-oddval text-xl mb-4 text-brand-light">General Recovery</h4>
                 <p class="font-montserrat font-light text-brand-grey mb-6">If you want general readiness and recovery metrics...</p>
                 <div class="font-montserrat font-bold text-white uppercase tracking-wider text-sm">&rarr; Keep your ring/watch</div>
             </div>
             
             <div class="glass-panel-dark rounded-3xl p-8 reveal delay-200">
-                <h4 class="font-oddval text-xl mb-4 text-brand-light">Audio Recordings</h4>
+                <h3 class="font-oddval text-xl mb-4 text-brand-light">Audio Recordings</h4>
                 <p class="font-montserrat font-light text-brand-grey mb-6">If you simply want to listen to your snore recordings...</p>
                 <div class="font-montserrat font-bold text-white uppercase tracking-wider text-sm">&rarr; Audio apps can help</div>
             </div>
 
             <div class="bg-brand-blue rounded-3xl p-8 reveal delay-300 shadow-[0_0_30px_rgba(32,111,247,0.3)]">
-                <h4 class="font-oddval text-xl mb-4 text-white">Habit Change</h4>
+                <h3 class="font-oddval text-xl mb-4 text-white">Habit Change</h4>
                 <p class="font-montserrat font-light text-white/80 mb-6">If you want to actively change your breathing habits...</p>
                 <div class="font-montserrat font-bold text-white uppercase tracking-wider text-sm">&rarr; RespireLabs is built for you</div>
             </div>

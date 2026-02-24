@@ -12,29 +12,31 @@ interface FAQCategory {
 
 interface FAQAccordionProps {
   faqs: FAQCategory[];
-  lang: 'en' | 'de';
+  lang: 'en' | 'de' | 'pl';
 }
 
 export default function FAQAccordion({ faqs, lang }: FAQAccordionProps) {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [openItem, setOpenItem] = useState<string | null>(null);
 
-  const allLabel = lang === 'de' ? 'Alle' : 'All';
-  const categories = [allLabel, ...faqs.map(c => c.category)];
+  const allLabels: Record<string, string> = { en: 'All', de: 'Alle', pl: 'Wszystkie' };
+  const allLabel = allLabels[lang] || allLabels.en;
+  const categories = [allLabel, ...faqs.map((c) => c.category)];
 
-  const filteredFaqs = activeCategory && activeCategory !== allLabel
-    ? faqs.filter(c => c.category === activeCategory)
-    : faqs;
+  const filteredFaqs =
+    activeCategory && activeCategory !== allLabel
+      ? faqs.filter((c) => c.category === activeCategory)
+      : faqs;
 
   const toggleItem = (key: string) => {
-    setOpenItem(prev => prev === key ? null : key);
+    setOpenItem((prev) => (prev === key ? null : key));
   };
 
   return (
     <div>
       {/* Category Filter Pills */}
       <div className="flex flex-wrap gap-3 mb-12 justify-center">
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setActiveCategory(cat === allLabel ? null : cat)}
@@ -81,8 +83,19 @@ export default function FAQAccordion({ faqs, lang }: FAQAccordionProps) {
                     style={{ fontFamily: 'var(--font-montserrat)' }}
                   >
                     <span className="pr-6 font-semibold text-[#0A0A0B]">{item.question}</span>
-                    <span className={`transition-transform duration-300 flex-shrink-0 text-[#206FF7] bg-[#206FF7]/10 rounded-full p-1 ${isOpen ? 'rotate-180' : ''}`}>
-                      <svg fill="none" height="24" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
+                    <span
+                      className={`transition-transform duration-300 flex-shrink-0 text-[#206FF7] bg-[#206FF7]/10 rounded-full p-1 ${isOpen ? 'rotate-180' : ''}`}
+                    >
+                      <svg
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.5"
+                        viewBox="0 0 24 24"
+                        width="24"
+                      >
                         <path d="M6 9l6 6 6-6" />
                       </svg>
                     </span>

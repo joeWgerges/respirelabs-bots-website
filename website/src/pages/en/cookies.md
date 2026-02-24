@@ -3,6 +3,10 @@ layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Cookie policy"
 description: "How the RespireLabs website uses cookies and similar technologies."
+alternatePaths:
+  en: "/en/cookies"
+  de: "/de/cookies"
+  pl: "/pl/cookies"
 ---
 # Cookie policy
 
