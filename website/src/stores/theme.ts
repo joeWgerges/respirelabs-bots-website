@@ -19,19 +19,14 @@ const STORAGE_KEY = 'theme';
  *
  * Priority:
  *   1. Saved preference in localStorage
- *   2. System preference via prefers-color-scheme
- *   3. Default to light mode
+ *   2. Default to light mode (always)
  */
 function getInitialDark(): boolean {
   if (typeof window === 'undefined') {
     return false;
   }
 
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored === 'dark') return true;
-  if (stored === 'light') return false;
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  return localStorage.getItem(STORAGE_KEY) === 'dark';
 }
 
 /** Atom holding the current dark mode state. */
@@ -87,15 +82,4 @@ export function setTheme(dark: boolean): void {
 // <head> script has already run — it ensures the atom and DOM stay in sync.
 if (typeof window !== 'undefined') {
   applyTheme(isDark.get());
-
-  // Listen for system preference changes (only when user has no explicit preference)
-  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  mediaQuery.addEventListener('change', (e) => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    // Only follow system preference if user hasn't made an explicit choice
-    if (!stored) {
-      isDark.set(e.matches);
-      applyTheme(e.matches);
-    }
-  });
 }
