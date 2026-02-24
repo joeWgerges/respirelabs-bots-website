@@ -96,7 +96,7 @@ for (const l of allLangs) {
 </a>
 
 <header class="fixed top-0 w-full z-50 transition-all duration-500 ease-in-out border-b border-transparent" id="main-header" role="banner">
-  <div class="absolute inset-0 bg-white/70 backdrop-blur-xl -z-10 transition-opacity duration-500 opacity-0" id="header-bg"></div>
+  <div class="absolute inset-0 bg-white/70 dark:bg-[#0a0f1e]/80 backdrop-blur-xl -z-10 transition-opacity duration-500 opacity-0" id="header-bg"></div>
   <div class="max-w-[88rem] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16 md:h-20 transition-all duration-500" id="header-container">
 
@@ -106,9 +106,9 @@ for (const l of allLangs) {
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex space-x-1 items-center bg-white/40 backdrop-blur-md px-2 py-1.5 rounded-full border border-black/[0.05] shadow-sm" aria-label="Main Navigation">
+      <nav class="hidden md:flex space-x-1 items-center bg-white/40 dark:bg-white/[0.06] backdrop-blur-md px-2 py-1.5 rounded-full border border-black/[0.05] dark:border-white/10 shadow-sm" aria-label="Main Navigation">
         {currentLinks.map((link) => (
-          <a href={link.href} class="text-brand-dark/70 hover:text-brand-dark hover:bg-black/[0.03] focus-ring px-5 py-2 rounded-full font-montserrat text-sm font-medium transition-all duration-300">
+          <a href={link.href} class="text-brand-dark/70 dark:text-white/70 hover:text-brand-dark dark:hover:text-white hover:bg-black/[0.03] dark:hover:bg-white/[0.08] focus-ring px-5 py-2 rounded-full font-montserrat text-sm font-medium transition-all duration-300">
             {link.label}
           </a>
         ))}
@@ -122,7 +122,7 @@ for (const l of allLangs) {
         <div class="relative" id="lang-dropdown">
           <button
             id="lang-dropdown-btn"
-            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/[0.08] bg-white/60 backdrop-blur-sm hover:bg-black/[0.04] focus-ring font-montserrat text-sm font-medium text-brand-dark transition-all duration-200"
+            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/[0.08] dark:border-white/10 bg-white/60 dark:bg-white/[0.06] backdrop-blur-sm hover:bg-black/[0.04] dark:hover:bg-white/[0.12] focus-ring font-montserrat text-sm font-medium text-brand-dark dark:text-white transition-all duration-200"
             aria-expanded="false"
             aria-haspopup="true"
             aria-label="Select language"
@@ -135,7 +135,7 @@ for (const l of allLangs) {
           </button>
           <div
             id="lang-dropdown-menu"
-            class="absolute right-0 top-full mt-2 w-44 rounded-2xl border border-black/[0.08] bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] py-1.5 opacity-0 invisible translate-y-1 transition-all duration-200 z-50"
+            class="absolute right-0 top-full mt-2 w-44 rounded-2xl border border-black/[0.08] dark:border-white/10 bg-white/90 dark:bg-[#1a2035]/95 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)] py-1.5 opacity-0 invisible translate-y-1 transition-all duration-200 z-50"
             role="menu"
             aria-label="Language options"
           >
@@ -144,8 +144,8 @@ for (const l of allLangs) {
                 href={langUrls[l]}
                 class={`flex items-center gap-3 px-4 py-2.5 font-montserrat text-sm transition-colors duration-150 ${
                   l === currentLang
-                    ? 'text-brand-blue font-semibold bg-brand-blue/[0.05]'
-                    : 'text-brand-dark/80 hover:bg-black/[0.03] hover:text-brand-dark'
+                    ? 'text-brand-blue dark:text-accent-primary font-semibold bg-brand-blue/[0.05] dark:bg-white/[0.05]'
+                    : 'text-brand-dark/80 dark:text-white/70 hover:bg-black/[0.03] dark:hover:bg-white/[0.06] hover:text-brand-dark dark:hover:text-white'
                 }`}
                 role="menuitem"
                 aria-current={l === currentLang ? 'true' : undefined}
@@ -168,7 +168,7 @@ for (const l of allLangs) {
 
       <!-- Mobile menu button -->
       <div class="md:hidden flex items-center">
-        <button id="mobile-menu-btn" class="text-brand-dark hover:text-brand-blue focus-ring p-2 rounded-full hover:bg-black/5 transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <button id="mobile-menu-btn" class="text-brand-dark dark:text-white hover:text-brand-blue focus-ring p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -178,8 +178,8 @@ for (const l of allLangs) {
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="fixed inset-0 bg-brand-white/95 backdrop-blur-xl z-40 hidden flex-col justify-center items-center h-[100dvh] w-screen transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
-    <button id="close-menu-btn" class="absolute top-4 right-4 p-4 text-brand-dark focus-ring rounded-full hover:bg-black/5 transition-colors" aria-label="Close menu">
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-white/95 dark:bg-[#0a0f1e]/95 backdrop-blur-xl z-40 hidden flex-col justify-center items-center h-[100dvh] w-screen transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <button id="close-menu-btn" class="absolute top-4 right-4 p-4 text-brand-dark dark:text-white focus-ring rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors" aria-label="Close menu">
         <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -187,7 +187,7 @@ for (const l of allLangs) {
 
     <nav class="flex flex-col space-y-6 text-center w-full px-6" aria-label="Mobile Navigation">
       {currentLinks.map((link) => (
-        <a href={link.href} class="text-brand-dark font-oddval text-3xl sm:text-4xl transition-colors hover:text-brand-blue focus-ring py-2 rounded-xl">
+        <a href={link.href} class="text-brand-dark dark:text-white font-oddval text-3xl sm:text-4xl transition-colors hover:text-brand-blue focus-ring py-2 rounded-xl">
           {link.label}
         </a>
       ))}
@@ -204,8 +204,8 @@ for (const l of allLangs) {
               href={langUrls[l]}
               class={`flex items-center gap-2 px-5 py-2.5 rounded-full font-montserrat text-sm font-medium transition-all duration-200 focus-ring ${
                 l === currentLang
-                  ? 'bg-brand-dark text-white shadow-sm'
-                  : 'bg-black/[0.04] text-brand-dark/70 hover:bg-black/[0.08] hover:text-brand-dark'
+                  ? 'bg-brand-dark dark:bg-white text-white dark:text-brand-dark shadow-sm'
+                  : 'bg-black/[0.04] dark:bg-white/[0.08] text-brand-dark/70 dark:text-white/70 hover:bg-black/[0.08] dark:hover:bg-white/[0.15] hover:text-brand-dark dark:hover:text-white'
               }`}
               aria-current={l === currentLang ? 'page' : undefined}
             >
@@ -272,7 +272,7 @@ for (const l of allLangs) {
       const currentScroll = window.scrollY;
 
       if (currentScroll > 20) {
-        header?.classList.add('border-black/[0.05]');
+        header?.classList.add('border-black/[0.05]', 'dark:border-white/[0.05]');
         header?.classList.remove('border-transparent');
         headerBg?.classList.remove('opacity-0');
         headerBg?.classList.add('opacity-100');
@@ -283,7 +283,7 @@ for (const l of allLangs) {
           container.classList.add('md:h-16');
         }
       } else {
-        header?.classList.remove('border-black/[0.05]');
+        header?.classList.remove('border-black/[0.05]', 'dark:border-white/[0.05]');
         header?.classList.add('border-transparent');
         headerBg?.classList.add('opacity-0');
         headerBg?.classList.remove('opacity-100');
