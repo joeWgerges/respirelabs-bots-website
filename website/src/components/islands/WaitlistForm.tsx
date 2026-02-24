@@ -169,9 +169,9 @@ function Spinner() {
 
 function CheckmarkIcon() {
   return (
-    <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+    <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/20">
       <svg
-        className="h-8 w-8 text-green-600"
+        className="h-8 w-8 text-green-600 dark:text-green-400"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -189,7 +189,7 @@ function CheckboxIndicator({ checked }: { checked: boolean }) {
   return (
     <span
       className={`flex h-5 w-5 items-center justify-center rounded-md border-2 transition-all duration-200 flex-shrink-0
-        ${checked ? 'border-[#206FF7] bg-[#206FF7]' : 'border-[#E5E7EB] bg-white group-hover:border-[#206FF7]/50'}`}
+        ${checked ? 'border-[#206FF7] bg-[#206FF7]' : 'border-[#E5E7EB] bg-white dark:border-white/10 dark:bg-[#1F2937] group-hover:border-[#206FF7]/50'}`}
       aria-hidden="true"
     >
       <svg
@@ -208,11 +208,11 @@ function CheckboxIndicator({ checked }: { checked: boolean }) {
 function ErrorBanner({ title, body, onDismiss }: { title: string; body: string; onDismiss: () => void }) {
   return (
     <div
-      className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 flex items-start gap-3"
+      className="mb-6 rounded-xl border border-red-200 dark:border-red-800/30 bg-red-50 dark:bg-red-900/20 p-4 flex items-start gap-3"
       role="alert"
     >
       <svg
-        className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0"
+        className="h-5 w-5 text-red-500 dark:text-red-400 mt-0.5 flex-shrink-0"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -226,17 +226,17 @@ function ErrorBanner({ title, body, onDismiss }: { title: string; body: string; 
         />
       </svg>
       <div className="flex-1">
-        <p className="text-sm font-semibold text-red-800" style={{ fontFamily: 'var(--font-montserrat)' }}>
+        <p className="text-sm font-semibold text-red-800 dark:text-red-300" style={{ fontFamily: 'var(--font-montserrat)' }}>
           {title}
         </p>
-        <p className="text-sm text-red-700 mt-0.5" style={{ fontFamily: 'var(--font-montserrat)' }}>
+        <p className="text-sm text-red-700 dark:text-red-400 mt-0.5" style={{ fontFamily: 'var(--font-montserrat)' }}>
           {body}
         </p>
       </div>
       <button
         type="button"
         onClick={onDismiss}
-        className="text-red-400 hover:text-red-600 transition-colors flex-shrink-0"
+        className="text-red-400 hover:text-red-600 dark:text-red-400 dark:hover:text-red-300 transition-colors flex-shrink-0"
         aria-label="Dismiss"
       >
         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -280,7 +280,7 @@ function CompactForm({ lang, source, t }: { lang: string; source: string; t: typ
   if (alreadySubmitted || status === 'success') {
     return (
       <p
-        className="text-sm font-medium text-green-700"
+        className="text-sm font-medium text-green-700 dark:text-green-400"
         style={{ fontFamily: 'var(--font-montserrat)' }}
       >
         {status === 'success' ? t.successTitle : t.alreadySignedUp}
@@ -303,13 +303,13 @@ function CompactForm({ lang, source, t }: { lang: string; source: string; t: typ
             required: t.required,
             pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: t.invalidEmail },
           })}
-          className={`block w-full rounded-xl border bg-white px-4 py-3 text-sm transition-colors
-            ${errors.email ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-[#E5E7EB] focus:border-[#206FF7] focus:ring-[#206FF7]/20'}
+          className={`block w-full rounded-xl border bg-white dark:bg-[#1F2937] px-4 py-3 text-sm transition-colors placeholder:text-[#6B7280] dark:placeholder:text-[#9CA3AF]
+            ${errors.email ? 'border-red-400 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-500/20' : 'border-[#E5E7EB] dark:border-white/10 focus:border-[#206FF7] focus:ring-[#206FF7]/20'}
             focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed`}
-          style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+          style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
         />
         {errors.email && (
-          <p className="mt-1 text-xs text-red-600" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          <p className="mt-1 text-xs text-red-600 dark:text-red-400" style={{ fontFamily: 'var(--font-montserrat)' }}>
             {errors.email.message}
           </p>
         )}
@@ -375,13 +375,13 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
         <CheckmarkIcon />
         <h3
           className="text-2xl font-bold mb-3"
-          style={{ fontFamily: 'var(--font-oddval)', color: '#0A0A0B' }}
+          style={{ fontFamily: 'var(--font-oddval)', color: 'var(--text-primary)' }}
         >
           {t.alreadySignedUp}
         </h3>
         <p
           className="text-base max-w-sm mx-auto"
-          style={{ fontFamily: 'var(--font-montserrat)', color: '#6B7280' }}
+          style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-secondary)' }}
         >
           {t.alreadySignedUpBody}
         </p>
@@ -396,13 +396,13 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
         <CheckmarkIcon />
         <h3
           className="text-2xl font-bold mb-3"
-          style={{ fontFamily: 'var(--font-oddval)', color: '#0A0A0B' }}
+          style={{ fontFamily: 'var(--font-oddval)', color: 'var(--text-primary)' }}
         >
           {t.successTitle}
         </h3>
         <p
           className="text-base max-w-sm mx-auto"
-          style={{ fontFamily: 'var(--font-montserrat)', color: '#6B7280' }}
+          style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-secondary)' }}
         >
           {t.successBody}
         </p>
@@ -458,7 +458,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
             <label
               htmlFor="wf-firstName"
               className="block text-sm font-medium mb-2"
-              style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+              style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
             >
               {t.firstName} <span className="text-red-500">*</span>
             </label>
@@ -471,13 +471,13 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
                 required: t.required,
                 minLength: { value: 2, message: t.minName },
               })}
-              className={`block w-full rounded-xl border bg-white px-4 py-3 text-sm transition-colors
-                ${errors.firstName ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-[#E5E7EB] focus:border-[#206FF7] focus:ring-[#206FF7]/20'}
+              className={`block w-full rounded-xl border bg-white dark:bg-[#1F2937] px-4 py-3 text-sm transition-colors placeholder:text-[#6B7280] dark:placeholder:text-[#9CA3AF]
+                ${errors.firstName ? 'border-red-400 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-500/20' : 'border-[#E5E7EB] dark:border-white/10 focus:border-[#206FF7] focus:ring-[#206FF7]/20'}
                 focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed`}
-              style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+              style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
             />
             {errors.firstName && (
-              <p className="mt-1.5 text-xs text-red-600" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              <p className="mt-1.5 text-xs text-red-600 dark:text-red-400" style={{ fontFamily: 'var(--font-montserrat)' }}>
                 {errors.firstName.message}
               </p>
             )}
@@ -488,7 +488,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
             <label
               htmlFor="wf-email"
               className="block text-sm font-medium mb-2"
-              style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+              style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
             >
               {t.email} <span className="text-red-500">*</span>
             </label>
@@ -504,13 +504,13 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
                   message: t.invalidEmail,
                 },
               })}
-              className={`block w-full rounded-xl border bg-white px-4 py-3 text-sm transition-colors
-                ${errors.email ? 'border-red-400 focus:border-red-500 focus:ring-red-200' : 'border-[#E5E7EB] focus:border-[#206FF7] focus:ring-[#206FF7]/20'}
+              className={`block w-full rounded-xl border bg-white dark:bg-[#1F2937] px-4 py-3 text-sm transition-colors placeholder:text-[#6B7280] dark:placeholder:text-[#9CA3AF]
+                ${errors.email ? 'border-red-400 focus:border-red-500 focus:ring-red-200 dark:border-red-500 dark:focus:ring-red-500/20' : 'border-[#E5E7EB] dark:border-white/10 focus:border-[#206FF7] focus:ring-[#206FF7]/20'}
                 focus:outline-none focus:ring-2 disabled:opacity-60 disabled:cursor-not-allowed`}
-              style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+              style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
             />
             {errors.email && (
-              <p className="mt-1.5 text-xs text-red-600" style={{ fontFamily: 'var(--font-montserrat)' }}>
+              <p className="mt-1.5 text-xs text-red-600 dark:text-red-400" style={{ fontFamily: 'var(--font-montserrat)' }}>
                 {errors.email.message}
               </p>
             )}
@@ -521,7 +521,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
         <fieldset>
           <legend
             className="block text-sm font-medium mb-3"
-            style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+            style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
           >
             {t.interest} <span className="text-red-500">*</span>
           </legend>
@@ -546,7 +546,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
                   <CheckboxIndicator checked={isChecked} />
                   <span
                     className="text-sm"
-                    style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+                    style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
                   >
                     {labelMap[value]}
                   </span>
@@ -555,7 +555,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
             })}
           </div>
           {errors.interest && (
-            <p className="mt-1.5 text-xs text-red-600" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <p className="mt-1.5 text-xs text-red-600 dark:text-red-400" style={{ fontFamily: 'var(--font-montserrat)' }}>
               {errors.interest.message}
             </p>
           )}
@@ -566,7 +566,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
           <label
             htmlFor="wf-hearAbout"
             className="block text-sm font-medium mb-2"
-            style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+            style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
           >
             {t.hearAbout}
           </label>
@@ -575,10 +575,10 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
               id="wf-hearAbout"
               disabled={isSubmitting}
               {...register('hearAbout')}
-              className="block w-full rounded-xl border border-[#E5E7EB] bg-white px-4 py-3 pr-10 text-sm transition-colors
+              className="block w-full rounded-xl border border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#1F2937] px-4 py-3 pr-10 text-sm transition-colors
                 focus:border-[#206FF7] focus:ring-2 focus:ring-[#206FF7]/20 focus:outline-none
                 disabled:opacity-60 disabled:cursor-not-allowed appearance-none"
-              style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+              style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
             >
               <option value="">{t.hearAboutPlaceholder}</option>
               {t.hearAboutOptions.map((option) => (
@@ -588,7 +588,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
               ))}
             </select>
             <svg
-              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[#6B7280]"
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[#6B7280] dark:text-[#9CA3AF]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -601,7 +601,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
         </div>
 
         {/* Privacy consent */}
-        <div className="pt-4 border-t border-[#E5E7EB]">
+        <div className="pt-4 border-t border-[#E5E7EB] dark:border-white/10">
           <label
             className={`flex items-start gap-3 cursor-pointer select-none group ${isSubmitting ? 'opacity-60 cursor-not-allowed' : ''}`}
           >
@@ -618,12 +618,12 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
             </span>
             <span
               className="text-sm leading-snug"
-              style={{ fontFamily: 'var(--font-montserrat)', color: '#0A0A0B' }}
+              style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
             >
               {t.privacy}{' '}
               <a
                 href={privacyPath}
-                className="text-[#206FF7] hover:underline font-medium"
+                className="text-[#206FF7] dark:text-[#60a5fa] hover:underline font-medium"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={(e) => e.stopPropagation()}
@@ -634,7 +634,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
             </span>
           </label>
           {errors.privacyConsent && (
-            <p className="mt-1.5 text-xs text-red-600 ml-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <p className="mt-1.5 text-xs text-red-600 dark:text-red-400 ml-8" style={{ fontFamily: 'var(--font-montserrat)' }}>
               {errors.privacyConsent.message}
             </p>
           )}

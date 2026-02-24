@@ -235,10 +235,10 @@ export default function BreathingDemo({
     <div
       className="relative mx-auto w-full max-w-lg rounded-[2rem] px-6 py-12 sm:px-10 sm:py-16"
       style={{
-        background: 'rgba(255, 255, 255, 0.70)',
+        background: 'var(--surface-glass)',
         backdropFilter: 'blur(24px)',
         WebkitBackdropFilter: 'blur(24px)',
-        border: '1px solid rgba(255, 255, 255, 0.10)',
+        border: '1px solid var(--border-primary)',
         boxShadow: '0 8px 30px rgba(0, 0, 0, 0.04)',
       }}
     >
@@ -246,13 +246,13 @@ export default function BreathingDemo({
       <div className="text-center mb-10">
         <h3
           className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 tracking-tight"
-          style={{ fontFamily: 'var(--font-oddval)', color: '#0A0A0B' }}
+          style={{ fontFamily: 'var(--font-oddval)', color: 'var(--text-primary)' }}
         >
           {t.title}
         </h3>
         <p
           className="text-base sm:text-lg font-light"
-          style={{ fontFamily: 'var(--font-montserrat)', color: '#6B7280' }}
+          style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-secondary)' }}
         >
           {t.subtitle}
         </p>
@@ -361,7 +361,7 @@ export default function BreathingDemo({
               className="block text-xl sm:text-2xl font-bold tracking-tight"
               style={{
                 fontFamily: 'var(--font-oddval)',
-                color: isRunning ? colors.primary : '#0A0A0B',
+                color: isRunning ? colors.primary : 'var(--text-primary)',
                 transition: `color ${transitionMs}ms ease, opacity 200ms ease`,
               }}
             >
@@ -375,7 +375,7 @@ export default function BreathingDemo({
               className="text-sm sm:text-base font-semibold uppercase tracking-widest"
               style={{
                 fontFamily: 'var(--font-montserrat)',
-                color: '#6B7280',
+                color: 'var(--text-secondary)',
                 transition: `opacity 200ms ease`,
               }}
               aria-label={`${countdown} seconds remaining`}
@@ -390,7 +390,7 @@ export default function BreathingDemo({
               className="text-xs sm:text-sm font-medium uppercase tracking-widest mt-1"
               style={{
                 fontFamily: 'var(--font-montserrat)',
-                color: '#9CA3AF',
+                color: 'var(--text-tertiary)',
               }}
             >
               {t.pattern}
@@ -414,9 +414,8 @@ export default function BreathingDemo({
           className="relative px-8 py-3 rounded-full text-sm font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
           style={{
             fontFamily: 'var(--font-montserrat)',
-            backgroundColor: isRunning ? '#0A0A0B' : '#206FF7',
-            color: '#FFFFFF',
-            focusVisibleRingColor: isRunning ? '#0A0A0B' : '#206FF7',
+            backgroundColor: isRunning ? 'var(--text-primary)' : '#206FF7',
+            color: isRunning ? 'var(--bg-primary)' : '#FFFFFF',
           }}
         >
           {isRunning ? t.stop : t.start}
@@ -427,7 +426,7 @@ export default function BreathingDemo({
           className="flex items-center gap-1.5 text-sm font-medium tabular-nums"
           style={{
             fontFamily: 'var(--font-montserrat)',
-            color: '#6B7280',
+            color: 'var(--text-secondary)',
             opacity: cycles > 0 ? 1 : 0,
             transition: 'opacity 300ms ease',
           }}

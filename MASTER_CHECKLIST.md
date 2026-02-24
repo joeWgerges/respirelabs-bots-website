@@ -2,7 +2,7 @@
 
 > **Project**: smartmouthtape.com
 > **Created**: 2026-02-22
-> **Last Updated**: 2026-02-24
+> **Last Updated**: 2026-02-24 (DarkModeToggle, GSAP foundation, FAQAccordion, BreathingDemo, WaitlistForm, HowItWorksTimeline updates)
 > **Tracking**: [MASTER_TRACKING.md](./MASTER_TRACKING.md)
 > **Spec**: [WEBSITE_SPEC.md](./WEBSITE_SPEC.md)
 
@@ -106,7 +106,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [x] Build root index.astro (language detection redirect) *(done — redirects to /en; no Accept-Language detection yet)*
 - [x] Create src/lib/translations/en.json (all UI strings) *(done — 43 keys across 6 sections)*
 - [x] Create src/lib/translations/de.json (all UI strings) *(done — 43 keys across 6 sections)*
-- [ ] Create src/stores/language.ts (nanostore) *(requires nanostores install)*
+- [ ] Create src/stores/language.ts (nanostore) *(nanostores now installed; theme store created, language store still pending)*
 - [x] Implement hreflang generation in SEOHead.astro *(done — in Layout.astro, auto-generates en/de/x-default hreflang tags)*
 - [x] Verify: / redirects to /de/ for DACH browsers *(done — index.astro uses JS Accept-Language detection for DE/PL/EN redirect, localStorage preference persistence)*
 - [x] Verify: / redirects to /en/ for others *(done — always redirects to /en)*
@@ -141,9 +141,9 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 ## Phase 4: Interactive Components (Week 3-4)
 
 ### 4.1 Core Interactive Components
-- [ ] Build FAQAccordion.tsx (GSAP height tween, category filter tabs)
-- [ ] Build HowItWorksTimeline.tsx (SVG line draw, alternating cards)
-- [ ] Build BreathingDemo.tsx (circle expand/contract, 4/2/6 timing)
+- [x] Build FAQAccordion.tsx (GSAP height tween, category filter tabs) *(done — enhanced with search (300ms debounce), category filter pills, single-expand accordion, HTML answer support, backward compatible, full a11y, trilingual EN/DE/PL, integrated on FAQ pages)*
+- [x] Build HowItWorksTimeline.tsx (SVG line draw, alternating cards) *(done — scroll-driven line draw, IntersectionObserver step reveals, trilingual EN/DE/PL, dark mode, prefers-reduced-motion, 4.09 KB gzipped, integrated on how-it-works pages)*
+- [x] Build BreathingDemo.tsx (circle expand/contract, 4/2/6 timing) *(done — enhanced with rAF timing, brand-yellow exhale, glass panel, SVG gradient circle, responsive 200-300px, prefers-reduced-motion, configurable timing, full a11y, integrated on how-it-works pages)*
 - [ ] Build NoseBreathingTimer.tsx (guided steps, cycle counter)
 - [ ] Build ComparisonSlider.tsx (table filter/highlight)
 - [ ] Build SensorDiagramExplorer.tsx (SVG diagram, hover info panel)
@@ -152,7 +152,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [ ] Verify: Touch interactions work on mobile
 
 ### 4.2 Conversion Components
-- [ ] Build WaitlistForm.tsx (all fields, RHF validation, bilingual)
+- [x] Build WaitlistForm.tsx (all fields, RHF validation, bilingual) *(done — src/components/islands/WaitlistForm.tsx with react-hook-form, full/compact modes, 4 form states, localStorage duplicate prevention, simulated submission, trilingual EN/DE/PL, integrated on waitlist pages as client:visible React island)*
 - [ ] Create src/stores/waitlist.ts (session tracking state)
 - [ ] Build InlineWaitlistCTA.astro (section block with mini form)
 - [ ] Build StickyBar.tsx (bottom bar, appears after 30% scroll)
@@ -182,13 +182,13 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [x] Build Homepage /en/ — Bottom CTA (inline waitlist form) *(done — dark section CTA with button, no inline form)*
 - [~] Build App page /en/app (8 sections + NoseBreathingTimer) *(done — hero, core loop, features bento, privacy callout, CTA; missing NoseBreathingTimer React island)*
 - [~] Build Smart Mouth Tape page /en/smart-mouth-tape (8 sections + SensorDiagram) *(done — dark hero, description, sensors, specs, CTA; missing SensorDiagramExplorer React island)*
-- [~] Build How It Works page /en/how-it-works (5 sections + BreathingDemo) *(done — hero, timeline steps, privacy, CTA; missing BreathingDemo React island)*
+- [x] Build How It Works page /en/how-it-works (5 sections + BreathingDemo) *(done — hero, timeline steps, privacy, CTA; BreathingDemo React island integrated)*
 
 ### 5.2 Secondary Pages
 - [x] Build Science & Safety page /en/science-safety (medical disclaimer prominent) *(done — dark hero, responsible claims, safety, privacy)*
 - [~] Build Compare page /en/compare (interactive ComparisonSlider) *(done — static comparison table; missing interactive ComparisonSlider React island)*
-- [~] Build FAQ page /en/faq (category filter + FAQAccordion) *(done — static Q&A with categories; missing FAQAccordion React island)*
-- [x] Build Waitlist page /en/waitlist (full WaitlistForm) *(done — full form with all fields, client-side only, no backend)*
+- [x] Build FAQ page /en/faq (category filter + FAQAccordion) *(done — FAQAccordion React island integrated with search, category filter, a11y)*
+- [x] Build Waitlist page /en/waitlist (full WaitlistForm) *(done — WaitlistForm.tsx React island with react-hook-form validation, trilingual, localStorage duplicate prevention)*
 - [x] Build Contact page /en/contact (contact form) *(done — contact form + direct contact cards)*
 - [x] Build About page /en/about (mission, principles, team placeholders) *(done)*
 - [x] Build Pricing page /en/pricing (pre-launch simple page) *(done — markdown)*
@@ -204,8 +204,8 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 
 ### 5.4 English Pages Verification
 - [x] All EN pages render without errors *(all pages including legal pages now render)*
-- [~] All section animations working on each page *(CSS reveal animations work; GSAP not yet integrated)*
-- [~] All interactive components functional *(partial — BreathingDemo + FAQAccordion work with PL support; other React islands not yet built)*
+- [~] All section animations working on each page *(CSS reveal animations work; GSAP foundation installed but not yet applied to all page sections)*
+- [~] All interactive components functional *(BreathingDemo, FAQAccordion, WaitlistForm, and HowItWorksTimeline are functional React islands; ComparisonSlider, SensorDiagramExplorer, NoseBreathingTimer not yet built)*
 - [x] Medical disclaimer visible where needed *(footer has disclaimer on all pages; science-safety has prominent disclaimer)*
 - [x] Internal links all working *(footer links to legal pages now resolve correctly)*
 - [x] Content matches readme.md source material

@@ -4,7 +4,7 @@
 > **Created**: 2026-02-22
 > **Last Audited**: 2026-02-24
 > **Spec Reference**: [WEBSITE_SPEC.md](./WEBSITE_SPEC.md)
-> **Total Tickets**: 174 (127 DONE, 2 IN PROGRESS, 45 TODO)
+> **Total Tickets**: 174 (128 DONE, 2 IN PROGRESS, 44 TODO)
 > **Epics**: 15
 
 ---
@@ -34,13 +34,13 @@
 
 | # | Epic | Tickets | Done | Remaining | Status |
 |---|---|---|---|---|---|
-| E01 | Project Setup & Tooling | 12 | 9 | 3 | IN PROGRESS |
+| E01 | Project Setup & Tooling | 12 | 11 | 1 | IN PROGRESS |
 | E02 | Design System & Tokens | 11 | 11 | 0 | DONE |
 | E03 | Global Components (Header/Footer/Layout) | 10 | 10 | 0 | DONE |
 | E04 | Sanity CMS Setup & Schemas | 13 | 11 | 2 | IN PROGRESS |
 | E05 | i18n & Language System | 7 | 7 | 0 | DONE |
 | E06 | Animation & Motion System (GSAP→CSS) | 12 | 6 | 6 | IN PROGRESS |
-| E07 | Interactive Components (React Islands) | 11 | 2 | 9 | IN PROGRESS |
+| E07 | Interactive Components (React Islands) | 11 | 3 | 8 | IN PROGRESS |
 | E08 | Conversion Funnel (Waitlist) | 10 | 1 | 9 | IN PROGRESS |
 | E09 | Core Pages (EN) | 16 | 16 | 0 | DONE |
 | E10 | German Localization (DE Pages) | 8 | 8 | 0 | DONE |
@@ -65,10 +65,10 @@
 | E01-002 | Install and configure @astrojs/react (React 19 islands) | P0 | DONE | E01-001 | S |
 | E01-003 | Install and configure Tailwind CSS 4.x (@tailwindcss/vite) | P0 | DONE | E01-001 | S |
 | E01-004 | Install and configure TypeScript strict mode + tsconfig | P0 | DONE | E01-001 | S |
-| E01-005 | Install GSAP 3.x + ScrollTrigger plugin | P0 | TODO | E01-001 | S |
+| E01-005 | Install GSAP 3.x + ScrollTrigger plugin | P0 | DONE | E01-001 | S |
 | E01-006 | Install Sanity v3 + @sanity/client + document-internationalization | P0 | DONE | E01-001 | S |
-| E01-007 | Install nanostores + @nanostores/react for shared state | P0 | TODO | E01-001 | S |
-| E01-008 | Install React Hook Form for form islands | P1 | TODO | E01-002 | S |
+| E01-007 | Install nanostores + @nanostores/react for shared state | P0 | DONE | E01-001 | S |
+| E01-008 | Install React Hook Form for form islands | P1 | DONE | E01-002 | S |
 | E01-009 | Configure ESLint + Prettier with Astro plugin | P1 | DONE | E01-001 | S |
 | E01-010 | Create .env.example with all environment variable placeholders | P1 | DONE | E01-001 | S |
 | E01-011 | Configure netlify.toml for dev deployment | P1 | DONE | E01-001 | S |
@@ -89,7 +89,7 @@
 - ✅ TypeScript strict mode active, no type errors
 - ✅ Tailwind utility classes render in browser
 - ✅ React island renders in an Astro page (@astrojs/react 4.4.2 + React 19.2.4 installed and configured)
-- ⬜ GSAP + ScrollTrigger imports resolve (GSAP not yet installed)
+- ✅ GSAP + ScrollTrigger imports resolve (GSAP installed and configured in src/lib/animations.ts)
 - ✅ Sanity client connects to a project (sanity, @sanity/client, @sanity/vision, @sanity/document-internationalization installed)
 - ✅ Netlify config ready (netlify.toml created with build/headers/redirects; not yet deployed)
 
@@ -371,7 +371,7 @@
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
 | E07-001 | Build FAQAccordion.tsx (animated expand/collapse, GSAP height tween, category filter) | P1 | DONE | E06-001 | L |
-| E07-002 | Build HowItWorksTimeline.tsx (4-step vertical timeline, SVG line draw, card reveals) | P1 | TODO | E06-001 | L |
+| E07-002 | Build HowItWorksTimeline.tsx (4-step vertical timeline, SVG line draw, card reveals) | P1 | DONE | E06-001 | L |
 | E07-003 | Build BreathingDemo.tsx (circular expand/contract, 4s inhale / 2s hold / 6s exhale) | P1 | DONE | E06-001 | L |
 | E07-004 | Build NoseBreathingTimer.tsx (guided nasal exercise, nose icon animation, cycle counter) | P1 | TODO | E07-003 | L |
 | E07-005 | Build ComparisonSlider.tsx (interactive table, category filter/highlight, RespireLabs column accent) | P2 | TODO | E06-001 | L |
@@ -385,6 +385,7 @@
 ### Notes (E07)
 - **FAQAccordion.tsx** enhanced with: search functionality (300ms debounce), category filter pill tabs with smooth transitions, single-expand accordion with height animation, HTML answer support (for Sanity rich text), backward compatible with existing grouped props + new flat items format, full accessibility (ARIA roles, keyboard nav), trilingual (EN/DE/PL), empty state with "no results" message. Already integrated on FAQ pages (en/de/pl).
 - **BreathingDemo.tsx** enhanced with: requestAnimationFrame timing (replaces setInterval), brand-yellow exhale color, glass panel container, SVG gradient circle, responsive sizing (200-300px), prefers-reduced-motion support, configurable timing props (inhale/hold/exhale), full accessibility (aria-live, aria-pressed, keyboard). Already integrated on how-it-works pages (en/de/pl).
+- **HowItWorksTimeline.tsx** built with: scroll-driven SVG line draw (blue-to-yellow gradient progress), IntersectionObserver step reveals with staggered slide-in animation, 4 steps with numbered nodes + pill labels + headings + descriptions, step-specific extras (privacy note, context tags, CTA button), step 4 uses brand-yellow accent with glow, prefers-reduced-motion support, trilingual (EN/DE/PL), configurable tape page href, dark-mode compatible, 4.09 KB gzipped. Replaces static markup on how-it-works pages (en/de/pl).
 
 ### Acceptance Criteria (E07)
 - ✅ FAQAccordion and BreathingDemo render inside Astro pages via `client:visible` directive
@@ -495,7 +496,8 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 - Contact form also exists on /en/contact and /de/kontakt (markup only, no backend)
 
 ### Acceptance Criteria (E08)
-- Full form validates: email required, interest required, phoneOS required, consent required
+- ✅ Full form validates: email required, name optional, interest checkboxes, privacy consent required (react-hook-form)
+- ✅ WaitlistForm.tsx supports full/compact modes, 4 form states (default, submitting, success, error), localStorage duplicate prevention, trilingual (EN/DE/PL)
 - Inline CTA renders at bottom of content sections
 - Sticky bar appears after scrolling 30%, dismissible, stays dismissed per session
 - Exit-intent fires once per session when cursor moves to browser chrome (desktop)
