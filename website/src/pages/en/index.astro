@@ -4,7 +4,7 @@ import Button from '../../components/ui/Button.astro';
 
 const frontmatter = {
   title: 'RespireLabs – The breathing coach for better sleep & energy',
-  description: 'Reduce mouth breathing with privacy-first, on-device detection and guided coaching. Start with just your phone. Join the waitlist for the RespireLabs app and Smart Mouth Tape.',
+  description: 'RespireLabs helps you breathe better with smart mouth tape and an AI-powered app. Track sleep breathing, build nasal breathing habits.',
   lang: 'en'
 };
 ---
@@ -44,7 +44,7 @@ const frontmatter = {
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50 reveal delay-500">
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce opacity-50 reveal delay-500" aria-hidden="true">
         <svg class="w-6 h-6 text-brand-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
@@ -148,7 +148,7 @@ const frontmatter = {
         <div class="md:col-span-4 glass-panel-dark rounded-[2rem] p-10 shadow-xl text-white flex flex-col justify-between relative overflow-hidden reveal-right delay-100">
           <div class="absolute inset-0 bg-grid-pattern-dark opacity-20 pointer-events-none"></div>
           <div>
-             <svg class="w-10 h-10 text-brand-yellow/90 mb-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+             <svg class="w-10 h-10 text-brand-yellow/90 mb-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
              </svg>
             <h3 class="text-2xl font-oddval font-bold mb-3 text-brand-white">Privacy by design.</h3>
@@ -247,11 +247,65 @@ const frontmatter = {
     </div>
   </section>
 
+  <!-- FAQ PREVIEW -->
+  <section class="py-24 bg-[#F7F7F9] border-t border-brand-light/50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Common questions.</h2>
+        <p class="text-lg font-montserrat text-brand-grey font-light">Quick answers to the most asked questions.</p>
+      </div>
+
+      <div class="space-y-4 reveal delay-100">
+        <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
+          <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
+            <span class="pr-6">What is RespireLabs?</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
+            <div class="pt-4">RespireLabs is a breathing coach (mobile app + optional wearable concept) designed to reduce mouth breathing and build healthier nasal breathing habits.</div>
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
+          <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
+            <span class="pr-6">Is RespireLabs a medical device?</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
+            <div class="pt-4">No. RespireLabs is a wellness product and does not diagnose or treat medical conditions. If you suspect a sleep disorder, please consult a clinician.</div>
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
+          <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
+            <span class="pr-6">Does RespireLabs record me all night?</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
+            <div class="pt-4">RespireLabs is designed so you control when a session is started and what is stored. Sensitive audio is treated as private and processed locally on your device by default.</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="text-center mt-10 reveal delay-200">
+        <a href="/en/faq" class="inline-flex items-center font-montserrat font-semibold text-brand-blue hover:text-blue-700 transition-colors">
+          See all FAQs <span class="ml-2">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="bg-brand-dark py-32 sm:py-48 text-center relative overflow-hidden">
     <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-brand-blue/20 blur-[150px] pointer-events-none mix-blend-screen"></div>
-    
+
     <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
       <h2 class="text-5xl md:text-7xl lg:text-8xl font-oddval font-bold text-white tracking-tight mb-8">Ready to start?</h2>
       <p class="text-xl md:text-2xl font-montserrat font-light text-brand-light/70 mb-12 max-w-xl mx-auto leading-relaxed">
@@ -261,4 +315,17 @@ const frontmatter = {
       <p class="mt-8 text-sm font-garamond text-brand-light/40 italic">Not a medical device. Does not diagnose or treat medical conditions.</p>
     </div>
   </section>
+
+  <style>
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary ~ * {
+      animation: sweep .3s ease-in-out;
+    }
+    @keyframes sweep {
+      0%    {opacity: 0; transform: translateY(-10px)}
+      100%  {opacity: 1; transform: translateY(0)}
+    }
+  </style>
 </Layout>

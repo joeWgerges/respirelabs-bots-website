@@ -24,7 +24,7 @@ const frontmatter = {
           </p>
 
           <div class="bg-brand-light/30 border border-brand-light rounded-2xl p-8 mb-8">
-            <h3 class="text-2xl font-oddval text-brand-dark mb-6">What you'll get</h3>
+            <h2 class="text-2xl font-oddval text-brand-dark mb-6">What you'll get</h2>
             <ul class="space-y-4 font-garamond text-lg text-brand-dark">
               <li class="flex items-start">
                 <svg class="h-6 w-6 text-brand-yellow mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -75,8 +75,8 @@ const frontmatter = {
             </div>
 
             <!-- Interest -->
-            <div>
-              <label class="block text-sm font-montserrat font-semibold text-brand-dark mb-3">I'm interested in:</label>
+            <fieldset>
+              <legend class="block text-sm font-montserrat font-semibold text-brand-dark mb-3">I'm interested in:</legend>
               <div class="space-y-3 font-garamond text-lg">
                 <div class="flex items-center">
                   <input id="interest-app" name="interest" type="radio" value="app" class="h-5 w-5 border-brand-light text-brand-blue focus:ring-brand-blue">
@@ -91,11 +91,11 @@ const frontmatter = {
                   <label for="interest-both" class="ml-3 block text-brand-dark">Both</label>
                 </div>
               </div>
-            </div>
+            </fieldset>
 
             <!-- Phone OS -->
-            <div>
-              <label class="block text-sm font-montserrat font-semibold text-brand-dark mb-3">Phone OS:</label>
+            <fieldset>
+              <legend class="block text-sm font-montserrat font-semibold text-brand-dark mb-3">Phone OS:</legend>
               <div class="flex space-x-6 font-garamond text-lg">
                 <div class="flex items-center">
                   <input id="os-ios" name="os" type="radio" value="ios" checked class="h-5 w-5 border-brand-light text-brand-blue focus:ring-brand-blue">
@@ -106,7 +106,7 @@ const frontmatter = {
                   <label for="os-android" class="ml-3 block text-brand-dark">Android</label>
                 </div>
               </div>
-            </div>
+            </fieldset>
 
             <!-- Anything Else -->
             <div>
@@ -142,7 +142,7 @@ const frontmatter = {
 
 <script>
   // Simple form interaction simulation
-  const form = document.getElementById('waitlist-form');
+  const form = document.getElementById('waitlist-form') as HTMLFormElement;
   const successMsg = document.getElementById('success-message');
 
   if (form && successMsg) {

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
+import BreathingDemo from '../../components/interactive/BreathingDemo';
 
 const frontmatter = {
   title: 'How RespireLabs works',
@@ -97,7 +98,7 @@ const frontmatter = {
             </p>
             <div class="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-lg backdrop-blur-md">
                 <div class="flex items-center gap-4">
-                    <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Mic" class="w-8 h-8 opacity-70 invert" />
+                    <img src="/assets/icons/respire-labs-icons_microphone.svg" alt="Microphone icon for breathing sound detection" class="w-8 h-8 opacity-70 invert" />
                     <p class="font-montserrat text-sm text-brand-light font-light">Audio is processed locally. We don't store or upload raw sound without explicit consent.</p>
                 </div>
             </div>
@@ -144,7 +145,7 @@ const frontmatter = {
             <div class="inline-block px-4 py-1.5 bg-brand-yellow/20 rounded-full text-brand-yellow font-montserrat text-xs font-bold uppercase tracking-widest mb-6">Optional Hardware Upgrade</div>
             <h2 class="text-4xl md:text-5xl font-oddval font-bold mb-6">Deeper night insights.</h2>
             <p class="text-xl font-montserrat font-light text-brand-light/70 leading-relaxed mb-8 max-w-2xl">
-                For users who want clinical-grade clarity on their sleep breathing, the Smart Mouth Tape wearable is designed as an optional upgrade to measure progress with precision.
+                For users who want detailed clarity on their sleep breathing, the Smart Mouth Tape wearable is designed as an optional upgrade to measure progress with precision.
             </p>
             <Button href="/en/smart-mouth-tape" variant="ghost" class="text-brand-yellow hover:bg-brand-yellow/10 border border-brand-yellow/20">Learn about the tape &rarr;</Button>
         </div>
@@ -183,6 +184,13 @@ const frontmatter = {
             </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- BREATHING DEMO -->
+  <section class="py-24 bg-brand-white border-t border-brand-light/50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+      <BreathingDemo client:visible lang="en" />
     </div>
   </section>
 

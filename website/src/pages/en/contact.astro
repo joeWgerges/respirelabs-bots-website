@@ -75,15 +75,15 @@ const frontmatter = {
         <!-- Direct Contact Info -->
         <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 border-t border-brand-light pt-12">
           <div class="text-center">
-            <h4 class="font-oddval text-lg text-brand-dark mb-2">Support</h4>
+            <h2 class="font-oddval text-lg text-brand-dark mb-2">Support</h2>
             <a href="mailto:support@respirelabs.com" class="font-garamond text-brand-blue hover:underline text-lg">support@respirelabs.com</a>
           </div>
           <div class="text-center">
-            <h4 class="font-oddval text-lg text-brand-dark mb-2">Partnerships</h4>
+            <h2 class="font-oddval text-lg text-brand-dark mb-2">Partnerships</h2>
             <a href="mailto:partners@respirelabs.com" class="font-garamond text-brand-blue hover:underline text-lg">partners@respirelabs.com</a>
           </div>
           <div class="text-center">
-            <h4 class="font-oddval text-lg text-brand-dark mb-2">Press</h4>
+            <h2 class="font-oddval text-lg text-brand-dark mb-2">Press</h2>
             <a href="mailto:press@respirelabs.com" class="font-garamond text-brand-blue hover:underline text-lg">press@respirelabs.com</a>
           </div>
         </div>
@@ -94,7 +94,7 @@ const frontmatter = {
 </Layout>
 
 <script>
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form') as HTMLFormElement;
   const successMsg = document.getElementById('success-message');
 
   if (form && successMsg) {

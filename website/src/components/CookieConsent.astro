@@ -1,0 +1,112 @@
+---
+const { lang } = Astro.props;
+
+const content = {
+  en: {
+    message: 'We use cookies to improve your experience. By continuing, you accept our',
+    linkText: 'cookie policy',
+    linkHref: '/en/cookies',
+    accept: 'Accept',
+    reject: 'Reject'
+  },
+  de: {
+    message: 'Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Durch die weitere Nutzung akzeptieren Sie unsere',
+    linkText: 'Cookie-Richtlinie',
+    linkHref: '/de/cookies',
+    accept: 'Akzeptieren',
+    reject: 'Ablehnen'
+  }
+};
+
+const c = content[lang as keyof typeof content] || content.en;
+---
+
+<div
+  id="cookie-consent"
+  class="fixed bottom-0 left-0 right-0 z-50 translate-y-full transition-transform duration-500 ease-out"
+  role="region"
+  aria-label={lang === 'de' ? 'Cookie-Einwilligung' : 'Cookie consent'}
+>
+  <div class="bg-white/95 backdrop-blur-xl border-t border-brand-light/60 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm font-montserrat text-brand-dark/80 text-center sm:text-left">
+        {c.message}{' '}
+        <a href={c.linkHref} class="text-brand-blue hover:underline font-medium">{c.linkText}</a>.
+      </p>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <button
+          id="cookie-reject"
+          type="button"
+          class="px-5 py-2 rounded-full text-sm font-montserrat font-medium text-brand-grey hover:text-brand-dark hover:bg-brand-light/50 transition-colors focus-ring"
+        >
+          {c.reject}
+        </button>
+        <button
+          id="cookie-accept"
+          type="button"
+          class="px-5 py-2 rounded-full text-sm font-montserrat font-semibold bg-brand-dark text-white hover:bg-black transition-colors focus-ring"
+        >
+          {c.accept}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initCookieConsent() {
+    const banner = document.getElementById('cookie-consent');
+    if (!banner) return;
+
+    const consent = localStorage.getItem('cookie-consent');
+
+    // If user has already made a choice, keep the banner hidden
+    if (consent === 'accepted' || consent === 'rejected') {
+      return;
+    }
+
+    // Show the banner after a 1-second delay with slide-up animation
+    setTimeout(() => {
+      if (banner) {
+        banner.classList.remove('translate-y-full');
+        banner.classList.add('translate-y-0');
+      }
+    }, 1000);
+
+    function hideBanner() {
+      if (banner) {
+        banner.classList.remove('translate-y-0');
+        banner.classList.add('translate-y-full');
+      }
+    }
+
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'accepted');
+        hideBanner();
+      });
+    }
+
+    if (rejectBtn) {
+      rejectBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'rejected');
+        hideBanner();
+      });
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieConsent);
+  } else {
+    initCookieConsent();
+  }
+
+  // Re-initialize after view transition
+  document.addEventListener('astro:after-swap', () => {
+    initCookieConsent();
+  });
+</script>

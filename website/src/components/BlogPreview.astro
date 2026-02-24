@@ -1,0 +1,98 @@
+---
+import Button from './ui/Button.astro';
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const posts = {
+  en: [
+    { title: "Mouth breathing vs. nasal breathing", description: "Why switching to nasal breathing matters for sleep and daily energy.", href: "/en/blog/01-mouth-breathing-vs-nasal-breathing", date: "Feb 15, 2026", readTime: "5 min read" },
+    { title: "Mouth taping: is it safe?", description: "What the evidence says about mouth taping, and safer alternatives to consider.", href: "/en/blog/02-mouth-taping-safety", date: "Feb 10, 2026", readTime: "4 min read" },
+    { title: "Daytime nasal breathing training", description: "Simple exercises and small habits that compound into better breathing.", href: "/en/blog/03-daytime-nasal-breathing-training", date: "Feb 5, 2026", readTime: "6 min read" }
+  ],
+  de: [
+    { title: "Mundatmung vs. Nasenatmung", description: "Warum der Wechsel zur Nasenatmung f\u00fcr Schlaf und Energie wichtig ist.", href: "/de/blog/01-mundatmung-vs-nasenatmung", date: "15. Feb 2026", readTime: "5 Min." },
+    { title: "Mouth Taping: Ist es sicher?", description: "Was die Evidenz \u00fcber Mouth Taping sagt und sicherere Alternativen.", href: "/de/blog/02-mouth-taping-sicherheit", date: "10. Feb 2026", readTime: "4 Min." },
+    { title: "Nasenatmung tags\u00fcber trainieren", description: "Einfache \u00dcbungen und kleine Gewohnheiten f\u00fcr bessere Atmung.", href: "/de/blog/03-nasenatmung-tagsueber-trainieren", date: "5. Feb 2026", readTime: "6 Min." }
+  ]
+};
+
+const currentPosts = posts[lang as keyof typeof posts] || posts.en;
+const sectionTitle = lang === 'de' ? 'Aus dem Blog' : 'From the blog';
+const sectionSubtitle = lang === 'de' ? 'Aktuelles rund um Atmung, Schlaf und Wellness.' : 'Latest on breathing, sleep, and wellness.';
+const viewAllLabel = lang === 'de' ? 'Alle Artikel ansehen' : 'View all articles';
+const blogHref = `/${lang}/blog`;
+---
+
+<section class="py-24 bg-[#F7F7F9] relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16 reveal">
+      <div class="inline-flex items-center space-x-2 bg-white px-5 py-2 rounded-full mb-6 shadow-sm border border-brand-light">
+        <span class="text-xs font-montserrat font-bold tracking-widest uppercase text-brand-dark/80">Blog</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-4 tracking-tight">{sectionTitle}</h2>
+      <p class="text-lg font-montserrat font-light text-brand-grey max-w-2xl mx-auto">{sectionSubtitle}</p>
+    </div>
+
+    <!-- Blog Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {currentPosts.map((post, index) => (
+        <article class="group reveal" style={`transition-delay: ${index * 100}ms`}>
+          <a href={post.href} class="block h-full bg-white rounded-[2rem] border border-black/[0.03] shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden focus-ring">
+            <!-- Abstract Cover -->
+            <div class="h-44 w-full bg-[#F5F5F7] relative overflow-hidden flex items-center justify-center border-b border-black/[0.02]">
+              <div class="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+              <div class="absolute -top-10 -right-10 w-32 h-32 bg-brand-blue/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-brand-yellow/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+              <svg class="w-10 h-10 text-brand-dark/20 group-hover:text-brand-blue/40 transition-colors duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+              </svg>
+            </div>
+
+            <div class="p-7 flex flex-col flex-grow">
+              <!-- Meta row -->
+              <div class="flex items-center gap-3 mb-3 flex-wrap">
+                <span class="text-xs font-montserrat font-medium text-brand-grey">{post.date}</span>
+                <span class="text-brand-light" aria-hidden="true">&middot;</span>
+                <span class="inline-flex items-center gap-1 text-xs font-montserrat font-medium text-brand-grey">
+                  <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  {post.readTime}
+                </span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-lg font-oddval font-bold text-brand-dark mb-2 leading-tight group-hover:text-brand-blue transition-colors duration-300">
+                {post.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="text-brand-grey font-garamond text-sm leading-relaxed mb-5 line-clamp-2 flex-grow">
+                {post.description}
+              </p>
+
+              <!-- Footer -->
+              <div class="pt-3 border-t border-brand-light/50 flex items-center justify-between mt-auto">
+                <span class="text-brand-dark font-montserrat font-semibold text-xs uppercase tracking-widest group-hover:text-brand-blue transition-colors duration-300">
+                  {lang === 'de' ? 'Lesen' : 'Read'}
+                </span>
+                <span class="text-brand-blue transform group-hover:translate-x-1 transition-transform duration-300">&rarr;</span>
+              </div>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <!-- View All Link -->
+    <div class="text-center reveal">
+      <Button href={blogHref} variant="outline">{viewAllLabel}</Button>
+    </div>
+  </div>
+</section>

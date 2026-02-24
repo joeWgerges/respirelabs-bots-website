@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "app": "App",
+    "smartTape": "Smart Tape",
+    "howItWorks": "Funktion",
+    "compare": "Vergleich",
+    "faq": "FAQ"
+  },
+  "header": {
+    "waitlist": "Warteliste",
+    "switchLang": "Zu Englisch wechseln",
+    "switchLangMobile": "Switch to English",
+    "openMenu": "Men\u00fc \u00f6ffnen",
+    "closeMenu": "Men\u00fc schlie\u00dfen",
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "footer": {
+    "legal": "Rechtliches",
+    "press": "Presse",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "cookies": "Cookies",
+    "dataDeletion": "Datenl\u00f6schung",
+    "contact": "Kontakt",
+    "disclaimerTitle": "Medizinischer Hinweis",
+    "disclaimerText": "RespireLabs ist ein Wellness-Produkt. Es stellt keine Diagnose und ersetzt keine medizinische Beratung."
+  },
+  "blog": {
+    "sectionTitle": "Aus dem Blog",
+    "sectionSubtitle": "Aktuelles rund um Atmung, Schlaf und Wellness.",
+    "viewAll": "Alle Artikel ansehen",
+    "readArticle": "Artikel lesen",
+    "read": "Lesen",
+    "backToArticles": "Zur\u00fcck zu Artikeln",
+    "author": "RespireLabs Team",
+    "authorSubtitle": "Gesundheit & Wellness Forschung",
+    "share": "Teilen",
+    "resources": "Ressourcen",
+    "heroSubtitle": "Praktische Artikel \u00fcber Atmung, Schlafforschung und den Aufbau ges\u00fcnderer Gewohnheiten.",
+    "stayUpdated": "Auf dem Laufenden bleiben.",
+    "stayUpdatedSubtitle": "Erhalte die neuesten Artikel \u00fcber Schlaf und Atmung direkt in dein Postfach.",
+    "category": "Atmung",
+    "blogLabel": "Blog"
+  },
+  "cookie": {
+    "ariaLabel": "Cookie-Einwilligung",
+    "message": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern. Durch die weitere Nutzung akzeptieren Sie unsere",
+    "linkText": "Cookie-Richtlinie",
+    "accept": "Akzeptieren",
+    "reject": "Ablehnen"
+  },
+  "common": {
+    "joinWaitlist": "Warteliste beitreten",
+    "learnMore": "Mehr erfahren",
+    "readMore": "Weiterlesen"
+  }
+}

@@ -3,6 +3,8 @@ layout: "../../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Mouth Taping: Nutzen, Risiken und ein sicherer Umgang"
 description: "Safety-first Überblick zu Mouth Taping. RespireLabs ist in Entwicklung und positioniert Mouth Taping nicht als Behandlung."
+date: "2026-02-10"
+readTime: "4 Min. Lesezeit"
 ---
 # Mouth Taping: Nutzen, Risiken und ein sicherer Umgang
 

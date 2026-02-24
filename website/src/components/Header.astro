@@ -12,16 +12,48 @@ const navLinks = {
   de: [
     { label: 'App', href: '/de/app' },
     { label: 'Smart Tape', href: '/de/smart-mouth-tape' },
-    { label: 'Funktion', href: '/de/how-it-works' },
-    { label: 'Vergleich', href: '/de/compare' },
+    { label: 'Funktion', href: '/de/so-funktionierts' },
+    { label: 'Vergleich', href: '/de/vergleich' },
     { label: 'FAQ', href: '/de/faq' },
   ]
 };
 
 const currentLinks = navLinks[lang as keyof typeof navLinks] || navLinks.en;
 const waitlistLabel = lang === 'de' ? 'Warteliste' : 'Waitlist';
+const waitlistHref = lang === 'de' ? '/de/warteliste' : '/en/waitlist';
 const alternateLang = lang === 'en' ? 'de' : 'en';
-const alternateUrl = Astro.url.pathname.replace(`/${lang}`, `/${alternateLang}`);
+
+// Slug mapping for language switcher (handles different slugs between EN and DE)
+const slugMap: Record<string, string> = {
+  '/en/how-it-works': '/de/so-funktionierts',
+  '/de/so-funktionierts': '/en/how-it-works',
+  '/en/science-safety': '/de/wissenschaft-sicherheit',
+  '/de/wissenschaft-sicherheit': '/en/science-safety',
+  '/en/compare': '/de/vergleich',
+  '/de/vergleich': '/en/compare',
+  '/en/waitlist': '/de/warteliste',
+  '/de/warteliste': '/en/waitlist',
+  '/en/contact': '/de/kontakt',
+  '/de/kontakt': '/en/contact',
+  '/en/about': '/de/ueber-uns',
+  '/de/ueber-uns': '/en/about',
+  '/en/privacy': '/de/datenschutz',
+  '/de/datenschutz': '/en/privacy',
+  '/en/terms': '/de/terms',
+  '/de/terms': '/en/terms',
+  '/en/data-deletion': '/de/data-deletion',
+  '/de/data-deletion': '/en/data-deletion',
+  // Old English-slugged DE paths (redirect targets)
+  '/de/how-it-works': '/en/how-it-works',
+  '/de/science-safety': '/en/science-safety',
+  '/de/compare': '/en/compare',
+  '/de/waitlist': '/en/waitlist',
+  '/de/contact': '/en/contact',
+  '/de/about': '/en/about',
+};
+
+const currentPath = Astro.url.pathname.replace(/\/$/, ''); // Remove trailing slash
+const alternateUrl = slugMap[currentPath] || currentPath.replace(`/${lang}`, `/${alternateLang}`);
 ---
 
 <!-- Skip to content link for accessibility -->
@@ -33,7 +65,7 @@ const alternateUrl = Astro.url.pathname.replace(`/${lang}`, `/${alternateLang}`)
   <div class="absolute inset-0 bg-white/70 backdrop-blur-xl -z-10 transition-opacity duration-500 opacity-0" id="header-bg"></div>
   <div class="max-w-[88rem] mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16 md:h-20 transition-all duration-500" id="header-container">
-      
+
       <!-- Logo -->
       <a href={`/${lang}`} class="flex-shrink-0 flex items-center group focus-ring rounded-lg p-1" aria-label="RespireLabs Home">
         <img class="h-7 md:h-8 w-auto transition-transform duration-500 ease-out group-hover:scale-105" src="/assets/logo/respire-labs-logo_primary-logo.png" alt="" aria-hidden="true" />
@@ -53,7 +85,7 @@ const alternateUrl = Astro.url.pathname.replace(`/${lang}`, `/${alternateLang}`)
         <a href={alternateUrl} class="text-brand-grey hover:text-brand-dark focus-ring rounded-sm font-montserrat text-xs font-bold uppercase tracking-widest transition-colors" aria-label={`Switch to ${alternateLang === 'en' ? 'English' : 'German'}`}>
           {alternateLang}
         </a>
-        <a href={`/${lang}/waitlist`} class="bg-brand-dark text-white hover:bg-black hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-ring font-montserrat text-sm font-semibold py-2 px-6 rounded-full transition-all duration-300 whitespace-nowrap">
+        <a href={waitlistHref} class="bg-brand-dark text-white hover:bg-black hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-ring font-montserrat text-sm font-semibold py-2 px-6 rounded-full transition-all duration-300 whitespace-nowrap">
           {waitlistLabel}
         </a>
       </div>
@@ -76,7 +108,7 @@ const alternateUrl = Astro.url.pathname.replace(`/${lang}`, `/${alternateLang}`)
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
         </svg>
     </button>
-    
+
     <nav class="flex flex-col space-y-6 text-center w-full px-6">
       {currentLinks.map((link) => (
         <a href={link.href} class="text-brand-dark font-oddval text-3xl sm:text-4xl transition-colors hover:text-brand-blue focus-ring py-2 rounded-xl">
@@ -84,7 +116,7 @@ const alternateUrl = Astro.url.pathname.replace(`/${lang}`, `/${alternateLang}`)
         </a>
       ))}
       <div class="pt-8 flex flex-col items-center space-y-6 w-full max-w-sm mx-auto">
-        <a href={`/${lang}/waitlist`} class="bg-brand-blue text-white font-montserrat font-semibold py-4 px-10 rounded-full text-lg shadow-[0_8px_20px_rgba(32,111,247,0.3)] hover:scale-105 transition-all w-full focus-ring focus-ring-dark">
+        <a href={waitlistHref} class="bg-brand-blue text-white font-montserrat font-semibold py-4 px-10 rounded-full text-lg shadow-[0_8px_20px_rgba(32,111,247,0.3)] hover:scale-105 transition-all w-full focus-ring focus-ring-dark">
           {waitlistLabel}
         </a>
         <a href={alternateUrl} class="text-brand-grey font-montserrat font-semibold uppercase tracking-widest text-sm focus-ring py-2 px-4 rounded-md hover:text-brand-dark transition-colors">
@@ -96,85 +128,92 @@ const alternateUrl = Astro.url.pathname.replace(`/${lang}`, `/${alternateLang}`)
 </header>
 
 <script>
-  // Advanced Scroll Effect for Header
-  const header = document.getElementById('main-header');
-  const headerBg = document.getElementById('header-bg');
-  const container = document.getElementById('header-container');
-  
-  let lastScroll = 0;
+  function initHeader() {
+    // Advanced Scroll Effect for Header
+    const header = document.getElementById('main-header');
+    const headerBg = document.getElementById('header-bg');
+    const container = document.getElementById('header-container');
 
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.scrollY;
-    
-    if (currentScroll > 20) {
-      header?.classList.add('border-black/[0.05]');
-      header?.classList.remove('border-transparent');
-      headerBg?.classList.remove('opacity-0');
-      headerBg?.classList.add('opacity-100');
-      
-      // Slight shrink effect on scroll (Apple style)
-      if (container) {
-        container.classList.remove('md:h-20');
-        container.classList.add('md:h-16');
-      }
-    } else {
-      header?.classList.remove('border-black/[0.05]');
-      header?.classList.add('border-transparent');
-      headerBg?.classList.add('opacity-0');
-      headerBg?.classList.remove('opacity-100');
-      
-      if (container) {
-        container.classList.add('md:h-20');
-        container.classList.remove('md:h-16');
-      }
-    }
-    lastScroll = currentScroll;
-  }, { passive: true });
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
 
-  // Mobile menu toggle with accessibility
-  const btn = document.getElementById('mobile-menu-btn');
-  const closeBtn = document.getElementById('close-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      if (currentScroll > 20) {
+        header?.classList.add('border-black/[0.05]');
+        header?.classList.remove('border-transparent');
+        headerBg?.classList.remove('opacity-0');
+        headerBg?.classList.add('opacity-100');
 
-  const openMenu = () => {
-    if(!menu || !btn) return;
-    menu.classList.remove('hidden');
-    // Force reflow
-    void menu.offsetWidth;
-    menu.classList.remove('opacity-0', 'pointer-events-none');
-    menu.classList.add('opacity-100', 'pointer-events-auto');
-    document.body.style.overflow = 'hidden';
-    btn.setAttribute('aria-expanded', 'true');
-    
-    // Focus management
-    const firstFocusable = menu.querySelectorAll(focusableElements)[0] as HTMLElement;
-    if(firstFocusable) firstFocusable.focus();
-  };
-
-  const closeMenu = () => {
-    if(!menu || !btn) return;
-    menu.classList.add('opacity-0', 'pointer-events-none');
-    menu.classList.remove('opacity-100', 'pointer-events-auto');
-    document.body.style.overflow = '';
-    btn.setAttribute('aria-expanded', 'false');
-    btn.focus();
-    
-    // Delay hiding to allow transition
-    setTimeout(() => {
-        menu.classList.add('hidden');
-    }, 300);
-  };
-
-  if (btn && closeBtn && menu) {
-    btn.addEventListener('click', openMenu);
-    closeBtn.addEventListener('click', closeMenu);
-    
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
-            closeMenu();
+        // Slight shrink effect on scroll (Apple style)
+        if (container) {
+          container.classList.remove('md:h-20');
+          container.classList.add('md:h-16');
         }
-    });
+      } else {
+        header?.classList.remove('border-black/[0.05]');
+        header?.classList.add('border-transparent');
+        headerBg?.classList.add('opacity-0');
+        headerBg?.classList.remove('opacity-100');
+
+        if (container) {
+          container.classList.add('md:h-20');
+          container.classList.remove('md:h-16');
+        }
+      }
+    }, { passive: true });
+
+    // Mobile menu toggle with accessibility
+    const btn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    const openMenu = () => {
+      if(!menu || !btn) return;
+      menu.classList.remove('hidden');
+      // Force reflow
+      void menu.offsetWidth;
+      menu.classList.remove('opacity-0', 'pointer-events-none');
+      menu.classList.add('opacity-100', 'pointer-events-auto');
+      document.body.style.overflow = 'hidden';
+      btn.setAttribute('aria-expanded', 'true');
+
+      // Focus management
+      const firstFocusable = menu.querySelectorAll(focusableElements)[0] as HTMLElement;
+      if(firstFocusable) firstFocusable.focus();
+    };
+
+    const closeMenu = () => {
+      if(!menu || !btn) return;
+      menu.classList.add('opacity-0', 'pointer-events-none');
+      menu.classList.remove('opacity-100', 'pointer-events-auto');
+      document.body.style.overflow = '';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.focus();
+
+      // Delay hiding to allow transition
+      setTimeout(() => {
+          menu.classList.add('hidden');
+      }, 300);
+    };
+
+    if (btn && closeBtn && menu) {
+      btn.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+
+      // Close on escape key
+      document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+              closeMenu();
+          }
+      });
+    }
   }
+
+  // Run on initial load
+  initHeader();
+
+  // Re-initialize header after view transition
+  document.addEventListener('astro:after-swap', () => {
+    initHeader();
+  });
 </script>

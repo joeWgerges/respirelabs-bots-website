@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "app": "App",
+    "smartTape": "Smart Tape",
+    "howItWorks": "How it works",
+    "compare": "Compare",
+    "faq": "FAQ"
+  },
+  "header": {
+    "waitlist": "Waitlist",
+    "switchLang": "Switch to German",
+    "switchLangMobile": "Switch to Deutsch",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to main content"
+  },
+  "footer": {
+    "legal": "Legal",
+    "press": "Press",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "dataDeletion": "Data deletion",
+    "contact": "Contact",
+    "disclaimerTitle": "Medical disclaimer",
+    "disclaimerText": "RespireLabs is a wellness product. It does not diagnose, treat, cure, or prevent any disease."
+  },
+  "blog": {
+    "sectionTitle": "From the blog",
+    "sectionSubtitle": "Latest on breathing, sleep, and wellness.",
+    "viewAll": "View all articles",
+    "readArticle": "Read Article",
+    "read": "Read",
+    "backToArticles": "Back to articles",
+    "author": "RespireLabs Team",
+    "authorSubtitle": "Health & Wellness Research",
+    "share": "Share",
+    "resources": "Resources",
+    "heroSubtitle": "Practical articles on breathing, sleep science, and building healthier habits.",
+    "stayUpdated": "Stay updated.",
+    "stayUpdatedSubtitle": "Get the latest articles on sleep and breathing directly to your inbox.",
+    "category": "Breathing",
+    "blogLabel": "Blog"
+  },
+  "cookie": {
+    "ariaLabel": "Cookie consent",
+    "message": "We use cookies to improve your experience. By continuing, you accept our",
+    "linkText": "cookie policy",
+    "accept": "Accept",
+    "reject": "Reject"
+  },
+  "common": {
+    "joinWaitlist": "Join the Waitlist",
+    "learnMore": "Learn more",
+    "readMore": "Read more"
+  }
+}

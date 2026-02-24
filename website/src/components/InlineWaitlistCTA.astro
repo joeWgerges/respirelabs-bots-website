@@ -1,0 +1,89 @@
+---
+interface Props {
+  lang: string;
+  variant?: 'light' | 'dark';
+}
+
+const { lang, variant = 'light' } = Astro.props;
+
+const content = {
+  en: {
+    heading: 'Join the waitlist.',
+    subtext: 'Be the first to try the RespireLabs app. No spam, just updates.',
+    placeholder: 'Enter your email',
+    button: 'Join waitlist',
+    privacy: 'We respect your privacy. Unsubscribe anytime.'
+  },
+  de: {
+    heading: 'Warteliste beitreten.',
+    subtext: 'Sei unter den Ersten, die die RespireLabs App ausprobieren. Kein Spam, nur Updates.',
+    placeholder: 'E-Mail eingeben',
+    button: 'Beitreten',
+    privacy: 'Wir respektieren Ihre Privatsphäre. Jederzeit abmeldbar.'
+  }
+};
+
+const c = content[lang as keyof typeof content] || content.en;
+const isDark = variant === 'dark';
+const waitlistHref = lang === 'de' ? '/de/warteliste' : '/en/waitlist';
+---
+
+<section class:list={[
+  'py-24',
+  isDark ? 'bg-brand-dark' : 'bg-[#F7F7F9]'
+]}>
+  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="reveal">
+      <h2 class:list={[
+        'text-3xl md:text-4xl font-oddval font-bold mb-4',
+        isDark ? 'text-white' : 'text-brand-dark'
+      ]}>
+        {c.heading}
+      </h2>
+      <p class:list={[
+        'text-base font-montserrat font-light mb-10',
+        isDark ? 'text-brand-light/70' : 'text-brand-grey'
+      ]}>
+        {c.subtext}
+      </p>
+    </div>
+
+    <form action={waitlistHref} method="get" class="reveal delay-100">
+      <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <label for="inline-waitlist-email" class="sr-only">
+          {c.placeholder}
+        </label>
+        <input
+          id="inline-waitlist-email"
+          type="email"
+          name="email"
+          placeholder={c.placeholder}
+          required
+          class:list={[
+            'flex-1 px-6 py-3 rounded-full border font-montserrat text-sm transition-colors duration-300',
+            isDark
+              ? 'bg-white/10 border-white/20 text-white placeholder:text-white/50 focus:border-brand-yellow focus:outline-none focus:ring-2 focus:ring-brand-yellow/30'
+              : 'bg-white border-brand-light text-brand-dark placeholder:text-brand-grey/60 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20'
+          ]}
+        />
+        <button
+          type="submit"
+          class:list={[
+            'px-8 py-3 rounded-full font-montserrat font-semibold text-sm transition-all duration-300 hover:scale-[1.02] whitespace-nowrap',
+            isDark
+              ? 'bg-brand-yellow text-brand-dark hover:shadow-[0_8px_20px_rgba(255,220,49,0.3)] focus-ring-dark'
+              : 'bg-brand-blue text-white hover:bg-blue-600 hover:shadow-[0_8px_20px_rgba(32,111,247,0.3)] focus-ring'
+          ]}
+        >
+          {c.button}
+        </button>
+      </div>
+      <p class:list={[
+        'mt-4 text-xs font-montserrat text-center',
+        isDark ? 'text-brand-light/50' : 'text-brand-grey/70'
+      ]}>
+        {c.privacy}
+      </p>
+    </form>
+  </div>
+</section>

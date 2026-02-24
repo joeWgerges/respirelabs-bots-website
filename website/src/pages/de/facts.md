@@ -32,7 +32,6 @@ RespireLabs ist ein Atem‑Coach: eine mobile App (smartphone‑first) plus ein 
 - Teilen nur mit expliziter Einwilligung
 
 ## Kontakt
-Support: {{support_email}}  
-Presse: {{press_email}}  
-Partnerschaften: {{partnership_email}}
-5.5 BLOG STARTER CONTENT (3 pillars per language)
+Support: support@respirelabs.com  
+Presse: press@respirelabs.com  
+Partnerschaften: partners@respirelabs.com

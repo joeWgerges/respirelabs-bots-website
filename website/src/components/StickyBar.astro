@@ -1,0 +1,117 @@
+---
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  en: {
+    text: 'Ready to breathe better?',
+    cta: 'Join waitlist',
+    dismiss: 'Dismiss notification bar'
+  },
+  de: {
+    text: 'Bereit, besser zu atmen?',
+    cta: 'Warteliste beitreten',
+    dismiss: 'Benachrichtigungsleiste schliessen'
+  }
+};
+
+const c = content[lang as keyof typeof content] || content.en;
+const waitlistHref = lang === 'de' ? '/de/warteliste' : '/en/waitlist';
+---
+
+<div
+  id="sticky-bar"
+  class="fixed bottom-0 left-0 right-0 z-40 translate-y-full transition-transform duration-500 ease-out"
+  role="complementary"
+  aria-label={lang === 'de' ? 'Warteliste-Hinweis' : 'Waitlist prompt'}
+>
+  <div class="bg-brand-blue">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+      <p class="text-white font-montserrat text-sm font-medium hidden sm:block">
+        {c.text}
+      </p>
+      <div class="flex items-center gap-3 mx-auto sm:mx-0">
+        <a
+          href={waitlistHref}
+          class="px-6 py-2 rounded-full bg-white text-brand-blue font-montserrat text-sm font-semibold hover:bg-brand-light transition-colors duration-300 focus-ring"
+        >
+          {c.cta}
+        </a>
+        <button
+          id="sticky-bar-close"
+          type="button"
+          class="text-white/70 hover:text-white p-1 transition-colors duration-300 rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue"
+          aria-label={c.dismiss}
+        >
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initStickyBar() {
+    const stickyBar = document.getElementById('sticky-bar');
+    const closeBtn = document.getElementById('sticky-bar-close');
+
+    if (!stickyBar || !closeBtn) return;
+
+    // Don't show on waitlist pages
+    const path = window.location.pathname;
+    const isWaitlistPage = path.includes('/waitlist') || path.includes('/warteliste');
+    const isDismissed = sessionStorage.getItem('sticky-bar-dismissed') === 'true';
+
+    if (isWaitlistPage || isDismissed) return;
+
+    let shown = false;
+
+    const onScroll = () => {
+      if (shown) return;
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      // Guard against zero-height pages (avoid division by zero)
+      if (docHeight <= 0) return;
+
+      const scrollPercent = window.scrollY / docHeight;
+
+      if (scrollPercent > 0.3) {
+        shown = true;
+        stickyBar.classList.remove('translate-y-full');
+        stickyBar.classList.add('translate-y-0');
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    closeBtn.addEventListener('click', () => {
+      stickyBar.classList.add('translate-y-full');
+      stickyBar.classList.remove('translate-y-0');
+      sessionStorage.setItem('sticky-bar-dismissed', 'true');
+      // Clean up scroll listener since bar is permanently dismissed
+      window.removeEventListener('scroll', onScroll);
+    });
+
+    // Allow keyboard dismissal with Escape
+    stickyBar.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeBtn.click();
+      }
+    });
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStickyBar);
+  } else {
+    initStickyBar();
+  }
+
+  // Re-initialize after Astro view transitions
+  document.addEventListener('astro:after-swap', initStickyBar);
+</script>

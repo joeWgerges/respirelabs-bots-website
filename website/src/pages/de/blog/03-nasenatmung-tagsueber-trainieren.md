@@ -3,6 +3,8 @@ layout: "../../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Nasenatmung tagsüber trainieren: kleine Gewohnheiten mit großer Wirkung"
 description: "Praktische Schritte, um Trigger für Mundatmung zu erkennen und tagsüber Nasenatmung als Gewohnheit aufzubauen."
+date: "2026-02-05"
+readTime: "6 Min. Lesezeit"
 ---
 # Nasenatmung tagsüber trainieren: kleine Gewohnheiten mit großer Wirkung
 
@@ -27,4 +29,3 @@ Stoppen, wenn es unangenehm ist.
 
 ## Wie RespireLabs hilft
 Erkennung + Hinweise + Coaching + Trend‑Tracking.
-5.6 LEGAL PAGES (TEMPLATES — REVIEW WITH COUNSEL)

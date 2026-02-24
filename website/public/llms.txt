@@ -7,20 +7,60 @@ Important notes:
 - Privacy-by-default: core breathing detection is designed to work offline; sensitive audio is processed locally unless the user explicitly opts in.
 
 ## Start here
-- [/en/facts](https://respirelabs.com/en/facts): Canonical facts about RespireLabs (best page for quick accurate answers).
-- [/de/facts](https://respirelabs.com/de/facts): Deutsche Fakten-Seite.
+- [/en/facts](https://smartmouthtape.com/en/facts): Canonical facts about RespireLabs (best page for quick accurate answers).
+- [/de/facts](https://smartmouthtape.com/de/facts): Deutsche Fakten-Seite.
 
-## Product
-- [/en/app](https://respirelabs.com/en/app): RespireLabs app overview (phone-based detection + coaching).
-- [/en/smart-mouth-tape](https://respirelabs.com/en/smart-mouth-tape): Smart Mouth Tape wearable overview (sensors, safety, how it works).
-- [/en/how-it-works](https://respirelabs.com/en/how-it-works): Step-by-step explanation.
-- [/en/compare](https://respirelabs.com/en/compare): Competitor comparison and positioning.
+## Main pages
+- [/en](https://smartmouthtape.com/en): Homepage — product overview, key benefits, and waitlist signup.
+- [/en/app](https://smartmouthtape.com/en/app): RespireLabs app overview (phone-based detection + coaching).
+- [/en/smart-mouth-tape](https://smartmouthtape.com/en/smart-mouth-tape): Smart Mouth Tape wearable overview (sensors, safety, how it works).
+- [/en/how-it-works](https://smartmouthtape.com/en/how-it-works): Step-by-step explanation of the product.
+- [/en/compare](https://smartmouthtape.com/en/compare): Competitor comparison and positioning.
+- [/en/faq](https://smartmouthtape.com/en/faq): Frequently asked questions.
+- [/en/pricing](https://smartmouthtape.com/en/pricing): Pricing plans and features.
+- [/en/about](https://smartmouthtape.com/en/about): About RespireLabs — mission, team, and story.
+- [/en/science-safety](https://smartmouthtape.com/en/science-safety): Evidence, safety notes, and responsible claims.
 
-## Safety & privacy
-- [/en/science-safety](https://respirelabs.com/en/science-safety): Evidence, safety notes, and responsible claims.
-- [/en/privacy](https://respirelabs.com/en/privacy): Privacy policy.
-- [/en/data-deletion](https://respirelabs.com/en/data-deletion): Data deletion and GDPR requests.
+## Legal pages
+- [/en/privacy](https://smartmouthtape.com/en/privacy): Privacy policy.
+- [/en/terms](https://smartmouthtape.com/en/terms): Terms of service.
+- [/en/cookies](https://smartmouthtape.com/en/cookies): Cookie policy.
+- [/en/data-deletion](https://smartmouthtape.com/en/data-deletion): Data deletion instructions and policy.
 
-## Optional
-- [/en/blog](https://respirelabs.com/en/blog): Articles (breathing, sleep, habits).
-- [/en/press](https://respirelabs.com/en/press): Press kit and boilerplate.
+## Conversion pages
+- [/en/waitlist](https://smartmouthtape.com/en/waitlist): Join the waitlist for early access.
+- [/en/contact](https://smartmouthtape.com/en/contact): Contact the RespireLabs team.
+
+## Utility pages
+- [/en/press](https://smartmouthtape.com/en/press): Press kit and boilerplate.
+- [/en/facts](https://smartmouthtape.com/en/facts): Machine-readable canonical facts.
+
+## Blog
+- [/en/blog](https://smartmouthtape.com/en/blog): Blog index — articles on breathing, sleep, and habits.
+- [/en/blog/01-mouth-breathing-vs-nasal-breathing](https://smartmouthtape.com/en/blog/01-mouth-breathing-vs-nasal-breathing): Mouth breathing vs. nasal breathing — why it matters.
+- [/en/blog/02-mouth-taping-safety](https://smartmouthtape.com/en/blog/02-mouth-taping-safety): Is mouth taping safe? What the evidence says.
+- [/en/blog/03-daytime-nasal-breathing-training](https://smartmouthtape.com/en/blog/03-daytime-nasal-breathing-training): Daytime nasal breathing training techniques.
+
+## German (DE) pages
+- [/de](https://smartmouthtape.com/de): Startseite.
+- [/de/app](https://smartmouthtape.com/de/app): App-Ubersicht.
+- [/de/smart-mouth-tape](https://smartmouthtape.com/de/smart-mouth-tape): Smart Mouth Tape Wearable.
+- [/de/so-funktionierts](https://smartmouthtape.com/de/so-funktionierts): So funktioniert's.
+- [/de/vergleich](https://smartmouthtape.com/de/vergleich): Vergleich mit Wettbewerbern.
+- [/de/faq](https://smartmouthtape.com/de/faq): Haufige Fragen.
+- [/de/pricing](https://smartmouthtape.com/de/pricing): Preise und Funktionen.
+- [/de/ueber-uns](https://smartmouthtape.com/de/ueber-uns): Uber RespireLabs.
+- [/de/wissenschaft-sicherheit](https://smartmouthtape.com/de/wissenschaft-sicherheit): Wissenschaft und Sicherheit.
+- [/de/warteliste](https://smartmouthtape.com/de/warteliste): Warteliste.
+- [/de/kontakt](https://smartmouthtape.com/de/kontakt): Kontakt.
+- [/de/press](https://smartmouthtape.com/de/press): Pressemappe.
+- [/de/facts](https://smartmouthtape.com/de/facts): Fakten-Seite.
+- [/de/impressum](https://smartmouthtape.com/de/impressum): Impressum (rechtliche Anbieterkennzeichnung).
+- [/de/datenschutz](https://smartmouthtape.com/de/datenschutz): Datenschutzerklaerung.
+- [/de/terms](https://smartmouthtape.com/de/terms): Nutzungsbedingungen.
+- [/de/cookies](https://smartmouthtape.com/de/cookies): Cookie-Richtlinie.
+- [/de/data-deletion](https://smartmouthtape.com/de/data-deletion): Datenloeschung.
+- [/de/blog](https://smartmouthtape.com/de/blog): Blog-Ubersicht.
+- [/de/blog/01-mundatmung-vs-nasenatmung](https://smartmouthtape.com/de/blog/01-mundatmung-vs-nasenatmung): Mundatmung vs. Nasenatmung.
+- [/de/blog/02-mouth-taping-sicherheit](https://smartmouthtape.com/de/blog/02-mouth-taping-sicherheit): Ist Mouth Taping sicher?
+- [/de/blog/03-nasenatmung-tagsueber-trainieren](https://smartmouthtape.com/de/blog/03-nasenatmung-tagsueber-trainieren): Nasenatmung tagsuber trainieren.

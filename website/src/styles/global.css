@@ -14,10 +14,42 @@
   --font-montserrat: "Montserrat", system-ui, -apple-system, sans-serif;
 }
 
+/* Dark Mode Variables (class-based: add class="dark" to <html>) */
+:root {
+  --bg-primary: #FAFAFA;
+  --bg-secondary: #F5F5F7;
+  --bg-tertiary: #F7F7F9;
+  --text-primary: #0A0A0B;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
+  --border-primary: #E5E7EB;
+  --border-secondary: rgba(0, 0, 0, 0.05);
+  --surface-glass: rgba(255, 255, 255, 0.7);
+  --surface-card: #FFFFFF;
+  --accent-primary: #206FF7;
+  --accent-secondary: #FFDC31;
+}
+
+.dark {
+  --bg-primary: #0a0f1e;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1a2035;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --text-tertiary: #6B7280;
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+  --surface-glass: rgba(17, 24, 39, 0.8);
+  --surface-card: #1F2937;
+  --accent-primary: #60A5FA;
+  --accent-secondary: #FFDC31;
+}
+
 @font-face {
   font-family: "Oddval";
   src: url("/fonts/Oddval/Variable/OddvalVariableVariable-Medium.ttf") format("truetype");
   font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -25,6 +57,7 @@
   font-family: "EB Garamond";
   src: url("/fonts/EB Garamond/EBGaramond-VariableFont_wght.ttf") format("truetype");
   font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -32,6 +65,7 @@
   font-family: "EB Garamond";
   src: url("/fonts/EB Garamond/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
   font-style: italic;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -39,6 +73,7 @@
   font-family: "Montserrat";
   src: url("/fonts/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-style: normal;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -46,6 +81,7 @@
   font-family: "Montserrat";
   src: url("/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
   font-style: italic;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -61,6 +97,11 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-oddval);
     letter-spacing: -0.03em;
+  }
+
+  .dark body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
   }
 }
 
@@ -102,6 +143,26 @@
   .focus-ring-dark {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-brand-dark;
   }
+
+  /* Dark mode surface utilities */
+  .bg-surface-primary {
+    background-color: var(--bg-primary);
+  }
+  .bg-surface-secondary {
+    background-color: var(--bg-secondary);
+  }
+  .bg-surface-card {
+    background-color: var(--surface-card);
+  }
+  .text-surface-primary {
+    color: var(--text-primary);
+  }
+  .text-surface-secondary {
+    color: var(--text-secondary);
+  }
+  .border-surface {
+    border-color: var(--border-primary);
+  }
 }
 
 /* Reveal Animations */
@@ -109,23 +170,21 @@
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
 }
 .reveal-left {
   opacity: 0;
   transform: translateX(-40px);
   transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
 }
 .reveal-right {
   opacity: 0;
   transform: translateX(40px);
   transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
 }
 .reveal.active, .reveal-left.active, .reveal-right.active {
   opacity: 1;
   transform: translate(0, 0);
+  will-change: opacity, transform;
 }
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
@@ -146,17 +205,4 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
-}
-
-/* Hide content visually but keep for screen readers */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
 }

@@ -3,6 +3,8 @@ layout: "../../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Mouth taping: benefits, risks, and safer ways to approach it"
 description: "A safety-first overview of mouth taping. RespireLabs is in development and does not position mouth taping as treatment."
+date: "2026-02-10"
+readTime: "4 min read"
 ---
 # Mouth taping: benefits, risks, and safer ways to approach it
 

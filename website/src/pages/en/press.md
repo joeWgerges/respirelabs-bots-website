@@ -13,9 +13,9 @@ RespireLabs is a privacy-first breathing coach (app + optional wearable concept)
 RespireLabs is building a respiratory wellness system designed to connect detection, coaching, and measurable habit change. The mobile app is designed to work phone-first, with an optional Smart Mouth Tape wearable concept under development for deeper night insights. RespireLabs is a wellness product and does not provide medical diagnosis.
 
 ## Media contact
-Press: {{press_email}}
+Press: press@respirelabs.com
 
 ## Assets
-- Logo (SVG/PNG): {{link}}
-- Product images: {{link}}
-- Founder headshots: {{link}}
+- Logo (SVG/PNG): #
+- Product images: #
+- Founder headshots: #

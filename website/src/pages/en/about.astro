@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Button from '../../components/ui/Button.astro';
 
 const frontmatter = {
   title: 'About RespireLabs',
@@ -65,7 +64,7 @@ const frontmatter = {
           
           <div class="bg-white rounded-[2rem] p-10 shadow-sm border border-black/[0.03] reveal-right">
               <div class="w-16 h-16 rounded-2xl bg-[#F5F5F7] flex items-center justify-center mb-8">
-                  <span class="text-2xl">🌱</span>
+                  <span class="text-2xl" aria-hidden="true">🌱</span>
               </div>
               <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-4">Wellness Platform</h3>
               <p class="text-lg font-montserrat font-light text-brand-grey">A long-term respiratory wellness platform offering deep education, trend tracking, and habit coaching.</p>
@@ -108,7 +107,7 @@ const frontmatter = {
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
         <h2 class="text-4xl md:text-5xl font-oddval font-bold text-brand-dark mb-12">The Team</h2>
         <div class="bg-white rounded-[2rem] p-12 shadow-sm border border-brand-light">
-            <div class="w-24 h-24 rounded-full bg-brand-light/50 mx-auto flex items-center justify-center text-4xl mb-6">👋</div>
+            <div class="w-24 h-24 rounded-full bg-brand-light/50 mx-auto flex items-center justify-center text-4xl mb-6" aria-hidden="true">👋</div>
             <h3 class="text-2xl font-oddval font-bold text-brand-dark mb-2">Krzysztof Dąbrowski</h3>
             <p class="font-montserrat font-medium text-brand-blue uppercase tracking-widest text-sm mb-6">Founder / Vision / Oxygen</p>
             <p class="font-garamond text-xl text-brand-grey max-w-2xl mx-auto">

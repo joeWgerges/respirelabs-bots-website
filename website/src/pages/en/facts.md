@@ -32,6 +32,6 @@ RespireLabs is a breathing coach: a mobile app (phone-first) plus an optional Sm
 - Sharing requires explicit consent
 
 ## Contact
-Support: {{support_email}}  
-Press: {{press_email}}  
-Partnerships: {{partnership_email}}
+Support: support@respirelabs.com  
+Press: press@respirelabs.com  
+Partnerships: partners@respirelabs.com

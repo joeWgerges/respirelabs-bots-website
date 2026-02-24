@@ -17,5 +17,4 @@ RespireLabs ist aktuell in Entwicklung. Preise und Pakete können sich durch Bet
 - Smart Mouth Tape Wearable als optionales Add‑on
 
 ## Early Access?
-[Warteliste beitreten →](/de/waitlist)
-H) WAITLIST PAGE (WITH FORM COPY)
+[Warteliste beitreten →](/de/warteliste)

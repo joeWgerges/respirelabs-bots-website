@@ -6,7 +6,7 @@ description: "How RespireLabs collects and uses data (website + waitlist)."
 ---
 # Privacy policy
 
-**Last updated:** {{date}}
+**Last updated:** February 24, 2026
 
 This privacy policy explains how RespireLabs (“we”, “us”) processes personal data on this website, including the waitlist form.
 
@@ -37,6 +37,6 @@ We use processors only as needed (email delivery, hosting), with appropriate agr
 Access, rectification, erasure, restriction, portability, objection, and withdrawal of consent.
 
 ## Contact
-{{company_name}}  
-{{company_address}}  
-Email: {{privacy_email}}
+RespireLabs  
+RespireLabs, Austria  
+Email: support@respirelabs.com

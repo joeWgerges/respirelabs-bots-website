@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Button from '../../components/ui/Button.astro';
 
 const frontmatter = {
   title: 'Science & safety',
@@ -37,17 +36,17 @@ const frontmatter = {
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
           <div class="bg-[#F5F5F7] rounded-3xl p-8 border border-black/[0.03] reveal-left">
-              <div class="text-3xl mb-4">🧘</div>
+              <div class="text-3xl mb-4" aria-hidden="true">🧘</div>
               <h3 class="font-oddval text-lg text-brand-dark mb-2">Wellness Only</h3>
               <p class="font-montserrat text-sm font-light text-brand-grey">Not a medical device. Not a diagnostic tool.</p>
           </div>
           <div class="bg-[#F5F5F7] rounded-3xl p-8 border border-black/[0.03] reveal delay-100">
-              <div class="text-3xl mb-4">📈</div>
+              <div class="text-3xl mb-4" aria-hidden="true">📈</div>
               <h3 class="font-oddval text-lg text-brand-dark mb-2">Measurable Habit</h3>
               <p class="font-montserrat text-sm font-light text-brand-grey">We focus purely on behavior awareness and coaching.</p>
           </div>
           <div class="bg-brand-yellow/10 rounded-3xl p-8 border border-brand-yellow/20 reveal-right">
-              <div class="text-3xl mb-4">⚠️</div>
+              <div class="text-3xl mb-4" aria-hidden="true">⚠️</div>
               <h3 class="font-oddval text-lg text-brand-dark mb-2">Safety First</h3>
               <p class="font-montserrat text-sm font-light text-brand-grey">Mouth taping isn't for everyone. Guidance matters.</p>
           </div>

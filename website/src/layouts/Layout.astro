@@ -1,57 +1,102 @@
 ---
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import StickyBar from '../components/StickyBar.astro';
 
 interface Props {
   title?: string;
   description?: string;
   lang?: string;
   structuredData?: object;
+  alternatePaths?: { en?: string; de?: string };
   frontmatter?: any;
 }
 
-const { 
-  frontmatter, 
-  title = frontmatter?.title || 'RespireLabs', 
-  description = frontmatter?.description || '', 
-  lang = frontmatter?.lang || 'en', 
-  structuredData = frontmatter?.structuredData 
+const {
+  frontmatter,
+  title = frontmatter?.title || 'RespireLabs',
+  description = frontmatter?.description || '',
+  lang = frontmatter?.lang || 'en',
+  structuredData = frontmatter?.structuredData,
+  alternatePaths
 } = Astro.props;
+
+const siteUrl = 'https://smartmouthtape.com';
+const altPaths = alternatePaths || frontmatter?.alternatePaths;
+const currentPath = Astro.url.pathname.replace(/^\/(en|de)/, '');
+const enPath = altPaths?.en || `/en${currentPath}`;
+const dePath = altPaths?.de || `/de${currentPath}`;
+
+// Generate BreadcrumbList structured data from URL path
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbItems = pathSegments.map((segment, index) => {
+  let name;
+  if (index === 0 && (segment === 'en' || segment === 'de')) {
+    name = segment === 'de' ? 'Startseite' : 'Home';
+  } else {
+    name = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
+  }
+  return {
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": name,
+    "item": `${siteUrl}/${pathSegments.slice(0, index + 1).join('/')}`
+  };
+});
+
+// Determine og:type — 'article' for blog post pages, 'website' for everything else
+const isBlogPost = /^\/(en|de)\/blog\/.+/.test(Astro.url.pathname);
+const ogType = isBlogPost ? 'article' : 'website';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems
+};
 ---
 
 <!doctype html>
 <html lang={lang} class="scroll-smooth bg-brand-white">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/assets/logo/respire-labs-symbol_blue-symbol.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#FAFAFA" />
-    
-    <link rel="alternate" hreflang="en" href={`https://respirelabs.com/en${Astro.url.pathname.replace(/^\/(en|de)/, '')}`} />
-    <link rel="alternate" hreflang="de" href={`https://respirelabs.com/de${Astro.url.pathname.replace(/^\/(en|de)/, '')}`} />
-    <link rel="alternate" hreflang="x-default" href={`https://respirelabs.com/en${Astro.url.pathname.replace(/^\/(en|de)/, '')}`} />
-    <link rel="canonical" href={`https://respirelabs.com${Astro.url.pathname}`} />
+
+    <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
+    <link rel="alternate" hreflang="de" href={`${siteUrl}${dePath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}${enPath}`} />
+    <link rel="canonical" href={`${siteUrl}${Astro.url.pathname}`} />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={`https://respirelabs.com${Astro.url.pathname}`} />
-    <meta property="og:image" content="https://respirelabs.com/assets/logo/respire-labs-logo_primary-logo.png" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={`${siteUrl}${Astro.url.pathname}`} />
+    <meta property="og:image" content={`${siteUrl}/assets/logo/respire-labs-logo_primary-logo.png`} />
+    <meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'} />
+    <meta property="og:site_name" content="RespireLabs" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
 
     {structuredData && (
-      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
     )}
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)} />
     <!-- Global Organization Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "RespireLabs",
-      "url": "https://respirelabs.com",
-      "logo": "https://respirelabs.com/assets/logo/respire-labs-logo_primary-logo.png",
+      "url": siteUrl,
+      "logo": `${siteUrl}/assets/logo/respire-labs-logo_primary-logo.png`,
       "sameAs": [
         "https://youtube.com/respirelabs",
         "https://linkedin.com/company/respirelabs",
@@ -64,22 +109,26 @@ const {
       }]
     })} />
     <!-- Global WebSite Schema -->
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "RespireLabs",
-      "url": "https://respirelabs.com",
+      "url": siteUrl,
       "inLanguage": ["de", "en"]
     })} />
+    <ClientRouter />
   </head>
   <body class="text-brand-dark antialiased selection:bg-brand-blue selection:text-white flex flex-col min-h-screen relative overflow-x-hidden">
     <Header lang={lang} />
     
-    <main id="main-content" class="flex-grow pt-16 md:pt-20 outline-none" tabindex="-1">
+    <main id="main-content" class="flex-grow pt-16 md:pt-20 outline-none" tabindex="-1" transition:animate="fade">
       <slot />
     </main>
     
     <Footer lang={lang} />
+
+    <StickyBar lang={lang} />
+    <CookieConsent lang={lang} />
 
     <!-- Intersection Observer for scroll animations -->
     <script>
@@ -89,29 +138,31 @@ const {
         threshold: 0.1
       };
 
-      const observer = new IntersectionObserver((entries, observer) => {
+      const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            // Stop observing once animated to prevent re-triggering
-            observer.unobserve(entry.target);
+            obs.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
-      // Run on load and view transitions if used
       const initAnimations = () => {
-        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        const revealElements = document.querySelectorAll('.reveal:not(.active), .reveal-left:not(.active), .reveal-right:not(.active)');
         revealElements.forEach((el) => {
           observer.observe(el);
         });
-      };
-      
-      initAnimations();
-      // Wait a tiny bit for DOM paint before revealing hero
-      setTimeout(() => {
+        // Hero reveal
+        setTimeout(() => {
           document.querySelectorAll('.hero-reveal').forEach(el => el.classList.add('active'));
-      }, 50);
+        }, 50);
+      };
+
+      // Run on initial load
+      initAnimations();
+
+      // Re-run after View Transition navigation
+      document.addEventListener('astro:after-swap', initAnimations);
     </script>
   </body>
 </html>

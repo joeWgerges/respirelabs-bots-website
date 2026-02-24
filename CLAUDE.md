@@ -263,12 +263,28 @@ Pages can pass JSON-LD via the `structuredData` frontmatter prop. The Layout aut
 
 ## Key Reference Documents
 
-| Document | Purpose | When to Reference |
-|---|---|---|
-| `WEBSITE_SPEC.md` | Complete technical specification | Building any new feature or component |
-| `MASTER_TRACKING.md` | 147 tickets organized by epic | Planning work, checking dependencies |
-| `MASTER_CHECKLIST.md` | Ordered build checklist | Tracking progress, finding next task |
-| `readme.md` | Full bilingual content source | Writing page copy, blog content |
+**IMPORTANT**: Always read the relevant reference document before starting work on a feature or ticket. These files are the source of truth for specifications, progress tracking, and content.
+
+### WEBSITE_SPEC.md — Full Technical Specification
+- **Path**: `/Users/JoeG/Documents/Respirelabs-gemini/WEBSITE_SPEC.md`
+- **What it contains**: 21 sections covering every aspect of the build — tech stack, project structure, design tokens (full color scales, spacing, radii, shadows), dark mode system, typography system, animation/motion system (GSAP presets, ScrollTrigger config, animation catalog), i18n (language detection flow, URL structure, hreflang), Sanity CMS architecture (all schemas: page, blogPost, faqItem, siteSettings, object types, desk structure, data fetching), SEO & LLM optimization (llms.txt, robots.txt, JSON-LD schemas, facts.json endpoint), conversion system (waitlist funnel: inline CTAs, sticky bar, exit-intent popup, slide-in CTA, session tracking logic, form fields), form & API architecture (serverless endpoints, Brevo setup), analytics (Matomo events table), cookie consent, interactive components (BreathingDemo, NoseBreathingTimer, ComparisonSlider, FAQAccordion, HowItWorksTimeline, SensorDiagramExplorer — each with detailed specs), page-by-page specifications (section order, content, animations for all ~20 pages), image & asset requirements, hosting & deployment (Netlify config, CI/CD pipeline, env vars), performance budgets, accessibility standards, and build phases checklist.
+- **When to read**: Before building ANY new component, page, feature, or integration. This is the authoritative spec.
+
+### MASTER_TRACKING.md — Ticket Tracker (147 Tickets, 14 Epics)
+- **Path**: `/Users/JoeG/Documents/Respirelabs-gemini/MASTER_TRACKING.md`
+- **What it contains**: Every ticket organized by epic with ID, description, priority (P0-P3), status (TODO/IN PROGRESS/DONE), dependencies, and effort estimates. Includes detailed notes per epic about what's actually implemented vs. planned, acceptance criteria, and frontend design details (ASCII wireframes for Header, Footer, BreathingDemo, SensorDiagram, Timeline, StickyBar, ExitIntentPopup, blog cards). Also has the dependency graph and critical path.
+- **Epics**: E01 (Setup, 4/12 done), E02 (Design Tokens, 10/11 done), E03 (Global Components, 8/10 done), E04 (Sanity CMS, 0/13), E05 (i18n, 2/7), E06 (Animations, 3/12), E07 (Interactive Components, 0/11), E08 (Conversion, 0/10 + 1 in progress), E09 (EN Pages, 15/16 done), E10 (DE Pages, 5/8), E11 (Blog, 5/7), E12 (SEO/LLM, 4/13), E13 (Analytics/CRM, 0/8), E14 (QA/Launch, 0/9)
+- **When to read**: Before starting a new ticket — check its status, dependencies, and which epic it belongs to. After completing work — update the ticket status. When planning what to work on next.
+
+### MASTER_CHECKLIST.md — Ordered Launch Checklist (300+ Items)
+- **Path**: `/Users/JoeG/Documents/Respirelabs-gemini/MASTER_CHECKLIST.md`
+- **What it contains**: Every task in execution order across 12 phases, with `[x]` done / `[ ]` pending / `[~]` partial / `[!]` blocked markers. Covers: project initialization, design tokens, global components, Sanity CMS setup, i18n, GSAP animations, interactive components, conversion components, all EN pages (with section-level detail), DE localization (with slug rename notes), blog, SEO/LLM optimization, analytics/Matomo, cookie consent, Brevo CRM, premium motion polish, QA/testing (cross-browser, responsive breakpoints, feature testing, performance, accessibility, SEO final check), launch (DNS, deployment, post-launch). Also has image/asset production checklist, environment variables checklist, and placeholder values checklist.
+- **When to read**: To find the next task to work on (work top-to-bottom within each phase). To verify what's been completed and what's still pending at a granular level.
+
+### readme.md — Bilingual Content Source
+- **Path**: `/Users/JoeG/Documents/Respirelabs-gemini/readme.md`
+- **What it contains**: Full bilingual (EN + DE) content pack for all pages — homepage copy, product descriptions, feature lists, FAQ questions and answers, blog post content, legal text, about/press copy. Also contains tech recommendations and product positioning.
+- **When to read**: When writing page copy, translating content, creating blog posts, or needing the exact wording for any page section.
 
 ### Critical Path (from MASTER_TRACKING.md)
 

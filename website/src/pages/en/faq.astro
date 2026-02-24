@@ -1,12 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Button from '../../components/ui/Button.astro';
-
-const frontmatter = {
-  title: 'FAQ – Frequently Asked Questions',
-  description: 'Frequently asked questions about RespireLabs, the app, privacy, and Smart Mouth Tape.',
-  lang: 'en'
-};
+import FAQAccordion from '../../components/interactive/FAQAccordion';
 
 const faqs = [
   {
@@ -62,6 +57,28 @@ const faqs = [
     ]
   }
 ];
+
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.flatMap(category =>
+    category.items.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer
+      }
+    }))
+  )
+};
+
+const frontmatter = {
+  title: 'FAQ – Frequently Asked Questions',
+  description: 'Frequently asked questions about RespireLabs, the app, privacy, and Smart Mouth Tape.',
+  lang: 'en',
+  structuredData: faqStructuredData
+};
 ---
 
 <Layout frontmatter={frontmatter}>
@@ -87,29 +104,7 @@ const faqs = [
   <!-- FAQ ACCORDIONS -->
   <section class="py-24 bg-brand-white relative">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      {faqs.map((category, catIndex) => (
-        <div class={`mb-16 reveal delay-${(catIndex % 5) * 100}`}>
-          <h2 class="text-2xl font-oddval font-bold text-brand-dark mb-6 pl-4 border-l-4 border-brand-blue">{category.category}</h2>
-          
-          <div class="space-y-4">
-            {category.items.map((item, itemIndex) => (
-              <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
-                <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
-                  <span class="pr-6">{item.question}</span>
-                  <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
-                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-                  </span>
-                </summary>
-                <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
-                  <div class="pt-4">{item.answer}</div>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      ))}
-      
+      <FAQAccordion client:visible faqs={faqs} lang="en" />
     </div>
   </section>
 
@@ -128,17 +123,4 @@ const faqs = [
     </div>
   </section>
   
-  <style>
-    /* Details tag animations */
-    details > summary::-webkit-details-marker {
-      display: none;
-    }
-    details[open] summary ~ * {
-      animation: sweep .3s ease-in-out;
-    }
-    @keyframes sweep {
-      0%    {opacity: 0; transform: translateY(-10px)}
-      100%  {opacity: 1; transform: translateY(0)}
-    }
-  </style>
 </Layout>

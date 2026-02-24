@@ -50,7 +50,7 @@ const content = footerLinks[lang as keyof typeof footerLinks] || footerLinks.en;
 
       <!-- Links -->
       <div class="md:col-span-1">
-        <h4 class="font-oddval text-lg mb-4 text-brand-yellow">Legal</h4>
+        <h4 class="font-oddval text-lg mb-4 text-brand-yellow">{lang === 'de' ? 'Rechtliches' : 'Legal'}</h4>
         <ul class="space-y-2">
           {content.links.map((link) => (
             <li>

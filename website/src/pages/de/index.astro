@@ -38,8 +38,8 @@ const frontmatter = {
       </p>
       
       <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 reveal hero-reveal delay-200">
-        <Button href="/de/waitlist" variant="primary" class="text-base px-10 py-5">Warteliste beitreten</Button>
-        <Button href="/de/how-it-works" variant="glass" class="text-base px-10 py-5 !text-brand-dark !border-brand-dark/20 hover:!bg-brand-dark/5">So funktioniert's</Button>
+        <Button href="/de/warteliste" variant="primary" class="text-base px-10 py-5">Warteliste beitreten</Button>
+        <Button href="/de/so-funktionierts" variant="glass" class="text-base px-10 py-5 !text-brand-dark !border-brand-dark/20 hover:!bg-brand-dark/5">So funktioniert's</Button>
       </div>
     </div>
 
@@ -246,18 +246,85 @@ const frontmatter = {
     </div>
   </section>
 
+  <!-- FAQ PREVIEW -->
+  <section class="py-24 bg-[#F7F7F9] border-t border-brand-light/50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="text-3xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Häufige Fragen.</h2>
+        <p class="text-lg font-montserrat text-brand-grey font-light">Schnelle Antworten auf die meistgestellten Fragen.</p>
+      </div>
+
+      <div class="space-y-4 reveal delay-100">
+        <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
+          <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
+            <span class="pr-6">Was ist RespireLabs?</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
+            <div class="pt-4">RespireLabs ist ein Atemcoach (mobile App + optionales Wearable-Konzept), der entwickelt wurde, um Mundatmung zu reduzieren und gesündere Nasenatmungsgewohnheiten aufzubauen.</div>
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
+          <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
+            <span class="pr-6">Ist RespireLabs ein Medizinprodukt?</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
+            <div class="pt-4">Nein. RespireLabs ist ein Wellness-Produkt und diagnostiziert oder behandelt keine Erkrankungen. Wenn du eine Schlafstörung vermutest, wende dich bitte an einen Arzt.</div>
+          </div>
+        </details>
+
+        <details class="group bg-white rounded-2xl border border-brand-light/60 shadow-sm overflow-hidden transition-all duration-300 open:shadow-md">
+          <summary class="flex justify-between items-center font-montserrat font-semibold text-brand-dark cursor-pointer list-none p-6 focus-ring rounded-2xl">
+            <span class="pr-6">Zeichnet RespireLabs die ganze Nacht auf?</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 flex-shrink-0 text-brand-blue bg-brand-blue/10 rounded-full p-1">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 pt-0 text-brand-grey font-garamond text-lg leading-relaxed border-t border-brand-light/30 bg-brand-light/5">
+            <div class="pt-4">RespireLabs ist so konzipiert, dass du selbst entscheidest, wann eine Sitzung gestartet wird und was gespeichert wird. Sensible Audiodaten werden standardmäßig privat behandelt und lokal auf deinem Gerät verarbeitet.</div>
+          </div>
+        </details>
+      </div>
+
+      <div class="text-center mt-10 reveal delay-200">
+        <a href="/de/faq" class="inline-flex items-center font-montserrat font-semibold text-brand-blue hover:text-blue-700 transition-colors">
+          Alle FAQs ansehen <span class="ml-2">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="bg-brand-dark py-32 sm:py-48 text-center relative overflow-hidden">
     <div class="absolute inset-0 bg-grid-pattern-dark opacity-10 pointer-events-none"></div>
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-brand-blue/20 blur-[150px] pointer-events-none mix-blend-screen"></div>
-    
+
     <div class="relative z-10 max-w-3xl mx-auto px-4 reveal">
       <h2 class="text-5xl md:text-7xl lg:text-8xl font-oddval font-bold text-white tracking-tight mb-8">Bereit zu starten?</h2>
       <p class="text-xl md:text-2xl font-montserrat font-light text-brand-light/70 mb-12 max-w-xl mx-auto leading-relaxed">
         Sichere dir Early Access zur App, Produkt-Updates und die Chance, die Beta mitzugestalten.
       </p>
-      <Button href="/de/waitlist" variant="secondary" class="text-lg px-12 py-5 shadow-[0_0_40px_rgba(32,111,247,0.4)] hover:-translate-y-1">Warteliste beitreten</Button>
+      <Button href="/de/warteliste" variant="secondary" class="text-lg px-12 py-5 shadow-[0_0_40px_rgba(32,111,247,0.4)] hover:-translate-y-1">Warteliste beitreten</Button>
       <p class="mt-8 text-sm font-garamond text-brand-light/40 italic">Kein Medizinprodukt. Stellt keine Diagnose oder Behandlung von Krankheiten dar.</p>
     </div>
   </section>
+
+  <style>
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] summary ~ * {
+      animation: sweep .3s ease-in-out;
+    }
+    @keyframes sweep {
+      0%    {opacity: 0; transform: translateY(-10px)}
+      100%  {opacity: 1; transform: translateY(0)}
+    }
+  </style>
 </Layout>
