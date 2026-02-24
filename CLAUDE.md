@@ -8,7 +8,7 @@
 
 1. **Medical claims**: RespireLabs is a wellness product. NEVER claim it diagnoses, treats, cures, or prevents any disease. Always include medical disclaimers where appropriate.
 2. **Privacy-first language**: Core detection runs locally/offline. Never imply data is shared without consent.
-3. **Bilingual parity**: Every EN page must have a DE equivalent. Every UI string must exist in both languages.
+3. **Trilingual parity**: Every EN page must have a DE and PL equivalent. Every UI string must exist in all three languages. When building any new page, component, or feature, always create/update the Polish (PL) version alongside EN and DE.
 4. **Accessibility**: WCAG 2.1 AA compliance. All images need alt text, form inputs need labels, focus states must be visible, heading hierarchy must not skip levels.
 5. **No JS by default**: Astro ships zero JS unless explicitly needed. Only use React islands (`client:visible`) for truly interactive components. Keep the site static-first.
 6. **Font usage**: Oddval for headings, Montserrat for body/UI, EB Garamond for quotes/editorial. Never mix these roles.
@@ -246,12 +246,13 @@ The `Button.astro` component supports 5 variants:
 
 ### i18n Pattern
 
-- All pages exist in `/en/` and `/de/` directories
+- All pages exist in `/en/`, `/de/`, and `/pl/` directories (Polish pending implementation)
 - Root `/` redirects to `/en` (language detection not yet implemented)
 - Header nav links are defined per-language in `Header.astro`
 - Footer links are defined per-language in `Footer.astro`
-- Language switcher swaps `/en` ↔ `/de` in the URL path
+- Language switcher cycles `/en` ↔ `/de` ↔ `/pl` in the URL path
 - `hreflang` tags are auto-generated in `Layout.astro`
+- **When adding any new page or feature**: Always create the PL version alongside EN and DE
 - Static UI strings are currently inline (not yet extracted to JSON files)
 
 ### Structured Data
@@ -289,7 +290,7 @@ Pages can pass JSON-LD via the `structuredData` frontmatter prop. The Layout aut
 ### Critical Path (from MASTER_TRACKING.md)
 
 ```
-E01 (Setup) → E02 (Design Tokens) → E03 (Global Components) → E09 (EN Pages) → E10 (DE Pages) → E14 (Launch)
+E01 (Setup) → E02 (Design Tokens) → E03 (Global Components) → E09 (EN Pages) → E10 (DE Pages) → E15 (PL Pages) → E14 (Launch)
 ```
 
 Parallelizable: E04 (Sanity), E06 (Animations), E07 (Interactive), E08 (Conversion), E12 (SEO)
@@ -307,16 +308,18 @@ Parallelizable: E04 (Sanity), E06 (Animations), E07 (Interactive), E08 (Conversi
 
 1. Create `website/src/pages/en/new-page.astro`
 2. Create matching `website/src/pages/de/new-page.astro` (or localized slug)
-3. Add nav link in `Header.astro` navLinks (both `en` and `de` objects)
-4. Add footer link if it's a legal/info page
-5. Include `hreflang` tags (automatic via Layout)
-6. Add structured data if applicable
+3. Create matching `website/src/pages/pl/new-page.astro` (or localized slug)
+4. Add nav link in `Header.astro` navLinks (`en`, `de`, and `pl` objects)
+5. Add footer link if it's a legal/info page
+6. Include `hreflang` tags (automatic via Layout)
+7. Add structured data if applicable
 
 ### Adding a Blog Post
 
 1. Create `website/src/pages/en/blog/NN-slug.md` with MarkdownLayout frontmatter
 2. Create matching `website/src/pages/de/blog/NN-slug.md`
-3. Add card entry to `blog/index.astro` in both languages
+3. Create matching `website/src/pages/pl/blog/NN-slug.md`
+4. Add card entry to `blog/index.astro` in all three languages
 
 ### Dark Section Styling
 

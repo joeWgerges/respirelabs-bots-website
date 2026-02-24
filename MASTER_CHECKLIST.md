@@ -250,6 +250,64 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 
 ---
 
+## Phase 6b: Polish Localization (NEW)
+
+> **RULE**: All new pages, components, and features must always include Polish translations alongside EN and DE.
+
+### 6b.1 PL Foundation
+- [ ] Add `pl` locale to `astro.config.mjs` i18n config (locales array + routing)
+- [ ] Create `src/lib/translations/pl.json` with all UI strings
+- [ ] Update Header.astro: add PL navLinks object + 3-way language switcher (EN/DE/PL)
+- [ ] Update Footer.astro: add PL footer links + localize "Legal" → "Prawne"
+- [ ] Update Layout.astro: add PL hreflang tags, PL breadcrumb ("Strona główna")
+- [ ] Update CookieConsent.astro: add PL consent strings
+- [ ] Update InlineWaitlistCTA.astro: add PL strings
+- [ ] Update StickyBar.astro: add PL strings
+- [ ] Update BlogPreview.astro: add PL strings
+
+### 6b.2 PL Core Pages
+- [ ] Build Homepage /pl/
+- [ ] Build App page /pl/aplikacja
+- [ ] Build Smart Mouth Tape page /pl/inteligentna-tasma
+- [ ] Build How It Works /pl/jak-to-dziala
+- [ ] Build Compare /pl/porownanie
+- [ ] Build FAQ /pl/faq
+- [ ] Build Waitlist /pl/lista-oczekujacych
+- [ ] Build Contact /pl/kontakt
+- [ ] Build About /pl/o-nas
+- [ ] Build Science & Safety /pl/nauka-i-bezpieczenstwo
+- [ ] Build Pricing /pl/cennik
+- [ ] Build Press /pl/prasa
+- [ ] Build Facts /pl/fakty
+
+### 6b.3 PL Legal Pages
+- [ ] Build Privacy Policy /pl/polityka-prywatnosci
+- [ ] Build Terms /pl/regulamin
+- [ ] Build Cookies /pl/cookies
+- [ ] Build Data Deletion /pl/usuwanie-danych
+
+### 6b.4 PL Blog
+- [ ] Build blog listing /pl/blog/
+- [ ] Translate blog post 01: mouth breathing vs nasal breathing → PL
+- [ ] Translate blog post 02: mouth taping safety → PL
+- [ ] Translate blog post 03: daytime nasal breathing training → PL
+
+### 6b.5 PL SEO & Config
+- [ ] Add PL page URLs to public/llms.txt
+- [ ] Add PL redirects to netlify.toml and public/_redirects
+- [ ] Update sitemap filter to exclude PL redirect-only pages
+- [ ] Verify all PL hreflang tags correct
+- [ ] Verify PL language switcher works on every page
+
+### 6b.6 PL Verification
+- [ ] All PL pages render without errors
+- [ ] Medical disclaimers present and translated on all PL pages
+- [ ] All internal links within PL pages work
+- [ ] Form labels and validation in Polish
+- [ ] Nav/footer/UI strings in Polish
+
+---
+
 ## Phase 7: Blog (Week 7)
 
 - [x] Build blog listing page /en/blog/ *(done — uses Astro.glob to load .md files, manual card grid)*
@@ -514,19 +572,19 @@ Fill in before launch (or confirm they remain as placeholders):
 
 | Placeholder | Value | Status |
 |---|---|---|
-| `{{support_email}}` | | [ ] Filled |
-| `{{press_email}}` | | [ ] Filled |
-| `{{partnership_email}}` | | [ ] Filled |
-| `{{privacy_email}}` | | [ ] Filled |
-| `{{company_name}}` | | [ ] Filled |
-| `{{company_address}}` | | [ ] Filled |
-| `{{company_country}}` | | [ ] Filled |
-| `{{managing_director}}` | | [ ] Filled |
-| `{{registration}}` | | [ ] Filled |
-| `{{vat_id}}` | | [ ] Filled |
-| `{{authority}}` | | [ ] Filled |
-| `{{linkedin_url}}` | | [ ] Filled |
-| `{{youtube_url}}` | | [ ] Filled |
+| `{{support_email}}` | support@respirelabs.com | [x] Filled |
+| `{{press_email}}` | press@respirelabs.com | [x] Filled |
+| `{{partnership_email}}` | partners@respirelabs.com | [x] Filled |
+| `{{privacy_email}}` | support@respirelabs.com | [x] Filled |
+| `{{company_name}}` | RespireLabs | [x] Filled |
+| `{{company_address}}` | RespireLabs, Austria | [x] Filled |
+| `{{company_country}}` | Austria / Österreich | [x] Filled |
+| `{{managing_director}}` | Kamil Dąbrowski | [x] Filled |
+| `{{registration}}` | [Pending] | [~] Partial — awaiting legal details |
+| `{{vat_id}}` | [Pending] | [~] Partial — awaiting legal details |
+| `{{authority}}` | [Pending] | [~] Partial — awaiting legal details |
+| `{{linkedin_url}}` | https://linkedin.com/company/respirelabs | [x] Filled |
+| `{{youtube_url}}` | https://youtube.com/respirelabs | [x] Filled |
 | `{{instagram_url}}` | | [ ] Filled |
 
 ---

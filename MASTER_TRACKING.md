@@ -4,8 +4,8 @@
 > **Created**: 2026-02-22
 > **Last Audited**: 2026-02-24
 > **Spec Reference**: [WEBSITE_SPEC.md](./WEBSITE_SPEC.md)
-> **Total Tickets**: 147 (73 DONE, 1 IN PROGRESS, 73 TODO)
-> **Epics**: 14
+> **Total Tickets**: 174 (73 DONE, 1 IN PROGRESS, 100 TODO)
+> **Epics**: 15
 
 ---
 
@@ -48,6 +48,7 @@
 | E12 | SEO & LLM Optimization | 13 | 6 | 7 | IN PROGRESS |
 | E13 | Analytics, Cookie Consent & Integrations | 8 | 2 | 6 | IN PROGRESS |
 | E14 | QA, Performance & Launch | 9 | 0 | 9 | TODO |
+| E15 | Polish Localization (PL Pages) | 27 | 0 | 27 | TODO |
 
 > **Last audited**: 2026-02-24 — Statuses updated after waves 2-3: netlify config, Prettier config, dark mode CSS variables, View Transitions, related posts, cookie consent, i18n extraction, Article JSON-LD.
 
@@ -796,10 +797,73 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 
 ---
 
+## Epic E15: Polish Localization (PL Pages)
+
+> Full Polish localization of the website. Mirrors the EN/DE page structure. All new features must include PL translations going forward.
+
+### E15-A: Foundation & Config
+
+| ID | Ticket | Priority | Status | Depends On | Effort |
+|---|---|---|---|---|---|
+| E15-001 | Add `pl` locale to astro.config.mjs i18n config | P0 | TODO | — | S |
+| E15-002 | Create `src/lib/translations/pl.json` with all UI strings | P0 | TODO | E05-003 | M |
+| E15-003 | Update Header.astro: add PL nav links + 3-way language switcher (EN/DE/PL) | P0 | TODO | E15-001 | M |
+| E15-004 | Update Footer.astro: add PL footer links + localized section headings | P0 | TODO | E15-001 | S |
+| E15-005 | Update Layout.astro: add PL hreflang tags + PL breadcrumb "Strona Glowna" | P0 | TODO | E15-001 | S |
+| E15-006 | Update CookieConsent.astro: add PL consent strings | P1 | TODO | E15-001 | S |
+| E15-007 | Update InlineWaitlistCTA.astro: add PL strings | P1 | TODO | E15-001 | S |
+| E15-008 | Update StickyBar.astro: add PL strings | P1 | TODO | E15-001 | S |
+
+### E15-B: Core PL Pages
+
+| ID | Ticket | Priority | Status | Depends On | Effort |
+|---|---|---|---|---|---|
+| E15-009 | Build Homepage /pl/ | P1 | TODO | E15-003 | L |
+| E15-010 | Build App page /pl/aplikacja | P1 | TODO | E15-003 | L |
+| E15-011 | Build Smart Mouth Tape page /pl/inteligentna-tasma | P1 | TODO | E15-003 | L |
+| E15-012 | Build How It Works page /pl/jak-to-dziala | P1 | TODO | E15-003 | L |
+| E15-013 | Build Compare page /pl/porownanie | P1 | TODO | E15-003 | M |
+| E15-014 | Build FAQ page /pl/faq | P1 | TODO | E15-003 | L |
+| E15-015 | Build Waitlist page /pl/lista-oczekujacych | P1 | TODO | E15-003 | M |
+| E15-016 | Build Contact page /pl/kontakt | P1 | TODO | E15-003 | M |
+| E15-017 | Build About page /pl/o-nas | P1 | TODO | E15-003 | M |
+| E15-018 | Build Science & Safety page /pl/nauka-i-bezpieczenstwo | P1 | TODO | E15-003 | M |
+| E15-019 | Build Pricing page /pl/cennik | P2 | TODO | E15-003 | S |
+| E15-020 | Build Press page /pl/prasa | P2 | TODO | E15-003 | S |
+| E15-021 | Build Facts page /pl/fakty | P2 | TODO | E15-003 | S |
+
+### E15-C: PL Legal Pages
+
+| ID | Ticket | Priority | Status | Depends On | Effort |
+|---|---|---|---|---|---|
+| E15-022 | Build Privacy Policy /pl/polityka-prywatnosci | P1 | TODO | E15-001 | M |
+| E15-023 | Build Terms /pl/regulamin | P1 | TODO | E15-001 | M |
+| E15-024 | Build Cookies Policy /pl/cookies | P1 | TODO | E15-001 | S |
+| E15-025 | Build Data Deletion /pl/usuwanie-danych | P1 | TODO | E15-001 | S |
+
+### E15-D: PL Blog
+
+| ID | Ticket | Priority | Status | Depends On | Effort |
+|---|---|---|---|---|---|
+| E15-026 | Build blog listing /pl/blog/ + translate 3 blog posts to Polish | P2 | TODO | E15-003, E11 | L |
+| E15-027 | Add PL page URLs to llms.txt, update sitemap filter, add PL redirects to netlify.toml | P2 | TODO | E15-009 | M |
+
+### Acceptance Criteria (E15)
+- Every EN and DE page has a PL equivalent at a Polish slug
+- Language switcher cycles EN → DE → PL on all pages
+- All hreflang tags include `pl` alternate for every page
+- All UI strings (header, footer, cookie consent, sticky bar, CTAs) render in Polish
+- PL blog posts exist for all 3 starter articles
+- llms.txt and sitemap include all PL pages
+- All PL legal pages have correct Polish content (review with counsel)
+- Medical disclaimers present and translated in PL
+
+---
+
 ## Dependency Graph (Critical Path)
 
 ```
-E01 (Setup) ─┬─→ E02 (Design Tokens) ─┬─→ E03 (Global Components) ─┬─→ E09 (EN Pages) ─→ E10 (DE Pages)
+E01 (Setup) ─┬─→ E02 (Design Tokens) ─┬─→ E03 (Global Components) ─┬─→ E09 (EN Pages) ─→ E10 (DE Pages) ─→ E15 (PL Pages)
               │                         │                            │
               ├─→ E04 (Sanity CMS) ─────┘                            ├─→ E11 (Blog)
               │                                                      │
@@ -811,9 +875,10 @@ E01 (Setup) ─┬─→ E02 (Design Tokens) ─┬─→ E03 (Global Components
                                                                        │
                                                                        └─→ E14 (QA/Launch)
               E12 (SEO/LLM) can start early and continues through launch
+              E15 (PL Pages) can start once E10 (DE) is done — mirrors DE localization workflow
 ```
 
-**Critical path**: E01 → E02 → E03 → E09 → E10 → E14
+**Critical path**: E01 → E02 → E03 → E09 → E10 → E15 → E14
 
 **Parallelizable work**:
 - E04 (Sanity) can run in parallel with E02 (Design Tokens)
@@ -821,6 +886,7 @@ E01 (Setup) ─┬─→ E02 (Design Tokens) ─┬─→ E03 (Global Components
 - E07 (Interactive) can start once E06 is partially done
 - E08 (Conversion) can run in parallel with E09 (Pages)
 - E12 (SEO) can start very early (llms.txt, robots.txt) and continues throughout
+- E15 (Polish) can start once E10 (German) is done — follows same localization pattern
 
 ---
 
