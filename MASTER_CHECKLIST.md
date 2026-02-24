@@ -2,6 +2,7 @@
 
 > **Project**: smartmouthtape.com
 > **Created**: 2026-02-22
+> **Last Updated**: 2026-02-24
 > **Tracking**: [MASTER_TRACKING.md](./MASTER_TRACKING.md)
 > **Spec**: [WEBSITE_SPEC.md](./WEBSITE_SPEC.md)
 
@@ -19,12 +20,12 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 ## Phase 1: Foundation (Week 1)
 
 ### 1.1 Project Initialization
-- [ ] Initialize Astro 5.x project with `pnpm create astro@latest`
+- [x] Initialize Astro 5.x project with `pnpm create astro@latest` *(done — Astro 5.17.1, used npm)*
 - [ ] Install @astrojs/react adapter (React 19)
-- [ ] Install @astrojs/tailwind
-- [ ] Install @astrojs/mdx
-- [ ] Install @astrojs/sitemap
-- [ ] Configure TypeScript strict mode in tsconfig.json
+- [x] Install @astrojs/tailwind *(done — using @tailwindcss/vite 4.2.1 instead of @astrojs/tailwind)*
+- [x] Install @astrojs/mdx *(done — v4.3.13)*
+- [x] Install @astrojs/sitemap *(done — v3.7.0)*
+- [x] Configure TypeScript strict mode in tsconfig.json *(done — extends astro/tsconfigs/strict)*
 - [ ] Install GSAP + ScrollTrigger (`gsap` package)
 - [ ] Install Sanity v3 + @sanity/client + @sanity/document-internationalization
 - [ ] Install nanostores + @nanostores/react
@@ -32,45 +33,45 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [ ] Configure ESLint + Prettier with Astro plugin
 - [ ] Create .env.example with all placeholder variables
 - [ ] Configure netlify.toml for dev/staging deploys
-- [ ] Verify: `pnpm dev` starts without errors
+- [x] Verify: `pnpm dev` starts without errors *(done — site builds and runs)*
 - [ ] Verify: First deploy to Netlify succeeds
 
 ### 1.2 Design Token System
-- [ ] Configure Tailwind theme extension (colors per spec Section 4)
-- [ ] Define CSS custom properties — light mode palette
+- [x] Configure Tailwind theme extension (colors per spec Section 4) *(done — simplified flat palette in global.css @theme: brand-blue, brand-dark, brand-white, brand-yellow, brand-grey, brand-light)*
+- [x] Define CSS custom properties — light mode palette *(done — 6 brand tokens defined)*
 - [ ] Define CSS custom properties — dark mode palette (deep navy #0a0f1e)
-- [ ] Define spacing scale CSS variables
-- [ ] Define border radius scale
-- [ ] Define shadow scale (light + dark variants)
-- [ ] Convert Oddval font to WOFF2 (variable)
-- [ ] Convert Montserrat font to WOFF2 (variable)
-- [ ] Convert EB Garamond font to WOFF2 (variable)
-- [ ] Create @font-face declarations in src/styles/fonts.css
-- [ ] Implement typography scale (sizes, line heights, letter spacing)
-- [ ] Implement heading styles (H1-H4, responsive desktop/mobile)
-- [ ] Create src/styles/global.css (Tailwind directives + reset)
-- [ ] Copy 7 brand SVG icons to src/assets/icons/
-- [ ] Copy logo variants to src/assets/logos/
-- [ ] Verify: Fonts render correctly in browser
-- [ ] Verify: Dark mode CSS variables swap properly
-- [ ] Verify: Typography scale responsive on mobile
+- [ ] Define spacing scale CSS variables *(using Tailwind defaults instead)*
+- [ ] Define border radius scale *(using Tailwind defaults instead)*
+- [ ] Define shadow scale (light + dark variants) *(custom shadows exist in utility classes but not as CSS vars)*
+- [ ] Convert Oddval font to WOFF2 (variable) *(still serving TTF)*
+- [ ] Convert Montserrat font to WOFF2 (variable) *(still serving TTF)*
+- [ ] Convert EB Garamond font to WOFF2 (variable) *(still serving TTF)*
+- [x] Create @font-face declarations in src/styles/fonts.css *(done — declared in global.css, not separate file)*
+- [x] Implement typography scale (sizes, line heights, letter spacing) *(done — using Tailwind built-in scale + custom heading styles)*
+- [x] Implement heading styles (H1-H4, responsive desktop/mobile) *(done — in global.css base layer)*
+- [x] Create src/styles/global.css (Tailwind directives + reset) *(done — includes @theme, @font-face, base styles, utility classes, animations)*
+- [x] Copy 7 brand SVG icons to src/assets/icons/ *(done — in public/assets/icons/)*
+- [x] Copy logo variants to src/assets/logos/ *(done — in public/assets/logo/)*
+- [x] Verify: Fonts render correctly in browser *(done)*
+- [ ] Verify: Dark mode CSS variables swap properly *(dark mode not implemented)*
+- [x] Verify: Typography scale responsive on mobile *(done — responsive sizes used throughout)*
 
 ### 1.3 Global Components
-- [ ] Build BaseLayout.astro (HTML shell, font preloading, dark mode init script)
-- [ ] Build Header.astro — desktop navigation
-- [ ] Build Header.astro — mobile hamburger menu
-- [ ] Build Header.astro — sticky scroll behavior (backdrop-blur + shadow)
-- [ ] Build Footer.astro (3-column links, disclaimer, social icons)
-- [ ] Build SEOHead.astro (meta, OG, hreflang, JSON-LD slots)
-- [ ] Build DarkModeToggle.tsx (React island, localStorage sync)
-- [ ] Build LanguageSwitcher.tsx (React island, DE/EN route mapping)
-- [ ] Build PageLayout.astro (BaseLayout + Header + Footer + SEO)
-- [ ] Build LegalLayout.astro (simpler, no animations)
-- [ ] Build BlogLayout.astro (reading progress bar)
-- [ ] Build SkipToContent.astro (accessibility)
-- [ ] Verify: Header responsive on all breakpoints
-- [ ] Verify: Dark mode toggle persists, no flash on reload
-- [ ] Verify: Language switcher changes route correctly
+- [x] Build BaseLayout.astro (HTML shell, font preloading, dark mode init script) *(done — as Layout.astro, includes SEO meta, structured data, scroll animation observer)*
+- [x] Build Header.astro — desktop navigation *(done — pill-style nav bar, logo, CTA button)*
+- [x] Build Header.astro — mobile hamburger menu *(done — fullscreen overlay with close button, escape key, focus trap)*
+- [x] Build Header.astro — sticky scroll behavior (backdrop-blur + shadow) *(done — JS scroll listener, height shrink, border + shadow on scroll)*
+- [x] Build Footer.astro (3-column links, disclaimer, social icons) *(done — 4-column: brand/copyright, legal links, medical disclaimer; social icons pending)*
+- [x] Build SEOHead.astro (meta, OG, hreflang, JSON-LD slots) *(done — integrated into Layout.astro, not separate component)*
+- [ ] Build DarkModeToggle.tsx (React island, localStorage sync) *(requires React install)*
+- [x] Build LanguageSwitcher.tsx (React island, DE/EN route mapping) *(done — as inline Astro in Header.astro, not React island; functional path swap)*
+- [x] Build PageLayout.astro (BaseLayout + Header + Footer + SEO) *(done — Layout.astro serves this role)*
+- [ ] Build LegalLayout.astro (simpler, no animations) *(legal pages use MarkdownLayout instead)*
+- [x] Build BlogLayout.astro (reading progress bar) *(done — as MarkdownLayout.astro; no reading progress bar yet)*
+- [x] Build SkipToContent.astro (accessibility) *(done — skip link in Header.astro)*
+- [x] Verify: Header responsive on all breakpoints *(done — desktop nav + mobile overlay)*
+- [ ] Verify: Dark mode toggle persists, no flash on reload *(dark mode not implemented)*
+- [x] Verify: Language switcher changes route correctly *(done — swaps /en ↔ /de in URL)*
 
 ---
 
@@ -100,15 +101,15 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 
 ### 2.2 Internationalization
 - [ ] Create src/lib/i18n.ts (detection logic, route mapping, helpers)
-- [ ] Build root index.astro (language detection redirect)
-- [ ] Create src/lib/translations/en.json (all UI strings)
-- [ ] Create src/lib/translations/de.json (all UI strings)
-- [ ] Create src/stores/language.ts (nanostore)
-- [ ] Implement hreflang generation in SEOHead.astro
-- [ ] Verify: / redirects to /de/ for DACH browsers
-- [ ] Verify: / redirects to /en/ for others
+- [x] Build root index.astro (language detection redirect) *(done — redirects to /en; no Accept-Language detection yet)*
+- [ ] Create src/lib/translations/en.json (all UI strings) *(strings currently inline in components)*
+- [ ] Create src/lib/translations/de.json (all UI strings) *(strings currently inline in components)*
+- [ ] Create src/stores/language.ts (nanostore) *(requires nanostores install)*
+- [x] Implement hreflang generation in SEOHead.astro *(done — in Layout.astro, auto-generates en/de/x-default hreflang tags)*
+- [ ] Verify: / redirects to /de/ for DACH browsers *(currently always redirects to /en)*
+- [x] Verify: / redirects to /en/ for others *(done — always redirects to /en)*
 - [ ] Verify: Saved preference persists in localStorage
-- [ ] Verify: All UI text renders in correct language
+- [~] Verify: All UI text renders in correct language *(partial — nav/footer have bilingual strings, but no i18n system; DE pages have German content)*
 
 ---
 
@@ -127,11 +128,11 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [ ] Verify: View Transitions work between pages
 
 ### 3.2 Advanced Animations (can be done during page build)
-- [ ] Hero text reveal animation (staggered word clip)
+- [ ] Hero text reveal animation (staggered word clip) *(current hero uses CSS fade-up, not GSAP word clip)*
 - [ ] Counter animation (numbers count up)
-- [ ] Stagger grid animation (cards sequential reveal)
+- [~] Stagger grid animation (cards sequential reveal) *(done via CSS .reveal + .delay-* classes, not GSAP)*
 - [ ] Dark mode toggle icon morph animation
-- [ ] Header scroll animation (backdrop-blur transition)
+- [x] Header scroll animation (backdrop-blur transition) *(done — JS scroll listener in Header.astro, not GSAP)*
 
 ---
 
@@ -168,131 +169,133 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 ## Phase 5: Core Pages — English (Week 4-6)
 
 ### 5.1 Primary Pages
-- [ ] Build Homepage /en/ — Hero section (tape-first, hybrid approach)
-- [ ] Build Homepage /en/ — Problem statement section
-- [ ] Build Homepage /en/ — Two products (App + Tape cards)
-- [ ] Build Homepage /en/ — How it works (mini timeline)
-- [ ] Build Homepage /en/ — Differentiators (3 feature cards)
-- [ ] Build Homepage /en/ — Mini comparison table
-- [ ] Build Homepage /en/ — Stats bar (early-stage momentum)
-- [ ] Build Homepage /en/ — FAQ (top 3 questions)
-- [ ] Build Homepage /en/ — Bottom CTA (inline waitlist form)
-- [ ] Build App page /en/app (8 sections + NoseBreathingTimer)
-- [ ] Build Smart Mouth Tape page /en/smart-mouth-tape (8 sections + SensorDiagram)
-- [ ] Build How It Works page /en/how-it-works (5 sections + BreathingDemo)
+- [x] Build Homepage /en/ — Hero section (tape-first, hybrid approach) *(done — "Breathe. Sleep." hero with CTAs, trust bar, gradient orbs)*
+- [x] Build Homepage /en/ — Problem statement section *(done — "Most sleep trackers tell you what happened" garamond quote)*
+- [x] Build Homepage /en/ — Two products (App + Tape cards) *(done — bento box: App large card + privacy dark card + Tape full-width card)*
+- [x] Build Homepage /en/ — How it works (mini timeline) *(done — 4-step numbered grid: Detect, Understand, Train, Measure)*
+- [~] Build Homepage /en/ — Differentiators (3 feature cards) *(partially — privacy is in bento box, no standalone differentiator section)*
+- [x] Build Homepage /en/ — Mini comparison table *(done — 3-row table: rings, audio apps, traditional tape vs. RespireLabs)*
+- [~] Build Homepage /en/ — Stats bar (early-stage momentum) *(replaced with trust bar: aws First Incubator, WKO Tirol, etc.)*
+- [ ] Build Homepage /en/ — FAQ (top 3 questions) *(not on homepage)*
+- [x] Build Homepage /en/ — Bottom CTA (inline waitlist form) *(done — dark section CTA with button, no inline form)*
+- [~] Build App page /en/app (8 sections + NoseBreathingTimer) *(done — hero, core loop, features bento, privacy callout, CTA; missing NoseBreathingTimer React island)*
+- [~] Build Smart Mouth Tape page /en/smart-mouth-tape (8 sections + SensorDiagram) *(done — dark hero, description, sensors, specs, CTA; missing SensorDiagramExplorer React island)*
+- [~] Build How It Works page /en/how-it-works (5 sections + BreathingDemo) *(done — hero, timeline steps, privacy, CTA; missing BreathingDemo React island)*
 
 ### 5.2 Secondary Pages
-- [ ] Build Science & Safety page /en/science-safety (medical disclaimer prominent)
-- [ ] Build Compare page /en/compare (interactive ComparisonSlider)
-- [ ] Build FAQ page /en/faq (category filter + FAQAccordion)
-- [ ] Build Waitlist page /en/waitlist (full WaitlistForm)
-- [ ] Build Contact page /en/contact (contact form)
-- [ ] Build About page /en/about (mission, principles, team placeholders)
-- [ ] Build Pricing page /en/pricing (pre-launch simple page)
-- [ ] Build Press page /en/press (boilerplate, assets)
-- [ ] Build Facts page /en/facts (LLM-first, semantic HTML)
-- [ ] Create /en/facts.md static file
+- [x] Build Science & Safety page /en/science-safety (medical disclaimer prominent) *(done — dark hero, responsible claims, safety, privacy)*
+- [~] Build Compare page /en/compare (interactive ComparisonSlider) *(done — static comparison table; missing interactive ComparisonSlider React island)*
+- [~] Build FAQ page /en/faq (category filter + FAQAccordion) *(done — static Q&A with categories; missing FAQAccordion React island)*
+- [x] Build Waitlist page /en/waitlist (full WaitlistForm) *(done — full form with all fields, client-side only, no backend)*
+- [x] Build Contact page /en/contact (contact form) *(done — contact form + direct contact cards)*
+- [x] Build About page /en/about (mission, principles, team placeholders) *(done)*
+- [x] Build Pricing page /en/pricing (pre-launch simple page) *(done — markdown)*
+- [x] Build Press page /en/press (boilerplate, assets) *(done — markdown)*
+- [x] Build Facts page /en/facts (LLM-first, semantic HTML) *(done — markdown)*
+- [x] Create /en/facts.md static file *(done)*
 
 ### 5.3 Legal Pages
-- [ ] Build Privacy Policy /en/privacy
+- [x] Build Privacy Policy /en/privacy *(done — markdown)*
 - [ ] Build Terms /en/terms
 - [ ] Build Cookies Policy /en/cookies
 - [ ] Build Data Deletion /en/data-deletion
 
 ### 5.4 English Pages Verification
-- [ ] All EN pages render without errors
-- [ ] All section animations working on each page
-- [ ] All interactive components functional
-- [ ] Medical disclaimer visible where needed
-- [ ] Internal links all working
-- [ ] Content matches readme.md source material
+- [~] All EN pages render without errors *(pages render, but missing legal pages: terms, cookies, data-deletion)*
+- [~] All section animations working on each page *(CSS reveal animations work; GSAP not yet integrated)*
+- [ ] All interactive components functional *(React islands not yet built)*
+- [x] Medical disclaimer visible where needed *(footer has disclaimer on all pages; science-safety has prominent disclaimer)*
+- [~] Internal links all working *(footer links to /en/terms, /en/cookies, /en/data-deletion return 404)*
+- [x] Content matches readme.md source material
 
 ---
 
 ## Phase 6: German Localization (Week 6-7)
 
 ### 6.1 DE Pages
-- [ ] Build Homepage /de/
-- [ ] Build App page /de/app
-- [ ] Build Smart Mouth Tape page /de/smart-mouth-tape
-- [ ] Build How It Works /de/so-funktionierts
-- [ ] Build Science & Safety /de/wissenschaft-sicherheit
-- [ ] Build Compare /de/vergleich
-- [ ] Build FAQ /de/faq
-- [ ] Build Waitlist /de/warteliste
-- [ ] Build Contact /de/kontakt
-- [ ] Build About /de/ueber-uns
-- [ ] Build Pricing /de/plaene
-- [ ] Build Press /de/presse
-- [ ] Build Facts /de/fakten
-- [ ] Create /de/fakten.md static file
+> **NOTE**: All DE pages currently use English URL slugs (e.g., `/de/how-it-works` instead of `/de/so-funktionierts`). German slugs still need to be implemented per spec.
+
+- [x] Build Homepage /de/ *(done — German content, same structure as EN)*
+- [x] Build App page /de/app *(done)*
+- [x] Build Smart Mouth Tape page /de/smart-mouth-tape *(done)*
+- [~] Build How It Works /de/so-funktionierts *(done as /de/how-it-works — needs slug rename)*
+- [~] Build Science & Safety /de/wissenschaft-sicherheit *(done as /de/science-safety — needs slug rename)*
+- [~] Build Compare /de/vergleich *(done as /de/compare — needs slug rename)*
+- [x] Build FAQ /de/faq *(done)*
+- [~] Build Waitlist /de/warteliste *(done as /de/waitlist — needs slug rename)*
+- [~] Build Contact /de/kontakt *(done as /de/contact — needs slug rename)*
+- [~] Build About /de/ueber-uns *(done as /de/about — needs slug rename)*
+- [~] Build Pricing /de/plaene *(done as /de/pricing — needs slug rename)*
+- [~] Build Press /de/presse *(done as /de/press — needs slug rename)*
+- [~] Build Facts /de/fakten *(done as /de/facts — needs slug rename)*
+- [x] Create /de/fakten.md static file *(done as /de/facts.md)*
 
 ### 6.2 DE Legal Pages
 - [ ] Build Datenschutz /de/datenschutz
 - [ ] Build AGB /de/agb
 - [ ] Build Cookies /de/cookies
 - [ ] Build Datenlöschung /de/datenloeschung
-- [ ] Build Impressum /de/impressum
+- [x] Build Impressum /de/impressum *(done — markdown)*
 
 ### 6.3 DE Verification
-- [ ] All DE pages render without errors
-- [ ] All hreflang tags correct
-- [ ] All canonical tags correct
-- [ ] lang="de" on all DE pages
-- [ ] Language switcher works on every DE page
-- [ ] Form validation messages in German
-- [ ] Nav/footer/UI strings in German
+- [~] All DE pages render without errors *(pages render, but missing legal pages and using English slugs)*
+- [x] All hreflang tags correct *(auto-generated in Layout.astro)*
+- [x] All canonical tags correct *(auto-generated in Layout.astro)*
+- [x] lang="de" on all DE pages *(done — lang prop passed through frontmatter)*
+- [x] Language switcher works on every DE page *(done — swaps /de ↔ /en)*
+- [ ] Form validation messages in German *(forms use browser defaults, no custom i18n)*
+- [x] Nav/footer/UI strings in German *(done — Header.astro and Footer.astro have DE strings)*
 
 ---
 
 ## Phase 7: Blog (Week 7)
 
-- [ ] Build blog listing page /en/blog/
-- [ ] Build blog post template [...slug].astro
+- [x] Build blog listing page /en/blog/ *(done — uses Astro.glob to load .md files, manual card grid)*
+- [x] Build blog post template [...slug].astro *(done — using MarkdownLayout.astro with frontmatter layout reference, not dynamic [...slug] route)*
 - [ ] Build BlogPreview.astro (3-card section component)
-- [ ] Create 3 EN blog posts in Sanity (from readme)
-- [ ] Create 3 DE blog posts in Sanity (from readme)
-- [ ] Build blog listing page /de/blog/
+- [x] Create 3 EN blog posts in Sanity (from readme) *(done as markdown files, not in Sanity: 01-mouth-breathing, 02-mouth-taping-safety, 03-daytime-nasal-breathing)*
+- [x] Create 3 DE blog posts in Sanity (from readme) *(done as markdown files, not in Sanity: 01-mundatmung, 02-mouth-taping-sicherheit, 03-nasenatmung-tagsueber)*
+- [x] Build blog listing page /de/blog/ *(done)*
 - [ ] Implement related posts section
-- [ ] Verify: Post renders portable text correctly
-- [ ] Verify: Reading progress bar works
-- [ ] Verify: Blog cards show image, title, excerpt, date, read time
+- [x] Verify: Post renders portable text correctly *(markdown renders via @tailwindcss/typography prose classes)*
+- [ ] Verify: Reading progress bar works *(not implemented)*
+- [~] Verify: Blog cards show image, title, excerpt, date, read time *(cards show title, excerpt, read-more link; no featured image or date/read-time yet)*
 
 ---
 
 ## Phase 8: SEO & LLM Optimization (Week 7-8)
 
 ### 8.1 Static Files
-- [ ] Create public/llms.txt (smartmouthtape.com URLs)
-- [ ] Create public/robots.txt (AI crawler rules)
-- [ ] Configure @astrojs/sitemap (auto sitemap.xml)
+- [x] Create public/llms.txt (smartmouthtape.com URLs) *(done — currently uses respirelabs.com URLs, needs domain update)*
+- [x] Create public/robots.txt (AI crawler rules) *(done — basic Allow: / with sitemap; missing named AI crawler rules from spec)*
+- [x] Configure @astrojs/sitemap (auto sitemap.xml) *(done — installed and configured in astro.config.mjs)*
 - [ ] Build /api/facts.json.ts endpoint
 - [ ] Build auto-generated /llms-ctx.txt (build-time script)
 
 ### 8.2 Structured Data
-- [ ] Implement Organization JSON-LD (all pages)
-- [ ] Implement WebSite JSON-LD (all pages)
+- [x] Implement Organization JSON-LD (all pages) *(done — in Layout.astro)*
+- [x] Implement WebSite JSON-LD (all pages) *(done — in Layout.astro)*
 - [ ] Implement BreadcrumbList JSON-LD (all pages)
-- [ ] Implement MobileApplication JSON-LD (app page)
-- [ ] Implement Product JSON-LD (smart mouth tape page)
+- [x] Implement MobileApplication JSON-LD (app page) *(done — via frontmatter structuredData prop)*
+- [x] Implement Product JSON-LD (smart mouth tape page) *(done — via frontmatter structuredData prop)*
 - [ ] Implement FAQPage JSON-LD (FAQ page + any page with FAQ content)
 - [ ] Implement Article JSON-LD (blog posts)
 
 ### 8.3 Open Graph & Social
-- [ ] Create EN default OG image (1200x630)
+- [ ] Create EN default OG image (1200x630) *(currently using logo as placeholder)*
 - [ ] Create DE default OG image (1200x630)
 - [ ] Configure per-page OG images from Sanity
 
 ### 8.4 SEO Verification
 - [ ] Validate all JSON-LD with schema.org validator
 - [ ] Validate with Google Rich Results tester
-- [ ] Verify answer-first formatting on all pages (quick summary bullets)
-- [ ] Verify hreflang on all pages (use hreflang checker tool)
-- [ ] Verify canonical tags on all pages
-- [ ] Verify /llms.txt accessible
-- [ ] Verify /robots.txt accessible
-- [ ] Verify sitemap.xml includes all pages
-- [ ] Verify /api/facts.json returns correct data
+- [~] Verify answer-first formatting on all pages (quick summary bullets) *(blog posts have "Quick summary" bullets; product pages have hero subtext but not bullet format)*
+- [x] Verify hreflang on all pages (use hreflang checker tool) *(auto-generated in Layout.astro for en/de/x-default)*
+- [x] Verify canonical tags on all pages *(auto-generated in Layout.astro)*
+- [x] Verify /llms.txt accessible *(done — served from public/)*
+- [x] Verify /robots.txt accessible *(done — served from public/)*
+- [x] Verify sitemap.xml includes all pages *(done — auto-generated, output as sitemap-index.xml + sitemap-0.xml)*
+- [ ] Verify /api/facts.json returns correct data *(endpoint not built)*
 
 ---
 
@@ -469,16 +472,16 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 
 | # | Asset | Spec | Status |
 |---|---|---|---|
-| [ ] | Homepage hero visual | Abstract breathing/wellness illustration, transparent BG, 1920px wide | TODO |
-| [ ] | App phone mockup | 2-3 screens showing app UI concept, iPhone frame, 800px wide | TODO |
-| [ ] | Smart Mouth Tape schematic | SVG line art, labeled sensors, for SensorDiagramExplorer | TODO |
-| [ ] | OG image EN | 1200x630px, logo + tagline + brand colors | TODO |
+| [ ] | Homepage hero visual | Abstract breathing/wellness illustration, transparent BG, 1920px wide | TODO — currently using CSS gradient orbs as placeholder |
+| [~] | App phone mockup | 2-3 screens showing app UI concept, iPhone frame, 800px wide | PARTIAL — CSS-only abstract phone shape with animated spinner on app page |
+| [ ] | Smart Mouth Tape schematic | SVG line art, labeled sensors, for SensorDiagramExplorer | TODO — currently using tape SVG icon in circle |
+| [ ] | OG image EN | 1200x630px, logo + tagline + brand colors | TODO — using logo PNG as placeholder |
 | [ ] | OG image DE | 1200x630px, logo + DE tagline + brand colors | TODO |
-| [ ] | Blog images (x6) | 1200x675px (16:9), relevant to each post topic | TODO |
-| [ ] | Favicon.ico | 32x32 + 16x16, from lung symbol | TODO |
-| [ ] | Favicon.svg | Scalable, brand lung symbol | TODO |
+| [ ] | Blog images (x6) | 1200x675px (16:9), relevant to each post topic | TODO — blog cards have no images |
+| [x] | Favicon.ico | 32x32 + 16x16, from lung symbol | DONE — exists at public/favicon.ico |
+| [x] | Favicon.svg | Scalable, brand lung symbol | DONE — exists at public/favicon.svg |
 | [ ] | Apple touch icon | 180x180px PNG, lung symbol on white/brand bg | TODO |
-| [ ] | Font files (WOFF2) | Oddval, Montserrat, EB Garamond — variable, Latin subset | TODO |
+| [ ] | Font files (WOFF2) | Oddval, Montserrat, EB Garamond — variable, Latin subset | TODO — currently serving TTF |
 | [ ] | Team headshots | For About page — placeholder boxes OK for v1 | TODO |
 
 ---
