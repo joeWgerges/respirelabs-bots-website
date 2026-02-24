@@ -2,13 +2,13 @@
 layout: "../../layouts/MarkdownLayout.astro"
 lang: "en"
 title: "Smart Mouth Tape – sensor-powered mouth tape (in development)"
-description: "A wearable concept that combines mouth tape with sensors (mic, airflow/pressure, SpO₂, motion) to understand breathing patterns at night—built to be privacy-first."
+description: "A wearable concept that combines mouth tape with advanced AI and machine learning to understand breathing patterns at night—built to be privacy-first."
 ---
 # Smart Mouth Tape (in development)
 
 **Quick summary**
 - Smart Mouth Tape is a wearable mouth-tape concept designed to add data + feedback to a simple habit.
-- Planned sensors: microphone, airflow/pressure, SpO₂, accelerometer.
+- Powered by advanced AI and machine learning for intelligent breathing pattern detection.
 - Designed for long overnight sessions and secure data transfer.
 - Wellness-only positioning (no diagnosis).
 
@@ -33,13 +33,13 @@ Smart Mouth Tape aims to add:
 
 ---
 
-## Hardware snapshot (concept-level)
+## Technology snapshot (concept-level)
 
-**Planned sensor set**
-- MEMS microphone
-- Two airflow/pressure sensors (or equivalent sensing approach)
-- SpO₂ sensor
-- Accelerometer (motion)
+**Key capabilities**
+- AI-powered breathing analysis that learns your patterns over time
+- Intelligent mouth vs. nasal breathing detection throughout the night
+- Sleep quality insights to help you understand how breathing affects rest
+- Adaptive coaching with personalized recommendations
 
 **Design targets**
 - Overnight operation (multi-hour session)
@@ -53,7 +53,7 @@ Smart Mouth Tape aims to add:
 ## How it works with the app (high level)
 
 1) Wear the tape as instructed (start small and follow safety guidance).
-2) The device records sensor signals during sleep.
+2) The device intelligently monitors your breathing during sleep.
 3) You sync the session and see a simple report:
    - breathing pattern trends
    - changes over time (habit building)

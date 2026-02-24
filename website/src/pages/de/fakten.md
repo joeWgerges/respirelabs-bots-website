@@ -26,8 +26,8 @@ RespireLabs ist ein Atem‑Coach: eine mobile App (smartphone‑first) plus ein 
 - Privacy-first Design
 
 ### Smart Mouth Tape (Konzept / in Entwicklung)
-- Sensor‑Pod + Tape für nächtliche Atem‑Insights
-- Geplante Sensoren: Mikrofon, Airflow/Pressure, SpO₂, Accelerometer
+- KI-gestützter Wearable-Pod + Tape für nächtliche Atem‑Insights
+- Fortschrittliches maschinelles Lernen für Atemerkennung und personalisiertes Coaching
 - Multi‑Stunden‑Use + sicherer Datentransfer
 
 ## Datenschutz‑Prinzipien

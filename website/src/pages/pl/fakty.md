@@ -26,8 +26,8 @@ RespireLabs to trener oddychania: aplikacja mobilna (podejscie "telefon na pierw
 - Konstrukcja stawiajaca prywatnosc na pierwszym miejscu
 
 ### Smart Mouth Tape (koncept / w fazie rozwoju)
-- Modul sensorowy + tasma do nocnych analiz oddychania
-- Planowane czujniki: mikrofon, czujnik przeplywu powietrza/cisnienia, SpO2, akcelerometr
+- Modul AI do noszenia + tasma do nocnych analiz oddychania
+- Zaawansowane uczenie maszynowe do wykrywania wzorcow oddechowych i spersonalizowanego coachingu
 - Zaprojektowany do wielogodzinnego uzytkowania i bezpiecznego transferu danych
 
 ## Zasady prywatnosci

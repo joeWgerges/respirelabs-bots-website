@@ -2,13 +2,13 @@
 layout: "../../layouts/MarkdownLayout.astro"
 lang: "de"
 title: "Smart Mouth Tape – sensorbasiertes Mouth Tape (in Entwicklung)"
-description: "Wearable‑Konzept: Mouth Tape + Sensoren (Mic, Airflow/Pressure, SpO₂, Bewegung) für Atem‑Insights in der Nacht – privacy-first gebaut."
+description: "Wearable‑Konzept: Mouth Tape + fortschrittliche KI und maschinelles Lernen für Atem‑Insights in der Nacht – privacy-first gebaut."
 ---
 # Smart Mouth Tape (in Entwicklung)
 
 **Kurzüberblick**
 - Smart Mouth Tape ist ein Wearable‑Konzept, das Mouth Tape um Daten + Feedback ergänzt.
-- Geplante Sensoren: Mikrofon, Airflow/Pressure, SpO₂, Accelerometer.
+- Angetrieben von fortschrittlicher KI und maschinellem Lernen für intelligente Atemerkennung.
 - Für lange Overnight‑Sessions und sicheren Datentransfer gedacht.
 - Wellness‑Positionierung (keine Diagnose).
 
@@ -33,13 +33,13 @@ Smart Mouth Tape soll hinzufügen:
 
 ---
 
-## Hardware‑Snapshot (Konzept‑Level)
+## Technologie‑Snapshot (Konzept‑Level)
 
-**Geplantes Sensor‑Set**
-- MEMS‑Mikrofon
-- Zwei Airflow/Pressure Sensoren (oder äquivalente Sensortechnik)
-- SpO₂ Sensor
-- Accelerometer (Bewegung)
+**Schlüsselfähigkeiten**
+- KI-gestützte Atemanalyse, die deine Muster im Laufe der Zeit lernt
+- Intelligente Erkennung von Mund- vs. Nasenatmung während der gesamten Nacht
+- Schlafqualitäts-Insights, die dir zeigen, wie Atmung deinen Schlaf beeinflusst
+- Adaptives Coaching mit personalisierten Empfehlungen
 
 **Design‑Ziele**
 - Multi‑Stunden Betrieb (Overnight)
@@ -53,7 +53,7 @@ Smart Mouth Tape soll hinzufügen:
 ## Zusammenspiel mit der App (High Level)
 
 1) Tape korrekt anwenden (klein anfangen, Sicherheitsinfos beachten).
-2) Device zeichnet Sensorsignale während des Schlafs auf.
+2) Device überwacht intelligent deine Atmung während des Schlafs.
 3) Sync → einfacher Report:
    - Atemmuster‑Trends
    - Veränderungen über Zeit (Habit Building)

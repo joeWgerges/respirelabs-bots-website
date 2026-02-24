@@ -39,8 +39,8 @@ export const GET: APIRoute = () => {
         type: 'wearable',
         status: 'concept',
         description:
-          'Sensor pod + tape for nighttime breathing insights. Designed for multi-hour use and secure data transfer.',
-        planned_sensors: ['Microphone', 'Airflow/pressure sensing', 'SpO2', 'Accelerometer'],
+          'AI-powered wearable pod + tape for nighttime breathing insights. Uses advanced machine learning for breathing pattern detection and personalized coaching. Designed for multi-hour use and secure data transfer.',
+        key_capabilities: ['AI-powered breathing analysis', 'Mouth vs. nasal breathing detection', 'Sleep quality insights', 'Adaptive personalized coaching'],
       },
     ],
     privacy: {

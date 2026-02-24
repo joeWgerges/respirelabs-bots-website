@@ -70,7 +70,7 @@ Haftungsausschluss: Inhalte dienen Informationszwecken und stellen keine medizin
 Product scope & positioning
 Phone-first detection + coaching; privacy-by-default; offline-capable; non-diagnostic boundary; device-ready for Smart Mouth Tape.【70:7†RespireLabs_Software_Specification_Full.docx†L1-L60】【70:4†RespireLabs_Technical_Specifications_And_Open_Questions.docx†L26-L70】
 Safe vs prohibited claims and EU compliance framing (wellness positioning).【113:7†RespireLabs Strategic Market Entry.docx†L13-L66】
-Smart Mouth Tape sensor expectations + design constraints (mic + airflow/pressure + SpO₂ + accelerometer; 9–10 hours; USB‑C; no visible lights; attachability; skin safety).【113:0†1. Non-rigid – requirements - Slab.md†L1-L22】【113:6†1.
+Smart Mouth Tape technology and design constraints (AI-powered breathing analysis; 9–10 hours; USB‑C; no visible lights; attachability; skin safety).【113:0†1. Non-rigid – requirements - Slab.md†L1-L22】【113:6†1.
 RespireLabs_Software_Specificat…
 
 RespireLabs_Technical_Specifica…

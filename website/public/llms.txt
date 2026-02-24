@@ -14,7 +14,7 @@ Important notes:
 ## Main pages
 - [/en](https://smartmouthtape.com/en): Homepage — product overview, key benefits, and waitlist signup.
 - [/en/app](https://smartmouthtape.com/en/app): RespireLabs app overview (phone-based detection + coaching).
-- [/en/smart-mouth-tape](https://smartmouthtape.com/en/smart-mouth-tape): Smart Mouth Tape wearable overview (sensors, safety, how it works).
+- [/en/smart-mouth-tape](https://smartmouthtape.com/en/smart-mouth-tape): Smart Mouth Tape wearable overview (AI technology, safety, how it works).
 - [/en/how-it-works](https://smartmouthtape.com/en/how-it-works): Step-by-step explanation of the product.
 - [/en/compare](https://smartmouthtape.com/en/compare): Competitor comparison and positioning.
 - [/en/faq](https://smartmouthtape.com/en/faq): Frequently asked questions.
