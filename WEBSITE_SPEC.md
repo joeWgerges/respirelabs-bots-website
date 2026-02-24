@@ -330,6 +330,8 @@ smartmouthtape.com/
 
 ## 4. Design Tokens & Brand System
 
+> **IMPLEMENTATION NOTE (2026-02-24)**: The design, color palette, fonts, and branding have been finalized during the initial build. The actual implementation in `website/src/styles/global.css` uses a simplified flat token system (`brand-blue`, `brand-dark`, `brand-white`, `brand-yellow`, `brand-grey`, `brand-light`) instead of the full scale below. The current implementation is the **canonical reference** — the values below are retained for context only. Fonts are served as variable TTF (not WOFF2).
+
 ### Color Palette
 
 #### Light Mode (Primary)
@@ -465,8 +467,11 @@ smartmouthtape.com/
 ```
 
 ### Tailwind Config Extension
+
+> **NOTE**: The actual implementation uses Tailwind CSS v4 with `@tailwindcss/vite` and the `@theme` directive in `global.css` instead of a separate config file. The tokens below are superseded by the flat `brand-*` tokens in `global.css`.
+
 ```js
-// tailwind.config.mjs
+// tailwind.config.mjs (original spec — see global.css for actual implementation)
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: ['class', '[data-theme="dark"]'],
@@ -543,7 +548,10 @@ export default {
 
 ## 6. Typography System
 
-### Font Stack
+### Font Stack (Finalized)
+
+> Fonts are self-hosted as variable TTF from `public/fonts/`. This is the accepted final format.
+
 | Role | Font | Weight Range | Usage |
 |---|---|---|---|
 | Display / Headings | **Oddval** (variable) | Medium, SemiBold, Bold | H1, H2, hero text, feature titles |
@@ -592,12 +600,11 @@ export default {
 | Body large | Montserrat | 1.125rem (18px) | 1rem (16px) | Regular | 1.6 |
 | Caption | Montserrat | 0.875rem (14px) | 0.875rem (14px) | Regular | 1.5 |
 
-### Font Loading Strategy
-1. Subset fonts to Latin + Latin Extended (covers DE + EN)
-2. Convert to WOFF2 format (variable font files)
-3. `font-display: swap` with system font fallback
-4. Preload Montserrat (body) and Oddval (display) in `<head>`
-5. EB Garamond loaded lazily (used only on certain pages)
+### Font Loading Strategy (Updated)
+1. Self-hosted variable TTF files from `public/fonts/`
+2. `font-display: swap` with system font fallback
+3. All three font families declared in `global.css` via `@font-face`
+4. EB Garamond includes both regular and italic variants
 
 ---
 

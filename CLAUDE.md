@@ -70,7 +70,7 @@ Respirelabs-gemini/
     ├── public/                   # Static assets served as-is
     │   ├── assets/icons/         # Brand icons (copied from branding/)
     │   ├── assets/logo/          # Logo variants (copied from branding/)
-    │   ├── fonts/                # Font files (TTF, not yet WOFF2)
+    │   ├── fonts/                # Font files (variable TTF)
     │   ├── en/, de/              # Static markdown content files
     │   ├── llms.txt              # LLM discovery file
     │   ├── robots.txt
@@ -113,7 +113,7 @@ npm run preview      # Preview production build locally
 
 **Root**: index.astro (redirects to /en)
 
-### What's NOT Built Yet (from WEBSITE_SPEC.md)
+### What's NOT Built Yet
 
 - React islands: BreathingDemo, NoseBreathingTimer, ComparisonSlider, FAQAccordion, HowItWorksTimeline, SensorDiagramExplorer
 - Conversion components: StickyBar, ExitIntentPopup, SlideInCTA, WaitlistForm (React)
@@ -124,31 +124,44 @@ npm run preview      # Preview production build locally
 - Matomo analytics
 - Cookie consent banner
 - Legal pages: terms, cookies, data-deletion, AGB, datenloeschung
-- WOFF2 font conversion (currently serving TTF)
 - OG images (using logo as placeholder)
 
-## Design System & Brand Tokens
+## Design System & Brand Tokens (Final)
+
+The current design, color palette, fonts, and branding are **locked in**. Do not refactor toward alternative token systems.
 
 ### Colors (defined in `global.css` @theme)
 
 | Token | Value | Usage |
 |---|---|---|
 | `brand-blue` | `#206FF7` | Primary accent, links, CTAs |
-| `brand-dark` | `#0A0A0B` | Text, dark backgrounds |
+| `brand-dark` | `#0A0A0B` | Text, dark section backgrounds |
 | `brand-white` | `#FAFAFA` | Page background |
-| `brand-yellow` | `#FFDC31` | Secondary accent, highlights |
+| `brand-yellow` | `#FFDC31` | Secondary accent, highlights, dark-mode emphasis |
 | `brand-grey` | `#6B7280` | Secondary text (WCAG AA compliant) |
 | `brand-light` | `#E5E7EB` | Borders, subtle backgrounds |
 
-**Note**: The WEBSITE_SPEC.md defines a more extensive token system (primary-50 through primary-950, dark mode palette with deep navy #0a0f1e). The current implementation uses a simpler flat palette. When implementing dark mode, follow the spec's CSS custom property system.
+Additional surface colors used inline: `#F5F5F7` and `#F7F7F9` for alternating section backgrounds.
 
 ### Typography
 
-| Role | Font | CSS Variable | Tailwind Class |
-|---|---|---|---|
-| Headings | Oddval | `--font-oddval` | `font-oddval` |
-| Body/UI | Montserrat | `--font-montserrat` | `font-montserrat` |
-| Quotes/Editorial | EB Garamond | `--font-garamond` | `font-garamond` |
+| Role | Font | Format | CSS Variable | Tailwind Class |
+|---|---|---|---|---|
+| Headings | Oddval Variable | TTF | `--font-oddval` | `font-oddval` |
+| Body/UI | Montserrat Variable | TTF | `--font-montserrat` | `font-montserrat` |
+| Quotes/Editorial | EB Garamond Variable | TTF | `--font-garamond` | `font-garamond` |
+
+Fonts are self-hosted as variable TTF files from `public/fonts/`. All use `font-display: swap`.
+
+### Visual Style
+
+The site uses a clean, premium aesthetic inspired by Linear/Apple product pages:
+- **Glass panels**: `glass-panel` / `glass-panel-dark` — frosted blur with subtle borders
+- **Grid patterns**: `bg-grid-pattern` / `bg-grid-pattern-dark` — faint 40px grid with fade masks
+- **Gradient orbs**: Large blurred color circles for ambient depth (brand-blue, brand-yellow)
+- **Bento box layouts**: Mixed-size card grids using `md:col-span-*` on 12-column grid
+- **Rounded corners**: `rounded-[2rem]` for feature cards, `rounded-full` for buttons/pills
+- **Dark sections**: `bg-brand-dark` with `text-white`, `brand-yellow` accents, grid pattern overlay
 
 ### Utility Classes (custom in global.css)
 
@@ -301,7 +314,6 @@ When a section uses `bg-brand-dark`:
 
 ## Known Issues
 
-- Fonts served as TTF instead of WOFF2 (larger file sizes)
 - `astro.config.mjs` has `site: 'https://respirelabs.com'` — should be updated to `https://smartmouthtape.com` for production
 - Waitlist form is client-side only (no backend endpoint yet)
 - No dark mode toggle or dark mode CSS variables

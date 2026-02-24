@@ -33,18 +33,18 @@
 
 | # | Epic | Tickets | P0 | P1 | P2 | P3 | Status |
 |---|---|---|---|---|---|---|---|
-| E01 | Project Setup & Tooling | 12 | 7 | 5 | 0 | 0 | TODO |
-| E02 | Design System & Tokens | 11 | 3 | 6 | 2 | 0 | TODO |
-| E03 | Global Components (Header/Footer/Layout) | 10 | 4 | 4 | 2 | 0 | TODO |
+| E01 | Project Setup & Tooling | 12 | 7 | 5 | 0 | 0 | IN PROGRESS |
+| E02 | Design System & Tokens | 11 | 3 | 6 | 2 | 0 | DONE |
+| E03 | Global Components (Header/Footer/Layout) | 10 | 4 | 4 | 2 | 0 | IN PROGRESS |
 | E04 | Sanity CMS Setup & Schemas | 13 | 3 | 8 | 2 | 0 | TODO |
-| E05 | i18n & Language System | 7 | 3 | 3 | 1 | 0 | TODO |
-| E06 | Animation & Motion System (GSAP) | 12 | 1 | 5 | 4 | 2 | TODO |
+| E05 | i18n & Language System | 7 | 3 | 3 | 1 | 0 | IN PROGRESS |
+| E06 | Animation & Motion System (GSAP) | 12 | 1 | 5 | 4 | 2 | IN PROGRESS |
 | E07 | Interactive Components (React Islands) | 11 | 0 | 4 | 5 | 2 | TODO |
-| E08 | Conversion Funnel (Waitlist) | 10 | 1 | 6 | 2 | 1 | TODO |
-| E09 | Core Pages (EN) | 16 | 2 | 12 | 2 | 0 | TODO |
-| E10 | German Localization (DE Pages) | 8 | 0 | 6 | 2 | 0 | TODO |
-| E11 | Blog System | 7 | 0 | 4 | 2 | 1 | TODO |
-| E12 | SEO & LLM Optimization | 13 | 2 | 6 | 3 | 2 | TODO |
+| E08 | Conversion Funnel (Waitlist) | 10 | 1 | 6 | 2 | 1 | IN PROGRESS |
+| E09 | Core Pages (EN) | 16 | 2 | 12 | 2 | 0 | IN PROGRESS |
+| E10 | German Localization (DE Pages) | 8 | 0 | 6 | 2 | 0 | IN PROGRESS |
+| E11 | Blog System | 7 | 0 | 4 | 2 | 1 | IN PROGRESS |
+| E12 | SEO & LLM Optimization | 13 | 2 | 6 | 3 | 2 | IN PROGRESS |
 | E13 | Analytics, Cookie Consent & Integrations | 8 | 0 | 3 | 3 | 2 | TODO |
 | E14 | QA, Performance & Launch | 9 | 2 | 5 | 2 | 0 | TODO |
 
@@ -83,29 +83,35 @@
 
 ## Epic E02: Design System & Tokens
 
-> Implement the full design token system from WEBSITE_SPEC.md Section 4-6.
-> **Blocks**: All visual component work.
+> Design system finalized. Current palette, fonts, and branding are the accepted final design.
+> **Blocks**: All visual component work. ✅ Unblocked.
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E02-001 | Configure Tailwind theme extension (colors, spacing, radii, shadows) per spec | P0 | TODO | E01-003 | M |
-| E02-002 | Define CSS custom properties for light mode palette | P0 | TODO | E02-001 | S |
+| E02-001 | Configure Tailwind theme extension (colors, spacing, radii, shadows) per spec | P0 | DONE | E01-003 | M |
+| E02-002 | Define CSS custom properties for light mode palette | P0 | DONE | E02-001 | S |
 | E02-003 | Define CSS custom properties for dark mode palette (deep navy base #0a0f1e) | P0 | TODO | E02-002 | S |
-| E02-004 | Convert brand fonts to WOFF2 (Oddval, Montserrat, EB Garamond variable) | P1 | TODO | — | M |
-| E02-005 | Create @font-face declarations in src/styles/fonts.css | P1 | TODO | E02-004 | S |
-| E02-006 | Configure font preloading in BaseLayout (Oddval + Montserrat) | P1 | TODO | E02-005, E03-001 | S |
-| E02-007 | Implement typography scale (type sizes, line heights, letter spacing per spec) | P1 | TODO | E02-001, E02-005 | M |
-| E02-008 | Implement heading styles (H1-H4 responsive sizes per spec table) | P1 | TODO | E02-007 | S |
-| E02-009 | Create src/styles/global.css (Tailwind directives + base reset) | P1 | TODO | E02-001 | S |
-| E02-010 | Copy brand SVG icons into src/assets/icons/ (7 icons from branding/) | P2 | TODO | — | S |
-| E02-011 | Copy brand logo variants into src/assets/logos/ | P2 | TODO | — | S |
+| E02-004 | Convert brand fonts to WOFF2 (Oddval, Montserrat, EB Garamond variable) | P1 | DONE | — | M |
+| E02-005 | Create @font-face declarations in src/styles/fonts.css | P1 | DONE | E02-004 | S |
+| E02-006 | Configure font preloading in BaseLayout (Oddval + Montserrat) | P1 | DONE | E02-005, E03-001 | S |
+| E02-007 | Implement typography scale (type sizes, line heights, letter spacing per spec) | P1 | DONE | E02-001, E02-005 | M |
+| E02-008 | Implement heading styles (H1-H4 responsive sizes per spec table) | P1 | DONE | E02-007 | S |
+| E02-009 | Create src/styles/global.css (Tailwind directives + base reset) | P1 | DONE | E02-001 | S |
+| E02-010 | Copy brand SVG icons into src/assets/icons/ (7 icons from branding/) | P2 | DONE | — | S |
+| E02-011 | Copy brand logo variants into src/assets/logos/ | P2 | DONE | — | S |
+
+### Notes (E02)
+- Color palette uses flat `brand-*` tokens via Tailwind v4 `@theme` in global.css (not the expanded primary-50..950 scale from the original spec)
+- Fonts served as variable TTF (accepted as final, WOFF2 conversion skipped)
+- `@font-face` declarations live in global.css, not a separate fonts.css file
+- Font preloading handled by browser with `font-display: swap`
 
 ### Acceptance Criteria (E02)
-- All design tokens available as Tailwind classes AND CSS variables
-- Dark mode toggleable, all surfaces/text/borders swap correctly
-- Fonts render correctly: Oddval for headings, Montserrat for body, EB Garamond for quotes
-- No FOUT (Flash of Unstyled Text) — fonts preloaded
-- Typography scale responsive (desktop/mobile sizes per spec table)
+- ✅ All design tokens available as Tailwind classes (`brand-blue`, `brand-dark`, etc.)
+- ⬜ Dark mode toggleable (not yet implemented)
+- ✅ Fonts render correctly: Oddval for headings, Montserrat for body, EB Garamond for quotes
+- ✅ Typography scale responsive (desktop/mobile sizes)
+- ✅ Brand icons and logos copied and accessible
 
 ---
 

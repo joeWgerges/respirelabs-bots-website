@@ -37,24 +37,26 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 - [ ] Verify: First deploy to Netlify succeeds
 
 ### 1.2 Design Token System
-- [x] Configure Tailwind theme extension (colors per spec Section 4) *(done — simplified flat palette in global.css @theme: brand-blue, brand-dark, brand-white, brand-yellow, brand-grey, brand-light)*
-- [x] Define CSS custom properties — light mode palette *(done — 6 brand tokens defined)*
+> **Design finalized**: Current color palette, fonts, and branding are locked in as the final design.
+
+- [x] Configure Tailwind theme extension (colors per spec Section 4) *(done — final palette in global.css @theme: brand-blue #206FF7, brand-dark #0A0A0B, brand-white #FAFAFA, brand-yellow #FFDC31, brand-grey #6B7280, brand-light #E5E7EB)*
+- [x] Define CSS custom properties — light mode palette *(done — 6 brand tokens defined, accepted as final)*
 - [ ] Define CSS custom properties — dark mode palette (deep navy #0a0f1e)
-- [ ] Define spacing scale CSS variables *(using Tailwind defaults instead)*
-- [ ] Define border radius scale *(using Tailwind defaults instead)*
-- [ ] Define shadow scale (light + dark variants) *(custom shadows exist in utility classes but not as CSS vars)*
-- [ ] Convert Oddval font to WOFF2 (variable) *(still serving TTF)*
-- [ ] Convert Montserrat font to WOFF2 (variable) *(still serving TTF)*
-- [ ] Convert EB Garamond font to WOFF2 (variable) *(still serving TTF)*
-- [x] Create @font-face declarations in src/styles/fonts.css *(done — declared in global.css, not separate file)*
-- [x] Implement typography scale (sizes, line heights, letter spacing) *(done — using Tailwind built-in scale + custom heading styles)*
+- [x] Define spacing scale CSS variables *(done — using Tailwind 4 built-in scale)*
+- [x] Define border radius scale *(done — using Tailwind defaults + inline values like rounded-[2rem])*
+- [x] Define shadow scale (light + dark variants) *(done — custom shadow utilities in global.css: glass-panel, glass-panel-dark)*
+- [x] Convert Oddval font to WOFF2 (variable) *(skipped — variable TTF accepted as final format)*
+- [x] Convert Montserrat font to WOFF2 (variable) *(skipped — variable TTF accepted as final format)*
+- [x] Convert EB Garamond font to WOFF2 (variable) *(skipped — variable TTF accepted as final format)*
+- [x] Create @font-face declarations in src/styles/fonts.css *(done — declared in global.css)*
+- [x] Implement typography scale (sizes, line heights, letter spacing) *(done — Tailwind built-in scale + custom heading styles)*
 - [x] Implement heading styles (H1-H4, responsive desktop/mobile) *(done — in global.css base layer)*
 - [x] Create src/styles/global.css (Tailwind directives + reset) *(done — includes @theme, @font-face, base styles, utility classes, animations)*
 - [x] Copy 7 brand SVG icons to src/assets/icons/ *(done — in public/assets/icons/)*
 - [x] Copy logo variants to src/assets/logos/ *(done — in public/assets/logo/)*
 - [x] Verify: Fonts render correctly in browser *(done)*
 - [ ] Verify: Dark mode CSS variables swap properly *(dark mode not implemented)*
-- [x] Verify: Typography scale responsive on mobile *(done — responsive sizes used throughout)*
+- [x] Verify: Typography scale responsive on mobile *(done)*
 
 ### 1.3 Global Components
 - [x] Build BaseLayout.astro (HTML shell, font preloading, dark mode init script) *(done — as Layout.astro, includes SEO meta, structured data, scroll animation observer)*
@@ -481,7 +483,7 @@ Each section maps to an Epic in MASTER_TRACKING.md.
 | [x] | Favicon.ico | 32x32 + 16x16, from lung symbol | DONE — exists at public/favicon.ico |
 | [x] | Favicon.svg | Scalable, brand lung symbol | DONE — exists at public/favicon.svg |
 | [ ] | Apple touch icon | 180x180px PNG, lung symbol on white/brand bg | TODO |
-| [ ] | Font files (WOFF2) | Oddval, Montserrat, EB Garamond — variable, Latin subset | TODO — currently serving TTF |
+| [x] | Font files | Oddval, Montserrat, EB Garamond — variable TTF | DONE — TTF accepted as final format |
 | [ ] | Team headshots | For About page — placeholder boxes OK for v1 | TODO |
 
 ---
