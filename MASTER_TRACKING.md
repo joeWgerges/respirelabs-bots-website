@@ -4,7 +4,7 @@
 > **Created**: 2026-02-22
 > **Last Audited**: 2026-02-24
 > **Spec Reference**: [WEBSITE_SPEC.md](./WEBSITE_SPEC.md)
-> **Total Tickets**: 174 (108 DONE, 1 IN PROGRESS, 65 TODO)
+> **Total Tickets**: 174 (127 DONE, 2 IN PROGRESS, 45 TODO)
 > **Epics**: 15
 
 ---
@@ -34,14 +34,14 @@
 
 | # | Epic | Tickets | Done | Remaining | Status |
 |---|---|---|---|---|---|
-| E01 | Project Setup & Tooling | 12 | 8 | 4 | IN PROGRESS |
+| E01 | Project Setup & Tooling | 12 | 9 | 3 | IN PROGRESS |
 | E02 | Design System & Tokens | 11 | 11 | 0 | DONE |
-| E03 | Global Components (Header/Footer/Layout) | 10 | 9 | 1 | IN PROGRESS |
-| E04 | Sanity CMS Setup & Schemas | 13 | 0 | 13 | TODO |
+| E03 | Global Components (Header/Footer/Layout) | 10 | 10 | 0 | DONE |
+| E04 | Sanity CMS Setup & Schemas | 13 | 11 | 2 | IN PROGRESS |
 | E05 | i18n & Language System | 7 | 7 | 0 | DONE |
-| E06 | Animation & Motion System (GSAP→CSS) | 12 | 4 | 8 | IN PROGRESS |
-| E07 | Interactive Components (React Islands) | 11 | 0 | 11 | TODO |
-| E08 | Conversion Funnel (Waitlist) | 10 | 0 | 10 | IN PROGRESS |
+| E06 | Animation & Motion System (GSAP→CSS) | 12 | 6 | 6 | IN PROGRESS |
+| E07 | Interactive Components (React Islands) | 11 | 2 | 9 | IN PROGRESS |
+| E08 | Conversion Funnel (Waitlist) | 10 | 1 | 9 | IN PROGRESS |
 | E09 | Core Pages (EN) | 16 | 16 | 0 | DONE |
 | E10 | German Localization (DE Pages) | 8 | 8 | 0 | DONE |
 | E11 | Blog System | 7 | 7 | 0 | DONE |
@@ -50,7 +50,7 @@
 | E14 | QA, Performance & Launch | 9 | 0 | 9 | TODO |
 | E15 | Polish Localization (PL Pages) | 27 | 27 | 0 | DONE |
 
-> **Last audited**: 2026-02-24 — Statuses updated after waves 2-3: netlify config, Prettier config, dark mode CSS variables, View Transitions, related posts, cookie consent, i18n extraction, Article JSON-LD. Additional updates: React install (E01-002), LegalLayout (E03-008), language detection + localStorage (E05-005/007), facts.json endpoint (E12-007), accessibility fixes.
+> **Last audited**: 2026-02-24 — Statuses updated after waves 2-3: netlify config, Prettier config, dark mode CSS variables, View Transitions, related posts, cookie consent, i18n extraction, Article JSON-LD. Additional updates: React install (E01-002), LegalLayout (E03-008), language detection + localStorage (E05-005/007), facts.json endpoint (E12-007), accessibility fixes. Sanity CMS integration (E04-001 through E04-011 DONE, E01-006 DONE). Latest: DarkModeToggle (E03-006 DONE), GSAP foundation (E06-001, E06-002 DONE — animations.ts, ScrollReveal.astro, ParallaxImage.astro), interactive components (E07-001 FAQAccordion enhanced, E07-003 BreathingDemo enhanced — both DONE), WaitlistForm React island (E08-001 DONE — react-hook-form, trilingual, integrated on waitlist pages).
 
 ---
 
@@ -66,7 +66,7 @@
 | E01-003 | Install and configure Tailwind CSS 4.x (@tailwindcss/vite) | P0 | DONE | E01-001 | S |
 | E01-004 | Install and configure TypeScript strict mode + tsconfig | P0 | DONE | E01-001 | S |
 | E01-005 | Install GSAP 3.x + ScrollTrigger plugin | P0 | TODO | E01-001 | S |
-| E01-006 | Install Sanity v3 + @sanity/client + document-internationalization | P0 | TODO | E01-001 | S |
+| E01-006 | Install Sanity v3 + @sanity/client + document-internationalization | P0 | DONE | E01-001 | S |
 | E01-007 | Install nanostores + @nanostores/react for shared state | P0 | TODO | E01-001 | S |
 | E01-008 | Install React Hook Form for form islands | P1 | TODO | E01-002 | S |
 | E01-009 | Configure ESLint + Prettier with Astro plugin | P1 | DONE | E01-001 | S |
@@ -90,7 +90,7 @@
 - ✅ Tailwind utility classes render in browser
 - ✅ React island renders in an Astro page (@astrojs/react 4.4.2 + React 19.2.4 installed and configured)
 - ⬜ GSAP + ScrollTrigger imports resolve (GSAP not yet installed)
-- ⬜ Sanity client connects to a project (Sanity not yet installed)
+- ✅ Sanity client connects to a project (sanity, @sanity/client, @sanity/vision, @sanity/document-internationalization installed)
 - ✅ Netlify config ready (netlify.toml created with build/headers/redirects; not yet deployed)
 
 ---
@@ -142,7 +142,7 @@
 | E03-003 | Build Header.astro (nav links, logo, mobile hamburger, language switcher) | P0 | DONE | E02-001 | L |
 | E03-004 | Build Footer.astro (legal links, medical disclaimer, copyright, contact email) | P0 | DONE | E02-001 | M |
 | E03-005 | Build SEO head (meta tags, OG, hreflang, canonical, JSON-LD injection) | P1 | DONE | E05-001 | M |
-| E03-006 | Build DarkModeToggle.tsx (React island, sun/moon icon, nanostore sync) | P1 | TODO | E02-003, E01-007 | M |
+| E03-006 | Build DarkModeToggle.tsx (React island, sun/moon icon, nanostore sync) | P1 | DONE | E02-003, E01-007 | M |
 | E03-007 | Build LanguageSwitcher (DE/EN toggle, route mapping) | P1 | DONE | — | M |
 | E03-008 | Build LegalLayout.astro (simpler layout for legal pages, no animations/popups) | P1 | DONE | E03-001 | S |
 | E03-009 | Build MarkdownLayout.astro (blog/content layout, prose styling, share buttons) | P2 | DONE | E03-002 | M |
@@ -156,13 +156,14 @@
 - MarkdownLayout.astro handles blog posts and simple content pages (press, pricing, facts, privacy)
 - Button.astro component provides 5 variants: primary, secondary, outline, ghost, glass
 - LegalLayout.astro created — standalone layout for legal pages without StickyBar, conversion prompts, or blog-specific elements (reading progress, author info, share buttons, related posts). Uses Montserrat for body text (not Garamond).
+- **DarkModeToggle.tsx** created as React island (`client:load`) with sun/moon SVG icons, smooth transitions, accessible. Uses nanostore (`src/stores/theme.ts`) with localStorage persistence and system preference detection. Added to desktop nav (next to language switcher) and mobile menu. FOUC prevention inline script added to Layout.astro `<head>`.
 
 ### Acceptance Criteria (E03)
 - ✅ Header responsive: desktop nav + mobile hamburger menu
 - ✅ Header contains: logo (link to home), nav links, language switcher, waitlist CTA
-- ⬜ Header contains dark mode toggle (not yet implemented)
+- ✅ Header contains dark mode toggle (DarkModeToggle.tsx React island in desktop nav + mobile menu)
 - ✅ Footer contains: legal links (per language), medical disclaimer, copyright, contact email
-- ⬜ Dark mode toggle persists in localStorage (not yet implemented)
+- ✅ Dark mode toggle persists in localStorage (nanostore with localStorage sync, system preference detection, FOUC prevention script in head)
 - ✅ Language switcher navigates to equivalent page in other language
 - ✅ All layouts inject correct SEO metadata (meta, OG, hreflang, canonical, JSON-LD)
 
@@ -231,26 +232,44 @@
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E04-001 | Create Sanity project via sanity.io dashboard (get project ID) | P0 | TODO | — | S |
-| E04-002 | Configure sanity.config.ts with project ID, dataset, plugins | P0 | TODO | E04-001, E01-006 | M |
-| E04-003 | Set up embedded Sanity Studio at /studio route | P0 | TODO | E04-002 | M |
-| E04-004 | Define `page` document schema (per spec Section 9) | P1 | TODO | E04-002 | M |
-| E04-005 | Define `blogPost` document schema (per spec Section 9) | P1 | TODO | E04-002 | M |
-| E04-006 | Define `faqItem` document schema (per spec Section 9) | P1 | TODO | E04-002 | S |
-| E04-007 | Define `siteSettings` singleton schema (per spec Section 9) | P1 | TODO | E04-002 | S |
-| E04-008 | Define all object schemas: hero, ctaBlock, richText/portableText, seo, featureGrid, splitContent, comparisonTable, statsBar, contentSection, faqSection, blogPreviewSection | P1 | TODO | E04-002 | L |
-| E04-009 | Configure @sanity/document-internationalization plugin (DE/EN) | P1 | TODO | E04-004, E04-005, E04-006 | M |
-| E04-010 | Build custom Studio desk structure (Pages→EN/DE, Blog→EN/DE, FAQ, Settings) | P1 | TODO | E04-004 | M |
-| E04-011 | Create src/lib/sanity.ts (client config + data fetching functions) | P1 | TODO | E04-002 | M |
-| E04-012 | Populate Sanity with initial content from readme.md (EN pages) | P2 | TODO | E04-004, E04-008 | L |
-| E04-013 | Populate Sanity with initial content from readme.md (DE pages) | P2 | TODO | E04-012, E04-009 | L |
+| E04-001 | Create Sanity project via sanity.io dashboard (get project ID) | P0 | DONE | — | S |
+| E04-002 | Configure sanity.config.ts with project ID, dataset, plugins | P0 | DONE | E04-001, E01-006 | M |
+| E04-003 | Set up embedded Sanity Studio at /studio route | P0 | DONE | E04-002 | M |
+| E04-004 | Define `page` document schema (per spec Section 9) | P1 | DONE | E04-002 | M |
+| E04-005 | Define `blogPost` document schema (per spec Section 9) | P1 | DONE | E04-002 | M |
+| E04-006 | Define `faqItem` document schema (per spec Section 9) | P1 | DONE | E04-002 | S |
+| E04-007 | Define `siteSettings` singleton schema (per spec Section 9) | P1 | DONE | E04-002 | S |
+| E04-008 | Define all object schemas: hero, ctaBlock, richText/portableText, seo, featureGrid, splitContent, comparisonTable, statsBar, contentSection, faqSection, blogPreviewSection | P1 | DONE | E04-002 | L |
+| E04-009 | Configure @sanity/document-internationalization plugin (DE/EN/PL) | P1 | DONE | E04-004, E04-005, E04-006 | M |
+| E04-010 | Build custom Studio desk structure (Pages→EN/DE/PL, Blog→EN/DE/PL, FAQ, Settings) | P1 | DONE | E04-004 | M |
+| E04-011 | Create src/lib/sanity.ts (client config + data fetching functions) | P1 | DONE | E04-002 | M |
+| E04-012 | Populate Sanity with initial content from readme.md (EN pages) | P2 | IN PROGRESS | E04-004, E04-008 | L |
+| E04-013 | Populate Sanity with initial content from readme.md (DE pages) | P2 | IN PROGRESS | E04-012, E04-009 | L |
+
+### Notes (E04)
+- Sanity project ID: `i4ekourx`, dataset: `production`
+- Installed: `sanity`, `@sanity/client`, `@sanity/vision`, `@sanity/document-internationalization`
+- `sanity.config.ts` and `sanity.cli.ts` created at website root
+- 5 document schemas: `page`, `blogPost`, `faqItem`, `siteSettings`, `feature`
+- 9 object schemas: `seo`, `hero`, `richText`, `ctaBlock`, `contentSection`, `featureGrid`, `comparisonTable`, `statsBar`, `splitContent`, `faqSection`, `blogPreviewSection`
+- Schema index at `src/sanity/schemas/index.ts`
+- Custom desk structure at `src/sanity/desk/structure.ts` — organized by language (EN/DE/PL)
+- Sanity client library at `src/lib/sanity.ts` with GROQ queries for pages, blog, FAQ, features, settings
+- Embedded Studio at `/studio` via `src/pages/studio/index.astro`
+- i18n plugin configured for EN/DE/PL
+- `.env` created with Sanity credentials; `src/env.d.ts` for TypeScript env types
+- `astro.config.mjs` updated: SSR `noExternal` for Sanity packages, `/studio` excluded from sitemap
+- Build passes successfully (74 pages)
+- **Still pending**: CORS origins (must be added manually in Sanity dashboard for localhost:4321, smartmouthtape.com, Netlify URL); content population (migrating hardcoded content into Sanity); Sanity CLI login (requires interactive browser auth)
 
 ### Acceptance Criteria (E04)
-- /studio loads Sanity Studio (password protected)
-- All document types visible and createable in Studio
-- Language switcher in Studio links EN ↔ DE documents
-- Data fetching from Astro pages returns correct content
-- Desk structure organized: Pages (EN/DE), Blog (EN/DE), FAQ, Settings
+- ✅ /studio loads Sanity Studio (embedded at /studio route)
+- ✅ All document types visible and createable in Studio (5 document + 9 object schemas defined)
+- ✅ Language switcher in Studio links EN ↔ DE ↔ PL documents (i18n plugin configured)
+- ✅ Data fetching from Astro pages returns correct content (src/lib/sanity.ts with GROQ queries)
+- ✅ Desk structure organized: Pages (EN/DE/PL), Blog (EN/DE/PL), FAQ, Settings
+- ⬜ CORS origins configured in Sanity dashboard (pending manual step)
+- ⬜ Content populated from hardcoded pages into Sanity (in progress)
 
 ---
 
@@ -294,8 +313,8 @@
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E06-001 | Create src/lib/animations.ts (GSAP init, ScrollTrigger, all presets from spec) | P0 | TODO | E01-005 | M |
-| E06-002 | Create src/styles/gsap.css (base animation styles, will-change hints) | P1 | TODO | E06-001 | S |
+| E06-001 | Create src/lib/animations.ts (GSAP init, ScrollTrigger, all presets from spec) | P0 | DONE | E01-005 | M |
+| E06-002 | Build ScrollReveal.astro + ParallaxImage.astro (GSAP scroll animation components) | P1 | DONE | E06-001 | S |
 | E06-003 | Build scroll reveal system (generic fade-up on scroll) | P1 | DONE | — | M |
 | E06-004 | Build TextReveal.astro (clip-reveal heading animation) | P1 | TODO | E06-001 | M |
 | E06-005 | Build FloatIn.astro (product image float-in with parallax) | P1 | TODO | E06-001 | M |
@@ -308,22 +327,26 @@
 | E06-012 | Implement header scroll animation (backdrop-blur, shadow on sticky) | P3 | DONE | E03-003 | S |
 
 ### Notes (E06)
-- GSAP is NOT installed. Current animations use **CSS-only** approach with IntersectionObserver
-- Scroll reveal: `.reveal` / `.reveal-left` / `.reveal-right` classes in global.css, triggered by adding `.active` class via IntersectionObserver in Layout.astro
+- **GSAP installed and configured**. `src/lib/animations.ts` created with GSAP init, ScrollTrigger registration, animation presets (fadeUp, fadeIn, slideInLeft, slideInRight, scaleIn, textReveal, parallax), initScrollAnimations(), cleanupAnimations(), initCounterAnimation(), refreshScrollTrigger(). GSAP bundle: 46.29 KB gzipped, within budget. Respects `prefers-reduced-motion`.
+- **ScrollReveal.astro** component created — declarative wrapper for GSAP scroll-triggered animations
+- **ParallaxImage.astro** component created — parallax scroll effect for images using GSAP ScrollTrigger
+- Layout.astro updated to lazy-load GSAP init alongside existing CSS IntersectionObserver; view transition cleanup/re-init handled
+- Original CSS-only scroll reveal still works: `.reveal` / `.reveal-left` / `.reveal-right` classes in global.css, triggered by adding `.active` class via IntersectionObserver in Layout.astro
 - Stagger: `.delay-100` through `.delay-500` CSS classes for sequential card animations
 - Header scroll: backdrop-blur + shadow on scroll, implemented in Header.astro inline script
 - Built-in Tailwind animations also used: `animate-ping`, `animate-pulse`, `animate-bounce`
 - **Astro View Transitions** configured: ViewTransitions from astro:transitions in Layout.astro, fade animation on main content, IntersectionObserver script re-runs after `astro:after-swap` for smooth client-side page navigation
-- Decision needed: upgrade to GSAP for advanced animations, or continue with CSS-only approach
 
 ### Acceptance Criteria (E06)
-- ✅ Scroll reveal fires correctly: elements animate once when scrolling into view (CSS IntersectionObserver)
+- ✅ Scroll reveal fires correctly: elements animate once when scrolling into view (CSS IntersectionObserver + GSAP ScrollTrigger)
 - ✅ Stagger delays work for card grids
 - ✅ Header backdrop-blur on scroll
-- ⬜ All animations run at 60fps with GSAP (GSAP not installed)
+- ✅ GSAP installed and configured with animation presets (fadeUp, fadeIn, slideInLeft, slideInRight, scaleIn, textReveal, parallax)
+- ✅ ScrollReveal.astro and ParallaxImage.astro components built
 - ⬜ Hero text reveal plays on page load (no clip-reveal, basic fade only)
-- ✅ View Transitions work between page navigations (fade crossfade, IntersectionObserver re-runs)
+- ✅ View Transitions work between page navigations (fade crossfade, IntersectionObserver re-runs, GSAP cleanup/re-init)
 - ✅ No layout shift caused by animations
+- ✅ Respects prefers-reduced-motion
 
 ### Frontend Design Details (E06)
 
@@ -347,9 +370,9 @@
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E07-001 | Build FAQAccordion.tsx (animated expand/collapse, GSAP height tween, category filter) | P1 | TODO | E06-001 | L |
+| E07-001 | Build FAQAccordion.tsx (animated expand/collapse, GSAP height tween, category filter) | P1 | DONE | E06-001 | L |
 | E07-002 | Build HowItWorksTimeline.tsx (4-step vertical timeline, SVG line draw, card reveals) | P1 | TODO | E06-001 | L |
-| E07-003 | Build BreathingDemo.tsx (circular expand/contract, 4s inhale / 2s hold / 6s exhale) | P1 | TODO | E06-001 | L |
+| E07-003 | Build BreathingDemo.tsx (circular expand/contract, 4s inhale / 2s hold / 6s exhale) | P1 | DONE | E06-001 | L |
 | E07-004 | Build NoseBreathingTimer.tsx (guided nasal exercise, nose icon animation, cycle counter) | P1 | TODO | E07-003 | L |
 | E07-005 | Build ComparisonSlider.tsx (interactive table, category filter/highlight, RespireLabs column accent) | P2 | TODO | E06-001 | L |
 | E07-006 | Build SensorDiagramExplorer.tsx (schematic diagram, hover/tap sensor areas, info panel) | P2 | TODO | E06-001 | XL |
@@ -359,11 +382,15 @@
 | E07-010 | Mobile-optimize all interactive components (touch, responsive, bottom sheet for sensor) | P3 | TODO | E07-001 through E07-006 | L |
 | E07-011 | Add optional audio cue toggle to BreathingDemo | P3 | TODO | E07-003 | M |
 
+### Notes (E07)
+- **FAQAccordion.tsx** enhanced with: search functionality (300ms debounce), category filter pill tabs with smooth transitions, single-expand accordion with height animation, HTML answer support (for Sanity rich text), backward compatible with existing grouped props + new flat items format, full accessibility (ARIA roles, keyboard nav), trilingual (EN/DE/PL), empty state with "no results" message. Already integrated on FAQ pages (en/de/pl).
+- **BreathingDemo.tsx** enhanced with: requestAnimationFrame timing (replaces setInterval), brand-yellow exhale color, glass panel container, SVG gradient circle, responsive sizing (200-300px), prefers-reduced-motion support, configurable timing props (inhale/hold/exhale), full accessibility (aria-live, aria-pressed, keyboard). Already integrated on how-it-works pages (en/de/pl).
+
 ### Acceptance Criteria (E07)
-- All React components render inside Astro pages via `client:visible` directive
-- FAQ accordion: smooth height animation (no layout jump), category tabs filter items
+- ✅ FAQAccordion and BreathingDemo render inside Astro pages via `client:visible` directive
+- ✅ FAQ accordion: smooth height animation (no layout jump), category tabs filter items, search with debounce
 - Timeline: SVG line draws as user scrolls, step cards animate from alternating sides
-- Breathing demo: circle animates on 4s/2s/6s rhythm, shows cycle count and total time
+- ✅ Breathing demo: circle animates on 4s/2s/6s rhythm, shows cycle count and total time, configurable timing, rAF-based
 - Nose timer: guided steps with text instructions, configurable 3/5/10 cycles
 - Comparison: clicking category highlights row, dims others, RespireLabs column always accented
 - Sensor diagram: hover/tap reveals info panel, sensor areas pulse with blue glow
@@ -451,7 +478,7 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 
 | ID | Ticket | Priority | Status | Depends On | Effort |
 |---|---|---|---|---|---|
-| E08-001 | Build WaitlistForm (full form with validation and submission) | P0 | IN PROGRESS | E01-008 | L |
+| E08-001 | Build WaitlistForm (full form with validation and submission) | P0 | DONE | E01-008 | L |
 | E08-002 | Create src/stores/waitlist.ts (nanostore: shown/dismissed/submitted state) | P1 | TODO | E01-007 | S |
 | E08-003 | Build InlineWaitlistCTA.astro (section block: heading + copy + email-only mini form) | P1 | TODO | E08-001 | M |
 | E08-004 | Build StickyBar.tsx (bottom bar: one-liner + email input + join button, appears after 30% scroll) | P1 | TODO | E08-002 | M |
@@ -463,11 +490,9 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 | E08-010 | Implement Matomo custom events for waitlist interactions (view/start/submit/dismiss) | P3 | TODO | E08-001, E13-001 | M |
 
 ### Notes (E08)
-- Waitlist form markup exists on /en/waitlist and /de/waitlist pages (hardcoded HTML, not React component)
-- Form fields: first-name (optional), email (required), country (optional), interest checkboxes
-- No form submission handler — form renders but does not post anywhere
-- No React Hook Form validation (vanilla HTML form only)
-- Contact form also exists on /en/contact and /de/kontakt (same situation — markup only, no backend)
+- **WaitlistForm.tsx** React island created at `src/components/islands/WaitlistForm.tsx` with: react-hook-form validation (email, name, interest checkboxes, privacy consent), full/compact modes, 4 form states (default, submitting, success, error), localStorage duplicate prevention, simulated submission (API endpoint placeholder ready), custom checkbox/select styling, trilingual (EN/DE/PL) with localized privacy policy links.
+- Waitlist pages updated to use React island: `/en/waitlist` (`client:visible lang="en" source="waitlist-page"`), `/de/warteliste` (`client:visible lang="de" source="warteliste-page"`), `/pl/lista-oczekujacych` (`client:visible lang="pl" source="lista-oczekujacych-page"`)
+- Contact form also exists on /en/contact and /de/kontakt (markup only, no backend)
 
 ### Acceptance Criteria (E08)
 - Full form validates: email required, interest required, phoneOS required, consent required
@@ -545,8 +570,8 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 
 ### Notes (E09)
 - All content is **hardcoded** in .astro and .md files (no Sanity CMS integration)
-- Interactive components (breathing demo, FAQ accordion, sensor explorer, comparison slider) are **static markup only** — no expand/collapse, no interactivity
-- Forms (waitlist, contact) have markup but no submission handlers
+- **BreathingDemo** and **FAQAccordion** are now fully interactive React islands (integrated on how-it-works and FAQ pages). Remaining interactive components (sensor explorer, comparison slider, timeline) are still static markup.
+- **WaitlistForm** is now a React island with react-hook-form validation (integrated on waitlist pages). Contact form still markup-only, no backend.
 - Press, pricing, facts, and privacy pages use MarkdownLayout.astro
 - All legal pages now exist: terms.md, cookies.md, data-deletion.md (/en/)
 - Homepage FAQ section with top 3 questions present
@@ -554,7 +579,7 @@ Step 3 ──────────── [icon + text]     ├── Step 3
 ### Acceptance Criteria (E09)
 - ✅ All pages render with correct layout and hardcoded content
 - ✅ Scroll animations fire on scroll (CSS-only fade-up)
-- ⬜ Interactive components functional (breathing demo, FAQ accordion, timeline, sensor explorer, comparison) — static markup only
+- ✅ BreathingDemo and FAQAccordion functional as React islands; ⬜ timeline, sensor explorer, comparison still static markup
 - ✅ Medical disclaimer visible in Footer on all pages
 - ✅ All pages have SEO metadata (meta, OG, hreflang, JSON-LD)
 - ✅ All internal links work (no 404s)

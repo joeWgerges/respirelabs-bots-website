@@ -1,4 +1,6 @@
 ---
+import DarkModeToggle from './DarkModeToggle';
+
 const { lang } = Astro.props;
 
 const navLinks = {
@@ -112,8 +114,10 @@ for (const l of allLangs) {
         ))}
       </nav>
 
-      <!-- CTA & Lang Switcher -->
+      <!-- CTA, Dark Mode & Lang Switcher -->
       <div class="hidden md:flex items-center space-x-3 lg:space-x-4">
+        <!-- Dark Mode Toggle -->
+        <DarkModeToggle client:load />
         <!-- Language Dropdown -->
         <div class="relative" id="lang-dropdown">
           <button
@@ -191,6 +195,8 @@ for (const l of allLangs) {
         <a href={waitlistHref} class="bg-brand-blue text-white font-montserrat font-semibold py-4 px-10 rounded-full text-lg shadow-[0_8px_20px_rgba(32,111,247,0.3)] hover:scale-105 transition-all w-full text-center focus-ring focus-ring-dark">
           {waitlistLabel}
         </a>
+        <!-- Dark Mode Toggle (mobile) -->
+        <DarkModeToggle client:load />
         <!-- Language pills -->
         <div class="flex items-center gap-2" role="group" aria-label="Select language">
           {allLangs.map((l) => (

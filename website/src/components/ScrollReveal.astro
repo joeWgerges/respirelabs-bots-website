@@ -1,0 +1,69 @@
+---
+/**
+ * ScrollReveal.astro — GSAP-powered scroll reveal wrapper
+ *
+ * Wraps content in a div that animates into view on scroll using GSAP ScrollTrigger.
+ * Falls back gracefully if JS is disabled: content is visible by default via CSS,
+ * and a small inline script adds the initial hidden state only when JS is available.
+ *
+ * Usage:
+ *   <ScrollReveal>
+ *     <h2>This fades up on scroll</h2>
+ *   </ScrollReveal>
+ *
+ *   <ScrollReveal direction="left" delay={200}>
+ *     <p>This slides in from the left with a 200ms delay</p>
+ *   </ScrollReveal>
+ *
+ *   <ScrollReveal direction="fade">
+ *     <img src="/photo.jpg" alt="Fades in" />
+ *   </ScrollReveal>
+ */
+
+interface Props {
+  /** Animation direction. Default: 'up' */
+  direction?: 'up' | 'left' | 'right' | 'fade';
+  /** Delay before animation starts, in milliseconds. Default: 0 */
+  delay?: number;
+  /** Additional CSS classes */
+  class?: string;
+  /** HTML tag to render. Default: 'div' */
+  as?: 'div' | 'section' | 'article' | 'aside' | 'span';
+}
+
+const {
+  direction = 'up',
+  delay = 0,
+  class: className = '',
+  as: Tag = 'div',
+} = Astro.props;
+
+// Map direction to the GSAP class used by initScrollAnimations()
+const gsapClassMap: Record<string, string> = {
+  up: 'gsap-reveal',
+  left: 'gsap-fade-left',
+  right: 'gsap-fade-right',
+  fade: 'gsap-fade-in',
+};
+
+const gsapClass = gsapClassMap[direction] ?? 'gsap-reveal';
+const delayAttr = delay > 0 ? delay.toString() : undefined;
+---
+
+<Tag
+  class:list={[gsapClass, className]}
+  data-delay={delayAttr}
+>
+  <slot />
+</Tag>
+
+<style>
+  /*
+   * No-JS fallback: GSAP animation classes are fully visible by default.
+   * GSAP's gsap.from() sets the initial hidden state dynamically.
+   * If JS never loads, content remains visible with no layout shift.
+   *
+   * For users with prefers-reduced-motion, the initScrollAnimations()
+   * function forces opacity:1 and transform:none immediately.
+   */
+</style>

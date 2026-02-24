@@ -17,8 +17,18 @@ export default defineConfig({
     }
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    // Allow Sanity Studio to resolve correctly
+    ssr: {
+      noExternal: ['sanity', '@sanity/client', '@sanity/vision'],
+    },
   },
 
-  integrations: [mdx(), sitemap(), react()]
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes('/studio'),
+    }),
+    react(),
+  ],
 });

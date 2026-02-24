@@ -1,0 +1,104 @@
+---
+/**
+ * ParallaxImage.astro — GSAP-powered parallax scroll effect for images
+ *
+ * Wraps an image in an overflow-hidden container. On scroll, the image
+ * moves at a different rate than the page, creating a depth effect.
+ * GSAP ScrollTrigger `scrub` mode ties the movement to scroll position.
+ *
+ * Falls back gracefully: if JS is disabled or user prefers reduced motion,
+ * the image displays normally without any parallax offset.
+ *
+ * Usage:
+ *   <ParallaxImage
+ *     src="/images/hero-product.jpg"
+ *     alt="Smart Mouth Tape product shot"
+ *   />
+ *
+ *   <ParallaxImage
+ *     src="/images/background.jpg"
+ *     alt="Nature background"
+ *     speed={0.5}
+ *     class="rounded-2xl"
+ *   />
+ */
+
+interface Props {
+  /** Image source URL */
+  src: string;
+  /** Alt text for accessibility */
+  alt: string;
+  /**
+   * Parallax speed factor.
+   * Higher values = more pronounced parallax movement.
+   * Default: 0.3. Range: 0.1 (subtle) to 0.8 (dramatic).
+   */
+  speed?: number;
+  /** Additional CSS classes applied to the outer container */
+  class?: string;
+  /** Image width attribute */
+  width?: number | string;
+  /** Image height attribute */
+  height?: number | string;
+  /** Image loading strategy. Default: 'lazy' */
+  loading?: 'lazy' | 'eager';
+}
+
+const {
+  src,
+  alt,
+  speed = 0.3,
+  class: className = '',
+  width,
+  height,
+  loading = 'lazy',
+} = Astro.props;
+---
+
+<div
+  class:list={['parallax-container', className]}
+  data-parallax-speed={speed.toString()}
+>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding="async"
+    class="gsap-parallax-img"
+    data-speed={speed.toString()}
+  />
+</div>
+
+<style>
+  .parallax-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .gsap-parallax-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*
+     * Scale the image slightly larger than its container so that
+     * the parallax movement does not reveal empty space at edges.
+     * The 20% extra is sufficient for typical parallax speeds (0.1-0.5).
+     */
+    transform: scale(1.15);
+    will-change: transform;
+  }
+
+  /*
+   * When the user prefers reduced motion, disable the scale bump
+   * and reset to normal display. GSAP will also skip the animation.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .gsap-parallax-img {
+      transform: none;
+      will-change: auto;
+    }
+  }
+</style>

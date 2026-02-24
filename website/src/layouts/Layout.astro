@@ -118,6 +118,15 @@ const breadcrumbSchema = {
       "url": siteUrl,
       "inLanguage": ["en", "de", "pl"]
     })} />
+    <!-- Prevent flash of wrong theme (FOUC) -->
+    <script is:inline>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <ClientRouter />
   </head>
   <body class="text-brand-dark antialiased selection:bg-brand-blue selection:text-white flex flex-col min-h-screen relative overflow-x-hidden">
@@ -132,7 +141,7 @@ const breadcrumbSchema = {
     <StickyBar lang={lang} />
     <CookieConsent lang={lang} />
 
-    <!-- Intersection Observer for scroll animations -->
+    <!-- Intersection Observer for CSS .reveal animations (fallback / legacy) -->
     <script>
       const observerOptions = {
         root: null,
@@ -149,7 +158,7 @@ const breadcrumbSchema = {
         });
       }, observerOptions);
 
-      const initAnimations = () => {
+      const initCSSAnimations = () => {
         const revealElements = document.querySelectorAll('.reveal:not(.active), .reveal-left:not(.active), .reveal-right:not(.active)');
         revealElements.forEach((el) => {
           observer.observe(el);
@@ -160,11 +169,68 @@ const breadcrumbSchema = {
         }, 50);
       };
 
-      // Run on initial load
-      initAnimations();
+      // Run CSS animations on initial load
+      initCSSAnimations();
 
-      // Re-run after View Transition navigation
-      document.addEventListener('astro:after-swap', initAnimations);
+      // Re-run CSS animations after View Transition navigation
+      document.addEventListener('astro:after-swap', initCSSAnimations);
+    </script>
+
+    <!-- GSAP ScrollTrigger animations (lazy-loaded to avoid blocking render) -->
+    <script>
+      /**
+       * Lazy-load GSAP animations after the page is interactive.
+       * The dynamic import keeps GSAP out of the critical rendering path.
+       * On Astro view transitions, cleanup old ScrollTriggers before re-init.
+       */
+      let gsapInitialized = false;
+
+      async function initGSAPAnimations() {
+        try {
+          const { initScrollAnimations, cleanupAnimations, refreshScrollTrigger } =
+            await import('../lib/animations');
+
+          // If re-initializing after a view transition, clean up first
+          if (gsapInitialized) {
+            cleanupAnimations();
+          }
+
+          initScrollAnimations();
+          gsapInitialized = true;
+
+          // Also handle parallax images from ParallaxImage.astro
+          const parallaxImages = document.querySelectorAll<HTMLElement>('.gsap-parallax-img');
+          if (parallaxImages.length > 0) {
+            const { parallax } = await import('../lib/animations');
+            parallaxImages.forEach((img) => {
+              const speed = parseFloat(img.dataset.speed ?? '0.3');
+              parallax(img, speed);
+            });
+          }
+        } catch (err) {
+          // GSAP load failed — CSS fallback animations (.reveal) still work
+          console.warn('[RespireLabs] GSAP animations failed to load:', err);
+        }
+      }
+
+      // Initialize GSAP after the page is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGSAPAnimations);
+      } else {
+        // DOM already loaded (e.g., script at end of body)
+        initGSAPAnimations();
+      }
+
+      // Re-initialize after Astro view transition swaps in new content
+      document.addEventListener('astro:after-swap', initGSAPAnimations);
+
+      // Clean up before Astro swaps out old content (prevents stale triggers)
+      document.addEventListener('astro:before-swap', async () => {
+        if (gsapInitialized) {
+          const { cleanupAnimations } = await import('../lib/animations');
+          cleanupAnimations();
+        }
+      });
     </script>
   </body>
 </html>

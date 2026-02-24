@@ -1,0 +1,32 @@
+---
+/**
+ * Embedded Sanity Studio route.
+ * Renders the full Sanity Studio UI at /studio.
+ * This page opts out of the site layout — Studio provides its own chrome.
+ */
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>RespireLabs Studio</title>
+    <style>
+      html, body, #sanity { height: 100%; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="sanity"></div>
+    <script>
+      import { renderStudio } from 'sanity';
+      import config from '../../../sanity.config';
+
+      renderStudio(document.getElementById('sanity')!, config, {
+        reactStrictMode: true,
+        basePath: '/studio',
+      });
+    </script>
+  </body>
+</html>
