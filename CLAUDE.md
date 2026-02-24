@@ -14,6 +14,31 @@
 6. **Font usage**: Oddval for headings, Montserrat for body/UI, EB Garamond for quotes/editorial. Never mix these roles.
 7. **Performance budget**: Target Lighthouse 95+, LCP < 2s, total JS < 150KB gzipped, page weight < 500KB initial load.
 
+## Deployment (Netlify)
+
+**IMPORTANT**: Always deploy to the correct Netlify project.
+
+| Setting | Value |
+|---|---|
+| **Netlify Site** | `smartbreathing-app` |
+| **Site ID** | `bdbfe489-72f3-4b21-a62e-ba7b2fbce77e` |
+| **Production URL** | https://smartbreathing-app.netlify.app |
+| **Deploy directory** | `website/dist` |
+
+**Deploy commands** (run from project root):
+```bash
+# 1. Build the site
+cd website && npm run build && cd ..
+
+# 2. Ensure linked to the correct site
+npx netlify link --id bdbfe489-72f3-4b21-a62e-ba7b2fbce77e
+
+# 3. Deploy to production
+npx netlify deploy --prod --dir=website/dist
+```
+
+**Do NOT deploy to**: `respairelabai` or any other Netlify project. Always verify you are linked to `smartbreathing-app` before deploying.
+
 ## Tech Stack
 
 | Layer | Technology | Version |
