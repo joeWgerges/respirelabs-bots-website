@@ -34,10 +34,10 @@ const waitlistHrefs: Record<string, string> = { en: '/en/waitlist', de: '/de/war
 const waitlistLabel = waitlistLabels[lang as string] || waitlistLabels.en;
 const waitlistHref = waitlistHrefs[lang as string] || waitlistHrefs.en;
 
-// 3-way language cycle: en → de → pl → en
-const langCycle: Record<string, string> = { en: 'de', de: 'pl', pl: 'en' };
+const allLangs = ['en', 'de', 'pl'] as const;
 const langNames: Record<string, string> = { en: 'English', de: 'Deutsch', pl: 'Polski' };
-const alternateLang = langCycle[lang as string] || 'en';
+const langFlags: Record<string, string> = { en: '🇬🇧', de: '🇩🇪', pl: '🇵🇱' };
+const currentLang = (lang as string) || 'en';
 
 // Canonical paths for each language (maps page key → localized path)
 const localizedPaths: Record<string, Record<string, string>> = {
@@ -78,9 +78,14 @@ pathToPage['/de/about'] = { key: 'about', lang: 'de' };
 
 const currentPath = Astro.url.pathname.replace(/\/$/, ''); // Remove trailing slash
 const pageInfo = pathToPage[currentPath];
-const alternateUrl = pageInfo
-  ? (localizedPaths[pageInfo.key]?.[alternateLang] || currentPath.replace(`/${lang}`, `/${alternateLang}`))
-  : currentPath.replace(`/${lang}`, `/${alternateLang}`);
+
+// Build URLs for all 3 languages
+const langUrls: Record<string, string> = {};
+for (const l of allLangs) {
+  langUrls[l] = pageInfo
+    ? (localizedPaths[pageInfo.key]?.[l] || currentPath.replace(`/${lang}`, `/${l}`))
+    : currentPath.replace(`/${lang}`, `/${l}`);
+}
 ---
 
 <!-- Skip to content link for accessibility -->
@@ -108,10 +113,50 @@ const alternateUrl = pageInfo
       </nav>
 
       <!-- CTA & Lang Switcher -->
-      <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
-        <a href={alternateUrl} class="text-brand-grey hover:text-brand-dark focus-ring rounded-sm font-montserrat text-xs font-bold uppercase tracking-widest transition-colors" aria-label={`Switch to ${langNames[alternateLang] || 'English'}`}>
-          {alternateLang.toUpperCase()}
-        </a>
+      <div class="hidden md:flex items-center space-x-3 lg:space-x-4">
+        <!-- Language Dropdown -->
+        <div class="relative" id="lang-dropdown">
+          <button
+            id="lang-dropdown-btn"
+            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/[0.08] bg-white/60 backdrop-blur-sm hover:bg-black/[0.04] focus-ring font-montserrat text-sm font-medium text-brand-dark transition-all duration-200"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="Select language"
+          >
+            <span class="text-base leading-none">{langFlags[currentLang]}</span>
+            <span class="text-xs font-semibold uppercase tracking-wide">{currentLang}</span>
+            <svg class="w-3.5 h-3.5 text-brand-grey/70 transition-transform duration-200" id="lang-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            id="lang-dropdown-menu"
+            class="absolute right-0 top-full mt-2 w-44 rounded-2xl border border-black/[0.08] bg-white/90 backdrop-blur-xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] py-1.5 opacity-0 invisible translate-y-1 transition-all duration-200 z-50"
+            role="menu"
+            aria-label="Language options"
+          >
+            {allLangs.map((l) => (
+              <a
+                href={langUrls[l]}
+                class={`flex items-center gap-3 px-4 py-2.5 font-montserrat text-sm transition-colors duration-150 ${
+                  l === currentLang
+                    ? 'text-brand-blue font-semibold bg-brand-blue/[0.05]'
+                    : 'text-brand-dark/80 hover:bg-black/[0.03] hover:text-brand-dark'
+                }`}
+                role="menuitem"
+                aria-current={l === currentLang ? 'true' : undefined}
+              >
+                <span class="text-lg leading-none">{langFlags[l]}</span>
+                <span>{langNames[l]}</span>
+                {l === currentLang && (
+                  <svg class="w-4 h-4 ml-auto text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
         <a href={waitlistHref} class="bg-brand-dark text-white hover:bg-black hover:scale-[1.02] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-ring font-montserrat text-sm font-semibold py-2 px-6 rounded-full transition-all duration-300 whitespace-nowrap">
           {waitlistLabel}
         </a>
@@ -143,12 +188,26 @@ const alternateUrl = pageInfo
         </a>
       ))}
       <div class="pt-8 flex flex-col items-center space-y-6 w-full max-w-sm mx-auto">
-        <a href={waitlistHref} class="bg-brand-blue text-white font-montserrat font-semibold py-4 px-10 rounded-full text-lg shadow-[0_8px_20px_rgba(32,111,247,0.3)] hover:scale-105 transition-all w-full focus-ring focus-ring-dark">
+        <a href={waitlistHref} class="bg-brand-blue text-white font-montserrat font-semibold py-4 px-10 rounded-full text-lg shadow-[0_8px_20px_rgba(32,111,247,0.3)] hover:scale-105 transition-all w-full text-center focus-ring focus-ring-dark">
           {waitlistLabel}
         </a>
-        <a href={alternateUrl} class="text-brand-grey font-montserrat font-semibold uppercase tracking-widest text-sm focus-ring py-2 px-4 rounded-md hover:text-brand-dark transition-colors">
-          {langNames[alternateLang] || 'English'}
-        </a>
+        <!-- Language pills -->
+        <div class="flex items-center gap-2" role="group" aria-label="Select language">
+          {allLangs.map((l) => (
+            <a
+              href={langUrls[l]}
+              class={`flex items-center gap-2 px-5 py-2.5 rounded-full font-montserrat text-sm font-medium transition-all duration-200 focus-ring ${
+                l === currentLang
+                  ? 'bg-brand-dark text-white shadow-sm'
+                  : 'bg-black/[0.04] text-brand-dark/70 hover:bg-black/[0.08] hover:text-brand-dark'
+              }`}
+              aria-current={l === currentLang ? 'page' : undefined}
+            >
+              <span class="text-base leading-none">{langFlags[l]}</span>
+              <span>{l.toUpperCase()}</span>
+            </a>
+          ))}
+        </div>
       </div>
     </nav>
   </div>
@@ -156,6 +215,48 @@ const alternateUrl = pageInfo
 
 <script>
   function initHeader() {
+    // Language dropdown toggle
+    const langBtn = document.getElementById('lang-dropdown-btn');
+    const langMenu = document.getElementById('lang-dropdown-menu');
+    const langChevron = document.getElementById('lang-chevron');
+
+    const openLangMenu = () => {
+      if (!langMenu || !langBtn || !langChevron) return;
+      langMenu.classList.remove('opacity-0', 'invisible', 'translate-y-1');
+      langMenu.classList.add('opacity-100', 'visible', 'translate-y-0');
+      langChevron.classList.add('rotate-180');
+      langBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeLangMenu = () => {
+      if (!langMenu || !langBtn || !langChevron) return;
+      langMenu.classList.add('opacity-0', 'invisible', 'translate-y-1');
+      langMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+      langChevron.classList.remove('rotate-180');
+      langBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    if (langBtn && langMenu) {
+      langBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = langBtn.getAttribute('aria-expanded') === 'true';
+        isOpen ? closeLangMenu() : openLangMenu();
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!(e.target as Element)?.closest('#lang-dropdown')) {
+          closeLangMenu();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && langBtn.getAttribute('aria-expanded') === 'true') {
+          closeLangMenu();
+          langBtn.focus();
+        }
+      });
+    }
+
     // Advanced Scroll Effect for Header
     const header = document.getElementById('main-header');
     const headerBg = document.getElementById('header-bg');
