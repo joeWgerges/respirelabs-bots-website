@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import type { SubmitHandler } from 'react-hook-form';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -10,6 +11,8 @@ interface WaitlistFormProps {
   lang?: 'en' | 'de' | 'pl';
   source?: string;
   compact?: boolean;
+  supabaseUrl?: string;
+  supabaseKey?: string;
 }
 
 interface WaitlistFormData {
@@ -264,7 +267,7 @@ function ErrorBanner({ title, body, onDismiss }: { title: string; body: string; 
 // Compact form (email-only for sticky bar / popup)
 // ---------------------------------------------------------------------------
 
-function CompactForm({ lang, source, t }: { lang: string; source: string; t: typeof translations.en }) {
+function CompactForm({ lang, source, t, sbRef }: { lang: string; source: string; t: typeof translations.en; sbRef: React.RefObject<SupabaseClient | null> }) {
   const {
     register,
     handleSubmit,
@@ -281,8 +284,14 @@ function CompactForm({ lang, source, t }: { lang: string; source: string; t: typ
   const onSubmit: SubmitHandler<{ email: string }> = async (data) => {
     setStatus('submitting');
     try {
-      // Simulate API call -- replace with real POST /api/waitlist when ready
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      if (sbRef.current) {
+        const { error } = await sbRef.current.from('waitlist_signups').insert({
+          email: data.email.trim(),
+          source,
+          lang,
+        });
+        if (error && error.code !== '23505') throw error;
+      }
       storeEmail(data.email);
       setStatus('success');
     } catch {
@@ -345,12 +354,22 @@ function CompactForm({ lang, source, t }: { lang: string; source: string; t: typ
 // Full form
 // ---------------------------------------------------------------------------
 
-export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact = false }: WaitlistFormProps) {
+export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact = false, supabaseUrl, supabaseKey }: WaitlistFormProps) {
   const t = translations[lang] || translations.en;
   const privacyPath = privacyPaths[lang] || privacyPaths.en;
+  const sbRef = useRef<SupabaseClient | null>(null);
 
   const [status, setStatus] = useState<FormStatus>('idle');
   const [alreadySubmitted, setAlreadySubmitted] = useState(false);
+
+  // Create Supabase client only on client side
+  useEffect(() => {
+    if (supabaseUrl && supabaseKey && !sbRef.current) {
+      try {
+        sbRef.current = createClient(supabaseUrl, supabaseKey);
+      } catch { /* noop */ }
+    }
+  }, [supabaseUrl, supabaseKey]);
 
   useEffect(() => {
     if (getStoredEmail()) setAlreadySubmitted(true);
@@ -379,7 +398,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
 
   // Compact variant
   if (compact) {
-    return <CompactForm lang={lang} source={source} t={t} />;
+    return <CompactForm lang={lang} source={source} t={t} sbRef={sbRef} />;
   }
 
   // Already-submitted screen
@@ -427,24 +446,17 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
   const onSubmit: SubmitHandler<WaitlistFormData> = async (data) => {
     setStatus('submitting');
     try {
-      // Simulate API call -- replace with real POST /api/waitlist when endpoint exists
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      // Uncomment when API is ready:
-      // const response = await fetch('/api/waitlist', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({
-      //     email: data.email,
-      //     firstName: data.firstName,
-      //     interest: data.interest,
-      //     hearAbout: data.hearAbout,
-      //     source,
-      //     lang,
-      //   }),
-      // });
-      // if (!response.ok) throw new Error('Failed to submit');
-
+      if (sbRef.current) {
+        const { error } = await sbRef.current.from('waitlist_signups').insert({
+          email: data.email.trim(),
+          first_name: data.firstName.trim(),
+          interest: data.interest,
+          hear_about: data.hearAbout || null,
+          source,
+          lang,
+        });
+        if (error && error.code !== '23505') throw error;
+      }
       storeEmail(data.email);
       setStatus('success');
     } catch {

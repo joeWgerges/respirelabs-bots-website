@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import WaitlistForm from '../../components/islands/WaitlistForm.tsx';
 
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL || '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '';
+
 const frontmatter = {
   title: 'Join the waitlist',
   description: 'Get early access to the RespireLabs app and Smart Mouth Tape. Tell us your preferences and help shape the beta.',
@@ -59,7 +62,7 @@ const frontmatter = {
           <div class="absolute -top-32 -right-32 w-64 h-64 bg-brand-yellow/20 rounded-full blur-[80px] pointer-events-none"></div>
 
           <div class="relative z-10">
-            <WaitlistForm client:visible lang="en" source="waitlist-page" />
+            <WaitlistForm client:visible lang="en" source="waitlist-page" supabaseUrl={sbUrl} supabaseKey={sbKey} />
           </div>
         </div>
 
