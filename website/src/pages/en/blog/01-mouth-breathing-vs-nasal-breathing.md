@@ -5,6 +5,7 @@ title: "Mouth breathing vs nasal breathing: what it means for sleep and daily en
 description: "A practical, non-medical overview of mouth vs nasal breathing—why habits matter and how to build awareness."
 date: "2026-02-15"
 readTime: "5 min read"
+category: "Breathing"
 alternatePaths:
   en: "/en/blog/01-mouth-breathing-vs-nasal-breathing"
   de: "/de/blog/01-mundatmung-vs-nasenatmung"

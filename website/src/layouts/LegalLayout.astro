@@ -1,6 +1,6 @@
 ---
 /**
- * LegalLayout.astro — E03-008
+ * LegalLayout.astro, E03-008
  *
  * Simpler layout for legal / policy pages (privacy, terms, cookies, data-deletion, etc.).
  * Differences from MarkdownLayout:
@@ -143,7 +143,7 @@ const breadcrumbSchema = {
 
     <main id="main-content" class="flex-grow pt-16 md:pt-20 outline-none" tabindex="-1" transition:animate="fade">
 
-      <!-- Minimal header area — clean, no decorative orbs -->
+      <!-- Minimal header area, clean, no decorative orbs -->
       <div class="relative bg-brand-white overflow-hidden">
         <div class="absolute inset-0 h-[260px] bg-[#F5F5F7] dark:bg-[var(--bg-secondary)] border-b border-black/[0.02] dark:border-white/5 pointer-events-none" aria-hidden="true">
           <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
@@ -206,7 +206,7 @@ const breadcrumbSchema = {
 
     <Footer lang={lang} />
 
-    <!-- No StickyBar — legal pages should not include conversion prompts -->
+    <!-- No StickyBar, legal pages should not include conversion prompts -->
 
     <CookieConsent lang={lang} />
 

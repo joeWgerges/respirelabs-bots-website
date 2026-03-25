@@ -16,6 +16,7 @@ interface WaitlistFormData {
   email: string;
   firstName: string;
   interest: string[];
+  mouthTaping: string;
   hearAbout: string;
   privacyConsent: boolean;
 }
@@ -36,6 +37,10 @@ const translations = {
     app: 'RespireLabs App',
     tape: 'Smart Mouth Tape',
     both: 'Both',
+    mouthTaping: 'Do you practice mouth taping?',
+    mouthTapingYes: 'Yes',
+    mouthTapingNo: 'No',
+    mouthTapingConsidering: 'Considering it',
     hearAbout: 'How did you hear about us?',
     hearAboutPlaceholder: 'Select an option',
     hearAboutOptions: ['Social Media', 'Friend / Family', 'Search Engine', 'Blog / Article', 'Other'],
@@ -65,6 +70,10 @@ const translations = {
     app: 'RespireLabs App',
     tape: 'Smart Mouth Tape',
     both: 'Beides',
+    mouthTaping: 'Praktizierst du Mouth Taping?',
+    mouthTapingYes: 'Ja',
+    mouthTapingNo: 'Nein',
+    mouthTapingConsidering: 'Ich uberlege',
     hearAbout: 'Wie hast du von uns erfahren?',
     hearAboutPlaceholder: 'Option auswahlen',
     hearAboutOptions: ['Social Media', 'Freunde / Familie', 'Suchmaschine', 'Blog / Artikel', 'Sonstiges'],
@@ -94,6 +103,10 @@ const translations = {
     app: 'Aplikacja RespireLabs',
     tape: 'Smart Mouth Tape',
     both: 'Oba',
+    mouthTaping: 'Czy stosujesz mouth taping?',
+    mouthTapingYes: 'Tak',
+    mouthTapingNo: 'Nie',
+    mouthTapingConsidering: 'Rozwazam to',
     hearAbout: 'Skad o nas wiesz?',
     hearAboutPlaceholder: 'Wybierz opcje',
     hearAboutOptions: ['Media spolecznosciowe', 'Znajomi / Rodzina', 'Wyszukiwarka', 'Blog / Artykul', 'Inne'],
@@ -354,6 +367,7 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
       email: '',
       firstName: '',
       interest: [],
+      mouthTaping: '',
       hearAbout: '',
       privacyConsent: false,
     },
@@ -559,6 +573,41 @@ export default function WaitlistForm({ lang = 'en', source = 'waitlist', compact
               {errors.interest.message}
             </p>
           )}
+        </fieldset>
+
+        {/* Mouth taping question */}
+        <fieldset>
+          <legend
+            className="block text-sm font-medium mb-3"
+            style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
+          >
+            {t.mouthTaping}
+          </legend>
+          <div className="flex gap-4 flex-wrap">
+            {(['yes', 'no', 'considering'] as const).map((value) => {
+              const labelMap = { yes: t.mouthTapingYes, no: t.mouthTapingNo, considering: t.mouthTapingConsidering };
+              return (
+                <label
+                  key={value}
+                  className={`flex items-center gap-2 cursor-pointer select-none ${isSubmitting ? 'opacity-60 cursor-not-allowed' : ''}`}
+                >
+                  <input
+                    type="radio"
+                    value={value}
+                    disabled={isSubmitting}
+                    {...register('mouthTaping')}
+                    className="w-4 h-4 text-[#206FF7] border-[#E5E7EB] dark:border-white/10 focus:ring-[#206FF7] focus:ring-2"
+                  />
+                  <span
+                    className="text-sm"
+                    style={{ fontFamily: 'var(--font-montserrat)', color: 'var(--text-primary)' }}
+                  >
+                    {labelMap[value]}
+                  </span>
+                </label>
+              );
+            })}
+          </div>
         </fieldset>
 
         {/* How did you hear about us */}

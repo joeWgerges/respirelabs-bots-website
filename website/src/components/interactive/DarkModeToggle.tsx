@@ -2,7 +2,7 @@ import { useStore } from '@nanostores/react';
 import { isDark, toggleTheme } from '../../stores/theme';
 
 /**
- * DarkModeToggle — React island component for switching between light and dark themes.
+ * DarkModeToggle, React island component for switching between light and dark themes.
  *
  * Renders a circular button with a sun icon (in dark mode, click to go light)
  * or a moon icon (in light mode, click to go dark). Icons crossfade smoothly
@@ -42,7 +42,7 @@ export default function DarkModeToggle() {
         dark:focus-visible:ring-offset-brand-dark
       "
     >
-      {/* Sun icon — visible in dark mode (click to switch to light) */}
+      {/* Sun icon, visible in dark mode (click to switch to light) */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -69,7 +69,7 @@ export default function DarkModeToggle() {
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
       </svg>
 
-      {/* Moon icon — visible in light mode (click to switch to dark) */}
+      {/* Moon icon, visible in light mode (click to switch to dark) */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

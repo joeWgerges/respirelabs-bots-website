@@ -5,6 +5,7 @@ title: "Dzienny trening oddychania nosem: male nawyki, ktore procentuja"
 description: "Proste, praktyczne sposoby na zauwazenie czynnikow wyzwalajacych oddychanie ustami i budowanie nawykow oddychania nosem w ciagu dnia."
 date: "2026-02-05"
 readTime: "6 min czytania"
+category: "Oddychanie"
 alternatePaths:
   en: "/en/blog/03-daytime-nasal-breathing-training"
   de: "/de/blog/03-nasenatmung-tagsueber-trainieren"

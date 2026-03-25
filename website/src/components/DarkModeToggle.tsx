@@ -2,7 +2,7 @@ import { useStore } from '@nanostores/react';
 import { isDark, toggleTheme } from '../stores/theme';
 
 /**
- * DarkModeToggle — React island for switching between light and dark mode.
+ * DarkModeToggle, React island for switching between light and dark mode.
  *
  * Renders a pill-shaped button with an animated sun/moon icon.
  * Reads state from the `isDark` nanostore atom so all islands
@@ -19,7 +19,7 @@ export default function DarkModeToggle() {
       aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
       className="relative flex items-center justify-center w-9 h-9 rounded-full border border-black/[0.08] bg-white/60 backdrop-blur-sm hover:bg-black/[0.04] dark:border-white/10 dark:bg-white/[0.06] dark:hover:bg-white/[0.12] focus-ring transition-all duration-200 cursor-pointer"
     >
-      {/* Sun icon — visible in dark mode (click to go light) */}
+      {/* Sun icon, visible in dark mode (click to go light) */}
       <svg
         className={`absolute w-[18px] h-[18px] transition-all duration-300 ${
           dark
@@ -40,7 +40,7 @@ export default function DarkModeToggle() {
         <circle cx={12} cy={12} r={4} strokeLinecap="round" strokeLinejoin="round" />
       </svg>
 
-      {/* Moon icon — visible in light mode (click to go dark) */}
+      {/* Moon icon, visible in light mode (click to go dark) */}
       <svg
         className={`absolute w-[18px] h-[18px] transition-all duration-300 ${
           dark

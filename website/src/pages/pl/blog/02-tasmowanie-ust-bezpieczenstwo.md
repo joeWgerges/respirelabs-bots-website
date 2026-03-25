@@ -5,6 +5,7 @@ title: "Tasmowanie ust: korzysci, ryzyka i bezpieczniejsze podejscie"
 description: "Przeglad tasmowania ust z naciskiem na bezpieczenstwo. RespireLabs jest w fazie rozwoju i nie pozycjonuje tasmowania ust jako leczenia."
 date: "2026-02-10"
 readTime: "4 min czytania"
+category: "Przewodnik produktowy"
 alternatePaths:
   en: "/en/blog/02-mouth-taping-safety"
   de: "/de/blog/02-mouth-taping-sicherheit"

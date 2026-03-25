@@ -49,7 +49,7 @@ const breadcrumbItems = pathSegments.map((segment, index) => {
   };
 });
 
-// Determine og:type — 'article' for blog post pages, 'website' for everything else
+// Determine og:type, 'article' for blog post pages, 'website' for everything else
 const isBlogPost = /^\/(en|de|pl)\/blog\/.+/.test(Astro.url.pathname);
 const ogType = isBlogPost ? 'article' : 'website';
 
@@ -120,7 +120,7 @@ const breadcrumbSchema = {
       "url": siteUrl,
       "inLanguage": ["en", "de", "pl"]
     })} />
-    <!-- Prevent flash of wrong theme (FOUC) — default to light -->
+    <!-- Prevent flash of wrong theme (FOUC), default to light -->
     <script is:inline>
       (function() {
         if (localStorage.getItem('theme') === 'dark') {
@@ -210,7 +210,7 @@ const breadcrumbSchema = {
             });
           }
         } catch (err) {
-          // GSAP load failed — CSS fallback animations (.reveal) still work
+          // GSAP load failed, CSS fallback animations (.reveal) still work
           console.warn('[RespireLabs] GSAP animations failed to load:', err);
         }
       }

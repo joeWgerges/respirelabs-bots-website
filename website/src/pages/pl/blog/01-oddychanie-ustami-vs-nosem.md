@@ -5,6 +5,7 @@ title: "Oddychanie ustami vs oddychanie nosem: co to oznacza dla snu i codzienne
 description: "Praktyczny, niemedyczny przeglad oddychania ustami i nosem — dlaczego nawyki maja znaczenie i jak budowac swiadomosc."
 date: "2026-02-15"
 readTime: "5 min czytania"
+category: "Oddychanie"
 alternatePaths:
   en: "/en/blog/01-mouth-breathing-vs-nasal-breathing"
   de: "/de/blog/01-mundatmung-vs-nasenatmung"

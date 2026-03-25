@@ -18,7 +18,7 @@ interface FAQCategory {
 interface FAQAccordionProps {
   /** Flat list of FAQ items (preferred). */
   items?: FAQItem[];
-  /** Grouped list — legacy format from existing pages. Converted internally. */
+  /** Grouped list, legacy format from existing pages. Converted internally. */
   faqs?: FAQCategory[];
   /** Category labels for tabs. Auto-derived from items if omitted. */
   categories?: { value: string; label: string }[];

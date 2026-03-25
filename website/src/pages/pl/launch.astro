@@ -1,0 +1,535 @@
+---
+import LaunchLayout from '../../layouts/LaunchLayout.astro';
+import LaunchWaitlistForm from '../../components/islands/LaunchWaitlistForm.tsx';
+import CountdownTimer from '../../components/islands/CountdownTimer.tsx';
+
+import BreathingQuiz from '../../components/islands/BreathingQuiz.tsx';
+import BreathingChallenge from '../../components/islands/BreathingChallenge.tsx';
+import LaunchHeroBackground from '../../components/LaunchHeroBackground.astro';
+import LaunchFeaturesSticky from '../../components/LaunchFeaturesSticky.astro';
+
+
+
+const sbUrl = import.meta.env.PUBLIC_SUPABASE_URL || '';
+const sbKey = import.meta.env.PUBLIC_SUPABASE_ANON_KEY || '';
+
+const frontmatter = {
+  title: 'RespireLabs App Launch – Oddychaj lepiej, spij lepiej | Lista oczekujacych',
+  description: 'Dolacz do listy oczekujacych RespireLabs – aplikacji AI do zdrowia oddechowego, ktora wykrywa oddychanie przez usta i pomaga lepiej spac.',
+  lang: 'pl',
+  alternatePaths: { en: '/en/launch', de: '/de/launch', pl: '/pl/launch' },
+  structuredData: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "RespireLabs App Launch",
+    "description": "Dolacz do listy oczekujacych RespireLabs – aplikacji AI do zdrowia oddechowego.",
+    "mainEntity": {
+      "@type": "MobileApplication",
+      "name": "RespireLabs",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "HealthApplication",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" }
+    }
+  }
+};
+---
+
+<LaunchLayout frontmatter={frontmatter}>
+
+  <!-- ============================================================== -->
+  <!-- HERO (Full viewport)                                           -->
+  <!-- ============================================================== -->
+  <section class="section-full relative bg-brand-dark flex flex-col items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-30 pointer-events-none"></div>
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[900px] md:h-[900px] pointer-events-none">
+      <div class="absolute inset-0 bg-brand-blue/10 rounded-full blur-[150px] animate-[pulse_8s_ease-in-out_infinite]"></div>
+      <div class="absolute top-1/3 left-1/4 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-brand-yellow/5 rounded-full blur-[130px] animate-[pulse_12s_ease-in-out_infinite_alternate]"></div>
+    </div>
+    <LaunchHeroBackground />
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+      <div class="inline-flex items-center space-x-2 glass-panel-dark px-4 py-1.5 rounded-full mb-5 md:mb-6 reveal hero-reveal">
+        <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span></span>
+        <span class="text-[10px] md:text-xs font-montserrat font-bold tracking-widest uppercase text-white/70">Premiera Maj 2026</span>
+      </div>
+      <h1 class="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-oddval font-bold text-white tracking-tighter leading-[0.9] mb-4 md:mb-5 reveal hero-reveal">
+        Obudz sie<br/><span class="text-gradient">naprawde.</span>
+      </h1>
+      <p class="max-w-xl mx-auto text-base sm:text-lg font-montserrat font-light text-white/55 leading-relaxed mb-5 md:mb-7 reveal hero-reveal delay-100">
+        Spisz 8 godzin. Budzisz sie wyczerpany. Problem nie polega na tym, ile spisz, ale jak oddychasz.
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-x-5 gap-y-1 mb-5 md:mb-7 reveal hero-reveal delay-100">
+        <span class="flex items-center gap-1.5 text-xs font-montserrat text-white/40"><svg class="w-3.5 h-3.5 text-brand-blue" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" /></svg>Wykrywanie AI</span>
+        <span class="flex items-center gap-1.5 text-xs font-montserrat text-white/40"><svg class="w-3.5 h-3.5 text-brand-blue" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" /></svg>iOS & Android</span>
+      </div>
+      <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mb-6 md:mb-8 w-full sm:w-auto reveal hero-reveal delay-200">
+        <button type="button" class="cta-waitlist btn-shimmer inline-flex items-center justify-center rounded-full px-8 py-3.5 md:py-4 text-sm md:text-base font-semibold text-white transition-all duration-200 bg-[#206FF7] hover:bg-[#1a5cd4] hover:shadow-lg hover:shadow-[#206FF7]/25 active:scale-[0.98] font-montserrat">Dolacz do listy</button>
+        <a href="#problem" class="inline-flex items-center justify-center rounded-full px-8 py-3.5 md:py-4 text-sm md:text-base font-semibold text-white/70 transition-all duration-200 border border-white/15 hover:bg-white/5 hover:text-white active:scale-[0.98] font-montserrat">Jak to dziala</a>
+      </div>
+      <div class="reveal hero-reveal delay-300">
+        <p class="text-[10px] md:text-xs font-montserrat font-semibold tracking-widest uppercase text-white/30 mb-3">Premiera za</p>
+        <CountdownTimer client:visible targetDate="2026-05-01T00:00:00Z" lang="pl" compact={true} />
+      </div>
+    </div>
+    <div class="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 animate-bounce opacity-30" aria-hidden="true">
+      <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+    </div>
+  </section>
+
+  <!-- Inline waitlist form (hidden, revealed on CTA click) -->
+  <div class="waitlist-inline hidden" data-form-for="hero">
+    <section class="py-14 md:py-16 bg-brand-dark border-t border-white/5">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="text-center mb-6"><h3 class="text-2xl font-oddval font-bold text-white mb-2">Badz pierwszy. Oddychaj pierwszy.</h3><p class="text-sm font-montserrat text-white/50">Ograniczona liczba miejsc dla grupy zalozycieleskiej.</p></div>
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PARTNERS / BACKED BY                                           -->
+  <!-- ============================================================== -->
+  <section class="py-8 md:py-12 bg-brand-dark relative z-20 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <p class="text-xs md:text-sm font-montserrat font-bold tracking-widest uppercase text-white/40 mb-6 md:mb-8">Wspierane przez & polecane w</p>
+      <div class="flex flex-wrap justify-center items-center gap-10 md:gap-14 lg:gap-16">
+        <img src="/partners/AWS_logo_Schrift-links_3Zeilig-e1733928366763.jpg" alt="AWS" class="h-10 md:h-12 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 invert mix-blend-screen" loading="lazy" />
+        <img src="/partners/brutkasten.png" alt="Brutkasten" class="h-6 md:h-8 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 invert mix-blend-screen" loading="lazy" />
+        <img src="/partners/logo-wko-tirol-768x235.jpg" alt="WKO Tirol" class="h-10 md:h-12 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 invert mix-blend-screen" loading="lazy" />
+        <img src="/partners/tech-on.png" alt="Tech-ON" class="h-10 md:h-12 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" loading="lazy" />
+        <img src="/partners/wolves-summit.png" alt="Wolves Summit" class="h-8 md:h-10 object-contain opacity-50 hover:opacity-100 transition-opacity duration-300" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- THE PROBLEM (Full viewport)                                    -->
+  <!-- ============================================================== -->
+  <section id="problem" class="section-full bg-brand-dark relative overflow-hidden flex flex-col items-center justify-center">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-15 pointer-events-none"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-5xl font-oddval font-bold text-white text-center mb-12 md:mb-16 reveal">Cicha epidemia.</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+        <div class="glass-panel-dark rounded-[2rem] p-8 text-center reveal delay-100">
+          <div class="text-5xl md:text-6xl font-oddval font-bold text-brand-blue mb-3 gsap-counter" data-target="50" data-suffix="%">0%</div>
+          <p class="text-sm font-montserrat text-white/60 font-light">doroslych oddycha przez usta podczas snu</p>
+        </div>
+        <div class="glass-panel-dark rounded-[2rem] p-8 text-center reveal delay-200">
+          <div class="text-5xl md:text-6xl font-oddval font-bold text-brand-yellow mb-3 gsap-counter" data-target="3" data-suffix="x">0x</div>
+          <p class="text-sm font-montserrat text-white/60 font-light">bardziej prawdopodobne obudzenie sie zmeczonym</p>
+        </div>
+        <div class="glass-panel-dark rounded-[2rem] p-8 text-center reveal delay-300">
+          <div class="text-5xl md:text-6xl font-oddval font-bold text-brand-blue mb-3 gsap-counter" data-target="80" data-suffix="%">0%</div>
+          <p class="text-sm font-montserrat text-white/60 font-light">nie wie, ze ma problem</p>
+        </div>
+      </div>
+      <div class="max-w-3xl mx-auto text-center mb-10 reveal delay-400">
+        <p class="text-xl md:text-2xl font-garamond italic text-brand-yellow leading-relaxed">"Wiekszosc ludzi nie ma pojecia, ze ich oddech pracuje przeciwko nim kazdej nocy."</p>
+      </div>
+      <div class="text-center reveal delay-500">
+        <button type="button" class="cta-waitlist btn-shimmer inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white bg-[#206FF7] hover:bg-[#1a5cd4] hover:shadow-lg hover:shadow-[#206FF7]/25 active:scale-[0.98] font-montserrat transition-all">Dolacz do listy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="problem">
+    <section class="py-14 md:py-16 bg-brand-dark border-t border-white/5">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- BREATHING QUIZ (Interactive micro-quiz)                        -->
+  <!-- ============================================================== -->
+  <section id="quiz-section" class="section-full bg-brand-dark relative overflow-hidden flex flex-col items-center justify-center">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-15 pointer-events-none"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <BreathingQuiz client:visible lang="pl" />
+    </div>
+  </section>
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="quiz">
+    <section class="py-14 md:py-16 bg-brand-dark border-t border-white/5">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PHONE SHOWCASE (Full viewport, Night-to-Dawn)                  -->
+  <!-- ============================================================== -->
+  <section id="phone-showcase" class="night-to-dawn-section relative" data-section="transition">
+    <div class="night-to-dawn-pin section-full flex items-center justify-center">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="phone-mockup mx-auto mb-8 md:mb-12">
+          <div class="phone-frame"><div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="/assets/app-screenshots/home-dashboard.webp" alt="Panel glowny RespireLabs" class="phone-screenshot active" data-index="0" loading="lazy" width="750" height="1326" />
+              <img src="/assets/app-screenshots/breathing-pattern.webp" alt="Analiza wzorca oddechowego" class="phone-screenshot" data-index="1" loading="lazy" width="750" height="1279" />
+              <img src="/assets/app-screenshots/achievements.webp" alt="Osiagniecia i szybkie akcje" class="phone-screenshot" data-index="2" loading="lazy" width="750" height="1286" />
+              <img src="/assets/app-screenshots/breathing-analysis.webp" alt="Analiza oddychania w czasie rzeczywistym" class="phone-screenshot" data-index="3" loading="lazy" width="750" height="1303" />
+            </div>
+          </div>
+        </div>
+        <div class="dawn-text opacity-0">
+          <h2 class="text-4xl md:text-6xl lg:text-7xl font-oddval font-bold tracking-tight mb-4">Poznaj <span class="text-gradient">RespireLabs.</span></h2>
+          <p class="text-lg md:text-xl font-montserrat font-light max-w-2xl mx-auto" style="color:#6B7280">Twoj oddech, sledzony. Twoje nawyki, zmienione.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- BREATHING CHALLENGE (30-second interactive)                    -->
+  <!-- ============================================================== -->
+  <section id="challenge-section" class="section-full bg-[#F7F7F9] flex flex-col items-center justify-center">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <BreathingChallenge client:visible lang="pl" />
+    </div>
+  </section>
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="challenge">
+    <section class="py-14 md:py-16 bg-[#F7F7F9] border-t border-brand-light/40">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- FEATURES (Sticky Scroll)                                       -->
+  <!-- ============================================================== -->
+  <LaunchFeaturesSticky lang="pl" />
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="features">
+    <section class="py-14 md:py-16 bg-[#F7F7F9]">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- FOUNDING MEMBER PERKS                                          -->
+  <!-- ============================================================== -->
+  <section class="section-full bg-brand-dark relative overflow-hidden flex flex-col items-center justify-center">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-15 pointer-events-none"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 md:mb-14 reveal">
+        <h2 class="text-3xl md:text-5xl font-oddval font-bold text-white mb-4">Zostac czlonkiem zalozycielskim.</h2>
+        <p class="text-base md:text-lg font-montserrat text-white/50 font-light">Ekskluzywne korzysci dla wczesnych czlonkow listy.</p>
+      </div>
+        
+        </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5 mb-6 reveal">
+        <div class="glass-panel-dark rounded-[1.5rem] p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-brand-yellow/15 flex items-center justify-center">
+            <img src="/assets/icons/respire-labs-icons_tape.svg" alt="" class="w-6 h-6" loading="lazy" />
+          </div>
+          <h3 class="text-sm font-oddval font-bold text-white mb-1">Darmowy Smart Tape</h3>
+          <p class="text-xs font-montserrat text-white/40 font-light">Zestaw probny wyslany do Ciebie</p>
+        </div>
+        <div class="glass-panel-dark rounded-[1.5rem] p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-brand-yellow/15 flex items-center justify-center">
+            <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" /><path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" /></svg>
+          </div>
+          <h3 class="text-sm font-oddval font-bold text-white mb-1">50% znizki na rok 1</h3>
+          <p class="text-xs font-montserrat text-white/40 font-light">Gwarantowana cena zalozycielska</p>
+        </div>
+        <div class="glass-panel-dark rounded-[1.5rem] p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-brand-yellow/15 flex items-center justify-center">
+            <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+          </div>
+          <h3 class="text-sm font-oddval font-bold text-white mb-1">Priorytetowy dostep</h3>
+          <p class="text-xs font-montserrat text-white/40 font-light">Pierwszy dostep do aplikacji</p>
+        </div>
+        <div class="glass-panel-dark rounded-[1.5rem] p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-brand-yellow/15 flex items-center justify-center">
+            <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" /></svg>
+          </div>
+          <h3 class="text-sm font-oddval font-bold text-white mb-1">Czat z zalozycielami</h3>
+          <p class="text-xs font-montserrat text-white/40 font-light">Bezposredni kontakt z zespolem</p>
+        </div>
+        <div class="glass-panel-dark rounded-[1.5rem] p-6 text-center">
+          <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-brand-yellow/15 flex items-center justify-center">
+            <svg class="w-6 h-6 text-brand-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" /></svg>
+          </div>
+          <h3 class="text-sm font-oddval font-bold text-white mb-1">Wplyw na roadmape</h3>
+          <p class="text-xs font-montserrat text-white/40 font-light">Glosuj na funkcje</p>
+        </div>
+      </div>
+      <div class="text-center reveal">
+        <button type="button" class="cta-waitlist btn-shimmer inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white bg-[#206FF7] hover:bg-[#1a5cd4] hover:shadow-lg hover:shadow-[#206FF7]/25 active:scale-[0.98] font-montserrat transition-all">Zarezerwuj miejsce</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="perks">
+    <section class="py-14 md:py-16 bg-brand-dark border-t border-white/5">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="text-center mb-6"><h3 class="text-2xl font-oddval font-bold text-white mb-2">Badz pierwszy. Oddychaj pierwszy.</h3><p class="text-sm font-montserrat text-white/50">Ograniczona liczba miejsc dla zalozycieli.</p></div>
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- HOW IT WORKS (Full viewport)                                   -->
+  <!-- ============================================================== -->
+  <section class="section-full bg-[#F7F7F9] flex flex-col items-center justify-center overflow-y-auto">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="text-center mb-10 md:mb-14 reveal"><h2 class="text-3xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">Trzy kroki do lepszego oddychania.</h2></div>
+      <div class="space-y-12 md:space-y-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center reveal">
+          <div class="order-2 md:order-1">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-brand-blue text-white font-oddval font-bold mb-3">1</div>
+            <h3 class="text-xl font-oddval font-bold text-brand-dark mb-2">Pobierz aplikacje</h3>
+            <p class="font-montserrat text-brand-grey font-light text-sm">Dostepna na iOS i Android. Skonfiguruj w niecala minute.</p>
+          </div>
+          <div class="order-1 md:order-2 flex justify-center"><div class="phone-mockup-small"><div class="phone-frame-small"><img src="/assets/app-screenshots/home-dashboard.webp" alt="Ekran glowny" class="w-full h-full object-contain object-top rounded-[1rem]" loading="lazy" /></div></div></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center reveal">
+          <div class="flex justify-center"><div class="phone-mockup-small"><div class="phone-frame-small"><img src="/assets/app-screenshots/breathing-analysis.webp" alt="Sesja" class="w-full h-full object-cover object-top rounded-[1rem]" loading="lazy" /></div></div></div>
+          <div>
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-brand-blue text-white font-oddval font-bold mb-3">2</div>
+            <h3 class="text-xl font-oddval font-bold text-brand-dark mb-2">Rozpocznij sesje</h3>
+            <p class="font-montserrat text-brand-grey font-light text-sm">Nasza AI wykrywa oddychanie przez usta w czasie rzeczywistym za pomoca mikrofonu telefonu.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center reveal">
+          <div class="order-2 md:order-1">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-brand-blue text-white font-oddval font-bold mb-3">3</div>
+            <h3 class="text-xl font-oddval font-bold text-brand-dark mb-2">Buduj nawyk</h3>
+            <p class="font-montserrat text-brand-grey font-light text-sm">Sledz postepy, wykonuj cwiczenia, zdobywaj osiagniecia. Obserwuj poprawe oddychania.</p>
+          </div>
+          <div class="order-1 md:order-2 flex justify-center"><div class="phone-mockup-small"><div class="phone-frame-small"><img src="/assets/app-screenshots/achievements.webp" alt="Postepy" class="w-full h-full object-contain object-top rounded-[1rem]" loading="lazy" /></div></div></div>
+        </div>
+      </div>
+      <!-- CTA -->
+      <div class="text-center mt-10 reveal">
+        <button type="button" class="cta-waitlist btn-shimmer inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white bg-[#206FF7] hover:bg-[#1a5cd4] hover:shadow-lg hover:shadow-[#206FF7]/25 active:scale-[0.98] font-montserrat transition-all">Zarezerwuj miejsce</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="howitworks">
+    <section class="py-14 md:py-16 bg-[#F7F7F9] border-t border-brand-light/40">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- PRIVACY TRUST SIGNAL                                           -->
+  <!-- ============================================================== -->
+  <section class="py-16 md:py-20 bg-[#FAFAFA]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <div class="w-14 h-14 mx-auto mb-5 rounded-full bg-green-100 flex items-center justify-center">
+        <svg class="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>
+      </div>
+      <p class="text-xl md:text-2xl font-garamond italic mb-8" style="color:#0A0A0B">"Twoj oddech, Twoje dane, Twoja kontrola."</p>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          <span class="text-sm font-montserrat text-brand-grey">Szyfrowanie end-to-end</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          <span class="text-sm font-montserrat text-brand-grey">Usun dane w kazdej chwili</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          <span class="text-sm font-montserrat text-brand-grey">Zgodnosc z RODO, hosting w UE</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- SMART TAPE TEASER (Full viewport)                              -->
+  <!-- ============================================================== -->
+  <section class="section-full bg-brand-dark relative overflow-hidden flex flex-col items-center justify-center">
+    <div class="absolute inset-0 bg-grid-pattern-dark opacity-15 pointer-events-none"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      
+      <div class="relative mx-auto w-32 h-32 mb-10 perspective-1000">
+        <div class="absolute inset-0 bg-brand-yellow/30 rounded-full blur-3xl animate-pulse"></div>
+        <div class="w-full h-full relative transform-style-3d animate-[spin-slow_15s_linear_infinite] hover:animate-none transition-all duration-500 cursor-pointer">
+          <div class="absolute inset-0 bg-white/10 rounded-2xl border border-white/20 backdrop-blur-xl flex items-center justify-center shadow-[0_0_50px_rgba(255,255,255,0.1)]">
+            <img src="/assets/icons/respire-labs-icons_tape.svg" alt="Smart Tape" class="w-16 h-16 filter drop-shadow-lg" />
+          </div>
+        </div>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-oddval font-bold text-white mb-4">Idzie dalej ze Smart Tape.</h2>
+      <p class="text-lg font-montserrat text-white/60 font-light mb-8">Polacz aplikacje z naszym Smart Mouth Tape do nocnego sledzenia z czujnikami klasy klinicznej.</p>
+      <button type="button" class="cta-waitlist btn-shimmer inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white bg-[#206FF7] hover:bg-[#1a5cd4] hover:shadow-lg hover:shadow-[#206FF7]/25 active:scale-[0.98] font-montserrat transition-all">Dolacz do listy</button>
+    </div>
+  </section>
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="smarttape">
+    <section class="py-14 md:py-16 bg-brand-dark border-t border-white/5">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- MINI FAQ                                                       -->
+  <!-- ============================================================== -->
+  <section class="py-20 md:py-28 bg-[#FAFAFA]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 md:mb-14 reveal">
+        <h2 class="text-3xl md:text-4xl font-oddval font-bold text-brand-dark mb-3">Szybkie odpowiedzi.</h2>
+      </div>
+      <div class="space-y-3 reveal">
+        <details class="group bg-white rounded-2xl border border-brand-light/60 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-montserrat font-semibold text-sm text-brand-dark list-none">
+            Czy RespireLabs to urzadzenie medyczne?
+            <svg class="w-5 h-5 text-brand-grey transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm font-montserrat text-brand-grey font-light leading-relaxed">Nie. RespireLabs to produkt wellness, ktory pomaga budowac zdrowsze nawyki oddechowe. Nie diagnozuje, nie leczy, nie zapobiega zadnym chorobom. W przypadku podejrzenia zaburzen snu lub oddychania skonsultuj sie z lekarzem.</div>
+        </details>
+        <details class="group bg-white rounded-2xl border border-brand-light/60 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-montserrat font-semibold text-sm text-brand-dark list-none">
+            Z jakimi telefonami dziala?
+            <svg class="w-5 h-5 text-brand-grey transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm font-montserrat text-brand-grey font-light leading-relaxed">RespireLabs bedzie dostepny na iPhone (iOS 16+) i Android (10+). Kazdy telefon z wbudowanym mikrofonem moze uruchomic wykrywanie oddychania.</div>
+        </details>
+        <details class="group bg-white rounded-2xl border border-brand-light/60 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-montserrat font-semibold text-sm text-brand-dark list-none">
+            Kiedy premiera?
+            <svg class="w-5 h-5 text-brand-grey transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm font-montserrat text-brand-grey font-light leading-relaxed">Planujemy premire na maj 2026. Osoby z listy oczekujacych otrzymaja wczesniejszy dostep przed publiczna premiera, a czlonkowie zalozyciele (pierwszych 500) beda pierwszymi uzytkownikami.</div>
+        </details>
+        <details class="group bg-white rounded-2xl border border-brand-light/60 overflow-hidden">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 font-montserrat font-semibold text-sm text-brand-dark list-none">
+            Czy moje dane sa bezpieczne?
+            <svg class="w-5 h-5 text-brand-grey transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </summary>
+          <div class="px-6 pb-5 text-sm font-montserrat text-brand-grey font-light leading-relaxed">Tak. Cale wykrywanie oddychania odbywa sie na Twoim urzadzeniu. Audio nigdy nie jest przesylane ani przechowywane na naszych serwerach. Twoje dane zdrowotne sa szyfrowane i pozostaja pod Twoja kontrola. Jestesmy w pelni zgodni z RODO z infrastruktura hostowana w UE.</div>
+        </details>
+      </div>
+      <!-- Final CTA -->
+      <div class="text-center mt-10 reveal">
+        <button type="button" class="cta-waitlist btn-shimmer inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white bg-[#206FF7] hover:bg-[#1a5cd4] hover:shadow-lg hover:shadow-[#206FF7]/25 active:scale-[0.98] font-montserrat transition-all">Dolacz do listy</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inline waitlist form -->
+  <div class="waitlist-inline hidden" data-form-for="faq">
+    <section class="py-14 md:py-16 bg-[#FAFAFA] border-t border-brand-light/40">
+      <div class="max-w-lg mx-auto px-4">
+        <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8"><LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} /></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal form (header CTA popup) -->
+  <div slot="modal-form">
+    <h3 class="text-2xl font-bold mb-1 pr-8" style="font-family:var(--font-oddval);color:#0A0A0B">Dolacz do listy</h3>
+    <p class="text-sm mb-6" style="font-family:var(--font-montserrat);color:#6B7280">Badz pierwszym z wczesnym dostepem.</p>
+    <LaunchWaitlistForm client:visible lang="pl" supabaseUrl={sbUrl} supabaseKey={sbKey} />
+  </div>
+
+</LaunchLayout>
+
+<style>
+  /* Each section fills the viewport */
+  .section-full {
+    min-height: 100dvh;
+  }
+
+  /* Particle dots */
+  .particle { position: absolute; width: 3px; height: 3px; background: rgba(255,255,255,0.3); border-radius: 50%; animation: twinkle 3s ease-in-out infinite alternate; }
+  @keyframes twinkle { 0% { opacity: 0.1; transform: scale(0.8); } 100% { opacity: 0.5; transform: scale(1.2); } }
+
+  /* Phone mockups */
+  .phone-mockup { width: 280px; max-width: 100%; } @media (min-width: 768px) { .phone-mockup { width: 320px; } }
+  .phone-frame { position: relative; background: #1a1a1c; border-radius: 3rem; padding: 12px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1); }
+  .phone-notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 100px; height: 28px; background: #1a1a1c; border-radius: 0 0 1rem 1rem; z-index: 10; }
+  .phone-screen { position: relative; border-radius: 2.2rem; overflow: hidden; aspect-ratio: 9/16; background: #f5f5f7; }
+  .phone-screenshot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; opacity: 0; transition: opacity 0.6s ease; }
+  .phone-screenshot.active { opacity: 1; }
+  .phone-mockup-small { width: 180px; max-width: 100%; }
+  .phone-frame-small { background: #f0f0f2; border-radius: 1.5rem; padding: 6px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); overflow: hidden; aspect-ratio: 9/16; }
+  .phone-mockup-tiny { width: 120px; max-width: 100%; }
+
+  /* Night-to-dawn */
+  .night-to-dawn-section { background: #0A0A0B; min-height: 100dvh; }
+  .dawn-text h2 { color: #0A0A0B; }
+  .gsap-counter { font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce) { .particle { animation: none; opacity: 0.3; } .phone-screenshot { transition: none; } }
+</style>
+
+<script>
+  // CTA buttons reveal the nearest following waitlist-inline form
+  function initCTAForms() {
+    document.querySelectorAll('.cta-waitlist').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Find the closest section parent, then the next sibling .waitlist-inline
+        const section = btn.closest('section') || btn.closest('.section-full');
+        if (!section) return;
+        const formWrapper = section.nextElementSibling?.classList.contains('waitlist-inline')
+          ? section.nextElementSibling
+          : section.parentElement?.nextElementSibling?.classList.contains('waitlist-inline')
+            ? section.parentElement.nextElementSibling
+            : null;
+        if (!formWrapper) return;
+
+        // Toggle: if already visible, hide it
+        if (!formWrapper.classList.contains('hidden')) {
+          formWrapper.classList.add('hidden');
+          return;
+        }
+
+        // Hide all other open forms
+        document.querySelectorAll('.waitlist-inline:not(.hidden)').forEach(f => f.classList.add('hidden'));
+
+        // Show this form
+        formWrapper.classList.remove('hidden');
+        setTimeout(() => formWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+      });
+    });
+  }
+  initCTAForms();
+  document.addEventListener('astro:after-swap', initCTAForms);
+</script>
+
+<script>
+  async function initNightToDawn() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const section = document.querySelector('.night-to-dawn-section') as HTMLElement;
+      if (section) { section.style.background = '#FAFAFA'; const dt = section.querySelector('.dawn-text') as HTMLElement; if (dt) dt.style.opacity = '1'; }
+      return;
+    }
+    const { gsap } = await import('gsap'); const { ScrollTrigger } = await import('gsap/ScrollTrigger'); gsap.registerPlugin(ScrollTrigger);
+    const section = document.querySelector('.night-to-dawn-section') as HTMLElement; const pinTarget = document.querySelector('.night-to-dawn-pin') as HTMLElement;
+    const screenshots = document.querySelectorAll('.phone-screenshot'); const dawnText = document.querySelector('.dawn-text') as HTMLElement; const phoneMockup = document.querySelector('.phone-mockup') as HTMLElement;
+    if (!section || !pinTarget || !screenshots.length) return;
+    const tl = gsap.timeline({ scrollTrigger: { trigger: section, start: 'top top', end: '+=300%', pin: pinTarget, scrub: 1, anticipatePin: 1 } });
+    tl.fromTo(phoneMockup, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.25 }, 0);
+    tl.to(section, { backgroundColor: '#FAFAFA', duration: 0.5, ease: 'none' }, 0.25);
+    const pf = document.querySelector('.phone-frame') as HTMLElement;
+    if (pf) tl.to(pf, { backgroundColor: '#e5e5e7', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.5)', duration: 0.5 }, 0.25);
+    const st = [0.2, 0.4, 0.55, 0.7];
+    screenshots.forEach((s, i) => { if (i === 0) tl.to(s, { opacity: 0, duration: 0.12 }, st[1]); if (i > 0) { tl.to(s, { opacity: 1, duration: 0.12 }, st[i]); if (i < screenshots.length - 1) tl.to(s, { opacity: 0, duration: 0.12 }, st[i + 1]); } });
+    tl.to(dawnText, { opacity: 1, y: 0, duration: 0.25 }, 0.75);
+  }
+  document.addEventListener('DOMContentLoaded', initNightToDawn);
+  document.addEventListener('astro:after-swap', initNightToDawn);
+</script>

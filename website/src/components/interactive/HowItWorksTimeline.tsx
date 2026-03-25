@@ -47,14 +47,14 @@ const translations: Record<string, { steps: Step[]; micAlt: string }> = {
         pill: 'Insights',
         heading: 'Understand your baseline.',
         description:
-          'After a session, review your summaries and trends. Instead of just seeing that you slept poorly, you\u2019ll learn which specific contexts trigger mouth breathing.',
+          'After a session, review your summaries and trends. Instead of just seeing that you slept poorly, you will learn what might be the cause behind it and if you have dysfunctional breathing problems.',
         accent: 'blue',
         contextTags: ['Stress', 'Screen time', 'Sleep posture', 'Exercise intensity'],
       },
       {
         number: 3,
         pill: 'Coaching',
-        heading: 'Train nasal habits.',
+        heading: 'Practice nasal habits.',
         description:
           'Information isn\u2019t enough; you need to change the behavior. Follow short guided exercises right in the app. Use smart reminders and visual streaks to build consistency over time.',
         accent: 'blue',
@@ -88,24 +88,24 @@ const translations: Record<string, { steps: Step[]; micAlt: string }> = {
         pill: 'Insights',
         heading: 'Baseline verstehen.',
         description:
-          'Nach der Session siehst du Zusammenfassungen und Trends. Du erf\u00E4hrst nicht nur, dass du schlecht geschlafen hast, sondern in welchen konkreten Situationen Mundatmung aufgetreten ist.',
+          'Nach der Session siehst du Zusammenfassungen und Trends. Statt nur zu sehen, dass du schlecht geschlafen hast, wirst du erfahren, was die m\u00F6gliche Ursache dahinter sein k\u00F6nnte und ob du dysfunktionale Atemprobleme hast.',
         accent: 'blue',
         contextTags: ['Stress', 'Bildschirmzeit', 'Schlafposition', 'Training'],
       },
       {
         number: 3,
         pill: 'Coaching',
-        heading: 'Nasenatmung trainieren.',
+        heading: 'Nasenatmung \u00FCben.',
         description:
           'Wissen allein reicht nicht; das Verhalten muss sich \u00E4ndern. Folge kurzen, gef\u00FChrten \u00DCbungen direkt in der App. Erinnerungen und Streaks helfen dir, am Ball zu bleiben.',
         accent: 'blue',
       },
       {
         number: 4,
-        pill: 'Hardware Upgrade (Optional)',
+        pill: 'Innovatives Hardware Upgrade',
         heading: 'Tiefere Nacht-Insights.',
         description:
-          'F\u00FCr alle, die genaueste Daten \u00FCber ihre Atmung im Schlaf wollen: Das Smart Mouth Tape Wearable liefert als optionales Upgrade tiefe Einblicke, um Fortschritte exakt zu messen.',
+          'F\u00FCr alle, die genaueste Daten \u00FCber ihre Atmung im Schlaf wollen: Das innovative Smart Mouth Tape Wearable liefert tiefe Einblicke, um Fortschritte exakt zu messen.',
         accent: 'yellow',
         cta: { label: 'Mehr zum Tape \u2192', href: '/de/smart-mouth-tape' },
       },
@@ -129,14 +129,14 @@ const translations: Record<string, { steps: Step[]; micAlt: string }> = {
         pill: 'Analizy',
         heading: 'Poznaj swoj\u0105 baz\u0119.',
         description:
-          'Po sesji przejrzyj podsumowania i trendy. Zamiast widzie\u0107 tylko, \u017Ce spa\u0142e\u015B \u017Ale, dowiesz si\u0119, jakie konkretne sytuacje wywo\u0142uj\u0105 oddychanie przez usta.',
+          'Po sesji przejrzyj podsumowania i trendy. Zamiast widzie\u0107 tylko, \u017Ce spa\u0142e\u015B \u017Ale, dowiesz si\u0119, co mo\u017Ce by\u0107 przyczyn\u0105 i czy masz problemy z dysfunkcyjnym oddychaniem.',
         accent: 'blue',
         contextTags: ['Stres', 'Czas przed ekranem', 'Pozycja snu', 'Intensywno\u015B\u0107 \u0107wicze\u0144'],
       },
       {
         number: 3,
         pill: 'Coaching',
-        heading: 'Trenuj nawyki nosowe.',
+        heading: '\u0106wicz nawyki nosowe.',
         description:
           'Informacja to za ma\u0142o; musisz zmieni\u0107 zachowanie. Wykonuj kr\u00F3tkie \u0107wiczenia z przewodnikiem bezpo\u015Brednio w aplikacji. U\u017Cywaj inteligentnych przypomnie\u0144 i wizualnych serii, aby budowa\u0107 konsekwencj\u0119 w czasie.',
         accent: 'blue',
@@ -420,7 +420,7 @@ export default function HowItWorksTimeline({
         );
       })}
 
-      {/* CSS variable for timeline node bg — inherits from parent dark section */}
+      {/* CSS variable for timeline node bg, inherits from parent dark section */}
       <style>{`
         :root { --timeline-bg: #0A0A0B; }
         .dark { --timeline-bg: #060810; }

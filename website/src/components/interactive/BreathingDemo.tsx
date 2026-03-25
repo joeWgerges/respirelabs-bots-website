@@ -28,6 +28,8 @@ const translations = {
     title: 'Try it now.',
     subtitle: 'Follow the circle. Breathe in through your nose.',
     pattern: 'breathing pattern',
+    patternExplanation: (i: number, h: number, e: number) =>
+      `${i}-${h}-${e} is a breathing pattern where you inhale for ${i} seconds, hold for ${h} seconds, and exhale for ${e} seconds.`,
   },
   de: {
     breatheIn: 'Einatmen',
@@ -39,6 +41,8 @@ const translations = {
     title: 'Jetzt ausprobieren.',
     subtitle: 'Folge dem Kreis. Atme durch die Nase ein.',
     pattern: 'Atemmuster',
+    patternExplanation: (i: number, h: number, e: number) =>
+      `${i}-${h}-${e} ist ein Atemmuster, bei dem du ${i} Sekunden einatmest, ${h} Sekunden h\u00E4ltst und ${e} Sekunden ausatmest.`,
   },
   pl: {
     breatheIn: 'Wdech',
@@ -50,6 +54,8 @@ const translations = {
     title: 'Spr\u00F3buj teraz.',
     subtitle: 'Pod\u0105\u017Caj za ko\u0142em. Oddychaj przez nos.',
     pattern: 'wzorzec oddechowy',
+    patternExplanation: (i: number, h: number, e: number) =>
+      `${i}-${h}-${e} to wzorzec oddechowy, w kt\u00F3rym wdychasz przez ${i} sekundy, wstrzymujesz oddech na ${h} sekundy i wydychasz przez ${e} sekund.`,
   },
 } as const;
 
@@ -347,7 +353,7 @@ export default function BreathingDemo({
 
         {/* Center text content */}
         <div
-          className="relative z-10 flex flex-col items-center justify-center"
+          className="absolute inset-0 flex flex-col items-center justify-center"
           style={{ pointerEvents: 'none' }}
         >
           {/* Phase label with aria-live for screen readers */}
@@ -355,7 +361,6 @@ export default function BreathingDemo({
             role="status"
             aria-live="polite"
             aria-atomic="true"
-            className="mb-1"
           >
             <span
               className="block text-xl sm:text-2xl font-bold tracking-tight"
@@ -372,7 +377,7 @@ export default function BreathingDemo({
           {/* Countdown */}
           {isRunning && (
             <span
-              className="text-sm sm:text-base font-semibold uppercase tracking-widest"
+              className="text-sm sm:text-base font-semibold uppercase tracking-widest mt-1"
               style={{
                 fontFamily: 'var(--font-montserrat)',
                 color: 'var(--text-secondary)',
@@ -381,19 +386,6 @@ export default function BreathingDemo({
               aria-label={`${countdown} seconds remaining`}
             >
               {countdown}s
-            </span>
-          )}
-
-          {/* Idle state pattern label */}
-          {!isRunning && (
-            <span
-              className="text-xs sm:text-sm font-medium uppercase tracking-widest mt-1"
-              style={{
-                fontFamily: 'var(--font-montserrat)',
-                color: 'var(--text-tertiary)',
-              }}
-            >
-              {t.pattern}
             </span>
           )}
         </div>
@@ -437,6 +429,17 @@ export default function BreathingDemo({
           <span>{t.cycles}</span>
         </div>
       </div>
+
+      {/* ---- Pattern explanation ---- */}
+      <p
+        className="text-center text-sm font-light mt-8 max-w-sm mx-auto leading-relaxed"
+        style={{
+          fontFamily: 'var(--font-montserrat)',
+          color: 'var(--text-secondary)',
+        }}
+      >
+        {t.patternExplanation(inhale, hold, exhale)}
+      </p>
 
       {/* ---- Inline keyframe for hold pulse ---- */}
       <style>{`
