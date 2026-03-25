@@ -1,0 +1,175 @@
+<div class="phone phone-light">
+
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect><rect x="2" y="3" width="14" height="6" rx="1"></rect><rect x="21" y="4" width="3" height="4" rx="1"></rect></svg></div></div>
+      <!-- Nav -->
+      <div class="nav-header">
+        <span class="font-oddval text-h3">Track</span>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="nav-search" style="width:34px;height:34px;border-radius:50%;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="16" height="16" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"></circle><path d="M11 11l3 3"></path></svg></div>
+          <div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"></circle><path d="M10 1v2M10 17v2M1 10h2M17 10h2"></path></svg></div>
+        </div>
+      </div>
+      <div style="padding:0 20px;overflow-y:auto;max-height:calc(100% - 120px);">
+
+        <!-- Period tabs -->
+        <div class="period-tabs mb-16">
+          <div class="period-tab">Today</div>
+          <div class="period-tab active">Week</div>
+          <div class="period-tab">Month</div>
+          <div class="period-tab">Year</div>
+        </div>
+
+        <!-- Hero stat row (4 metrics) -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+          <div class="card" style="text-align:center;padding:14px 10px;">
+            <div class="text-caption text-secondary" style="margin-bottom:2px;">Nasal Ratio</div>
+            <div class="font-oddval text-primary" style="font-size:28px;font-weight:700;">88%</div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-top:2px;"><svg width="10" height="10" fill="none" stroke="#22C55E" stroke-width="2"><polyline points="1 7 5 3 9 7"></polyline></svg><span class="text-caption" style="color:var(--success);font-weight:600;">+5%</span></div>
+          </div>
+          <div class="card" style="text-align:center;padding:14px 10px;">
+            <div class="text-caption text-secondary" style="margin-bottom:2px;">Sleep Quality</div>
+            <div class="font-oddval" style="font-size:28px;font-weight:700;">76</div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-top:2px;"><svg width="10" height="10" fill="none" stroke="#22C55E" stroke-width="2"><polyline points="1 7 5 3 9 7"></polyline></svg><span class="text-caption" style="color:var(--success);font-weight:600;">+3</span></div>
+          </div>
+          <div class="card" style="text-align:center;padding:14px 10px;">
+            <div class="text-caption text-secondary" style="margin-bottom:2px;">Sessions</div>
+            <div class="font-oddval" style="font-size:28px;font-weight:700;">5<span style="font-size:14px;color:var(--text-secondary);">/7</span></div>
+            <div class="text-caption text-secondary" style="margin-top:2px;">this week</div>
+          </div>
+          <div class="card" style="text-align:center;padding:14px 10px;">
+            <div class="text-caption text-secondary" style="margin-bottom:2px;">Avg Duration</div>
+            <div class="font-oddval" style="font-size:28px;font-weight:700;">7.2<span style="font-size:14px;color:var(--text-secondary);">h</span></div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-top:2px;"><svg width="10" height="10" fill="none" stroke="#22C55E" stroke-width="2"><polyline points="1 7 5 3 9 7"></polyline></svg><span class="text-caption" style="color:var(--success);font-weight:600;">+0.4h</span></div>
+          </div>
+        </div>
+
+        <!-- Breathing donut + ratio -->
+        <div class="card mb-16" style="display:flex;align-items:center;gap:16px;padding:16px;">
+          <div style="position:relative;width:100px;height:100px;flex-shrink:0;">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#E5E7EB" stroke-width="12"></circle>
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#206FF7" stroke-width="12" stroke-dasharray="239" stroke-dashoffset="48" stroke-linecap="round" transform="rotate(-90 50 50)"></circle>
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#FFDC31" stroke-width="12" stroke-dasharray="239" stroke-dashoffset="191" stroke-linecap="round" transform="rotate(198 50 50)"></circle>
+            </svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+              <div class="font-oddval text-blue" style="font-size:18px;font-weight:700;">80%</div>
+              <div style="font-size:9px;color:var(--text-secondary);">Nasal</div>
+            </div>
+          </div>
+          <div style="flex:1;">
+            <div class="text-body2" style="font-weight:600;margin-bottom:8px;">Nose vs. Mouth</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:10px;height:10px;border-radius:3px;background:var(--primary);"></div>
+                <div class="text-caption">Nose — 80%</div>
+                <div style="flex:1;height:6px;border-radius:3px;background:var(--border);overflow:hidden;"><div style="width:80%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="width:10px;height:10px;border-radius:3px;background:var(--accent-yellow);"></div>
+                <div class="text-caption">Mouth — 20%</div>
+                <div style="flex:1;height:6px;border-radius:3px;background:var(--border);overflow:hidden;"><div style="width:20%;height:100%;background:var(--accent-yellow);border-radius:3px;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7-day mini trend -->
+        <div class="card mb-16">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="text-body2" style="font-weight:600;">Weekly Trend</div>
+            <div class="text-caption text-blue" style="font-weight:600;cursor:pointer;">View All Sessions</div>
+          </div>
+          <div style="display:flex;align-items:flex-end;gap:6px;height:80px;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;border-radius:4px 4px 0 0;background:var(--primary);height:48px;"></div>
+              <div class="text-caption text-secondary" style="font-size:10px;">M</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;border-radius:4px 4px 0 0;background:var(--primary);height:60px;"></div>
+              <div class="text-caption text-secondary" style="font-size:10px;">T</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;border-radius:4px 4px 0 0;background:var(--primary);height:40px;"></div>
+              <div class="text-caption text-secondary" style="font-size:10px;">W</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;border-radius:4px 4px 0 0;background:var(--primary);height:72px;"></div>
+              <div class="text-caption text-secondary" style="font-size:10px;">T</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;border-radius:4px 4px 0 0;background:var(--primary);height:68px;"></div>
+              <div class="text-caption text-secondary" style="font-size:10px;">F</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;border-radius:4px 4px 0 0;background:var(--primary);height:56px;opacity:0.7;"></div>
+              <div class="text-caption text-secondary" style="font-size:10px;">S</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;border-radius:4px 4px 0 0;background:var(--primary);height:64px;opacity:0.4;"></div>
+              <div class="text-caption text-secondary" style="font-size:10px;">S</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deep-dive navigation cards -->
+        <div class="text-overline text-secondary mb-8">DEEP DIVE</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <div class="track-nav-card">
+            <div class="track-nav-icon" style="background:rgba(32,111,247,0.08);color:var(--primary);"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12c2-4 4 4 6 0s4 4 6 0s4 4 6 0"></path></svg></div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:600;">Breathing Patterns</div>
+              <div class="text-caption text-secondary">Nose vs mouth over time</div>
+            </div>
+            <div class="mini-bar-chart">
+              <div class="mini-bar" style="height:40%;"></div>
+              <div class="mini-bar" style="height:65%;"></div>
+              <div class="mini-bar" style="height:85%;"></div>
+              <div class="mini-bar" style="height:60%;"></div>
+              <div class="mini-bar" style="height:75%;"></div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#6B7280" stroke-width="2"><path d="M5 10l3-3-3-3"></path></svg>
+          </div>
+          <div class="track-nav-card">
+            <div class="track-nav-icon" style="background:rgba(139,92,246,0.08);color:#8B5CF6;"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 16h2v-6h2v6h2v-10h2v10h2v-4h2v4h2v-8"></path></svg></div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:600;">Audio Spectrum</div>
+              <div class="text-caption text-secondary">Snoring &amp; breathing sounds</div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#6B7280" stroke-width="2"><path d="M5 10l3-3-3-3"></path></svg>
+          </div>
+          <div class="track-nav-card">
+            <div class="track-nav-icon" style="background:rgba(34,197,94,0.08);color:var(--success);"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"></circle><path d="M10 6v4l3 2"></path></svg></div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:600;">Sleep Stages</div>
+              <div class="text-caption text-secondary">Light, deep &amp; REM cycles</div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#6B7280" stroke-width="2"><path d="M5 10l3-3-3-3"></path></svg>
+          </div>
+          <div class="track-nav-card">
+            <div class="track-nav-icon" style="background:rgba(255,220,49,0.12);color:#EAB308;"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h5v10H4zM11 3h5v14h-5z"></path></svg></div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:600;">Compare Sessions</div>
+              <div class="text-caption text-secondary">Side-by-side analysis</div>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="#6B7280" stroke-width="2"><path d="M5 10l3-3-3-3"></path></svg>
+          </div>
+        </div>
+
+        <!-- Coach's Note -->
+        <div class="coach-card" style="margin-bottom:16px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+            <svg width="16" height="16" fill="none" stroke="#206FF7" stroke-width="2"><path d="M12 2a3 3 0 00-3 3v3a3 3 0 006 0V5a3 3 0 00-3-3z"></path><path d="M17 8v1a5 5 0 01-10 0V8"></path></svg>
+            <div class="text-body2" style="font-weight:600;">Coach's Note</div>
+          </div>
+          <div class="text-caption text-secondary">Your nasal breathing improved 12% this week. Focus on maintaining nose breathing during the first hour of sleep for even better results.</div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"></circle><path d="M10 6v4l3 2"></path></svg></div>Home</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"></polyline></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"></line><line x1="3" y1="10" x2="17" y2="10"></line><line x1="3" y1="14" x2="12" y2="14"></line></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"></path></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"></rect><path d="M15 4l-5 5-5-5"></path></svg></div>Consult</div>
+      </div>
+    
+</div>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs — Onboarding Extended</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  .perm-card { display:flex;align-items:center;gap:16px;padding:20px;background:var(--surface-white);border-radius:var(--radius-lg);box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:12px; }
+  .perm-icon { width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+  .q-option { display:flex;align-items:center;gap:12px;padding:16px;border:1.5px solid var(--border);border-radius:var(--radius-lg);margin-bottom:10px;cursor:pointer; }
+  .q-option-active { border-color:var(--primary);background:rgba(32,111,247,0.04); }
+  .q-radio { width:22px;height:22px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center; }
+  .q-radio-active { border-color:var(--primary); }
+  .q-radio-active::after { content:'';width:12px;height:12px;border-radius:50%;background:var(--primary); }
+  .progress-dots { display:flex;gap:8px;justify-content:center; }
+  .prog-dot { width:8px;height:8px;border-radius:50%;background:var(--border); }
+  .prog-dot-active { background:var(--primary);width:24px;border-radius:4px; }
+  .tooltip-box { background:var(--primary);color:white;padding:12px 16px;border-radius:var(--radius-md);font-size:13px;position:relative;margin-bottom:12px; }
+  .tooltip-box::after { content:'';position:absolute;bottom:-8px;left:24px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid var(--primary); }
+  .summary-stat { display:flex;align-items:center;gap:12px;padding:14px 0; }
+  .summary-stat + .summary-stat { border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<h1 class="page-title">Onboarding Extended</h1>
+<p class="page-subtitle">S23 Notification Permission &bull; S24 Questionnaire &bull; S25 Daily Summary &bull; S26 Tutorial</p>
+
+<!-- ═══════════════ S23 — NOTIFICATION PERMISSION ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S23 — Notification Permission</div>
+    <div class="variant-label">Variant A — Value Prop</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div style="padding:48px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;height:calc(100% - 54px);justify-content:center;">
+        <div style="width:100px;height:100px;border-radius:50%;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:32px;">
+          <svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="2"><path d="M24 8v6M24 38v2M10 20h4M36 20h4"/><path d="M24 14a10 10 0 00-10 10v8a4 4 0 004 4h12a4 4 0 004-4v-8a10 10 0 00-10-10z"/><circle cx="24" cy="40" r="3"/></svg>
+        </div>
+        <div class="font-oddval text-h2 text-primary mb-12">Stay on Track</div>
+        <div class="text-body1 text-secondary mb-32" style="line-height:1.6;">Get gentle reminders when it's time to practice, celebrate your streaks, and receive real-time mouth breathing alerts.</div>
+        <div style="width:100%;margin-bottom:12px;">
+          <div class="perm-card" style="text-align:left;">
+            <div style="font-size:24px;">🔔</div>
+            <div><div class="text-body2" style="font-weight:600;">Practice Reminders</div><div class="text-caption text-secondary">Daily exercises at your chosen time</div></div>
+          </div>
+          <div class="perm-card" style="text-align:left;">
+            <div style="font-size:24px;">🎯</div>
+            <div><div class="text-body2" style="font-weight:600;">Real-Time Alerts</div><div class="text-caption text-secondary">Know when you're mouth breathing</div></div>
+          </div>
+          <div class="perm-card" style="text-align:left;">
+            <div style="font-size:24px;">🏆</div>
+            <div><div class="text-body2" style="font-weight:600;">Achievements</div><div class="text-caption text-secondary">Celebrate milestones and streaks</div></div>
+          </div>
+        </div>
+        <button class="btn btn-primary" style="margin-bottom:12px;">Enable Notifications</button>
+        <button class="btn btn-ghost">Maybe Later</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Minimal</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div style="padding:80px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;">
+        <svg width="80" height="80" fill="none" stroke="#206FF7" stroke-width="1.5" style="margin-bottom:40px;"><path d="M40 14a18 18 0 00-18 18v14a6 6 0 006 6h24a6 6 0 006-6V32a18 18 0 00-18-18z"/><circle cx="40" cy="60" r="4"/><path d="M40 10v-4M20 32h-4M60 32h4"/></svg>
+        <div class="font-oddval text-h1 text-primary mb-12">Don't miss a beat</div>
+        <div class="text-body1 text-secondary mb-48" style="line-height:1.6;">We'll send you gentle reminders for exercises, real-time alerts during tracking, and achievement notifications.</div>
+        <button class="btn btn-primary" style="margin-bottom:12px;">Allow Notifications</button>
+        <button class="btn btn-ghost">Skip</button>
+        <div class="progress-dots" style="margin-top:32px;">
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot-active prog-dot"></div>
+          <div class="prog-dot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div style="padding:80px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;">
+        <div style="width:100px;height:100px;border-radius:50%;background:rgba(32,111,247,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:32px;box-shadow:0 0 40px rgba(32,111,247,0.2);">
+          <svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="2"><path d="M24 14a10 10 0 00-10 10v8a4 4 0 004 4h12a4 4 0 004-4v-8a10 10 0 00-10-10z"/><circle cx="24" cy="40" r="3"/></svg>
+        </div>
+        <div class="font-oddval text-h2 text-white mb-12">Stay on Track</div>
+        <div class="text-body1" style="color:rgba(255,255,255,0.5);margin-bottom:40px;line-height:1.6;">Reminders, real-time alerts, and achievement celebrations.</div>
+        <div style="width:100%;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);margin-bottom:8px;"><span>🔔</span><span class="text-body2 text-white">Practice Reminders</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);margin-bottom:8px;"><span>🎯</span><span class="text-body2 text-white">Real-Time Alerts</span></div>
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);"><span>🏆</span><span class="text-body2 text-white">Achievements</span></div>
+        </div>
+        <button class="btn btn-primary" style="margin-bottom:12px;">Enable Notifications</button>
+        <button class="btn btn-ghost" style="color:rgba(255,255,255,0.4);">Maybe Later</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S24 — PERSONALIZATION QUESTIONNAIRE ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S24 — Personalization</div>
+    <div class="variant-label">Variant A — Radio Options</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div style="padding:24px 20px;">
+        <div class="progress-dots mb-24">
+          <div class="prog-dot-active prog-dot"></div>
+          <div class="prog-dot"></div>
+          <div class="prog-dot"></div>
+        </div>
+        <div class="font-oddval text-h2 text-primary mb-8">How do you usually breathe during sleep?</div>
+        <div class="text-body2 text-secondary mb-24">This helps us personalize your experience.</div>
+        <div class="q-option">
+          <div class="q-radio"></div>
+          <div><div class="text-body2" style="font-weight:600;">Mostly through my nose</div><div class="text-caption text-secondary">I rarely wake up with a dry mouth</div></div>
+        </div>
+        <div class="q-option q-option-active">
+          <div class="q-radio q-radio-active"></div>
+          <div><div class="text-body2" style="font-weight:600;">Mix of nose and mouth</div><div class="text-caption text-secondary">I sometimes wake up with a dry mouth</div></div>
+        </div>
+        <div class="q-option">
+          <div class="q-radio"></div>
+          <div><div class="text-body2" style="font-weight:600;">Mostly through my mouth</div><div class="text-caption text-secondary">I often wake up with a dry mouth or throat</div></div>
+        </div>
+        <div class="q-option">
+          <div class="q-radio"></div>
+          <div><div class="text-body2" style="font-weight:600;">I'm not sure</div><div class="text-caption text-secondary">I'd like to find out</div></div>
+        </div>
+        <div style="position:absolute;bottom:40px;left:20px;right:20px;">
+          <button class="btn btn-primary">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Step 2 (Concerns)</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div style="padding:24px 20px;">
+        <div class="progress-dots mb-24">
+          <div class="prog-dot"></div>
+          <div class="prog-dot-active prog-dot"></div>
+          <div class="prog-dot"></div>
+        </div>
+        <div class="font-oddval text-h2 text-primary mb-8">What concerns you most?</div>
+        <div class="text-body2 text-secondary mb-24">Select all that apply.</div>
+        <div class="q-option q-option-active" style="border-radius:var(--radius-lg);">
+          <div style="width:22px;height:22px;border-radius:6px;border:2px solid var(--primary);background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" fill="none" stroke="white" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+          <div class="text-body2" style="font-weight:600;">Snoring / partner complaints</div>
+        </div>
+        <div class="q-option q-option-active" style="border-radius:var(--radius-lg);">
+          <div style="width:22px;height:22px;border-radius:6px;border:2px solid var(--primary);background:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="12" height="12" fill="none" stroke="white" stroke-width="2"><path d="M2 6l3 3 5-5"/></svg></div>
+          <div class="text-body2" style="font-weight:600;">Waking up tired</div>
+        </div>
+        <div class="q-option">
+          <div style="width:22px;height:22px;border-radius:6px;border:2px solid var(--border);flex-shrink:0;"></div>
+          <div class="text-body2" style="font-weight:500;">Dry mouth / sore throat</div>
+        </div>
+        <div class="q-option">
+          <div style="width:22px;height:22px;border-radius:6px;border:2px solid var(--border);flex-shrink:0;"></div>
+          <div class="text-body2" style="font-weight:500;">Difficulty focusing during the day</div>
+        </div>
+        <div class="q-option">
+          <div style="width:22px;height:22px;border-radius:6px;border:2px solid var(--border);flex-shrink:0;"></div>
+          <div class="text-body2" style="font-weight:500;">Sleep apnea concerns</div>
+        </div>
+        <div style="position:absolute;bottom:40px;left:20px;right:20px;">
+          <button class="btn btn-primary">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div style="padding:24px 20px;">
+        <div class="progress-dots mb-24">
+          <div class="prog-dot-active prog-dot" style="background:var(--primary);"></div>
+          <div class="prog-dot" style="background:rgba(255,255,255,0.15);"></div>
+          <div class="prog-dot" style="background:rgba(255,255,255,0.15);"></div>
+        </div>
+        <div class="font-oddval text-h2 text-white mb-8">How do you breathe during sleep?</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.5);margin-bottom:24px;">This helps us personalize your experience.</div>
+        <div style="padding:16px;border:1.5px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);margin-bottom:10px;">
+          <div style="display:flex;align-items:center;gap:12px;"><div style="width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;"></div><div class="text-body2 text-white" style="font-weight:500;">Mostly nose</div></div>
+        </div>
+        <div style="padding:16px;border:1.5px solid var(--primary);border-radius:var(--radius-lg);margin-bottom:10px;background:rgba(32,111,247,0.1);">
+          <div style="display:flex;align-items:center;gap:12px;"><div style="width:22px;height:22px;border-radius:50%;border:2px solid var(--primary);flex-shrink:0;display:flex;align-items:center;justify-content:center;"><div style="width:12px;height:12px;border-radius:50%;background:var(--primary);"></div></div><div class="text-body2 text-white" style="font-weight:600;">Mix of nose and mouth</div></div>
+        </div>
+        <div style="padding:16px;border:1.5px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);margin-bottom:10px;">
+          <div style="display:flex;align-items:center;gap:12px;"><div style="width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;"></div><div class="text-body2 text-white" style="font-weight:500;">Mostly mouth</div></div>
+        </div>
+        <div style="padding:16px;border:1.5px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);margin-bottom:10px;">
+          <div style="display:flex;align-items:center;gap:12px;"><div style="width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;"></div><div class="text-body2 text-white" style="font-weight:500;">I'm not sure</div></div>
+        </div>
+        <div style="position:absolute;bottom:40px;left:20px;right:20px;">
+          <button class="btn btn-primary">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S25 — DAILY SUMMARY ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S25 — Daily Summary</div>
+    <div class="variant-label">Variant A — Card Layout</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg><span class="font-oddval text-h3">Today's Summary</span></div>
+        <div style="font-size:13px;color:var(--text-secondary);">Feb 28</div>
+      </div>
+      <div style="padding:0 20px;overflow:hidden;">
+        <!-- Breathing score -->
+        <div class="card" style="text-align:center;margin-bottom:12px;">
+          <div class="text-overline text-secondary mb-8">BREATHING SCORE</div>
+          <div style="position:relative;width:120px;height:120px;margin:0 auto 8px;">
+            <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#E5E7EB" stroke-width="6"/><circle cx="60" cy="60" r="52" fill="none" stroke="#206FF7" stroke-width="6" stroke-dasharray="327" stroke-dashoffset="39" stroke-linecap="round" transform="rotate(-90 60 60)"/></svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+              <div class="font-oddval" style="font-size:36px;font-weight:700;color:var(--primary);">88</div>
+            </div>
+          </div>
+          <div class="text-body2" style="color:var(--success);font-weight:600;">+5 from yesterday</div>
+        </div>
+        <!-- Stats -->
+        <div class="card" style="padding:0 20px;margin-bottom:12px;">
+          <div class="summary-stat">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" fill="none" stroke="#206FF7" stroke-width="2"><path d="M9 2a3 3 0 00-3 3v3a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M14 8v1a5 5 0 01-10 0V8"/></svg></div>
+            <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Nasal Breathing</div><div class="text-caption text-secondary">Across all sessions</div></div>
+            <div class="font-oddval text-blue" style="font-size:20px;font-weight:700;">88%</div>
+          </div>
+          <div class="summary-stat">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(34,197,94,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l2.5 1.5"/></svg></div>
+            <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Sessions Today</div><div class="text-caption text-secondary">5h 38m total</div></div>
+            <div class="font-oddval" style="font-size:20px;font-weight:700;">2</div>
+          </div>
+          <div class="summary-stat">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(255,220,49,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M4 14l3-5 3 3 4-6"/></svg></div>
+            <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Exercises Done</div><div class="text-caption text-secondary">4-7-8 Rhythm, Box Breathing</div></div>
+            <div class="font-oddval" style="font-size:20px;font-weight:700;">2/3</div>
+          </div>
+          <div class="summary-stat">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(239,68,68,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">🔥</div>
+            <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Streak</div><div class="text-caption text-secondary">Keep going!</div></div>
+            <div class="font-oddval" style="font-size:20px;font-weight:700;">6 days</div>
+          </div>
+        </div>
+        <!-- Goal progress -->
+        <div class="card" style="margin-bottom:12px;">
+          <div class="text-overline text-secondary mb-8">WEEKLY GOAL</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+            <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden;"><div style="width:75%;height:100%;background:var(--primary);border-radius:4px;"></div></div>
+            <div class="text-caption text-blue" style="font-weight:600;">75%</div>
+          </div>
+          <div class="text-caption text-secondary">15 of 20 sessions this week</div>
+        </div>
+        <div class="insight-card" style="background:rgba(32,111,247,0.04);border-left:3px solid var(--primary);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:14px;">
+          <div class="text-caption text-blue" style="font-weight:600;margin-bottom:2px;">TODAY'S TIP</div>
+          <div class="text-body2">Try the 4-7-8 exercise before bed for better nasal breathing tonight.</div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Compact</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg><span class="font-oddval text-h3">Feb 28</span></div>
+        <div></div>
+      </div>
+      <div style="padding:0 20px;overflow:hidden;">
+        <!-- Score + trend inline -->
+        <div style="display:flex;gap:12px;margin-bottom:16px;">
+          <div style="flex:1;background:var(--surface-white);border-radius:var(--radius-lg);padding:20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+            <div class="font-oddval" style="font-size:44px;font-weight:700;color:var(--primary);">88</div>
+            <div class="text-caption text-secondary">Score</div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:8px;">
+            <div style="flex:1;background:var(--surface-white);border-radius:var(--radius-md);padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:8px;">
+              <div style="color:var(--success);">↑</div>
+              <div><div class="font-oddval text-blue" style="font-size:18px;font-weight:700;">88%</div><div class="text-caption text-secondary" style="font-size:10px;">Nasal</div></div>
+            </div>
+            <div style="flex:1;background:var(--surface-white);border-radius:var(--radius-md);padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);display:flex;align-items:center;gap:8px;">
+              <div>🔥</div>
+              <div><div class="font-oddval" style="font-size:18px;font-weight:700;">6</div><div class="text-caption text-secondary" style="font-size:10px;">Streak</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Session list -->
+        <div class="text-overline text-secondary mb-8">TODAY'S SESSIONS</div>
+        <div class="card" style="padding:0 16px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 0;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" fill="none" stroke="#206FF7" stroke-width="2"><path d="M13 8a5 5 0 11-10 0"/><circle cx="8" cy="8" r="2"/></svg></div>
+            <div style="flex:1;"><div class="text-body2" style="font-weight:600;font-size:13px;">Night Session</div><div class="text-caption text-secondary">4h 23m</div></div>
+            <div class="font-oddval text-blue" style="font-weight:700;">88%</div>
+          </div>
+          <div style="border-top:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:14px 0;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(34,197,94,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="16" fill="none" stroke="#22C55E" stroke-width="2"><path d="M8 2a2 2 0 00-2 2v3a2 2 0 004 0V4a2 2 0 00-2-2z"/><path d="M12 6v1a4 4 0 01-8 0V6"/></svg></div>
+            <div style="flex:1;"><div class="text-body2" style="font-weight:600;font-size:13px;">Daytime Tracking</div><div class="text-caption text-secondary">1h 15m</div></div>
+            <div class="font-oddval" style="font-weight:700;color:var(--success);">92%</div>
+          </div>
+        </div>
+        <!-- Exercises -->
+        <div class="text-overline text-secondary mb-8">EXERCISES</div>
+        <div class="card" style="padding:12px 16px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="display:flex;gap:4px;">
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2 2 4-4"/></svg></div>
+              <div style="width:24px;height:24px;border-radius:50%;background:var(--primary);display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2 2 4-4"/></svg></div>
+              <div style="width:24px;height:24px;border-radius:50%;border:2px solid var(--border);"></div>
+            </div>
+            <div class="text-body2 text-secondary">2 of 3 completed</div>
+          </div>
+        </div>
+        <!-- Goal -->
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <div class="text-caption text-secondary">Weekly goal</div>
+            <div class="text-caption text-blue" style="font-weight:600;">75%</div>
+          </div>
+          <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;"><div style="width:75%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg><span class="font-oddval text-h3 text-white">Today</span></div>
+        <div class="text-caption" style="color:rgba(255,255,255,0.4);">Feb 28</div>
+      </div>
+      <div style="padding:0 20px;overflow:hidden;">
+        <!-- Score -->
+        <div style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:24px;text-align:center;margin-bottom:12px;">
+          <div style="position:relative;width:120px;height:120px;margin:0 auto 8px;">
+            <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/><circle cx="60" cy="60" r="52" fill="none" stroke="#206FF7" stroke-width="6" stroke-dasharray="327" stroke-dashoffset="39" stroke-linecap="round" transform="rotate(-90 60 60)" style="filter:drop-shadow(0 0 8px rgba(32,111,247,0.4));"/></svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+              <div class="font-oddval" style="font-size:36px;font-weight:700;color:white;">88</div>
+            </div>
+          </div>
+          <div class="text-body2" style="color:var(--success);font-weight:600;">+5 from yesterday</div>
+        </div>
+        <!-- Stats grid -->
+        <div class="grid-2" style="margin-bottom:12px;">
+          <div style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:14px;text-align:center;">
+            <div class="font-oddval text-blue" style="font-size:22px;font-weight:700;">88%</div>
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);">Nasal</div>
+          </div>
+          <div style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:14px;text-align:center;">
+            <div class="font-oddval text-yellow" style="font-size:22px;font-weight:700;">6</div>
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);">Streak</div>
+          </div>
+          <div style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:14px;text-align:center;">
+            <div class="font-oddval text-white" style="font-size:22px;font-weight:700;">2</div>
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);">Sessions</div>
+          </div>
+          <div style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:14px;text-align:center;">
+            <div class="font-oddval text-white" style="font-size:22px;font-weight:700;">2/3</div>
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);">Exercises</div>
+          </div>
+        </div>
+        <!-- Goal -->
+        <div style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:14px;margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);">Weekly goal</div>
+            <div class="text-caption text-blue" style="font-weight:600;">75%</div>
+          </div>
+          <div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:75%;height:100%;background:var(--primary);border-radius:3px;"></div></div>
+        </div>
+        <!-- Insight -->
+        <div style="background:rgba(32,111,247,0.1);border-left:3px solid var(--primary);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:14px;">
+          <div class="text-caption text-blue" style="font-weight:600;margin-bottom:2px;">TIP</div>
+          <div class="text-body2" style="color:rgba(255,255,255,0.7);">Try 4-7-8 before bed tonight.</div>
+        </div>
+      </div>
+      <div class="tab-bar tab-bar-dark">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S26 — INTERACTIVE TUTORIAL ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S26 — Tutorial Overlay</div>
+    <div class="variant-label">Variant A — Tooltip Walkthrough</div>
+    <div class="phone phone-light" style="position:relative;">
+      <!-- Semi-transparent overlay -->
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:10;border-radius:40px;"></div>
+      <!-- Spotlight cutout on hero card area -->
+      <div style="position:absolute;top:180px;left:16px;right:16px;height:220px;border:3px solid var(--primary);border-radius:var(--radius-lg);z-index:11;box-shadow:0 0 0 2000px rgba(0,0,0,0.5);"></div>
+      <!-- Tooltip -->
+      <div style="position:absolute;top:410px;left:20px;right:20px;z-index:12;">
+        <div class="tooltip-box">
+          <div style="font-weight:600;margin-bottom:4px;">Your Dashboard</div>
+          <div>This is where you'll see your breathing score, session data, and daily progress.</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="text-caption text-white" style="opacity:0.7;">1 of 4</div>
+          <button class="btn btn-primary" style="width:auto;padding:10px 24px;font-size:14px;">Next</button>
+        </div>
+      </div>
+      <!-- Background screen (S6 simplified) -->
+      <div class="status-bar status-bar-light" style="position:relative;z-index:1;"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header" style="position:relative;z-index:1;">
+        <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-primary">RespireLabs</span></div>
+        <div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/><path d="M10 1v2M10 17v2M1 10h2M17 10h2"/></svg></div>
+      </div>
+      <div style="padding:0 20px;z-index:1;position:relative;">
+        <div class="card" style="text-align:center;padding:20px;">
+          <div class="text-overline text-secondary mb-8">LAST SESSION</div>
+          <div style="position:relative;width:120px;height:120px;margin:0 auto 8px;">
+            <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#E5E7EB" stroke-width="5"/><circle cx="60" cy="60" r="52" fill="none" stroke="#206FF7" stroke-width="5" stroke-dasharray="327" stroke-dashoffset="39" stroke-linecap="round" transform="rotate(-90 60 60)"/></svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"><div class="font-oddval" style="font-size:28px;font-weight:700;">88%</div></div>
+          </div>
+          <div class="text-caption text-secondary">Nasal Breathing</div>
+        </div>
+      </div>
+      <div class="tab-bar" style="z-index:1;">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Step 2 (Tab Bar)</div>
+    <div class="phone phone-light" style="position:relative;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:10;border-radius:40px;"></div>
+      <!-- Spotlight on tab bar -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:83px;border-top:3px solid var(--primary);z-index:11;box-shadow:0 0 0 2000px rgba(0,0,0,0.5);border-radius:0 0 40px 40px;"></div>
+      <div style="position:absolute;bottom:100px;left:20px;right:20px;z-index:12;">
+        <div class="tooltip-box" style="margin-bottom:12px;">
+          <div style="font-weight:600;margin-bottom:4px;">Navigate with Tabs</div>
+          <div>Switch between Home, Track, Tips, Learn, and Consult using the bottom tabs.</div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="text-caption text-white" style="opacity:0.7;">2 of 4</div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn-ghost" style="width:auto;padding:10px 20px;font-size:14px;color:white;">Skip</button>
+            <button class="btn btn-primary" style="width:auto;padding:10px 24px;font-size:14px;">Next</button>
+          </div>
+        </div>
+      </div>
+      <div class="status-bar status-bar-light" style="position:relative;z-index:1;"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header" style="position:relative;z-index:1;">
+        <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-primary">RespireLabs</span></div>
+      </div>
+      <div class="tab-bar" style="z-index:1;">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark" style="position:relative;">
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:10;border-radius:40px;"></div>
+      <div style="position:absolute;top:180px;left:16px;right:16px;height:220px;border:3px solid var(--accent-yellow);border-radius:var(--radius-lg);z-index:11;box-shadow:0 0 0 2000px rgba(0,0,0,0.6),0 0 20px rgba(255,220,49,0.3);"></div>
+      <div style="position:absolute;top:410px;left:20px;right:20px;z-index:12;">
+        <div style="background:var(--accent-yellow);color:#0A0A0B;padding:12px 16px;border-radius:var(--radius-md);font-size:13px;margin-bottom:12px;position:relative;">
+          <div style="font-weight:700;margin-bottom:4px;">Your Dashboard</div>
+          <div style="font-weight:500;">See your score, sessions, and progress here.</div>
+          <div style="position:absolute;bottom:-8px;left:24px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid var(--accent-yellow);"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="text-caption" style="color:rgba(255,255,255,0.5);">1 of 4</div>
+          <button class="btn btn-primary" style="width:auto;padding:10px 24px;font-size:14px;">Next</button>
+        </div>
+      </div>
+      <div class="status-bar status-bar-dark" style="position:relative;z-index:1;"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header" style="position:relative;z-index:1;">
+        <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-blue">RespireLabs</span></div>
+      </div>
+      <div style="padding:0 20px;z-index:1;position:relative;">
+        <div style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:20px;text-align:center;">
+          <div class="text-overline" style="color:rgba(255,255,255,0.3);margin-bottom:8px;">LAST SESSION</div>
+          <div style="position:relative;width:120px;height:120px;margin:0 auto 8px;">
+            <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="5"/><circle cx="60" cy="60" r="52" fill="none" stroke="#206FF7" stroke-width="5" stroke-dasharray="327" stroke-dashoffset="39" stroke-linecap="round" transform="rotate(-90 60 60)"/></svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"><div class="font-oddval text-white" style="font-size:28px;font-weight:700;">88%</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-bar tab-bar-dark" style="z-index:1;">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

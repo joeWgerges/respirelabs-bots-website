@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Device Management — S80 Firmware Update · S81 Tape Guide · S82 Troubleshooting</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  @keyframes pulse-ring {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 0.6; transform: scale(1); }
+  }
+  .pulse-indicator {
+    animation: pulse-ring 1.5s ease-in-out infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Device Management</h1>
+<p class="page-subtitle">S80 Firmware Update · S81 Tape Guide · S82 Troubleshooting — 6 frames</p>
+
+<!-- ============================================================ -->
+<!-- S80 — Firmware Update                                         -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">S80 — Firmware Update</h2>
+
+<div class="screen-row">
+
+  <!-- S80 Light -->
+  <div class="screen-col">
+    <div class="screen-label">S80 · Firmware Update · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9L9 15 3 9"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Device Update</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Device illustration -->
+        <div style="text-align:center;margin:24px 0 20px;">
+          <div style="width:96px;height:96px;border-radius:50%;background:rgba(32,111,247,0.08);margin:0 auto;display:flex;align-items:center;justify-content:center;">
+            <svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="16" width="32" height="16" rx="8" fill="rgba(32,111,247,0.15)" stroke="#206FF7"/>
+              <circle cx="24" cy="24" r="4" fill="#206FF7"/>
+              <path d="M24 8v4" stroke="#206FF7" stroke-width="2"/>
+              <path d="M24 36v4" stroke="#206FF7" stroke-width="2"/>
+              <path d="M18 10l2 3" stroke="#206FF7" stroke-width="1.5"/>
+              <path d="M30 10l-2 3" stroke="#206FF7" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div style="text-align:center;margin-bottom:20px;">
+          <div class="text-h2 font-oddval text-primary">Update Available</div>
+        </div>
+
+        <!-- Version info card -->
+        <div class="card" style="margin-bottom:16px;padding:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid #E5E7EB;">
+            <span class="text-body2 text-secondary" style="font-weight:500;">Current Version</span>
+            <span class="text-body1 text-primary" style="font-weight:600;">v2.1.3</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;">
+            <span class="text-body2 text-secondary" style="font-weight:500;">New Version</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="text-body1 text-primary" style="font-weight:600;">v2.2.0</span>
+              <span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;background:rgba(34,197,94,0.1);color:#22C55E;font-size:11px;font-weight:700;letter-spacing:0.5px;">NEW</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Changelog card -->
+        <div class="card" style="margin-bottom:20px;padding:20px;">
+          <div class="text-body1 text-primary" style="font-weight:700;margin-bottom:12px;">What's new:</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#206FF7;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2 text-secondary">Improved breathing detection accuracy</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#206FF7;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2 text-secondary">Battery life optimization (+15%)</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#206FF7;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2 text-secondary">New ambient noise filtering</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#206FF7;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2 text-secondary">Bug fixes and stability</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress bar (at 0%) -->
+        <div style="margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span class="text-caption text-secondary" style="font-weight:500;">Download progress</span>
+            <span class="text-caption text-secondary">0%</span>
+          </div>
+          <div style="width:100%;height:8px;border-radius:4px;background:#E5E7EB;">
+            <!-- No fill, 0% -->
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <button class="btn btn-primary" style="margin-bottom:12px;">Update Now</button>
+        <button class="btn btn-ghost" style="margin-bottom:20px;">Later</button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- S80 Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S80 · Firmware Update · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9L9 15 3 9"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Device Update</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Device illustration -->
+        <div style="text-align:center;margin:24px 0 20px;">
+          <div style="width:96px;height:96px;border-radius:50%;background:rgba(255,220,49,0.08);margin:0 auto;display:flex;align-items:center;justify-content:center;">
+            <svg width="48" height="48" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="16" width="32" height="16" rx="8" fill="rgba(255,220,49,0.15)" stroke="#FFDC31"/>
+              <circle cx="24" cy="24" r="4" fill="#FFDC31"/>
+              <path d="M24 8v4" stroke="#FFDC31" stroke-width="2"/>
+              <path d="M24 36v4" stroke="#FFDC31" stroke-width="2"/>
+              <path d="M18 10l2 3" stroke="#FFDC31" stroke-width="1.5"/>
+              <path d="M30 10l-2 3" stroke="#FFDC31" stroke-width="1.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div style="text-align:center;margin-bottom:20px;">
+          <div class="text-h2 font-oddval" style="color:white;">Update Available</div>
+        </div>
+
+        <!-- Version info card -->
+        <div class="card-dark" style="padding:20px;border-radius:24px;margin-bottom:16px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.08);">
+            <span class="text-body2" style="color:rgba(255,255,255,0.5);font-weight:500;">Current Version</span>
+            <span class="text-body1" style="color:white;font-weight:600;">v2.1.3</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;">
+            <span class="text-body2" style="color:rgba(255,255,255,0.5);font-weight:500;">New Version</span>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="text-body1" style="color:white;font-weight:600;">v2.2.0</span>
+              <span style="display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;background:rgba(34,197,94,0.15);color:#22C55E;font-size:11px;font-weight:700;letter-spacing:0.5px;">NEW</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Changelog card -->
+        <div class="card-dark" style="padding:20px;border-radius:24px;margin-bottom:20px;">
+          <div class="text-body1" style="color:white;font-weight:700;margin-bottom:12px;">What's new:</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#FFDC31;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2" style="color:rgba(255,255,255,0.6);">Improved breathing detection accuracy</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#FFDC31;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2" style="color:rgba(255,255,255,0.6);">Battery life optimization (+15%)</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#FFDC31;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2" style="color:rgba(255,255,255,0.6);">New ambient noise filtering</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#FFDC31;margin-top:7px;flex-shrink:0;"></div>
+              <span class="text-body2" style="color:rgba(255,255,255,0.6);">Bug fixes and stability</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress bar (at 0%) -->
+        <div style="margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span class="text-caption" style="color:rgba(255,255,255,0.4);font-weight:500;">Download progress</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.4);">0%</span>
+          </div>
+          <div style="width:100%;height:8px;border-radius:4px;background:rgba(255,255,255,0.08);">
+            <!-- No fill, 0% -->
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <button class="btn" style="background:#FFDC31;color:#0A0A0B;margin-bottom:12px;">Update Now</button>
+        <button class="btn btn-ghost" style="color:rgba(255,255,255,0.5);margin-bottom:20px;">Later</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- S81 — Tape Application Guide                                  -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">S81 — Tape Application Guide</h2>
+
+<div class="screen-row">
+
+  <!-- S81 Light -->
+  <div class="screen-col">
+    <div class="screen-label">S81 · Tape Guide (Step 2) · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9L9 15 3 9"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">How to Apply</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Step indicators -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:20px 0 24px;">
+          <div style="width:24px;height:8px;border-radius:4px;background:#206FF7;"></div>
+          <div style="width:24px;height:8px;border-radius:4px;background:#206FF7;"></div>
+          <div style="width:24px;height:8px;border-radius:4px;background:#E5E7EB;"></div>
+          <div style="width:24px;height:8px;border-radius:4px;background:#E5E7EB;"></div>
+        </div>
+
+        <!-- Illustration area -->
+        <div style="width:100%;height:200px;border-radius:24px;background:rgba(32,111,247,0.06);display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;overflow:hidden;">
+          <!-- Face outline -->
+          <svg width="160" height="180" viewBox="0 0 160 180" fill="none">
+            <!-- Head circle -->
+            <ellipse cx="80" cy="80" rx="55" ry="65" stroke="#206FF7" stroke-width="2" fill="rgba(32,111,247,0.04)"/>
+            <!-- Eyes -->
+            <circle cx="60" cy="68" r="4" fill="#206FF7" opacity="0.3"/>
+            <circle cx="100" cy="68" r="4" fill="#206FF7" opacity="0.3"/>
+            <!-- Nose -->
+            <path d="M77 82 L80 92 L83 82" stroke="#206FF7" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <!-- Lips area -->
+            <ellipse cx="80" cy="108" rx="18" ry="8" stroke="#206FF7" stroke-width="1" fill="rgba(32,111,247,0.05)" stroke-dasharray="3 2"/>
+            <!-- Tape rectangle -->
+            <rect x="56" y="98" width="48" height="20" rx="6" fill="rgba(32,111,247,0.15)" stroke="#206FF7" stroke-width="2"/>
+            <!-- Sensor dot on tape -->
+            <circle cx="80" cy="108" r="5" fill="#206FF7" opacity="0.6"/>
+            <!-- Arrows pointing to tape placement -->
+            <path d="M40 108 L52 108" stroke="#206FF7" stroke-width="2" marker-end="url(#arrowBlue)"/>
+            <path d="M120 108 L108 108" stroke="#206FF7" stroke-width="2" marker-end="url(#arrowBlue)"/>
+            <path d="M80 80 L80 94" stroke="#206FF7" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arrowBlue)"/>
+            <defs>
+              <marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#206FF7"/></marker>
+            </defs>
+          </svg>
+        </div>
+
+        <!-- Step label -->
+        <div class="text-overline text-blue" style="margin-bottom:8px;">STEP 2 OF 4</div>
+
+        <!-- Title -->
+        <div class="text-h3 font-oddval text-primary" style="margin-bottom:8px;">Position the Tape</div>
+
+        <!-- Description -->
+        <p class="text-body2 text-secondary" style="line-height:1.6;margin-bottom:20px;">Center the Smart Tape vertically across your closed lips. Ensure the sensor pad sits on the lower lip area.</p>
+
+        <!-- Tip box -->
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:16px;background:#F7F7F9;border-radius:16px;margin-bottom:32px;">
+          <div style="width:28px;height:28px;border-radius:8px;background:rgba(32,111,247,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round">
+              <circle cx="8" cy="8" r="7"/>
+              <path d="M8 5v3"/>
+              <circle cx="8" cy="11" r="0.5" fill="#206FF7"/>
+            </svg>
+          </div>
+          <p class="text-body2 text-secondary" style="line-height:1.5;"><span style="font-weight:600;color:#0A0A0B;">Tip:</span> Make sure your lips are clean and dry for best adhesion.</p>
+        </div>
+
+        <!-- Navigation row -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <button class="btn btn-ghost" style="width:auto;padding:16px 24px;color:#6B7280;">Back</button>
+          <button class="btn btn-primary" style="width:auto;padding:16px 40px;">Next</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- S81 Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S81 · Tape Guide (Step 2) · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9L9 15 3 9"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">How to Apply</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Step indicators -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:20px 0 24px;">
+          <div style="width:24px;height:8px;border-radius:4px;background:#FFDC31;"></div>
+          <div style="width:24px;height:8px;border-radius:4px;background:#FFDC31;"></div>
+          <div style="width:24px;height:8px;border-radius:4px;background:rgba(255,255,255,0.12);"></div>
+          <div style="width:24px;height:8px;border-radius:4px;background:rgba(255,255,255,0.12);"></div>
+        </div>
+
+        <!-- Illustration area -->
+        <div style="width:100%;height:200px;border-radius:24px;background:rgba(255,220,49,0.06);display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
+          <!-- Face outline -->
+          <svg width="160" height="180" viewBox="0 0 160 180" fill="none">
+            <ellipse cx="80" cy="80" rx="55" ry="65" stroke="#FFDC31" stroke-width="2" fill="rgba(255,220,49,0.04)"/>
+            <circle cx="60" cy="68" r="4" fill="#FFDC31" opacity="0.3"/>
+            <circle cx="100" cy="68" r="4" fill="#FFDC31" opacity="0.3"/>
+            <path d="M77 82 L80 92 L83 82" stroke="#FFDC31" stroke-width="1.5" fill="none" opacity="0.3"/>
+            <ellipse cx="80" cy="108" rx="18" ry="8" stroke="#FFDC31" stroke-width="1" fill="rgba(255,220,49,0.05)" stroke-dasharray="3 2"/>
+            <rect x="56" y="98" width="48" height="20" rx="6" fill="rgba(255,220,49,0.15)" stroke="#FFDC31" stroke-width="2"/>
+            <circle cx="80" cy="108" r="5" fill="#FFDC31" opacity="0.6"/>
+            <path d="M40 108 L52 108" stroke="#FFDC31" stroke-width="2" marker-end="url(#arrowYellow)"/>
+            <path d="M120 108 L108 108" stroke="#FFDC31" stroke-width="2" marker-end="url(#arrowYellow)"/>
+            <path d="M80 80 L80 94" stroke="#FFDC31" stroke-width="1.5" stroke-dasharray="3 2" marker-end="url(#arrowYellow)"/>
+            <defs>
+              <marker id="arrowYellow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 Z" fill="#FFDC31"/></marker>
+            </defs>
+          </svg>
+        </div>
+
+        <!-- Step label -->
+        <div class="text-overline" style="color:#FFDC31;margin-bottom:8px;">STEP 2 OF 4</div>
+
+        <!-- Title -->
+        <div class="text-h3 font-oddval" style="color:white;margin-bottom:8px;">Position the Tape</div>
+
+        <!-- Description -->
+        <p class="text-body2" style="color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px;">Center the Smart Tape vertically across your closed lips. Ensure the sensor pad sits on the lower lip area.</p>
+
+        <!-- Tip box -->
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;margin-bottom:32px;">
+          <div style="width:28px;height:28px;border-radius:8px;background:rgba(255,220,49,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="16" height="16" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round">
+              <circle cx="8" cy="8" r="7"/>
+              <path d="M8 5v3"/>
+              <circle cx="8" cy="11" r="0.5" fill="#FFDC31"/>
+            </svg>
+          </div>
+          <p class="text-body2" style="color:rgba(255,255,255,0.6);line-height:1.5;"><span style="font-weight:600;color:white;">Tip:</span> Make sure your lips are clean and dry for best adhesion.</p>
+        </div>
+
+        <!-- Navigation row -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+          <button class="btn btn-ghost" style="width:auto;padding:16px 24px;color:rgba(255,255,255,0.5);">Back</button>
+          <button class="btn" style="width:auto;padding:16px 40px;background:#FFDC31;color:#0A0A0B;">Next</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- S82 — Device Troubleshooting                                  -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">S82 — Device Troubleshooting</h2>
+
+<div class="screen-row">
+
+  <!-- S82 Light -->
+  <div class="screen-col">
+    <div class="screen-label">S82 · Troubleshooting · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9L9 15 3 9"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Troubleshooting</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Header -->
+        <div style="margin:16px 0 4px;">
+          <div class="text-h3 font-oddval text-primary">Let's fix this</div>
+        </div>
+        <p class="text-body2 text-secondary" style="margin-bottom:24px;">Follow these steps to resolve connectivity issues.</p>
+
+        <!-- Step 1: Bluetooth ON - verified -->
+        <div class="card" style="margin-bottom:12px;padding:16px 20px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l4 4 8-8"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2 text-primary" style="font-weight:600;">Bluetooth is ON</div>
+              <div class="text-caption" style="color:#22C55E;font-weight:500;">Verified</div>
+            </div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></div>
+          </div>
+        </div>
+
+        <!-- Step 2: Device charged - verified -->
+        <div class="card" style="margin-bottom:12px;padding:16px 20px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l4 4 8-8"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2 text-primary" style="font-weight:600;">Device charged (78%)</div>
+              <div class="text-caption" style="color:#22C55E;font-weight:500;">Verified</div>
+            </div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></div>
+          </div>
+        </div>
+
+        <!-- Step 3: Device not found - in progress (expanded) -->
+        <div style="background:white;border-radius:24px;box-shadow:0 2px 12px rgba(0,0,0,0.04);border:2px solid rgba(255,170,0,0.3);margin-bottom:12px;overflow:hidden;">
+          <div style="padding:16px 20px;">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+              <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,170,0,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;" class="pulse-indicator">
+                <svg width="18" height="18" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 2 L9 6"/>
+                  <path d="M9 12 L9 14"/>
+                  <circle cx="9" cy="9" r="0" fill="#F59E0B"/>
+                </svg>
+              </div>
+              <div style="flex:1;">
+                <div class="text-body2 text-primary" style="font-weight:600;">Device not found</div>
+                <div class="text-caption" style="color:#F59E0B;font-weight:500;">In progress</div>
+              </div>
+              <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;"></div>
+            </div>
+
+            <!-- Expanded content -->
+            <div style="padding:16px;background:#FFF9E6;border-radius:16px;margin-bottom:14px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                <div style="width:20px;height:20px;border-radius:50%;border:2px solid #F59E0B;border-top-color:transparent;" class="spinner"></div>
+                <span class="text-body2 text-primary" style="font-weight:500;">Searching for Smart Tape...</span>
+              </div>
+              <p class="text-caption text-secondary" style="line-height:1.5;">Make sure your Smart Tape is within 10 feet and turned on.</p>
+            </div>
+
+            <button class="btn btn-secondary" style="padding:12px 24px;font-size:14px;">Try Again</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Re-pair device - pending (greyed) -->
+        <div style="background:white;border-radius:24px;box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:24px;padding:16px 20px;opacity:0.45;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="7" width="10" height="8" rx="2"/>
+                <path d="M7 7V5a2 2 0 0 1 4 0v2"/>
+              </svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="color:#9CA3AF;font-weight:600;">Re-pair device</div>
+              <div class="text-caption" style="color:#D1D5DB;font-weight:500;">Pending</div>
+            </div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#D1D5DB;"></div>
+          </div>
+        </div>
+
+        <!-- Contact Support -->
+        <button class="btn btn-ghost" style="margin-bottom:20px;color:#6B7280;">
+          <svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="2" stroke-linecap="round" style="margin-right:8px;">
+            <path d="M3 15l3-3h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10z"/>
+          </svg>
+          Contact Support
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- S82 Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S82 · Troubleshooting · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 9L9 15 3 9"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Troubleshooting</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Header -->
+        <div style="margin:16px 0 4px;">
+          <div class="text-h3 font-oddval" style="color:white;">Let's fix this</div>
+        </div>
+        <p class="text-body2" style="color:rgba(255,255,255,0.5);margin-bottom:24px;">Follow these steps to resolve connectivity issues.</p>
+
+        <!-- Step 1: Bluetooth ON - verified -->
+        <div class="card-dark" style="padding:16px 20px;border-radius:24px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,197,94,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l4 4 8-8"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="color:white;font-weight:600;">Bluetooth is ON</div>
+              <div class="text-caption" style="color:#22C55E;font-weight:500;">Verified</div>
+            </div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></div>
+          </div>
+        </div>
+
+        <!-- Step 2: Device charged - verified -->
+        <div class="card-dark" style="padding:16px 20px;border-radius:24px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(34,197,94,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9l4 4 8-8"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="color:white;font-weight:600;">Device charged (78%)</div>
+              <div class="text-caption" style="color:#22C55E;font-weight:500;">Verified</div>
+            </div>
+            <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></div>
+          </div>
+        </div>
+
+        <!-- Step 3: Device not found - in progress (expanded) -->
+        <div style="background:var(--surface-dark);border-radius:24px;border:2px solid rgba(255,170,0,0.3);margin-bottom:12px;overflow:hidden;">
+          <div style="padding:16px 20px;">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+              <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,170,0,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;" class="pulse-indicator">
+                <svg width="18" height="18" fill="none" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 2 L9 6"/>
+                  <path d="M9 12 L9 14"/>
+                </svg>
+              </div>
+              <div style="flex:1;">
+                <div class="text-body2" style="color:white;font-weight:600;">Device not found</div>
+                <div class="text-caption" style="color:#F59E0B;font-weight:500;">In progress</div>
+              </div>
+              <div style="width:8px;height:8px;border-radius:50%;background:#F59E0B;"></div>
+            </div>
+
+            <!-- Expanded content -->
+            <div style="padding:16px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.15);border-radius:16px;margin-bottom:14px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+                <div style="width:20px;height:20px;border-radius:50%;border:2px solid #F59E0B;border-top-color:transparent;" class="spinner"></div>
+                <span class="text-body2" style="color:white;font-weight:500;">Searching for Smart Tape...</span>
+              </div>
+              <p class="text-caption" style="color:rgba(255,255,255,0.5);line-height:1.5;">Make sure your Smart Tape is within 10 feet and turned on.</p>
+            </div>
+
+            <button class="btn" style="padding:12px 24px;font-size:14px;background:rgba(255,255,255,0.08);color:white;border:1px solid rgba(255,255,255,0.12);">Try Again</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Re-pair device - pending (greyed) -->
+        <div class="card-dark" style="padding:16px 20px;border-radius:24px;margin-bottom:24px;opacity:0.35;">
+          <div style="display:flex;align-items:center;gap:14px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="7" width="10" height="8" rx="2"/>
+                <path d="M7 7V5a2 2 0 0 1 4 0v2"/>
+              </svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="color:rgba(255,255,255,0.35);font-weight:600;">Re-pair device</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.2);font-weight:500;">Pending</div>
+            </div>
+            <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.2);"></div>
+          </div>
+        </div>
+
+        <!-- Contact Support -->
+        <button class="btn btn-ghost" style="margin-bottom:20px;color:rgba(255,255,255,0.5);">
+          <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" style="margin-right:8px;">
+            <path d="M3 15l3-3h7a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10z"/>
+          </svg>
+          Contact Support
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Analytics — S87 Breathing Patterns · S88 Sleep Stages · S90 Compare Sessions</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Timeline bar segments */
+  .timeline-bar {
+    display: flex;
+    height: 28px;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .timeline-seg-nose { background: #206FF7; }
+  .timeline-seg-mouth { background: #EF4444; }
+  .timeline-seg-mixed { background: #6B7280; }
+
+  /* Event marker */
+  .event-marker {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .event-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* Hypnogram bands */
+  .hypno-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 28px;
+  }
+  .hypno-label {
+    width: 44px;
+    font-size: 10px;
+    font-weight: 500;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .hypno-track {
+    flex: 1;
+    height: 16px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+  .hypno-block {
+    height: 100%;
+    min-width: 2px;
+  }
+
+  /* Horizontal progress bar */
+  .h-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .h-bar-row:last-child { margin-bottom: 0; }
+  .h-bar-label {
+    width: 48px;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .h-bar-track {
+    flex: 1;
+    height: 12px;
+    border-radius: 6px;
+    background: rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  .h-bar-track-dark {
+    background: rgba(255,255,255,0.08);
+  }
+  .h-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+  }
+  .h-bar-value {
+    width: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  /* Stage time rows */
+  .stage-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+  }
+  .stage-row + .stage-row {
+    border-top: 1px solid #E5E7EB;
+  }
+  .stage-row-dark + .stage-row-dark {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .stage-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .stage-info { flex: 1; }
+  .stage-mini-bar {
+    width: 60px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(0,0,0,0.06);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .stage-mini-bar-dark {
+    background: rgba(255,255,255,0.08);
+  }
+  .stage-mini-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+
+  /* Compare session selector */
+  .session-card {
+    flex: 1;
+    padding: 14px;
+    border-radius: 16px;
+    text-align: center;
+  }
+  .session-card-selected {
+    background: rgba(32,111,247,0.04);
+    border: 2px solid #206FF7;
+  }
+  .session-card-default {
+    background: #F7F7F9;
+    border: 2px solid #E5E7EB;
+  }
+  .session-card-selected-dark {
+    background: rgba(32,111,247,0.08);
+    border: 2px solid #206FF7;
+  }
+  .session-card-default-dark {
+    background: rgba(255,255,255,0.04);
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+
+  /* Compare metric row */
+  .compare-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+  }
+  .compare-row + .compare-row {
+    border-top: 1px solid #E5E7EB;
+  }
+  .compare-row-dark + .compare-row-dark {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .compare-values {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .diff-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .diff-up {
+    background: rgba(34,197,94,0.1);
+    color: #22C55E;
+  }
+  .diff-down {
+    background: rgba(34,197,94,0.1);
+    color: #22C55E;
+  }
+
+  /* Resp rate line chart placeholder */
+  .line-chart {
+    position: relative;
+    height: 100px;
+    width: 100%;
+  }
+  .line-chart svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Advanced Analytics</h1>
+<p class="page-subtitle">S87 Breathing Patterns &middot; S88 Sleep Stages &middot; S90 Compare Sessions &mdash; 6 frames</p>
+
+<!-- ============================================================ -->
+<!-- S87 — Breathing Pattern Detail                                 -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">S87 — Breathing Pattern Detail</h2>
+
+<div class="screen-row">
+
+  <!-- S87 Light -->
+  <div class="screen-col">
+    <div class="screen-label">S87 · Breathing Patterns · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+
+      <!-- Nav -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 9H3M9 4L3 9l6 5"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Breathing Patterns</span>
+        </div>
+      </div>
+
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Date overline -->
+        <div class="text-overline text-secondary" style="margin-bottom:16px;">MARCH 1, 2026 &middot; NIGHT SESSION</div>
+
+        <!-- Breathing Timeline Card -->
+        <div class="card" style="margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <div class="text-body2 text-primary" style="font-weight:600;">Breathing Timeline</div>
+            <div class="text-caption text-secondary">11:00 PM - 6:30 AM</div>
+          </div>
+          <div class="text-caption text-secondary" style="margin-bottom:12px;">Nose vs mouth breathing over time</div>
+
+          <!-- Timeline bar -->
+          <div class="timeline-bar" style="margin-bottom:8px;">
+            <div class="timeline-seg-nose" style="width:40%;"></div>
+            <div class="timeline-seg-mouth" style="width:10%;"></div>
+            <div class="timeline-seg-nose" style="width:25%;"></div>
+            <div class="timeline-seg-mouth" style="width:5%;"></div>
+            <div class="timeline-seg-nose" style="width:20%;"></div>
+          </div>
+
+          <!-- Event markers -->
+          <div style="display:flex;justify-content:space-between;position:relative;margin-bottom:8px;padding:0 2px;">
+            <div style="position:absolute;left:38%;display:flex;flex-direction:column;align-items:center;">
+              <div style="width:2px;height:8px;background:#EF4444;border-radius:1px;"></div>
+              <div class="event-marker" style="color:#EF4444;"><div class="event-dot" style="background:#EF4444;"></div>Mouth Episode</div>
+            </div>
+            <div style="position:absolute;left:62%;display:flex;flex-direction:column;align-items:center;">
+              <div style="width:2px;height:8px;background:#FFDC31;border-radius:1px;"></div>
+              <div class="event-marker" style="color:#FFDC31;"><div class="event-dot" style="background:#FFDC31;"></div>Position Change</div>
+            </div>
+          </div>
+
+          <!-- Time labels -->
+          <div style="display:flex;justify-content:space-between;margin-top:20px;">
+            <span class="text-caption text-secondary">11 PM</span>
+            <span class="text-caption text-secondary">1 AM</span>
+            <span class="text-caption text-secondary">3 AM</span>
+            <span class="text-caption text-secondary">5 AM</span>
+            <span class="text-caption text-secondary">6:30</span>
+          </div>
+
+          <!-- Legend -->
+          <div style="display:flex;gap:16px;margin-top:12px;">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6B7280;"><div style="width:10px;height:10px;border-radius:3px;background:#206FF7;"></div>Nose</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6B7280;"><div style="width:10px;height:10px;border-radius:3px;background:#EF4444;"></div>Mouth</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6B7280;"><div style="width:10px;height:10px;border-radius:3px;background:#6B7280;"></div>Mixed</div>
+          </div>
+        </div>
+
+        <!-- Respiratory Rate Card -->
+        <div class="card" style="margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="text-body2 text-primary" style="font-weight:600;">Respiratory Rate</div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:22px;font-weight:700;color:#0A0A0B;">14.2</span>
+              <span class="text-caption text-secondary">bpm</span>
+              <span style="padding:3px 8px;border-radius:100px;background:rgba(34,197,94,0.1);font-size:10px;font-weight:600;color:#22C55E;">Normal range</span>
+            </div>
+          </div>
+
+          <!-- Line chart SVG -->
+          <div class="line-chart">
+            <svg viewBox="0 0 313 100" preserveAspectRatio="none">
+              <!-- Y-axis guide lines -->
+              <line x1="0" y1="10" x2="313" y2="10" stroke="#E5E7EB" stroke-width="0.5" stroke-dasharray="4"/>
+              <line x1="0" y1="50" x2="313" y2="50" stroke="#E5E7EB" stroke-width="0.5" stroke-dasharray="4"/>
+              <line x1="0" y1="90" x2="313" y2="90" stroke="#E5E7EB" stroke-width="0.5" stroke-dasharray="4"/>
+              <!-- Gradient fill under line -->
+              <defs>
+                <linearGradient id="respFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#206FF7" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="#206FF7" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0 55 Q30 40, 50 48 T100 42 T150 55 T200 38 T250 50 T313 45 L313 100 L0 100Z" fill="url(#respFill)"/>
+              <!-- Line -->
+              <path d="M0 55 Q30 40, 50 48 T100 42 T150 55 T200 38 T250 50 T313 45" fill="none" stroke="#206FF7" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <!-- Axis labels -->
+          <div style="display:flex;justify-content:space-between;margin-top:4px;">
+            <span class="text-caption text-secondary">11 PM</span>
+            <span class="text-caption text-secondary">2 AM</span>
+            <span class="text-caption text-secondary">5 AM</span>
+            <span class="text-caption text-secondary">6:30</span>
+          </div>
+          <div style="display:flex;flex-direction:column;position:absolute;right:28px;top:0;height:100px;justify-content:space-between;pointer-events:none;">
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div style="display:flex;gap:8px;margin-bottom:20px;">
+          <div style="flex:1;background:rgba(32,111,247,0.06);border-radius:16px;padding:14px;text-align:center;">
+            <div style="font-size:11px;font-weight:500;color:#206FF7;margin-bottom:2px;">Nose</div>
+            <div style="font-size:22px;font-weight:700;color:#206FF7;">84%</div>
+          </div>
+          <div style="flex:1;background:rgba(239,68,68,0.06);border-radius:16px;padding:14px;text-align:center;">
+            <div style="font-size:11px;font-weight:500;color:#EF4444;margin-bottom:2px;">Mouth</div>
+            <div style="font-size:22px;font-weight:700;color:#EF4444;">12%</div>
+          </div>
+          <div style="flex:1;background:rgba(107,114,128,0.06);border-radius:16px;padding:14px;text-align:center;">
+            <div style="font-size:11px;font-weight:500;color:#6B7280;margin-bottom:2px;">Mixed</div>
+            <div style="font-size:22px;font-weight:700;color:#6B7280;">4%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No tab bar (detail screen) -->
+    </div>
+  </div>
+
+  <!-- S87 Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S87 · Breathing Patterns · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2"><path d="M15 9H3M9 4L3 9l6 5"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Breathing Patterns</span>
+        </div>
+      </div>
+
+      <div class="phone-content" style="padding:0 20px;">
+        <div class="text-overline" style="color:rgba(255,255,255,0.4);margin-bottom:16px;">MARCH 1, 2026 &middot; NIGHT SESSION</div>
+
+        <!-- Breathing Timeline Card Dark -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <div class="text-body2" style="color:white;font-weight:600;">Breathing Timeline</div>
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);">11:00 PM - 6:30 AM</div>
+          </div>
+          <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:12px;">Nose vs mouth breathing over time</div>
+
+          <div class="timeline-bar" style="margin-bottom:8px;">
+            <div class="timeline-seg-nose" style="width:40%;"></div>
+            <div class="timeline-seg-mouth" style="width:10%;"></div>
+            <div class="timeline-seg-nose" style="width:25%;"></div>
+            <div class="timeline-seg-mouth" style="width:5%;"></div>
+            <div class="timeline-seg-nose" style="width:20%;"></div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;position:relative;margin-bottom:8px;padding:0 2px;">
+            <div style="position:absolute;left:38%;display:flex;flex-direction:column;align-items:center;">
+              <div style="width:2px;height:8px;background:#EF4444;border-radius:1px;"></div>
+              <div class="event-marker" style="color:#EF4444;"><div class="event-dot" style="background:#EF4444;"></div>Mouth Episode</div>
+            </div>
+            <div style="position:absolute;left:62%;display:flex;flex-direction:column;align-items:center;">
+              <div style="width:2px;height:8px;background:#FFDC31;border-radius:1px;"></div>
+              <div class="event-marker" style="color:#FFDC31;"><div class="event-dot" style="background:#FFDC31;"></div>Position Change</div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;margin-top:20px;">
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">11 PM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">1 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">3 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">5 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">6:30</span>
+          </div>
+
+          <div style="display:flex;gap:16px;margin-top:12px;">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.5);"><div style="width:10px;height:10px;border-radius:3px;background:#206FF7;"></div>Nose</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.5);"><div style="width:10px;height:10px;border-radius:3px;background:#EF4444;"></div>Mouth</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.5);"><div style="width:10px;height:10px;border-radius:3px;background:#6B7280;"></div>Mixed</div>
+          </div>
+        </div>
+
+        <!-- Respiratory Rate Card Dark -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="text-body2" style="color:white;font-weight:600;">Respiratory Rate</div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:22px;font-weight:700;color:white;">14.2</span>
+              <span class="text-caption" style="color:rgba(255,255,255,0.4);">bpm</span>
+              <span style="padding:3px 8px;border-radius:100px;background:rgba(34,197,94,0.15);font-size:10px;font-weight:600;color:#22C55E;">Normal range</span>
+            </div>
+          </div>
+
+          <div class="line-chart">
+            <svg viewBox="0 0 313 100" preserveAspectRatio="none">
+              <line x1="0" y1="10" x2="313" y2="10" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" stroke-dasharray="4"/>
+              <line x1="0" y1="50" x2="313" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" stroke-dasharray="4"/>
+              <line x1="0" y1="90" x2="313" y2="90" stroke="rgba(255,255,255,0.06)" stroke-width="0.5" stroke-dasharray="4"/>
+              <defs>
+                <linearGradient id="respFillDark" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#FFDC31" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="#FFDC31" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0 55 Q30 40, 50 48 T100 42 T150 55 T200 38 T250 50 T313 45 L313 100 L0 100Z" fill="url(#respFillDark)"/>
+              <path d="M0 55 Q30 40, 50 48 T100 42 T150 55 T200 38 T250 50 T313 45" fill="none" stroke="#FFDC31" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;margin-top:4px;">
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">11 PM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">2 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">5 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">6:30</span>
+          </div>
+        </div>
+
+        <!-- Stats row dark -->
+        <div style="display:flex;gap:8px;margin-bottom:20px;">
+          <div style="flex:1;background:rgba(32,111,247,0.1);border:1px solid rgba(32,111,247,0.2);border-radius:16px;padding:14px;text-align:center;">
+            <div style="font-size:11px;font-weight:500;color:#206FF7;margin-bottom:2px;">Nose</div>
+            <div style="font-size:22px;font-weight:700;color:#206FF7;">84%</div>
+          </div>
+          <div style="flex:1;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);border-radius:16px;padding:14px;text-align:center;">
+            <div style="font-size:11px;font-weight:500;color:#EF4444;margin-bottom:2px;">Mouth</div>
+            <div style="font-size:22px;font-weight:700;color:#EF4444;">12%</div>
+          </div>
+          <div style="flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:14px;text-align:center;">
+            <div style="font-size:11px;font-weight:500;color:rgba(255,255,255,0.5);margin-bottom:2px;">Mixed</div>
+            <div style="font-size:22px;font-weight:700;color:rgba(255,255,255,0.5);">4%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- S88 — Sleep Stage Analysis                                     -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin:20px 0 20px;">S88 — Sleep Stage Analysis</h2>
+
+<div class="screen-row">
+
+  <!-- S88 Light -->
+  <div class="screen-col">
+    <div class="screen-label">S88 · Sleep Stages · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 9H3M9 4L3 9l6 5"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Sleep Stages</span>
+        </div>
+      </div>
+
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Hypnogram Card -->
+        <div class="card" style="margin-bottom:12px;">
+          <div class="text-body2 text-primary" style="font-weight:600;margin-bottom:4px;">Sleep Architecture</div>
+          <div class="text-caption text-secondary" style="margin-bottom:16px;">Last night's sleep stages</div>
+
+          <!-- Hypnogram bands -->
+          <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:12px;">
+            <!-- Awake -->
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:#EF4444;">Awake</div>
+              <div class="hypno-track" style="background:rgba(239,68,68,0.06);">
+                <div class="hypno-block" style="width:3%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:12%;background:transparent;"></div>
+                <div class="hypno-block" style="width:2%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:25%;background:transparent;"></div>
+                <div class="hypno-block" style="width:1%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:30%;background:transparent;"></div>
+                <div class="hypno-block" style="width:2%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:25%;background:transparent;"></div>
+              </div>
+            </div>
+            <!-- REM -->
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:#206FF7;">REM</div>
+              <div class="hypno-track" style="background:rgba(32,111,247,0.04);">
+                <div class="hypno-block" style="width:10%;background:transparent;"></div>
+                <div class="hypno-block" style="width:8%;background:#206FF7;opacity:0.7;"></div>
+                <div class="hypno-block" style="width:15%;background:transparent;"></div>
+                <div class="hypno-block" style="width:12%;background:#206FF7;opacity:0.7;"></div>
+                <div class="hypno-block" style="width:12%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:#206FF7;opacity:0.7;"></div>
+                <div class="hypno-block" style="width:8%;background:transparent;"></div>
+                <div class="hypno-block" style="width:20%;background:#206FF7;opacity:0.7;"></div>
+              </div>
+            </div>
+            <!-- Light -->
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:#6B7280;">Light</div>
+              <div class="hypno-track" style="background:rgba(107,114,128,0.06);">
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:#9CA3AF;"></div>
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:12%;background:#9CA3AF;"></div>
+                <div class="hypno-block" style="width:8%;background:transparent;"></div>
+                <div class="hypno-block" style="width:18%;background:#9CA3AF;"></div>
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:#9CA3AF;"></div>
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:12%;background:#9CA3AF;"></div>
+              </div>
+            </div>
+            <!-- Deep -->
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:#1E3A5F;">Deep</div>
+              <div class="hypno-track" style="background:rgba(30,58,95,0.06);">
+                <div class="hypno-block" style="width:18%;background:transparent;"></div>
+                <div class="hypno-block" style="width:20%;background:#1E3A5F;"></div>
+                <div class="hypno-block" style="width:15%;background:transparent;"></div>
+                <div class="hypno-block" style="width:18%;background:#1E3A5F;"></div>
+                <div class="hypno-block" style="width:14%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:#1E3A5F;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time axis -->
+          <div style="display:flex;justify-content:space-between;margin-left:56px;">
+            <span class="text-caption text-secondary">11 PM</span>
+            <span class="text-caption text-secondary">1 AM</span>
+            <span class="text-caption text-secondary">3 AM</span>
+            <span class="text-caption text-secondary">5 AM</span>
+            <span class="text-caption text-secondary">7 AM</span>
+          </div>
+
+          <!-- Legend -->
+          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6B7280;"><div style="width:10px;height:10px;border-radius:3px;background:#EF4444;"></div>Awake</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6B7280;"><div style="width:10px;height:10px;border-radius:3px;background:#206FF7;opacity:0.7;"></div>REM</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6B7280;"><div style="width:10px;height:10px;border-radius:3px;background:#9CA3AF;"></div>Light</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6B7280;"><div style="width:10px;height:10px;border-radius:3px;background:#1E3A5F;"></div>Deep</div>
+          </div>
+        </div>
+
+        <!-- Nose % per stage Card -->
+        <div class="card" style="margin-bottom:12px;">
+          <div class="text-body2 text-primary" style="font-weight:600;margin-bottom:14px;">Nasal Breathing by Stage</div>
+
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:#0A0A0B;">Awake</div>
+            <div class="h-bar-track">
+              <div class="h-bar-fill" style="width:91%;background:#206FF7;"></div>
+            </div>
+            <div class="h-bar-value" style="color:#206FF7;">91%</div>
+          </div>
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:#0A0A0B;">REM</div>
+            <div class="h-bar-track">
+              <div class="h-bar-fill" style="width:72%;background:linear-gradient(90deg,#206FF7,#F59E0B);"></div>
+            </div>
+            <div class="h-bar-value" style="color:#F59E0B;">72%</div>
+          </div>
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:#0A0A0B;">Light</div>
+            <div class="h-bar-track">
+              <div class="h-bar-fill" style="width:86%;background:#206FF7;"></div>
+            </div>
+            <div class="h-bar-value" style="color:#206FF7;">86%</div>
+          </div>
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:#0A0A0B;">Deep</div>
+            <div class="h-bar-track">
+              <div class="h-bar-fill" style="width:94%;background:#22C55E;"></div>
+            </div>
+            <div class="h-bar-value" style="color:#22C55E;">94%</div>
+          </div>
+        </div>
+
+        <!-- Time in Each Stage Card -->
+        <div class="card" style="margin-bottom:20px;">
+          <div class="text-body2 text-primary" style="font-weight:600;margin-bottom:12px;">Time in Each Stage</div>
+
+          <div class="stage-row" style="border-top:none;">
+            <div class="stage-dot" style="background:#EF4444;"></div>
+            <div class="stage-info">
+              <div class="text-body2 text-primary" style="font-weight:500;">Awake</div>
+              <div class="text-caption text-secondary">32m (7%)</div>
+            </div>
+            <div class="stage-mini-bar">
+              <div class="stage-mini-fill" style="width:7%;background:#EF4444;"></div>
+            </div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#206FF7;opacity:0.7;"></div>
+            <div class="stage-info">
+              <div class="text-body2 text-primary" style="font-weight:500;">REM</div>
+              <div class="text-caption text-secondary">1h 48m (22%)</div>
+            </div>
+            <div class="stage-mini-bar">
+              <div class="stage-mini-fill" style="width:22%;background:#206FF7;"></div>
+            </div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#9CA3AF;"></div>
+            <div class="stage-info">
+              <div class="text-body2 text-primary" style="font-weight:500;">Light</div>
+              <div class="text-caption text-secondary">3h 12m (40%)</div>
+            </div>
+            <div class="stage-mini-bar">
+              <div class="stage-mini-fill" style="width:40%;background:#9CA3AF;"></div>
+            </div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#1E3A5F;"></div>
+            <div class="stage-info">
+              <div class="text-body2 text-primary" style="font-weight:500;">Deep</div>
+              <div class="text-caption text-secondary">2h 28m (31%)</div>
+            </div>
+            <div class="stage-mini-bar">
+              <div class="stage-mini-fill" style="width:31%;background:#1E3A5F;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S88 Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S88 · Sleep Stages · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2"><path d="M15 9H3M9 4L3 9l6 5"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Sleep Stages</span>
+        </div>
+      </div>
+
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Hypnogram Card Dark -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:12px;">
+          <div class="text-body2" style="color:white;font-weight:600;margin-bottom:4px;">Sleep Architecture</div>
+          <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:16px;">Last night's sleep stages</div>
+
+          <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:12px;">
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:#EF4444;">Awake</div>
+              <div class="hypno-track" style="background:rgba(239,68,68,0.08);">
+                <div class="hypno-block" style="width:3%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:12%;background:transparent;"></div>
+                <div class="hypno-block" style="width:2%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:25%;background:transparent;"></div>
+                <div class="hypno-block" style="width:1%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:30%;background:transparent;"></div>
+                <div class="hypno-block" style="width:2%;background:#EF4444;"></div>
+                <div class="hypno-block" style="width:25%;background:transparent;"></div>
+              </div>
+            </div>
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:#60A5FA;">REM</div>
+              <div class="hypno-track" style="background:rgba(96,165,250,0.08);">
+                <div class="hypno-block" style="width:10%;background:transparent;"></div>
+                <div class="hypno-block" style="width:8%;background:#60A5FA;"></div>
+                <div class="hypno-block" style="width:15%;background:transparent;"></div>
+                <div class="hypno-block" style="width:12%;background:#60A5FA;"></div>
+                <div class="hypno-block" style="width:12%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:#60A5FA;"></div>
+                <div class="hypno-block" style="width:8%;background:transparent;"></div>
+                <div class="hypno-block" style="width:20%;background:#60A5FA;"></div>
+              </div>
+            </div>
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:rgba(255,255,255,0.5);">Light</div>
+              <div class="hypno-track" style="background:rgba(255,255,255,0.04);">
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:rgba(255,255,255,0.25);"></div>
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:12%;background:rgba(255,255,255,0.25);"></div>
+                <div class="hypno-block" style="width:8%;background:transparent;"></div>
+                <div class="hypno-block" style="width:18%;background:rgba(255,255,255,0.25);"></div>
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:rgba(255,255,255,0.25);"></div>
+                <div class="hypno-block" style="width:5%;background:transparent;"></div>
+                <div class="hypno-block" style="width:12%;background:rgba(255,255,255,0.25);"></div>
+              </div>
+            </div>
+            <div class="hypno-row">
+              <div class="hypno-label" style="color:#3B82F6;">Deep</div>
+              <div class="hypno-track" style="background:rgba(59,130,246,0.08);">
+                <div class="hypno-block" style="width:18%;background:transparent;"></div>
+                <div class="hypno-block" style="width:20%;background:#1D4ED8;"></div>
+                <div class="hypno-block" style="width:15%;background:transparent;"></div>
+                <div class="hypno-block" style="width:18%;background:#1D4ED8;"></div>
+                <div class="hypno-block" style="width:14%;background:transparent;"></div>
+                <div class="hypno-block" style="width:15%;background:#1D4ED8;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;margin-left:56px;">
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">11 PM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">1 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">3 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">5 AM</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.35);">7 AM</span>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.5);"><div style="width:10px;height:10px;border-radius:3px;background:#EF4444;"></div>Awake</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.5);"><div style="width:10px;height:10px;border-radius:3px;background:#60A5FA;"></div>REM</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.5);"><div style="width:10px;height:10px;border-radius:3px;background:rgba(255,255,255,0.25);"></div>Light</div>
+            <div style="display:flex;align-items:center;gap:4px;font-size:11px;color:rgba(255,255,255,0.5);"><div style="width:10px;height:10px;border-radius:3px;background:#1D4ED8;"></div>Deep</div>
+          </div>
+        </div>
+
+        <!-- Nose % per stage Card Dark -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:12px;">
+          <div class="text-body2" style="color:white;font-weight:600;margin-bottom:14px;">Nasal Breathing by Stage</div>
+
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:rgba(255,255,255,0.7);">Awake</div>
+            <div class="h-bar-track h-bar-track-dark">
+              <div class="h-bar-fill" style="width:91%;background:#206FF7;"></div>
+            </div>
+            <div class="h-bar-value" style="color:#206FF7;">91%</div>
+          </div>
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:rgba(255,255,255,0.7);">REM</div>
+            <div class="h-bar-track h-bar-track-dark">
+              <div class="h-bar-fill" style="width:72%;background:linear-gradient(90deg,#206FF7,#F59E0B);"></div>
+            </div>
+            <div class="h-bar-value" style="color:#F59E0B;">72%</div>
+          </div>
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:rgba(255,255,255,0.7);">Light</div>
+            <div class="h-bar-track h-bar-track-dark">
+              <div class="h-bar-fill" style="width:86%;background:#206FF7;"></div>
+            </div>
+            <div class="h-bar-value" style="color:#206FF7;">86%</div>
+          </div>
+          <div class="h-bar-row">
+            <div class="h-bar-label" style="color:rgba(255,255,255,0.7);">Deep</div>
+            <div class="h-bar-track h-bar-track-dark">
+              <div class="h-bar-fill" style="width:94%;background:#22C55E;"></div>
+            </div>
+            <div class="h-bar-value" style="color:#22C55E;">94%</div>
+          </div>
+        </div>
+
+        <!-- Time in Each Stage Card Dark -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:20px;">
+          <div class="text-body2" style="color:white;font-weight:600;margin-bottom:12px;">Time in Each Stage</div>
+
+          <div class="stage-row stage-row-dark" style="border-top:none;">
+            <div class="stage-dot" style="background:#EF4444;"></div>
+            <div class="stage-info">
+              <div class="text-body2" style="color:white;font-weight:500;">Awake</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">32m (7%)</div>
+            </div>
+            <div class="stage-mini-bar stage-mini-bar-dark">
+              <div class="stage-mini-fill" style="width:7%;background:#EF4444;"></div>
+            </div>
+          </div>
+          <div class="stage-row stage-row-dark">
+            <div class="stage-dot" style="background:#60A5FA;"></div>
+            <div class="stage-info">
+              <div class="text-body2" style="color:white;font-weight:500;">REM</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">1h 48m (22%)</div>
+            </div>
+            <div class="stage-mini-bar stage-mini-bar-dark">
+              <div class="stage-mini-fill" style="width:22%;background:#60A5FA;"></div>
+            </div>
+          </div>
+          <div class="stage-row stage-row-dark">
+            <div class="stage-dot" style="background:rgba(255,255,255,0.25);"></div>
+            <div class="stage-info">
+              <div class="text-body2" style="color:white;font-weight:500;">Light</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">3h 12m (40%)</div>
+            </div>
+            <div class="stage-mini-bar stage-mini-bar-dark">
+              <div class="stage-mini-fill" style="width:40%;background:rgba(255,255,255,0.25);"></div>
+            </div>
+          </div>
+          <div class="stage-row stage-row-dark">
+            <div class="stage-dot" style="background:#1D4ED8;"></div>
+            <div class="stage-info">
+              <div class="text-body2" style="color:white;font-weight:500;">Deep</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">2h 28m (31%)</div>
+            </div>
+            <div class="stage-mini-bar stage-mini-bar-dark">
+              <div class="stage-mini-fill" style="width:31%;background:#1D4ED8;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- S90 — Compare Sessions                                         -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin:20px 0 20px;">S90 — Compare Sessions</h2>
+
+<div class="screen-row">
+
+  <!-- S90 Light -->
+  <div class="screen-col">
+    <div class="screen-label">S90 · Compare Sessions · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 9H3M9 4L3 9l6 5"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Compare Sessions</span>
+        </div>
+      </div>
+
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Session selector -->
+        <div style="display:flex;gap:12px;margin-bottom:16px;">
+          <div class="session-card session-card-selected">
+            <div class="text-caption" style="color:#206FF7;font-weight:500;margin-bottom:4px;">Feb 28</div>
+            <div style="font-size:28px;font-weight:700;color:#206FF7;">84%</div>
+          </div>
+          <div style="display:flex;align-items:center;">
+            <span style="font-size:16px;color:#6B7280;">vs</span>
+          </div>
+          <div class="session-card session-card-default">
+            <div class="text-caption text-secondary" style="font-weight:500;margin-bottom:4px;">Feb 21</div>
+            <div style="font-size:28px;font-weight:700;color:#6B7280;">76%</div>
+          </div>
+        </div>
+
+        <!-- Session Comparison Card -->
+        <div class="card" style="padding:0 20px;margin-bottom:12px;">
+          <div style="padding:14px 0;margin-bottom:0;">
+            <div class="text-body2 text-primary" style="font-weight:600;">Session Comparison</div>
+          </div>
+
+          <!-- Nose Breathing -->
+          <div class="compare-row" style="border-top:1px solid #E5E7EB;">
+            <span class="text-body2 text-primary" style="font-weight:500;">Nose Breathing</span>
+            <div class="compare-values">
+              <span class="text-body2 text-secondary">76%</span>
+              <div class="diff-badge diff-up">
+                <svg width="10" height="10" fill="#22C55E"><path d="M5 1l4 7H1z"/></svg>
+                +8%
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">84%</span>
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div class="compare-row">
+            <span class="text-body2 text-primary" style="font-weight:500;">Duration</span>
+            <div class="compare-values">
+              <span class="text-body2 text-secondary">6h 45m</span>
+              <div class="diff-badge diff-up">
+                <svg width="10" height="10" fill="#22C55E"><path d="M5 1l4 7H1z"/></svg>
+                +38m
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">7h 23m</span>
+            </div>
+          </div>
+
+          <!-- Sleep Score -->
+          <div class="compare-row">
+            <span class="text-body2 text-primary" style="font-weight:500;">Sleep Score</span>
+            <div class="compare-values">
+              <span class="text-body2 text-secondary">74</span>
+              <div class="diff-badge diff-up">
+                <svg width="10" height="10" fill="#22C55E"><path d="M5 1l4 7H1z"/></svg>
+                +8
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">82</span>
+            </div>
+          </div>
+
+          <!-- Mouth Episodes -->
+          <div class="compare-row">
+            <span class="text-body2 text-primary" style="font-weight:500;">Mouth Episodes</span>
+            <div class="compare-values">
+              <span class="text-body2 text-secondary">14</span>
+              <div class="diff-badge diff-down">
+                <svg width="10" height="10" fill="#22C55E" style="transform:rotate(180deg);"><path d="M5 1l4 7H1z"/></svg>
+                -6
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">8</span>
+            </div>
+          </div>
+
+          <!-- Avg Resp Rate -->
+          <div class="compare-row" style="border-bottom:none;">
+            <span class="text-body2 text-primary" style="font-weight:500;">Avg Resp Rate</span>
+            <div class="compare-values">
+              <span class="text-body2 text-secondary">15.1</span>
+              <div class="diff-badge diff-down">
+                <svg width="10" height="10" fill="#22C55E" style="transform:rotate(180deg);"><path d="M5 1l4 7H1z"/></svg>
+                -0.9
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">14.2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Improvement summary -->
+        <div class="card" style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);text-align:center;margin-bottom:20px;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px;">
+            <svg width="20" height="20" fill="#22C55E"><path d="M10 2l4 7H6z"/></svg>
+            <span style="font-size:24px;font-weight:700;color:#22C55E;">8% overall improvement</span>
+          </div>
+          <div class="text-caption text-secondary">Compared to your session on Feb 21</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S90 Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S90 · Compare Sessions · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2"><path d="M15 9H3M9 4L3 9l6 5"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Compare Sessions</span>
+        </div>
+      </div>
+
+      <div class="phone-content" style="padding:0 20px;">
+
+        <!-- Session selector dark -->
+        <div style="display:flex;gap:12px;margin-bottom:16px;">
+          <div class="session-card session-card-selected-dark">
+            <div class="text-caption" style="color:#FFDC31;font-weight:500;margin-bottom:4px;">Feb 28</div>
+            <div style="font-size:28px;font-weight:700;color:#FFDC31;">84%</div>
+          </div>
+          <div style="display:flex;align-items:center;">
+            <span style="font-size:16px;color:rgba(255,255,255,0.4);">vs</span>
+          </div>
+          <div class="session-card session-card-default-dark">
+            <div class="text-caption" style="color:rgba(255,255,255,0.5);font-weight:500;margin-bottom:4px;">Feb 21</div>
+            <div style="font-size:28px;font-weight:700;color:rgba(255,255,255,0.5);">76%</div>
+          </div>
+        </div>
+
+        <!-- Session Comparison Card Dark -->
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:0 20px;margin-bottom:12px;">
+          <div style="padding:14px 0;">
+            <div class="text-body2" style="color:white;font-weight:600;">Session Comparison</div>
+          </div>
+
+          <div class="compare-row compare-row-dark" style="border-top:1px solid rgba(255,255,255,0.06);">
+            <span class="text-body2" style="color:rgba(255,255,255,0.7);font-weight:500;">Nose Breathing</span>
+            <div class="compare-values">
+              <span class="text-body2" style="color:rgba(255,255,255,0.35);">76%</span>
+              <div class="diff-badge diff-up">
+                <svg width="10" height="10" fill="#22C55E"><path d="M5 1l4 7H1z"/></svg>
+                +8%
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">84%</span>
+            </div>
+          </div>
+
+          <div class="compare-row compare-row-dark">
+            <span class="text-body2" style="color:rgba(255,255,255,0.7);font-weight:500;">Duration</span>
+            <div class="compare-values">
+              <span class="text-body2" style="color:rgba(255,255,255,0.35);">6h 45m</span>
+              <div class="diff-badge diff-up">
+                <svg width="10" height="10" fill="#22C55E"><path d="M5 1l4 7H1z"/></svg>
+                +38m
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">7h 23m</span>
+            </div>
+          </div>
+
+          <div class="compare-row compare-row-dark">
+            <span class="text-body2" style="color:rgba(255,255,255,0.7);font-weight:500;">Sleep Score</span>
+            <div class="compare-values">
+              <span class="text-body2" style="color:rgba(255,255,255,0.35);">74</span>
+              <div class="diff-badge diff-up">
+                <svg width="10" height="10" fill="#22C55E"><path d="M5 1l4 7H1z"/></svg>
+                +8
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">82</span>
+            </div>
+          </div>
+
+          <div class="compare-row compare-row-dark">
+            <span class="text-body2" style="color:rgba(255,255,255,0.7);font-weight:500;">Mouth Episodes</span>
+            <div class="compare-values">
+              <span class="text-body2" style="color:rgba(255,255,255,0.35);">14</span>
+              <div class="diff-badge diff-down">
+                <svg width="10" height="10" fill="#22C55E" style="transform:rotate(180deg);"><path d="M5 1l4 7H1z"/></svg>
+                -6
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">8</span>
+            </div>
+          </div>
+
+          <div class="compare-row compare-row-dark" style="border-bottom:none;">
+            <span class="text-body2" style="color:rgba(255,255,255,0.7);font-weight:500;">Avg Resp Rate</span>
+            <div class="compare-values">
+              <span class="text-body2" style="color:rgba(255,255,255,0.35);">15.1</span>
+              <div class="diff-badge diff-down">
+                <svg width="10" height="10" fill="#22C55E" style="transform:rotate(180deg);"><path d="M5 1l4 7H1z"/></svg>
+                -0.9
+              </div>
+              <span class="text-body2" style="color:#22C55E;font-weight:600;">14.2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Improvement summary dark -->
+        <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.2);border-radius:24px;padding:20px;text-align:center;margin-bottom:20px;">
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px;">
+            <svg width="20" height="20" fill="#22C55E"><path d="M10 2l4 7H6z"/></svg>
+            <span style="font-size:24px;font-weight:700;color:#22C55E;">8% overall improvement</span>
+          </div>
+          <div class="text-caption" style="color:rgba(255,255,255,0.4);">Compared to your session on Feb 21</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

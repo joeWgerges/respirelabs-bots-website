@@ -1,0 +1,27 @@
+---
+---
+<div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+  <!-- Breathing animation container (4-7-8 rhythm) -->
+  <div class="absolute inset-0 flex items-center justify-center animate-breathe">
+    <div class="absolute w-[600px] h-[600px] md:w-[1000px] md:h-[1000px] rounded-full bg-brand-blue/20 blur-[120px] mix-blend-screen"></div>
+    <div class="absolute w-[400px] h-[400px] md:w-[700px] md:h-[700px] rounded-full bg-[#10b981]/10 blur-[100px] mix-blend-screen animate-[pulse_10s_ease-in-out_infinite_alternate]"></div>
+  </div>
+  <div class="absolute inset-0 bg-grid-pattern-dark opacity-30"></div>
+</div>
+
+<style>
+  /* 4-7-8 Breathing Rhythm (Total 19s)
+     Inhale: 4s (0% to 21%)
+     Hold: 7s (21% to 58%)
+     Exhale: 8s (58% to 100%)
+  */
+  @keyframes breathe {
+    0% { transform: scale(0.7); opacity: 0.2; }
+    21% { transform: scale(1.2); opacity: 0.7; }
+    58% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(0.7); opacity: 0.2; }
+  }
+  .animate-breathe {
+    animation: breathe 19s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>

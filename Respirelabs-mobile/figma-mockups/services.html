@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs — Services Screens</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  .appt-card {
+    background: var(--surface-white); border-radius: var(--radius-lg);
+    padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .specialist-card {
+    background: var(--surface-white); border-radius: var(--radius-lg);
+    padding: 16px; display: flex; gap: 16px; align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .rating { display: flex; align-items: center; gap: 4px; font-size: 13px; color: var(--accent-yellow); font-weight: 600; }
+  .specialty-tag {
+    font-size: 11px; padding: 3px 8px; border-radius: var(--radius-pill);
+    background: rgba(32,111,247,0.08); color: var(--primary); font-weight: 500;
+  }
+  .device-card {
+    background: var(--surface-white); border-radius: var(--radius-lg);
+    padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .device-icon-circle {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(32,111,247,0.08); display: flex;
+    align-items: center; justify-content: center;
+  }
+  .battery-bar {
+    height: 8px; border-radius: 4px; background: var(--border); overflow: hidden;
+  }
+  .battery-fill { height: 100%; border-radius: 4px; background: var(--success); }
+  .settings-item {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+  }
+  .settings-left {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .settings-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(32,111,247,0.08); display: flex;
+    align-items: center; justify-content: center; color: var(--primary);
+  }
+  .badge-new {
+    font-size: 10px; padding: 2px 8px; border-radius: var(--radius-pill);
+    background: var(--primary); color: white; font-weight: 700;
+  }
+  .chevron { color: var(--text-secondary); font-size: 18px; }
+</style>
+</head>
+<body>
+<h1 class="page-title">Services</h1>
+<p class="page-subtitle">S14 Teleconsultation &bull; S15 Tape Management</p>
+
+<!-- ═══════════════ S14 — TELECONSULTATION ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S14 — Teleconsultation</div>
+    <div class="variant-label">Variant A — Faithful (IMG_1578)</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-primary">RespireLabs</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="font-oddval text-h1 mb-4">Teleconsultation</div>
+        <div class="text-body2 text-secondary mb-16">Connect with certified sleep specialists</div>
+        <!-- Upcoming appointment -->
+        <div class="appt-card mb-16">
+          <div class="text-body1 text-blue mb-12" style="font-weight:600;">Upcoming Appointment</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <div class="avatar" style="background:linear-gradient(135deg,#C4A87C,#8B7355);">DL</div>
+            <div>
+              <div class="text-body1" style="font-weight:600;">Dr. Louise Oliver</div>
+              <div class="text-caption text-secondary" style="display:flex;align-items:center;gap:4px;">📅 2024-03-25</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <button class="btn btn-secondary" style="flex:1;padding:12px;">Reschedule</button>
+            <button class="btn btn-error" style="flex:1;padding:12px;">Cancel</button>
+          </div>
+        </div>
+        <!-- Available specialists -->
+        <div class="font-oddval text-h3 mb-12">Available Specialists</div>
+        <div class="specialist-card mb-12">
+          <div class="avatar" style="background:linear-gradient(135deg,#C4A87C,#8B7355);">DL</div>
+          <div style="flex:1;">
+            <div class="text-body1" style="font-weight:600;">Dr. Louise Oliver</div>
+            <div class="text-caption text-secondary mb-4">GP & Functional Breathing Practitioner</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <div class="rating">⭐ 4.9</div>
+              <div class="text-caption text-secondary">&bull; English (Native)</div>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="specialty-tag">Nose breathing</span>
+              <span class="specialty-tag">Rhinitis</span>
+            </div>
+          </div>
+          <div style="color:var(--text-secondary);font-size:20px;align-self:center;">›</div>
+        </div>
+        <div class="specialist-card">
+          <div class="avatar" style="background:linear-gradient(135deg,#6B89A3,#445566);">RW</div>
+          <div style="flex:1;">
+            <div class="text-body1" style="font-weight:600;">Roel Wilbers</div>
+            <div class="text-caption text-secondary mb-4">Sleep Specialist & Breathing Coach</div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+              <div class="rating">⭐ 4.7</div>
+              <div class="text-caption text-secondary">&bull; Dutch, English</div>
+            </div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="specialty-tag">Sleep apnea</span>
+              <span class="specialty-tag">Myofunctional</span>
+            </div>
+          </div>
+          <div style="color:var(--text-secondary);font-size:20px;align-self:center;">›</div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Calendar top -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Calendar View</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:var(--text-secondary);">←</div><span class="font-oddval text-h3">Consult</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <!-- Mini calendar -->
+        <div class="card mb-16">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="text-body1" style="font-weight:600;">March 2026</div>
+            <div style="display:flex;gap:8px;"><span class="text-secondary">‹</span><span class="text-secondary">›</span></div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;">
+            <div class="text-caption text-secondary">M</div><div class="text-caption text-secondary">T</div><div class="text-caption text-secondary">W</div><div class="text-caption text-secondary">T</div><div class="text-caption text-secondary">F</div><div class="text-caption text-secondary">S</div><div class="text-caption text-secondary">S</div>
+            <div class="text-caption" style="padding:6px;">1</div><div class="text-caption" style="padding:6px;">2</div><div class="text-caption" style="padding:6px;">3</div><div class="text-caption" style="padding:6px;">4</div><div class="text-caption" style="padding:6px;">5</div><div class="text-caption" style="padding:6px;opacity:0.4;">6</div><div class="text-caption" style="padding:6px;opacity:0.4;">7</div>
+            <div class="text-caption" style="padding:6px;">8</div><div class="text-caption" style="padding:6px;">9</div><div class="text-caption" style="padding:6px;">10</div><div class="text-caption" style="padding:6px;">11</div><div class="text-caption" style="padding:6px;">12</div><div class="text-caption" style="padding:6px;opacity:0.4;">13</div><div class="text-caption" style="padding:6px;opacity:0.4;">14</div>
+            <div class="text-caption" style="padding:6px;">15</div><div class="text-caption" style="padding:6px;">16</div><div class="text-caption" style="padding:6px;">17</div><div class="text-caption" style="padding:6px;">18</div><div class="text-caption" style="padding:6px;">19</div><div class="text-caption" style="padding:6px;opacity:0.4;">20</div><div class="text-caption" style="padding:6px;opacity:0.4;">21</div>
+            <div class="text-caption" style="padding:6px;">22</div><div class="text-caption" style="padding:6px;">23</div><div class="text-caption" style="padding:6px;">24</div><div class="text-caption" style="padding:6px;background:var(--primary);color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;">25</div><div class="text-caption" style="padding:6px;">26</div><div class="text-caption" style="padding:6px;opacity:0.4;">27</div><div class="text-caption" style="padding:6px;opacity:0.4;">28</div>
+          </div>
+        </div>
+        <!-- Horizontal specialist scroll -->
+        <div class="text-body1" style="font-weight:600;margin-bottom:12px;">Specialists</div>
+        <div style="display:flex;gap:12px;overflow:hidden;">
+          <div style="min-width:200px;background:var(--surface-white);border-radius:var(--radius-md);padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div class="avatar" style="margin:0 auto 8px;background:linear-gradient(135deg,#C4A87C,#8B7355);">DL</div>
+            <div class="text-body2" style="font-weight:600;">Dr. Oliver</div>
+            <div class="text-caption text-secondary mb-8">GP & Breathing</div>
+            <div class="rating" style="justify-content:center;">⭐ 4.9</div>
+            <button class="btn btn-primary mt-12" style="padding:10px;font-size:13px;">Book</button>
+          </div>
+          <div style="min-width:200px;background:var(--surface-white);border-radius:var(--radius-md);padding:16px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div class="avatar" style="margin:0 auto 8px;background:linear-gradient(135deg,#6B89A3,#445566);">RW</div>
+            <div class="text-body2" style="font-weight:600;">Roel Wilbers</div>
+            <div class="text-caption text-secondary mb-8">Sleep Specialist</div>
+            <div class="rating" style="justify-content:center;">⭐ 4.7</div>
+            <button class="btn btn-primary mt-12" style="padding:10px;font-size:13px;">Book</button>
+          </div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-blue">RespireLabs</span></div><div class="nav-settings" style="background:var(--surface-dark);"><svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="font-oddval text-h1 mb-4" style="color:white;">Teleconsultation</div>
+        <div class="text-body2 mb-16" style="color:rgba(255,255,255,0.5);">Connect with specialists</div>
+        <div style="background:var(--surface-dark);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.08);">
+          <div class="text-body1 text-blue mb-12" style="font-weight:600;">Upcoming Appointment</div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <div class="avatar" style="background:linear-gradient(135deg,#C4A87C,#8B7355);">DL</div>
+            <div><div class="text-body1" style="font-weight:600;color:white;">Dr. Louise Oliver</div><div class="text-caption" style="color:rgba(255,255,255,0.4);">📅 2024-03-25</div></div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <button class="btn btn-secondary" style="flex:1;padding:12px;background:var(--surface-dark);border-color:rgba(255,255,255,0.15);color:white;">Reschedule</button>
+            <button class="btn btn-error" style="flex:1;padding:12px;">Cancel</button>
+          </div>
+        </div>
+        <div class="font-oddval text-h3 mb-12" style="color:white;">Available Specialists</div>
+        <div style="background:var(--surface-dark);border-radius:var(--radius-lg);padding:16px;border:1px solid rgba(255,255,255,0.08);">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div class="avatar" style="background:linear-gradient(135deg,#C4A87C,#8B7355);">DL</div>
+            <div style="flex:1;">
+              <div class="text-body1" style="font-weight:600;color:white;">Dr. Louise Oliver</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:4px;">GP & Functional Breathing</div>
+              <div class="rating" style="margin-bottom:8px;">⭐ 4.9 <span class="text-caption" style="color:rgba(255,255,255,0.4);">&bull; English</span></div>
+              <div style="display:flex;gap:6px;"><span class="specialty-tag" style="background:rgba(32,111,247,0.15);">Nose breathing</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-bar tab-bar-dark">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/><path d="M15 4l-5 5-5-5"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S15 — TAPE MANAGEMENT ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S15 — Tape Management</div>
+    <div class="variant-label">Variant A — Faithful</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:var(--text-secondary);">←</div><span class="font-oddval text-h3">Smart Tape</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <!-- Device card -->
+        <div class="device-card mb-16">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <div class="device-icon-circle"><svg width="28" height="28" fill="none" stroke="#206FF7" stroke-width="2"><rect x="4" y="8" width="20" height="12" rx="3"/><path d="M10 14h8"/></svg></div>
+            <div style="flex:1;">
+              <div class="text-body1" style="font-weight:600;">RespireLabs Tape v2</div>
+              <div class="status-pill" style="margin-top:6px;"><span class="status-dot"></span>Connected</div>
+            </div>
+          </div>
+          <div style="margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+            <div class="text-caption text-secondary">Battery</div>
+            <div class="text-caption" style="font-weight:600;color:var(--success);">85%</div>
+          </div>
+          <div class="battery-bar"><div class="battery-fill" style="width:85%;"></div></div>
+        </div>
+        <!-- Settings -->
+        <div class="text-body1 mb-12" style="font-weight:600;">Settings</div>
+        <div>
+          <div class="settings-item">
+            <div class="settings-left">
+              <div class="settings-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12l3-6 4 4 5-8"/></svg></div>
+              <div class="text-body2">Auto-Sync Data</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-left">
+              <div class="settings-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
+              <div class="text-body2">Calibration</div>
+            </div>
+            <div class="chevron">›</div>
+          </div>
+          <div class="settings-item" style="border-bottom:none;">
+            <div class="settings-left">
+              <div class="settings-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l3-3 3 3 6-6"/><path d="M14 6h4v4"/></svg></div>
+              <div class="text-body2">Firmware Update</div>
+            </div>
+            <div class="badge-new">NEW</div>
+          </div>
+        </div>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-secondary">Disconnect Tape</button>
+          <button class="btn btn-ghost" style="color:var(--error);">Forget Device</button>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Expandable cards -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Card Settings</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:var(--text-secondary);">←</div><span class="font-oddval text-h3">Smart Tape</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="device-card mb-12" style="text-align:center;">
+          <div class="device-icon-circle" style="margin:0 auto 12px;width:80px;height:80px;"><svg width="36" height="36" fill="none" stroke="#206FF7" stroke-width="2"><rect x="4" y="10" width="28" height="16" rx="4"/><path d="M12 18h12"/></svg></div>
+          <div class="font-oddval text-h3 mb-4">RespireLabs Tape v2</div>
+          <div class="status-pill" style="display:inline-flex;"><span class="status-dot"></span>Connected</div>
+          <div style="margin-top:16px;"><div class="text-caption text-secondary mb-4">Battery 85%</div><div class="battery-bar"><div class="battery-fill" style="width:85%;"></div></div></div>
+        </div>
+        <!-- Card-based settings -->
+        <div class="card mb-12" style="display:flex;justify-content:space-between;align-items:center;">
+          <div><div class="text-body2" style="font-weight:600;">Auto-Sync</div><div class="text-caption text-secondary">Sync data automatically</div></div>
+          <div class="toggle"></div>
+        </div>
+        <div class="card mb-12" style="display:flex;justify-content:space-between;align-items:center;">
+          <div><div class="text-body2" style="font-weight:600;">Calibration</div><div class="text-caption text-secondary">Sensor calibration</div></div>
+          <div class="chevron">›</div>
+        </div>
+        <div class="card mb-12" style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="display:flex;align-items:center;gap:8px;"><div class="text-body2" style="font-weight:600;">Firmware</div><div class="badge-new">NEW</div></div>
+          <div class="chevron">›</div>
+        </div>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-secondary">Disconnect</button>
+          <button class="btn btn-ghost" style="color:var(--error);">Forget Device</button>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:rgba(255,255,255,0.5);">←</div><span class="font-oddval text-h3" style="color:white;">Smart Tape</span></div><div class="nav-settings" style="background:var(--surface-dark);"><svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div style="background:var(--surface-dark);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.08);">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <div class="device-icon-circle" style="background:rgba(32,111,247,0.15);"><svg width="28" height="28" fill="none" stroke="#206FF7" stroke-width="2"><rect x="4" y="8" width="20" height="12" rx="3"/><path d="M10 14h8"/></svg></div>
+            <div style="flex:1;"><div class="text-body1" style="font-weight:600;color:white;">RespireLabs Tape v2</div><div class="status-pill" style="margin-top:6px;"><span class="status-dot"></span>Connected</div></div>
+          </div>
+          <div style="margin-bottom:8px;display:flex;justify-content:space-between;">
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);">Battery</div>
+            <div class="text-caption" style="font-weight:600;color:var(--success);">85%</div>
+          </div>
+          <div class="battery-bar" style="background:rgba(255,255,255,0.08);"><div class="battery-fill" style="width:85%;box-shadow:0 0 8px rgba(34,197,94,0.3);"></div></div>
+        </div>
+        <div class="text-body1 mb-12" style="font-weight:600;color:white;">Settings</div>
+        <div style="background:var(--surface-dark);border-radius:var(--radius-lg);padding:4px 16px;border:1px solid rgba(255,255,255,0.08);">
+          <div class="settings-item" style="border-color:rgba(255,255,255,0.06);">
+            <div class="text-body2" style="color:white;">Auto-Sync Data</div>
+            <div class="toggle"></div>
+          </div>
+          <div class="settings-item" style="border-color:rgba(255,255,255,0.06);">
+            <div class="text-body2" style="color:white;">Calibration</div>
+            <div class="chevron" style="color:rgba(255,255,255,0.3);">›</div>
+          </div>
+          <div class="settings-item" style="border-bottom:none;">
+            <div style="display:flex;align-items:center;gap:8px;"><div class="text-body2" style="color:white;">Firmware Update</div><div class="badge-new">NEW</div></div>
+            <div class="chevron" style="color:rgba(255,255,255,0.3);">›</div>
+          </div>
+        </div>
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-secondary" style="background:var(--surface-dark);border-color:rgba(255,255,255,0.15);color:white;">Disconnect Tape</button>
+          <button class="btn btn-ghost" style="color:var(--error);">Forget Device</button>
+        </div>
+      </div>
+      <div class="tab-bar tab-bar-dark">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

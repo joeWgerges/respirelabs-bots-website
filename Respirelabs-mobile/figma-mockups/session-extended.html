@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs — Session Extended</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* S57 — Pre-Session Checklist */
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .checklist-item-dark {
+    border-bottom-color: rgba(255,255,255,0.06);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .check-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .check-circle-done {
+    background: var(--success);
+  }
+  .check-circle-empty {
+    border: 2px solid var(--border);
+    background: transparent;
+  }
+  .check-circle-empty-dark {
+    border-color: rgba(255,255,255,0.15);
+  }
+  .check-circle-done-dark {
+    background: var(--success);
+  }
+  .checklist-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+  .checklist-icon-light { background: rgba(32,111,247,0.06); }
+  .checklist-icon-dark { background: rgba(255,255,255,0.06); }
+  .progress-bar-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .progress-bar-track-dark {
+    background: rgba(255,255,255,0.08);
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--primary);
+  }
+  .progress-bar-fill-yellow {
+    background: var(--accent-yellow);
+  }
+
+  /* S58 — Session Interruption */
+  .warning-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255,149,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+  .partial-progress {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+  .partial-progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--primary), #60A5FA);
+  }
+
+  /* S61 — Share Results */
+  .share-preview {
+    border-radius: 20px;
+    padding: 3px;
+    background: linear-gradient(135deg, #206FF7, #60A5FA, #FFDC31);
+  }
+  .share-preview-inner {
+    background: white;
+    border-radius: 18px;
+    padding: 24px;
+  }
+  .share-preview-inner-dark {
+    background: var(--surface-dark);
+  }
+  .share-option-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 12px;
+    border-radius: var(--radius-md);
+    background: var(--surface-white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    flex: 1;
+  }
+  .share-option-btn-dark {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: none;
+  }
+  .share-option-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .timeline-mini {
+    display: flex;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 2px;
+    margin-top: 16px;
+  }
+  .timeline-mini-seg {
+    border-radius: 4px;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+<h1 class="page-title">Session Extended</h1>
+<p class="page-subtitle">S57 Pre-Session &bull; S58 Interruption &bull; S61 Share Results &mdash; 6 frames</p>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- S57 — PRE-SESSION CHECKLIST                                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="screen-row">
+
+  <!-- ────── S57-A: Light Mode ────── -->
+  <div class="screen-col">
+    <div class="screen-label">S57 — Pre-Session Checklist</div>
+    <div class="variant-label">Light</div>
+    <div class="phone phone-light" style="display:flex;flex-direction:column;">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-light">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <span>📶</span><span>🔋</span>
+        </div>
+      </div>
+
+      <!-- Nav Header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="24" height="24" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span class="font-oddval text-h3" style="color:var(--text-primary);">Pre-Session Checklist</span>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Content -->
+      <div style="padding:0 20px;flex:1;overflow:hidden;display:flex;flex-direction:column;">
+
+        <!-- Moon icon + subtitle -->
+        <div style="text-align:center;margin-bottom:20px;margin-top:8px;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div class="font-oddval text-h3" style="color:var(--text-primary);margin-bottom:4px;">Night Tracking Setup</div>
+          <div class="text-body2 text-secondary">Complete these steps for the best results</div>
+        </div>
+
+        <!-- Checklist card -->
+        <div class="card" style="margin-bottom:20px;">
+          <!-- Item 1: Smart Tape applied — checked -->
+          <div class="checklist-item">
+            <div class="check-circle check-circle-done">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="checklist-icon checklist-icon-light">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round"><rect x="3" y="8" width="18" height="8" rx="2"/><path d="M9 8v8M15 8v8"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:var(--text-primary);">Smart Tape applied</div>
+            </div>
+          </div>
+
+          <!-- Item 2: Phone nearby — checked -->
+          <div class="checklist-item">
+            <div class="check-circle check-circle-done">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="checklist-icon checklist-icon-light">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:var(--text-primary);">Phone nearby (within 10ft)</div>
+            </div>
+          </div>
+
+          <!-- Item 3: Quiet environment — unchecked -->
+          <div class="checklist-item">
+            <div class="check-circle check-circle-empty"></div>
+            <div class="checklist-icon checklist-icon-light">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:var(--text-primary);">Quiet environment</div>
+            </div>
+          </div>
+
+          <!-- Item 4: Alarm set — checked -->
+          <div class="checklist-item">
+            <div class="check-circle check-circle-done">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="checklist-icon checklist-icon-light">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3l-2 2"/><path d="M19 3l2 2"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:var(--text-primary);">Alarm set for morning</div>
+            </div>
+          </div>
+
+          <!-- Item 5: Comfortable sleeping — unchecked -->
+          <div class="checklist-item">
+            <div class="check-circle check-circle-empty"></div>
+            <div class="checklist-icon checklist-icon-light">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round"><path d="M3 7v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7"/><path d="M1 20h22"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M7 11h10"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:var(--text-primary);">Comfortable sleeping position</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress -->
+        <div style="margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="text-body2" style="font-weight:500;color:var(--text-primary);">3 of 5 completed</span>
+            <span class="text-caption text-secondary">60%</span>
+          </div>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" style="width:60%;"></div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div style="display:flex;flex-direction:column;gap:12px;padding-bottom:40px;">
+          <button class="btn btn-primary" style="opacity:0.7;">Start Session</button>
+          <button class="btn btn-ghost">Skip Checklist</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────── S57-B: Dark Mode ────── -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Dark</div>
+    <div class="phone phone-dark" style="display:flex;flex-direction:column;">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-dark">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <span>📶</span><span>🔋</span>
+        </div>
+      </div>
+
+      <!-- Nav Header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span class="font-oddval text-h3" style="color:white;">Pre-Session Checklist</span>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Content -->
+      <div style="padding:0 20px;flex:1;overflow:hidden;display:flex;flex-direction:column;">
+
+        <!-- Moon icon + subtitle -->
+        <div style="text-align:center;margin-bottom:20px;margin-top:8px;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,220,49,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </div>
+          <div class="font-oddval text-h3" style="color:white;margin-bottom:4px;">Night Tracking Setup</div>
+          <div class="text-body2" style="color:rgba(255,255,255,0.5);">Complete these steps for the best results</div>
+        </div>
+
+        <!-- Checklist card -->
+        <div class="card card-dark" style="margin-bottom:20px;">
+          <!-- Item 1: Smart Tape applied — checked -->
+          <div class="checklist-item checklist-item-dark">
+            <div class="check-circle check-circle-done-dark">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="checklist-icon checklist-icon-dark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round"><rect x="3" y="8" width="18" height="8" rx="2"/><path d="M9 8v8M15 8v8"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:white;">Smart Tape applied</div>
+            </div>
+          </div>
+
+          <!-- Item 2: Phone nearby — checked -->
+          <div class="checklist-item checklist-item-dark">
+            <div class="check-circle check-circle-done-dark">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="checklist-icon checklist-icon-dark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:white;">Phone nearby (within 10ft)</div>
+            </div>
+          </div>
+
+          <!-- Item 3: Quiet environment — unchecked -->
+          <div class="checklist-item checklist-item-dark">
+            <div class="check-circle check-circle-empty check-circle-empty-dark"></div>
+            <div class="checklist-icon checklist-icon-dark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:white;">Quiet environment</div>
+            </div>
+          </div>
+
+          <!-- Item 4: Alarm set — checked -->
+          <div class="checklist-item checklist-item-dark">
+            <div class="check-circle check-circle-done-dark">
+              <svg width="14" height="14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="checklist-icon checklist-icon-dark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M5 3l-2 2"/><path d="M19 3l2 2"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:white;">Alarm set for morning</div>
+            </div>
+          </div>
+
+          <!-- Item 5: Comfortable sleeping — unchecked -->
+          <div class="checklist-item checklist-item-dark">
+            <div class="check-circle check-circle-empty check-circle-empty-dark"></div>
+            <div class="checklist-icon checklist-icon-dark">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round"><path d="M3 7v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7"/><path d="M1 20h22"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M7 11h10"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="font-weight:500;color:white;">Comfortable sleeping position</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress -->
+        <div style="margin-bottom:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="text-body2" style="font-weight:500;color:white;">3 of 5 completed</span>
+            <span class="text-caption" style="color:rgba(255,255,255,0.4);">60%</span>
+          </div>
+          <div class="progress-bar-track progress-bar-track-dark">
+            <div class="progress-bar-fill progress-bar-fill-yellow" style="width:60%;"></div>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div style="display:flex;flex-direction:column;gap:12px;padding-bottom:40px;">
+          <button class="btn" style="background:var(--accent-yellow);color:var(--bg-dark);font-weight:600;opacity:0.7;">Start Session</button>
+          <button class="btn btn-ghost" style="color:rgba(255,255,255,0.4);">Skip Checklist</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- S58 — SESSION INTERRUPTION (Dark-only session screen)       -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="screen-row">
+
+  <!-- ────── S58-A: Dark (Primary) ────── -->
+  <div class="screen-col">
+    <div class="screen-label">S58 — Session Interruption</div>
+    <div class="variant-label">Dark (Night Session)</div>
+    <div class="phone phone-dark" style="display:flex;flex-direction:column;">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-dark">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <span style="color:white;">📶</span><span style="color:white;">🔋</span>
+        </div>
+      </div>
+
+      <!-- Content centered -->
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;">
+
+        <!-- Warning icon -->
+        <div class="warning-circle">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 22h20L12 2z" fill="none" stroke="#FF9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="12" y1="9" x2="12" y2="13" stroke="#FF9500" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="17" r="1" fill="#FF9500"/>
+          </svg>
+        </div>
+
+        <!-- Headline -->
+        <div class="font-oddval text-h2" style="color:white;text-align:center;margin-bottom:8px;">Session Interrupted</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.5);text-align:center;margin-bottom:32px;max-width:300px;">Your breathing session was interrupted. Here's what we recorded:</div>
+
+        <!-- Partial data card -->
+        <div style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:32px;">
+          <!-- Duration row -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:4px;">Duration</div>
+              <div class="font-oddval text-h2" style="color:white;">3h 42m</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:4px;">Target</div>
+              <div class="text-body2" style="color:rgba(255,255,255,0.3);">8h 00m</div>
+            </div>
+          </div>
+
+          <!-- Nose breathing -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="text-body2" style="color:rgba(255,255,255,0.5);">Nose Breathing</div>
+            <div class="font-oddval text-h3" style="color:#206FF7;">72%</div>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="partial-progress">
+            <div class="partial-progress-fill" style="width:46%;"></div>
+          </div>
+          <div class="text-caption" style="color:rgba(255,255,255,0.3);margin-top:6px;">46% of session completed</div>
+        </div>
+
+        <!-- Buttons -->
+        <div style="width:100%;display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-primary">Resume Session</button>
+          <button class="btn btn-ghost" style="color:rgba(255,255,255,0.5);">Save Partial Data</button>
+        </div>
+
+        <!-- Timestamp -->
+        <div class="text-caption" style="color:rgba(255,255,255,0.25);margin-top:24px;">Interrupted at 3:24 AM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────── S58-B: Dark (Yellow Accent Variant) ────── -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Dark (Yellow Accent)</div>
+    <div class="phone phone-dark" style="display:flex;flex-direction:column;">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-dark">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <span style="color:white;">📶</span><span style="color:white;">🔋</span>
+        </div>
+      </div>
+
+      <!-- Content centered -->
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;">
+
+        <!-- Warning icon -->
+        <div class="warning-circle">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 22h20L12 2z" fill="none" stroke="#FF9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="12" y1="9" x2="12" y2="13" stroke="#FF9500" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="17" r="1" fill="#FF9500"/>
+          </svg>
+        </div>
+
+        <!-- Headline -->
+        <div class="font-oddval text-h2" style="color:white;text-align:center;margin-bottom:8px;">Session Interrupted</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.5);text-align:center;margin-bottom:32px;max-width:300px;">Your breathing session was interrupted. Here's what we recorded:</div>
+
+        <!-- Partial data card -->
+        <div style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:32px;">
+          <!-- Duration row -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:4px;">Duration</div>
+              <div class="font-oddval text-h2" style="color:white;">3h 42m</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:4px;">Target</div>
+              <div class="text-body2" style="color:rgba(255,255,255,0.3);">8h 00m</div>
+            </div>
+          </div>
+
+          <!-- Nose breathing -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="text-body2" style="color:rgba(255,255,255,0.5);">Nose Breathing</div>
+            <div class="font-oddval text-h3" style="color:var(--accent-yellow);">72%</div>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="partial-progress">
+            <div class="partial-progress-fill" style="width:46%;background:linear-gradient(90deg, var(--accent-yellow), #FFE97A);"></div>
+          </div>
+          <div class="text-caption" style="color:rgba(255,255,255,0.3);margin-top:6px;">46% of session completed</div>
+        </div>
+
+        <!-- Buttons -->
+        <div style="width:100%;display:flex;flex-direction:column;gap:12px;">
+          <button class="btn" style="background:var(--accent-yellow);color:var(--bg-dark);font-weight:600;">Resume Session</button>
+          <button class="btn btn-ghost" style="color:rgba(255,255,255,0.5);">Save Partial Data</button>
+        </div>
+
+        <!-- Timestamp -->
+        <div class="text-caption" style="color:rgba(255,255,255,0.25);margin-top:24px;">Interrupted at 3:24 AM</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- S61 — SHARE RESULTS                                         -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="screen-row">
+
+  <!-- ────── S61-A: Light Mode ────── -->
+  <div class="screen-col">
+    <div class="screen-label">S61 — Share Results</div>
+    <div class="variant-label">Light</div>
+    <div class="phone phone-light" style="display:flex;flex-direction:column;">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-light">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <span>📶</span><span>🔋</span>
+        </div>
+      </div>
+
+      <!-- Nav Header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="24" height="24" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span class="font-oddval text-h3" style="color:var(--text-primary);">Share Results</span>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Content -->
+      <div style="padding:0 20px;flex:1;overflow:hidden;">
+
+        <!-- Preview card with gradient border -->
+        <div class="share-preview" style="margin-bottom:20px;">
+          <div class="share-preview-inner">
+            <!-- Logo -->
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;">
+              <div style="width:20px;height:20px;border-radius:6px;background:#206FF7;display:flex;align-items:center;justify-content:center;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <span style="font-size:11px;font-weight:600;color:#206FF7;letter-spacing:0.5px;">RESPIRELABS</span>
+            </div>
+            <!-- Title + Date -->
+            <div class="font-oddval text-h3" style="color:var(--text-primary);margin-bottom:4px;">Sleep Session Results</div>
+            <div class="text-caption text-secondary" style="margin-bottom:20px;">March 1, 2026</div>
+
+            <!-- Metrics row -->
+            <div style="display:flex;gap:16px;margin-bottom:4px;">
+              <div style="flex:1;text-align:center;">
+                <div class="font-oddval" style="font-size:28px;font-weight:700;color:#206FF7;">84%</div>
+                <div class="text-caption text-secondary">Nose Breathing</div>
+              </div>
+              <div style="width:1px;background:var(--border);"></div>
+              <div style="flex:1;text-align:center;">
+                <div class="font-oddval" style="font-size:28px;font-weight:700;color:var(--text-primary);">7h 23m</div>
+                <div class="text-caption text-secondary">Duration</div>
+              </div>
+              <div style="width:1px;background:var(--border);"></div>
+              <div style="flex:1;text-align:center;">
+                <div class="font-oddval" style="font-size:28px;font-weight:700;color:var(--success);">82</div>
+                <div class="text-caption text-secondary">Sleep Score</div>
+              </div>
+            </div>
+
+            <!-- Mini timeline -->
+            <div class="timeline-mini">
+              <div class="timeline-mini-seg" style="flex:3;background:#206FF7;"></div>
+              <div class="timeline-mini-seg" style="flex:1;background:#EF4444;opacity:0.6;"></div>
+              <div class="timeline-mini-seg" style="flex:4;background:#206FF7;"></div>
+              <div class="timeline-mini-seg" style="flex:0.5;background:#FFDC31;"></div>
+              <div class="timeline-mini-seg" style="flex:2;background:#206FF7;"></div>
+            </div>
+
+            <!-- Watermark -->
+            <div style="text-align:center;margin-top:12px;">
+              <span class="text-caption" style="color:var(--border);font-weight:500;">respirelabs.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Share options row -->
+        <div style="display:flex;gap:12px;margin-bottom:20px;">
+          <!-- Image -->
+          <div class="share-option-btn">
+            <div class="share-option-icon" style="background:rgba(32,111,247,0.08);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <span class="text-caption" style="font-weight:600;color:var(--text-primary);">Image</span>
+          </div>
+          <!-- PDF -->
+          <div class="share-option-btn">
+            <div class="share-option-icon" style="background:rgba(34,197,94,0.08);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M10 13h4"/><path d="M10 17h4"/></svg>
+            </div>
+            <span class="text-caption" style="font-weight:600;color:var(--text-primary);">PDF</span>
+          </div>
+          <!-- Specialist -->
+          <div class="share-option-btn">
+            <div class="share-option-icon" style="background:rgba(139,92,246,0.08);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="text-caption" style="font-weight:600;color:var(--text-primary);">Specialist</span>
+          </div>
+        </div>
+
+        <!-- Privacy notice -->
+        <div style="display:flex;align-items:flex-start;gap:8px;padding:12px 16px;background:rgba(32,111,247,0.04);border-radius:12px;margin-bottom:20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span class="text-caption text-secondary">Shared results do not include personal health information.</span>
+        </div>
+
+        <!-- Share button -->
+        <button class="btn btn-primary">Share</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ────── S61-B: Dark Mode ────── -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Dark</div>
+    <div class="phone phone-dark" style="display:flex;flex-direction:column;">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-dark">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <span style="color:white;">📶</span><span style="color:white;">🔋</span>
+        </div>
+      </div>
+
+      <!-- Nav Header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span class="font-oddval text-h3" style="color:white;">Share Results</span>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Content -->
+      <div style="padding:0 20px;flex:1;overflow:hidden;">
+
+        <!-- Preview card with gradient border -->
+        <div class="share-preview" style="margin-bottom:20px;">
+          <div class="share-preview-inner share-preview-inner-dark">
+            <!-- Logo -->
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:16px;">
+              <div style="width:20px;height:20px;border-radius:6px;background:#FFDC31;display:flex;align-items:center;justify-content:center;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#0A0A0B"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <span style="font-size:11px;font-weight:600;color:#FFDC31;letter-spacing:0.5px;">RESPIRELABS</span>
+            </div>
+            <!-- Title + Date -->
+            <div class="font-oddval text-h3" style="color:white;margin-bottom:4px;">Sleep Session Results</div>
+            <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:20px;">March 1, 2026</div>
+
+            <!-- Metrics row -->
+            <div style="display:flex;gap:16px;margin-bottom:4px;">
+              <div style="flex:1;text-align:center;">
+                <div class="font-oddval" style="font-size:28px;font-weight:700;color:#FFDC31;">84%</div>
+                <div class="text-caption" style="color:rgba(255,255,255,0.4);">Nose Breathing</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+              <div style="flex:1;text-align:center;">
+                <div class="font-oddval" style="font-size:28px;font-weight:700;color:white;">7h 23m</div>
+                <div class="text-caption" style="color:rgba(255,255,255,0.4);">Duration</div>
+              </div>
+              <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+              <div style="flex:1;text-align:center;">
+                <div class="font-oddval" style="font-size:28px;font-weight:700;color:var(--success);">82</div>
+                <div class="text-caption" style="color:rgba(255,255,255,0.4);">Sleep Score</div>
+              </div>
+            </div>
+
+            <!-- Mini timeline -->
+            <div class="timeline-mini">
+              <div class="timeline-mini-seg" style="flex:3;background:#FFDC31;"></div>
+              <div class="timeline-mini-seg" style="flex:1;background:#EF4444;opacity:0.6;"></div>
+              <div class="timeline-mini-seg" style="flex:4;background:#FFDC31;"></div>
+              <div class="timeline-mini-seg" style="flex:0.5;background:#206FF7;"></div>
+              <div class="timeline-mini-seg" style="flex:2;background:#FFDC31;"></div>
+            </div>
+
+            <!-- Watermark -->
+            <div style="text-align:center;margin-top:12px;">
+              <span class="text-caption" style="color:rgba(255,255,255,0.15);font-weight:500;">respirelabs.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Share options row -->
+        <div style="display:flex;gap:12px;margin-bottom:20px;">
+          <!-- Image -->
+          <div class="share-option-btn share-option-btn-dark">
+            <div class="share-option-icon" style="background:rgba(255,220,49,0.1);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            </div>
+            <span class="text-caption" style="font-weight:600;color:white;">Image</span>
+          </div>
+          <!-- PDF -->
+          <div class="share-option-btn share-option-btn-dark">
+            <div class="share-option-icon" style="background:rgba(34,197,94,0.1);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M10 13h4"/><path d="M10 17h4"/></svg>
+            </div>
+            <span class="text-caption" style="font-weight:600;color:white;">PDF</span>
+          </div>
+          <!-- Specialist -->
+          <div class="share-option-btn share-option-btn-dark">
+            <div class="share-option-icon" style="background:rgba(139,92,246,0.1);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <span class="text-caption" style="font-weight:600;color:white;">Specialist</span>
+          </div>
+        </div>
+
+        <!-- Privacy notice -->
+        <div style="display:flex;align-items:flex-start;gap:8px;padding:12px 16px;background:rgba(255,220,49,0.04);border-radius:12px;margin-bottom:20px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFDC31" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span class="text-caption" style="color:rgba(255,255,255,0.4);">Shared results do not include personal health information.</span>
+        </div>
+
+        <!-- Share button -->
+        <button class="btn" style="background:var(--accent-yellow);color:var(--bg-dark);font-weight:600;">Share</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

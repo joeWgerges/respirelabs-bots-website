@@ -1,0 +1,82 @@
+<div class="phone phone-light">
+
+      <div class="status-bar status-bar-light">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect><rect x="2" y="3" width="14" height="6" rx="1"></rect><rect x="21" y="4" width="3" height="4" rx="1"></rect></svg>
+        </div>
+      </div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="24" height="24" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 18l-6-6 6-6"></path></svg>
+          <span class="font-oddval text-h3">Data &amp; Storage</span>
+        </div>
+        <div></div>
+      </div>
+      <div style="padding:0 20px;overflow:hidden;">
+
+        <!-- Storage Chart -->
+        <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:24px;">
+          <div style="position:relative;width:160px;height:160px;margin-bottom:16px;">
+            <svg width="160" height="160" viewBox="0 0 160 160" style="transform:rotate(-90deg);">
+              <!-- Background ring -->
+              <circle cx="80" cy="80" r="65" fill="none" stroke="#E5E7EB" stroke-width="14"></circle>
+              <!-- Sessions (blue) ~48% -->
+              <circle cx="80" cy="80" r="65" fill="none" stroke="#206FF7" stroke-width="14" stroke-dasharray="196 212" stroke-dashoffset="0" stroke-linecap="round"></circle>
+              <!-- Exercises (green) ~18% -->
+              <circle cx="80" cy="80" r="65" fill="none" stroke="#22C55E" stroke-width="14" stroke-dasharray="73 335" stroke-dashoffset="-196" stroke-linecap="round"></circle>
+              <!-- Cache (yellow) ~12% -->
+              <circle cx="80" cy="80" r="65" fill="none" stroke="#FFDC31" stroke-width="14" stroke-dasharray="49 359" stroke-dashoffset="-269" stroke-linecap="round"></circle>
+              <!-- Other (grey) ~10% -->
+              <circle cx="80" cy="80" r="65" fill="none" stroke="#6B7280" stroke-width="14" stroke-dasharray="41 367" stroke-dashoffset="-318" stroke-linecap="round"></circle>
+            </svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+              <div class="font-oddval" style="font-size:24px;font-weight:700;color:var(--text-primary);">2.4 GB</div>
+              <div class="se-caption">of 5 GB</div>
+            </div>
+          </div>
+          <!-- Legend -->
+          <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;">
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#206FF7;"></div><span class="se-caption">Sessions</span></div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#22C55E;"></div><span class="se-caption">Exercises</span></div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#FFDC31;"></div><span class="se-caption">Cache</span></div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:10px;height:10px;border-radius:50%;background:#6B7280;"></div><span class="se-caption">Other</span></div>
+          </div>
+        </div>
+
+        <!-- Action List Card -->
+        <div class="se-card">
+          <!-- Clear Cache -->
+          <div class="se-row">
+            <div class="se-row-left">
+              <div class="se-title">Clear Cache</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span class="se-right-text">124 MB</span>
+              <svg width="16" height="16" fill="none" stroke="#6B7280" stroke-width="2"><path d="M6 12l4-4-4-4"></path></svg>
+            </div>
+          </div>
+          <div class="se-divider"></div>
+          <!-- Download My Data -->
+          <div class="se-row">
+            <div class="se-row-left">
+              <div class="se-title">Download My Data</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="2"><path d="M9 3v10m0 0l-3-3m3 3l3-3M3 15v1a1 1 0 001 1h10a1 1 0 001-1v-1"></path></svg>
+              <svg width="16" height="16" fill="none" stroke="#6B7280" stroke-width="2"><path d="M6 12l4-4-4-4"></path></svg>
+            </div>
+          </div>
+          <div class="se-divider"></div>
+          <!-- Delete Account -->
+          <div class="se-row">
+            <div class="se-row-left">
+              <div class="se-title" style="color:var(--error);">Delete Account</div>
+            </div>
+            <svg width="16" height="16" fill="none" stroke="var(--error)" stroke-width="2"><path d="M6 12l4-4-4-4"></path></svg>
+          </div>
+        </div>
+
+      </div>
+    
+</div>

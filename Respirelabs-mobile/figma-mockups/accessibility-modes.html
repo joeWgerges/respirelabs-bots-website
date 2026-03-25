@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility Modes — RespireLabs Mobile</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8B5CF6, transparent);
+    margin: 48px 0 32px;
+  }
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+<h1 class="page-title">G — Accessibility Modes</h1>
+<p class="page-subtitle">High Contrast, Large Text, Reduced Motion, Color Blind — 11 frames</p>
+
+<!-- G1: High Contrast (WCAG AAA) -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">G1 — High Contrast Mode (3 Screens)</h2>
+<div class="screen-row">
+  <!-- G1a: Home — High Contrast -->
+  <div class="screen-col">
+    <div class="screen-label">G1a — Home (High Contrast)</div>
+    <div class="phone" style="background:#FFFFFF;">
+      <div class="phone-scroll">
+        <div class="status-bar" style="color:#000000;">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55M5 12.55a10.94 10.94 0 0 1 5.17-2.39M10.71 5.05A16 16 0 0 1 22.56 9M1.42 9a16 16 0 0 1 7.38-3.73M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#000"><rect width="18" height="12" rx="2" fill="none" stroke="#000" stroke-width="2"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#000"/></svg>
+          </div>
+        </div>
+        <div class="nav-header" style="border-bottom:3px solid #000;">
+          <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#000"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span class="nav-logo-text" style="color:#000;">RespireLabs</span>
+          </div>
+          <div style="width:40px;height:40px;border-radius:12px;background:#000;display:flex;align-items:center;justify-content:center;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </div>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <div style="margin-bottom:16px;">
+            <span style="font-size:14px;color:#000;font-weight:700;">Good morning, Jan</span>
+            <h2 style="font-family:'Oddval',serif;font-size:28px;font-weight:800;color:#000;margin-top:4px;">Dashboard</h2>
+          </div>
+          <!-- High contrast pill -->
+          <div style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:100px;background:#000;color:#FFF;font-size:13px;font-weight:700;margin-bottom:16px;border:2px solid #000;">
+            <span style="width:10px;height:10px;border-radius:50%;background:#22C55E;"></span>
+            Smart Tape Connected
+          </div>
+          <!-- Score card -->
+          <div style="background:#F0F0F0;border:3px solid #000;border-radius:20px;padding:20px;margin-bottom:16px;">
+            <div style="text-align:center;">
+              <div style="width:160px;height:160px;margin:0 auto;position:relative;">
+                <svg width="160" height="160" viewBox="0 0 160 160">
+                  <circle cx="80" cy="80" r="70" fill="none" stroke="#CCC" stroke-width="12"/>
+                  <circle cx="80" cy="80" r="70" fill="none" stroke="#000" stroke-width="12" stroke-dasharray="330 440" stroke-linecap="round" transform="rotate(-90 80 80)"/>
+                </svg>
+                <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+                  <div style="font-size:40px;font-weight:800;color:#000;">75%</div>
+                  <div style="font-size:12px;font-weight:700;color:#000;">NOSE SCORE</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Stats -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="background:#000;border-radius:16px;padding:16px;color:#FFF;">
+              <div style="font-size:12px;font-weight:600;">Sleep</div>
+              <div style="font-size:28px;font-weight:800;">6.2h</div>
+            </div>
+            <div style="background:#000;border-radius:16px;padding:16px;color:#FFF;">
+              <div style="font-size:12px;font-weight:600;">Breath Rate</div>
+              <div style="font-size:28px;font-weight:800;">14/min</div>
+            </div>
+          </div>
+        </div>
+        <!-- Tab bar HC -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:83px;background:#000;display:flex;align-items:center;justify-content:space-around;padding:0 8px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:36px;height:36px;background:#FFF;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:16px;">🏠</span>
+            </div>
+            <span style="font-size:10px;font-weight:700;color:#FFF;">Home</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">📊</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Track</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">💨</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Tips</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">📚</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Learn</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">🩺</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Consult</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G1b: Session — High Contrast -->
+  <div class="screen-col">
+    <div class="screen-label">G1b — Session (High Contrast)</div>
+    <div class="phone" style="background:#000000;">
+      <div class="phone-scroll">
+        <div class="status-bar" style="color:#FFF;">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="3"><path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/></svg>
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#FFF"><rect width="18" height="12" rx="2" fill="none" stroke="#FFF" stroke-width="2"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#FFF"/></svg>
+          </div>
+        </div>
+        <!-- Recording indicator -->
+        <div style="padding:8px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-size:14px;font-weight:700;color:#FFF;">Breathing Exercise</span>
+          </div>
+          <span style="font-size:14px;font-weight:700;color:#FFF;">02:34</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:32px;">
+          <!-- Phase indicator -->
+          <div style="padding:10px 28px;border:3px solid #FFF;border-radius:100px;font-size:16px;font-weight:800;color:#FFF;letter-spacing:2px;">INHALE</div>
+          <!-- Ring -->
+          <div style="width:240px;height:240px;border-radius:50%;border:10px solid #FFF;display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;">
+              <div style="font-size:64px;font-weight:800;color:#FFF;">4</div>
+              <div style="font-size:16px;font-weight:600;color:#CCC;">seconds</div>
+            </div>
+          </div>
+          <!-- Pattern -->
+          <div style="display:flex;gap:16px;">
+            <div style="text-align:center;">
+              <div style="font-size:24px;font-weight:800;color:#FFF;border:3px solid #FFF;border-radius:12px;padding:8px 16px;">4</div>
+              <div style="font-size:11px;color:#CCC;margin-top:4px;font-weight:600;">IN</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:24px;font-weight:800;color:#999;border:3px solid #666;border-radius:12px;padding:8px 16px;">7</div>
+              <div style="font-size:11px;color:#999;margin-top:4px;font-weight:600;">HOLD</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:24px;font-weight:800;color:#999;border:3px solid #666;border-radius:12px;padding:8px 16px;">8</div>
+              <div style="font-size:11px;color:#999;margin-top:4px;font-weight:600;">OUT</div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom controls -->
+        <div style="padding:20px;display:flex;gap:12px;margin-bottom:20px;">
+          <div style="flex:1;background:#FFF;color:#000;padding:18px;border-radius:100px;text-align:center;font-size:16px;font-weight:800;">PAUSE</div>
+          <div style="width:60px;height:60px;background:#FF0000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:20px;color:#FFF;font-weight:800;">■</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G1c: Analytics — High Contrast -->
+  <div class="screen-col">
+    <div class="screen-label">G1c — Analytics (High Contrast)</div>
+    <div class="phone" style="background:#FFFFFF;">
+      <div class="phone-scroll">
+        <div class="status-bar" style="color:#000;">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#000"><rect width="18" height="12" rx="2" fill="none" stroke="#000" stroke-width="2"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#000"/></svg>
+          </div>
+        </div>
+        <div style="padding:8px 20px 12px;">
+          <h2 style="font-family:'Oddval',serif;font-size:24px;font-weight:800;color:#000;">Breathing Analysis</h2>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <!-- Period selector HC -->
+          <div style="display:flex;gap:4px;margin-bottom:16px;">
+            <div style="flex:1;background:#000;color:#FFF;padding:10px;border-radius:10px;text-align:center;font-size:13px;font-weight:700;">Week</div>
+            <div style="flex:1;background:#F0F0F0;border:2px solid #000;color:#000;padding:10px;border-radius:10px;text-align:center;font-size:13px;font-weight:600;">Month</div>
+            <div style="flex:1;background:#F0F0F0;border:2px solid #000;color:#000;padding:10px;border-radius:10px;text-align:center;font-size:13px;font-weight:600;">Year</div>
+          </div>
+          <!-- Chart HC -->
+          <div style="background:#F0F0F0;border:3px solid #000;border-radius:20px;padding:16px;margin-bottom:16px;">
+            <div style="font-size:14px;font-weight:700;color:#000;margin-bottom:12px;">Nose vs. Mouth Breathing</div>
+            <div style="display:flex;align-items:flex-end;gap:6px;height:120px;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#000;border-radius:4px;height:48px;"></div>
+                  <div style="background:#999;border-radius:4px;height:20px;"></div>
+                </div>
+                <span style="font-size:10px;font-weight:700;color:#000;">M</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#000;border-radius:4px;height:60px;"></div>
+                  <div style="background:#999;border-radius:4px;height:15px;"></div>
+                </div>
+                <span style="font-size:10px;font-weight:700;color:#000;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#000;border-radius:4px;height:68px;"></div>
+                  <div style="background:#999;border-radius:4px;height:12px;"></div>
+                </div>
+                <span style="font-size:10px;font-weight:700;color:#000;">W</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#000;border-radius:4px;height:55px;"></div>
+                  <div style="background:#999;border-radius:4px;height:18px;"></div>
+                </div>
+                <span style="font-size:10px;font-weight:700;color:#000;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#000;border-radius:4px;height:72px;"></div>
+                  <div style="background:#999;border-radius:4px;height:10px;"></div>
+                </div>
+                <span style="font-size:10px;font-weight:700;color:#000;">F</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#000;border-radius:4px;height:65px;"></div>
+                  <div style="background:#999;border-radius:4px;height:14px;"></div>
+                </div>
+                <span style="font-size:10px;font-weight:700;color:#000;">S</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#000;border-radius:4px;height:75px;border:3px solid #000;"></div>
+                  <div style="background:#999;border-radius:4px;height:8px;"></div>
+                </div>
+                <span style="font-size:10px;font-weight:800;color:#000;">S</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;margin-top:12px;">
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#000;border-radius:2px;"></div><span style="font-size:11px;font-weight:700;color:#000;">Nose</span></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#999;border-radius:2px;"></div><span style="font-size:11px;font-weight:700;color:#000;">Mouth</span></div>
+            </div>
+          </div>
+          <!-- Stats HC -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div style="background:#000;border-radius:16px;padding:16px;text-align:center;">
+              <div style="font-size:28px;font-weight:800;color:#FFF;">75%</div>
+              <div style="font-size:12px;font-weight:700;color:#CCC;">Avg Nose</div>
+            </div>
+            <div style="background:#000;border-radius:16px;padding:16px;text-align:center;">
+              <div style="font-size:28px;font-weight:800;color:#FFF;">14</div>
+              <div style="font-size:12px;font-weight:700;color:#CCC;">Breath/min</div>
+            </div>
+          </div>
+        </div>
+        <!-- Tab bar HC -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:83px;background:#000;display:flex;align-items:center;justify-content:space-around;padding:0 8px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">🏠</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Home</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:36px;height:36px;background:#FFF;border-radius:10px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:16px;">📊</span>
+            </div>
+            <span style="font-size:10px;font-weight:700;color:#FFF;">Track</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">💨</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Tips</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">📚</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Learn</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:16px;">🩺</span>
+            <span style="font-size:10px;font-weight:500;color:#999;">Consult</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- G2: Large Text / Dynamic Type -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">G2 — Large Text / Dynamic Type (3 Screens)</h2>
+<div class="screen-row">
+  <!-- G2a: Home — Large Text -->
+  <div class="screen-col">
+    <div class="screen-label">G2a — Home (AX Large Text)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div class="nav-header">
+          <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#206FF7"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span class="nav-logo-text" style="color:#0A0A0B;font-size:22px;">RespireLabs</span>
+          </div>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <div style="margin-bottom:12px;">
+            <span style="font-size:20px;color:#6B7280;font-weight:500;">Good morning</span>
+            <h2 style="font-family:'Oddval',serif;font-size:36px;font-weight:700;color:#0A0A0B;margin-top:4px;line-height:1.1;">Dashboard</h2>
+          </div>
+          <!-- Score card - larger -->
+          <div class="card" style="margin-bottom:16px;padding:20px;">
+            <div style="text-align:center;">
+              <div style="font-size:56px;font-weight:700;color:#206FF7;">75%</div>
+              <div style="font-size:20px;color:#6B7280;margin-top:4px;">Nose Breathing Score</div>
+              <div style="font-size:18px;color:#22C55E;font-weight:600;margin-top:8px;">↑ 5% from yesterday</div>
+            </div>
+          </div>
+          <!-- Stats - larger -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="card" style="padding:16px;text-align:center;">
+              <div style="font-size:36px;font-weight:700;color:#0A0A0B;">6.2h</div>
+              <div style="font-size:16px;color:#6B7280;">Sleep</div>
+            </div>
+            <div class="card" style="padding:16px;text-align:center;">
+              <div style="font-size:36px;font-weight:700;color:#0A0A0B;">14</div>
+              <div style="font-size:16px;color:#6B7280;">Breath/min</div>
+            </div>
+          </div>
+          <!-- CTA - larger -->
+          <div style="margin-top:16px;">
+            <div style="background:#206FF7;color:white;padding:20px;border-radius:100px;text-align:center;font-size:20px;font-weight:600;">Start Session</div>
+          </div>
+        </div>
+        <!-- Tab bar - larger -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:90px;background:white;display:flex;align-items:center;justify-content:space-around;padding:0 8px;border-top:1px solid #E5E7EB;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:36px;height:36px;background:rgba(32,111,247,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:18px;">🏠</span>
+            </div>
+            <span style="font-size:12px;font-weight:600;color:#206FF7;">Home</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:18px;">📊</span>
+            <span style="font-size:12px;color:#6B7280;">Track</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:18px;">💨</span>
+            <span style="font-size:12px;color:#6B7280;">Tips</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:18px;">📚</span>
+            <span style="font-size:12px;color:#6B7280;">Learn</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <span style="font-size:18px;">🩺</span>
+            <span style="font-size:12px;color:#6B7280;">Consult</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G2b: Settings — Large Text -->
+  <div class="screen-col">
+    <div class="screen-label">G2b — Settings (AX Large Text)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div style="padding:8px 20px 12px;display:flex;align-items:center;gap:12px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <h2 style="font-family:'Oddval',serif;font-size:28px;font-weight:700;color:#0A0A0B;">Settings</h2>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <!-- Large text settings items -->
+          <div style="background:white;border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+            <div style="display:flex;align-items:center;gap:16px;padding:20px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#ddd,#bbb);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:22px;font-weight:600;color:white;">J</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:20px;font-weight:600;color:#0A0A0B;">Jan Kowalski</div>
+                <div style="font-size:16px;color:#6B7280;">jan@example.com</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div style="height:1px;background:#E5E7EB;margin:0 20px;"></div>
+            <div style="padding:20px;display:flex;align-items:center;gap:16px;">
+              <span style="font-size:24px;">📱</span>
+              <span style="flex:1;font-size:18px;font-weight:500;color:#0A0A0B;">Smart Tape</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div style="height:1px;background:#E5E7EB;margin:0 20px;"></div>
+            <div style="padding:20px;display:flex;align-items:center;gap:16px;">
+              <span style="font-size:24px;">🔔</span>
+              <span style="flex:1;font-size:18px;font-weight:500;color:#0A0A0B;">Notifications</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div style="height:1px;background:#E5E7EB;margin:0 20px;"></div>
+            <div style="padding:20px;display:flex;align-items:center;gap:16px;">
+              <span style="font-size:24px;">♿</span>
+              <span style="flex:1;font-size:18px;font-weight:500;color:#0A0A0B;">Accessibility</span>
+              <div style="background:#206FF7;color:white;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px;">ON</div>
+            </div>
+            <div style="height:1px;background:#E5E7EB;margin:0 20px;"></div>
+            <div style="padding:20px;display:flex;align-items:center;gap:16px;">
+              <span style="font-size:24px;">🔒</span>
+              <span style="flex:1;font-size:18px;font-weight:500;color:#0A0A0B;">Privacy</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div style="height:1px;background:#E5E7EB;margin:0 20px;"></div>
+            <div style="padding:20px;display:flex;align-items:center;gap:16px;">
+              <span style="font-size:24px;">⭐</span>
+              <span style="flex:1;font-size:18px;font-weight:500;color:#0A0A0B;">Subscription</span>
+              <div style="background:#F59E0B;color:white;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px;">PRO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G2c: Exercise — Large Text -->
+  <div class="screen-col">
+    <div class="screen-label">G2c — Exercise List (AX Large Text)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div style="padding:8px 20px 12px;">
+          <h2 style="font-family:'Oddval',serif;font-size:28px;font-weight:700;color:#0A0A0B;">Exercises</h2>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <!-- Exercise items - large -->
+          <div style="background:white;border-radius:20px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:56px;height:56px;border-radius:16px;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:28px;">🫁</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:20px;font-weight:600;color:#0A0A0B;">4-7-8 Breathing</div>
+                <div style="font-size:16px;color:#6B7280;margin-top:4px;">Relaxation · 5 min</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;border-radius:20px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:56px;height:56px;border-radius:16px;background:rgba(34,197,94,0.08);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:28px;">🧘</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:20px;font-weight:600;color:#0A0A0B;">Box Breathing</div>
+                <div style="font-size:16px;color:#6B7280;margin-top:4px;">Focus · 4 min</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;border-radius:20px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:56px;height:56px;border-radius:16px;background:rgba(139,92,246,0.08);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:28px;">🌊</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:20px;font-weight:600;color:#0A0A0B;">Diaphragmatic</div>
+                <div style="font-size:16px;color:#6B7280;margin-top:4px;">Deep breath · 6 min</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:white;border-radius:20px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,0.04);margin-bottom:12px;">
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="width:56px;height:56px;border-radius:16px;background:rgba(245,158,11,0.08);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:28px;">☀️</span>
+              </div>
+              <div style="flex:1;">
+                <div style="font-size:20px;font-weight:600;color:#0A0A0B;">Morning Energizer</div>
+                <div style="font-size:16px;color:#6B7280;margin-top:4px;">Energy · 3 min</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-bar">
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🏠</span></div><span>Home</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">📊</span></div><span>Track</span></div>
+          <div class="tab-item active"><div class="tab-icon-active"><span style="font-size:16px;">💨</span></div><span>Tips</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">📚</span></div><span>Learn</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🩺</span></div><span>Consult</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- G3: Reduced Motion -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">G3 — Reduced Motion (2 Screens)</h2>
+<div class="screen-row">
+  <!-- G3a: Session — No Animation -->
+  <div class="screen-col">
+    <div class="screen-label">G3a — Session (Reduced Motion)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div style="padding:8px 20px;display:flex;align-items:center;justify-content:space-between;">
+          <span style="font-size:16px;font-weight:600;color:#0A0A0B;">Breathing Exercise</span>
+          <span style="font-size:14px;font-weight:500;color:#6B7280;">02:34</span>
+        </div>
+        <!-- Reduced motion banner -->
+        <div style="margin:0 20px 12px;background:#F3E8FF;border:1px solid #8B5CF6;border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+          <span style="font-size:16px;">♿</span>
+          <span style="font-size:12px;font-weight:500;color:#8B5CF6;">Reduced Motion — Static indicators active</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;gap:24px;">
+          <!-- Static phase indicator (no ring animation) -->
+          <div style="background:rgba(32,111,247,0.1);padding:10px 28px;border-radius:100px;font-size:14px;font-weight:600;color:#206FF7;letter-spacing:1px;">INHALE</div>
+          <!-- Static ring with progress bar instead of animation -->
+          <div style="width:220px;height:220px;border-radius:50%;border:6px solid #E5E7EB;display:flex;align-items:center;justify-content:center;position:relative;">
+            <!-- Progress arc (static) -->
+            <svg width="220" height="220" viewBox="0 0 220 220" style="position:absolute;top:0;left:0;">
+              <circle cx="110" cy="110" r="104" fill="none" stroke="#206FF7" stroke-width="6" stroke-dasharray="196 654" stroke-linecap="round" transform="rotate(-90 110 110)"/>
+            </svg>
+            <div style="text-align:center;">
+              <div style="font-size:48px;font-weight:700;color:#206FF7;">4</div>
+              <div style="font-size:14px;color:#6B7280;">seconds</div>
+            </div>
+          </div>
+          <!-- Static progress bar (replaces animated ring) -->
+          <div style="width:100%;">
+            <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+              <span style="font-size:11px;font-weight:500;color:#206FF7;">Phase 1/3</span>
+              <span style="font-size:11px;color:#6B7280;">Cycle 2/5</span>
+            </div>
+            <div style="height:8px;background:#E5E7EB;border-radius:4px;overflow:hidden;">
+              <div style="height:100%;width:30%;background:#206FF7;border-radius:4px;"></div>
+            </div>
+          </div>
+          <!-- Pattern (static, no transitions) -->
+          <div style="display:flex;gap:12px;">
+            <div style="background:#206FF7;color:white;padding:10px 20px;border-radius:12px;text-align:center;">
+              <div style="font-size:18px;font-weight:700;">4s</div>
+              <div style="font-size:10px;font-weight:500;">IN ←</div>
+            </div>
+            <div style="background:#F7F7F9;padding:10px 20px;border-radius:12px;text-align:center;">
+              <div style="font-size:18px;font-weight:700;color:#6B7280;">7s</div>
+              <div style="font-size:10px;font-weight:500;color:#6B7280;">HOLD</div>
+            </div>
+            <div style="background:#F7F7F9;padding:10px 20px;border-radius:12px;text-align:center;">
+              <div style="font-size:18px;font-weight:700;color:#6B7280;">8s</div>
+              <div style="font-size:10px;font-weight:500;color:#6B7280;">OUT</div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom controls -->
+        <div style="padding:20px;display:flex;gap:12px;margin-bottom:20px;">
+          <div style="flex:1;background:#E5E7EB;color:#0A0A0B;padding:16px;border-radius:100px;text-align:center;font-size:16px;font-weight:600;">Pause</div>
+          <div style="flex:1;background:#EF4444;color:white;padding:16px;border-radius:100px;text-align:center;font-size:16px;font-weight:600;">Stop</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G3b: Home — No Animation -->
+  <div class="screen-col">
+    <div class="screen-label">G3b — Home (Reduced Motion)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div class="nav-header">
+          <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#206FF7"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span class="nav-logo-text" style="color:#0A0A0B;">RespireLabs</span>
+          </div>
+          <div class="nav-settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7280" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9"/></svg>
+          </div>
+        </div>
+        <!-- Reduced motion banner -->
+        <div style="margin:0 20px 12px;background:#F3E8FF;border:1px solid #8B5CF6;border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:8px;">
+          <span style="font-size:16px;">♿</span>
+          <span style="font-size:12px;font-weight:500;color:#8B5CF6;">Reduced Motion active</span>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <div style="margin-bottom:12px;">
+            <span style="font-size:14px;color:#6B7280;">Good morning, Jan</span>
+            <h2 style="font-family:'Oddval',serif;font-size:28px;font-weight:700;color:#0A0A0B;margin-top:4px;">Dashboard</h2>
+          </div>
+          <!-- Status pill static -->
+          <div class="status-pill" style="margin-bottom:16px;">
+            <span class="status-dot"></span>
+            Smart Tape Connected
+          </div>
+          <!-- Score - static number instead of animated ring -->
+          <div class="card" style="margin-bottom:16px;">
+            <div style="display:flex;align-items:center;gap:20px;">
+              <div style="width:100px;height:100px;border-radius:50%;border:6px solid #206FF7;display:flex;align-items:center;justify-content:center;">
+                <div style="font-size:28px;font-weight:700;color:#206FF7;">75%</div>
+              </div>
+              <div>
+                <div style="font-size:16px;font-weight:600;color:#0A0A0B;">Nose Breathing Score</div>
+                <div style="font-size:14px;color:#22C55E;margin-top:4px;">↑ 5% from yesterday</div>
+                <!-- Static progress bar instead of animated -->
+                <div style="height:6px;background:#E5E7EB;border-radius:3px;width:160px;margin-top:8px;">
+                  <div style="height:100%;width:75%;background:#206FF7;border-radius:3px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Stats grid -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+            <div class="card" style="padding:16px;text-align:center;">
+              <div style="font-size:24px;font-weight:700;color:#0A0A0B;">6.2h</div>
+              <div style="font-size:12px;color:#6B7280;">Sleep Duration</div>
+            </div>
+            <div class="card" style="padding:16px;text-align:center;">
+              <div style="font-size:24px;font-weight:700;color:#0A0A0B;">14/min</div>
+              <div style="font-size:12px;color:#6B7280;">Breath Rate</div>
+            </div>
+          </div>
+          <div class="btn btn-primary">Start Night Session</div>
+        </div>
+        <div class="tab-bar">
+          <div class="tab-item active"><div class="tab-icon-active"><span style="font-size:16px;">🏠</span></div><span>Home</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">📊</span></div><span>Track</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">💨</span></div><span>Tips</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">📚</span></div><span>Learn</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🩺</span></div><span>Consult</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- G4: Color Blind Modes -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">G4 — Color Blind Modes (3 Variants)</h2>
+<div class="screen-row">
+  <!-- G4a: Protanopia (Red-blind) -->
+  <div class="screen-col">
+    <div class="screen-label">G4a — Protanopia (Red-Blind)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div style="padding:8px 20px 12px;">
+          <h2 style="font-family:'Oddval',serif;font-size:24px;font-weight:700;color:#0A0A0B;">Breathing Analysis</h2>
+          <div style="font-size:10px;color:#6B7280;margin-top:4px;font-weight:500;letter-spacing:1px;">PROTANOPIA MODE</div>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <!-- Chart with protanopia-safe colors -->
+          <div class="card" style="margin-bottom:16px;">
+            <div style="font-size:14px;font-weight:600;color:#0A0A0B;margin-bottom:12px;">Nose vs. Mouth (Pattern-coded)</div>
+            <div style="display:flex;align-items:flex-end;gap:6px;height:100px;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#0072B2;border-radius:4px;height:48px;"></div>
+                  <div style="background:#E69F00;border-radius:4px;height:20px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">M</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#0072B2;border-radius:4px;height:60px;"></div>
+                  <div style="background:#E69F00;border-radius:4px;height:15px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#0072B2;border-radius:4px;height:68px;"></div>
+                  <div style="background:#E69F00;border-radius:4px;height:12px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">W</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#0072B2;border-radius:4px;height:55px;"></div>
+                  <div style="background:#E69F00;border-radius:4px;height:18px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#0072B2;border-radius:4px;height:72px;"></div>
+                  <div style="background:#E69F00;border-radius:4px;height:10px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">F</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#0072B2;border-radius:4px;height:65px;"></div>
+                  <div style="background:#E69F00;border-radius:4px;height:14px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">S</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#0072B2;border-radius:4px;height:75px;"></div>
+                  <div style="background:#E69F00;border-radius:4px;height:8px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#0072B2;font-weight:600;">S</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;margin-top:12px;">
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#0072B2;border-radius:2px;"></div><span style="font-size:11px;color:#0A0A0B;">Nose (Blue)</span></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#E69F00;border-radius:2px;background-image:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(255,255,255,0.3) 2px,rgba(255,255,255,0.3) 4px);"></div><span style="font-size:11px;color:#0A0A0B;">Mouth (Orange)</span></div>
+            </div>
+          </div>
+          <!-- Status indicators with shapes -->
+          <div style="font-size:13px;font-weight:600;color:#0A0A0B;margin-bottom:8px;">Status Indicators</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:12px;padding:12px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="width:24px;height:24px;background:#009E73;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;">✓</div>
+              <span style="font-size:14px;color:#0A0A0B;">Connected (checkmark = good)</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:12px;padding:12px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="width:24px;height:24px;background:#D55E00;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;" style="clip-path:polygon(50% 0%, 0% 100%, 100% 100%);">⚠</div>
+              <span style="font-size:14px;color:#0A0A0B;">Warning (triangle = caution)</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;background:white;border-radius:12px;padding:12px 16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="width:24px;height:24px;background:#CC79A7;border-radius:4px;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;">✕</div>
+              <span style="font-size:14px;color:#0A0A0B;">Error (square + X = problem)</span>
+            </div>
+          </div>
+        </div>
+        <div class="tab-bar">
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🏠</span></div><span>Home</span></div>
+          <div class="tab-item active"><div class="tab-icon-active" style="background:rgba(0,114,178,0.1);"><span style="font-size:16px;">📊</span></div><span style="color:#0072B2;">Track</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">💨</span></div><span>Tips</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">📚</span></div><span>Learn</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🩺</span></div><span>Consult</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G4b: Deuteranopia (Green-blind) -->
+  <div class="screen-col">
+    <div class="screen-label">G4b — Deuteranopia (Green-Blind)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div style="padding:8px 20px 12px;">
+          <h2 style="font-family:'Oddval',serif;font-size:24px;font-weight:700;color:#0A0A0B;">Breathing Analysis</h2>
+          <div style="font-size:10px;color:#6B7280;margin-top:4px;font-weight:500;letter-spacing:1px;">DEUTERANOPIA MODE</div>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <!-- Chart with deuteranopia-safe palette (Okabe-Ito) -->
+          <div class="card" style="margin-bottom:16px;">
+            <div style="font-size:14px;font-weight:600;color:#0A0A0B;margin-bottom:12px;">Nose vs. Mouth (Shape-coded)</div>
+            <div style="display:flex;align-items:flex-end;gap:6px;height:100px;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#56B4E9;border-radius:4px;height:48px;"></div>
+                  <div style="background:#CC79A7;border-radius:0;height:20px;"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">M</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#56B4E9;border-radius:4px;height:60px;"></div>
+                  <div style="background:#CC79A7;border-radius:0;height:15px;"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#56B4E9;border-radius:4px;height:68px;"></div>
+                  <div style="background:#CC79A7;border-radius:0;height:12px;"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">W</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#56B4E9;border-radius:4px;height:55px;"></div>
+                  <div style="background:#CC79A7;border-radius:0;height:18px;"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#56B4E9;border-radius:4px;height:72px;"></div>
+                  <div style="background:#CC79A7;border-radius:0;height:10px;"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">F</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#56B4E9;border-radius:4px;height:65px;"></div>
+                  <div style="background:#CC79A7;border-radius:0;height:14px;"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">S</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#56B4E9;border-radius:4px;height:75px;"></div>
+                  <div style="background:#CC79A7;border-radius:0;height:8px;"></div>
+                </div>
+                <span style="font-size:9px;color:#56B4E9;font-weight:600;">S</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;margin-top:12px;">
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#56B4E9;border-radius:4px;"></div><span style="font-size:11px;color:#0A0A0B;">Nose (Round)</span></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#CC79A7;border-radius:0;"></div><span style="font-size:11px;color:#0A0A0B;">Mouth (Square)</span></div>
+            </div>
+          </div>
+          <!-- Score with safe colors -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="card" style="padding:16px;text-align:center;border-left:4px solid #56B4E9;">
+              <div style="font-size:28px;font-weight:700;color:#0A0A0B;">75%</div>
+              <div style="font-size:12px;color:#56B4E9;font-weight:600;">Nose ●</div>
+            </div>
+            <div class="card" style="padding:16px;text-align:center;border-left:4px solid #CC79A7;">
+              <div style="font-size:28px;font-weight:700;color:#0A0A0B;">25%</div>
+              <div style="font-size:12px;color:#CC79A7;font-weight:600;">Mouth ■</div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-bar">
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🏠</span></div><span>Home</span></div>
+          <div class="tab-item active"><div class="tab-icon-active" style="background:rgba(86,180,233,0.1);"><span style="font-size:16px;">📊</span></div><span style="color:#56B4E9;">Track</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">💨</span></div><span>Tips</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">📚</span></div><span>Learn</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🩺</span></div><span>Consult</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- G4c: Tritanopia (Blue-blind) -->
+  <div class="screen-col">
+    <div class="screen-label">G4c — Tritanopia (Blue-Blind)</div>
+    <div class="phone phone-light">
+      <div class="phone-scroll">
+        <div class="status-bar status-bar-light">
+          <span>9:41</span>
+          <div class="status-bar-icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="#0A0A0B"><rect width="18" height="12" rx="2" fill="none" stroke="#0A0A0B" stroke-width="1.5"/><rect x="3" y="3" width="10" height="6" rx="1" fill="#0A0A0B"/></svg>
+          </div>
+        </div>
+        <div style="padding:8px 20px 12px;">
+          <h2 style="font-family:'Oddval',serif;font-size:24px;font-weight:700;color:#0A0A0B;">Breathing Analysis</h2>
+          <div style="font-size:10px;color:#6B7280;margin-top:4px;font-weight:500;letter-spacing:1px;">TRITANOPIA MODE</div>
+        </div>
+        <div class="content" style="padding:0 20px;">
+          <!-- Chart with tritanopia-safe palette (avoiding blue-yellow confusion) -->
+          <div class="card" style="margin-bottom:16px;">
+            <div style="font-size:14px;font-weight:600;color:#0A0A0B;margin-bottom:12px;">Nose vs. Mouth (Texture-coded)</div>
+            <div style="display:flex;align-items:flex-end;gap:6px;height:100px;">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#D55E00;border-radius:4px;height:48px;"></div>
+                  <div style="background:#882255;border-radius:4px;height:20px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">M</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#D55E00;border-radius:4px;height:60px;"></div>
+                  <div style="background:#882255;border-radius:4px;height:15px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#D55E00;border-radius:4px;height:68px;"></div>
+                  <div style="background:#882255;border-radius:4px;height:12px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">W</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#D55E00;border-radius:4px;height:55px;"></div>
+                  <div style="background:#882255;border-radius:4px;height:18px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">T</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#D55E00;border-radius:4px;height:72px;"></div>
+                  <div style="background:#882255;border-radius:4px;height:10px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">F</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#D55E00;border-radius:4px;height:65px;"></div>
+                  <div style="background:#882255;border-radius:4px;height:14px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#6B7280;">S</span>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+                <div style="width:100%;display:flex;flex-direction:column;gap:2px;">
+                  <div style="background:#D55E00;border-radius:4px;height:75px;"></div>
+                  <div style="background:#882255;border-radius:4px;height:8px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div>
+                </div>
+                <span style="font-size:9px;color:#D55E00;font-weight:600;">S</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:16px;margin-top:12px;">
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#D55E00;border-radius:2px;"></div><span style="font-size:11px;color:#0A0A0B;">Nose (Solid)</span></div>
+              <div style="display:flex;align-items:center;gap:6px;"><div style="width:12px;height:12px;background:#882255;border-radius:2px;background-image:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.4) 3px,rgba(255,255,255,0.4) 4px);"></div><span style="font-size:11px;color:#0A0A0B;">Mouth (Striped)</span></div>
+            </div>
+          </div>
+          <!-- Score with safe colors -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="card" style="padding:16px;text-align:center;border-left:4px solid #D55E00;">
+              <div style="font-size:28px;font-weight:700;color:#0A0A0B;">75%</div>
+              <div style="font-size:12px;color:#D55E00;font-weight:600;">Nose (solid)</div>
+            </div>
+            <div class="card" style="padding:16px;text-align:center;border-left:4px solid #882255;">
+              <div style="font-size:28px;font-weight:700;color:#0A0A0B;">25%</div>
+              <div style="font-size:12px;color:#882255;font-weight:600;">Mouth (stripe)</div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-bar">
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🏠</span></div><span>Home</span></div>
+          <div class="tab-item active"><div class="tab-icon-active" style="background:rgba(213,94,0,0.1);"><span style="font-size:16px;">📊</span></div><span style="color:#D55E00;">Track</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">💨</span></div><span>Tips</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">📚</span></div><span>Learn</span></div>
+          <div class="tab-item"><div class="tab-icon"><span style="font-size:16px;">🩺</span></div><span>Consult</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

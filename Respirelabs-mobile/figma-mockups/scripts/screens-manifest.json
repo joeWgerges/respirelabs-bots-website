@@ -1,0 +1,849 @@
+[
+  {
+    "screenId": "C1",
+    "sourceFile": "premium-upsell.html",
+    "label": "C1-A · Soft Paywall · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "C2",
+    "sourceFile": "premium-upsell.html",
+    "label": "C2 · Feature Gate Modal",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "C3",
+    "sourceFile": "premium-upsell.html",
+    "label": "C3 · Trial Expiring",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "C4",
+    "sourceFile": "premium-upsell.html",
+    "label": "C4 · Subscription Success",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "C5",
+    "sourceFile": "premium-upsell.html",
+    "label": "C5-A · Plan Comparison · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "D1",
+    "sourceFile": "notifications-center.html",
+    "label": "D1-A · Inbox · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "D2",
+    "sourceFile": "notifications-center.html",
+    "label": "D2 · Push Previews",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "D3",
+    "sourceFile": "notifications-center.html",
+    "label": "D3 · In-App Toasts",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "H1",
+    "sourceFile": "onboarding-variations.html",
+    "label": "H1-A · Social Login · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "H2",
+    "sourceFile": "onboarding-variations.html",
+    "label": "H2 · Account Creation",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "H3",
+    "sourceFile": "onboarding-variations.html",
+    "label": "H3 · Health Disclaimer",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "H4",
+    "sourceFile": "onboarding-variations.html",
+    "label": "H4 · Quick Start",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S1",
+    "sourceFile": "onboarding.html",
+    "label": "S1 — Splash Screen",
+    "hasTabBar": false,
+    "phoneTheme": "blue"
+  },
+  {
+    "screenId": "S2",
+    "sourceFile": "onboarding.html",
+    "label": "S2 — Permissions",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S3",
+    "sourceFile": "onboarding.html",
+    "label": "S3 — Value Prop Carousel",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S4",
+    "sourceFile": "onboarding.html",
+    "label": "S4 — Goal Selection",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S5",
+    "sourceFile": "home.html",
+    "label": "S5 — Home Empty State",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S6",
+    "sourceFile": "home.html",
+    "label": "S6 — Home Active State",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S7",
+    "sourceFile": "session.html",
+    "label": "S7 — Session Playing",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S8",
+    "sourceFile": "session.html",
+    "label": "S8 — Session Paused",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S9",
+    "sourceFile": "analytics.html",
+    "label": "S9 — Breathing Analysis",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S10",
+    "sourceFile": "analytics.html",
+    "label": "S10 — Sleep Trends",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S11",
+    "sourceFile": "explore.html",
+    "label": "S11 — Exercise Library",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S12",
+    "sourceFile": "explore.html",
+    "label": "S12 — Knowledge Center",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S13",
+    "sourceFile": "explore.html",
+    "label": "S13 — Article Detail",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S14",
+    "sourceFile": "services.html",
+    "label": "S14 — Teleconsultation",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S15",
+    "sourceFile": "services.html",
+    "label": "S15 — Tape Management",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S16",
+    "sourceFile": "session-results.html",
+    "label": "S16 — Session Complete",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S17",
+    "sourceFile": "session-results.html",
+    "label": "S17 — Session History",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S18",
+    "sourceFile": "session-results.html",
+    "label": "S18 — Session Detail",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S19",
+    "sourceFile": "tracking-modes.html",
+    "label": "S19-A · Night Mode · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S20",
+    "sourceFile": "device-pairing.html",
+    "label": "S20-A · Scanning · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S21",
+    "sourceFile": "settings-subscription.html",
+    "label": "S21 — Settings / Profile",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S22",
+    "sourceFile": "settings-subscription.html",
+    "label": "S22 — Paywall",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S23",
+    "sourceFile": "onboarding-extended.html",
+    "label": "S23 — Notification Permission",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S24",
+    "sourceFile": "onboarding-extended.html",
+    "label": "S24 — Personalization",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S25",
+    "sourceFile": "onboarding-extended.html",
+    "label": "S25 — Daily Summary",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S26",
+    "sourceFile": "onboarding-extended.html",
+    "label": "S26 — Tutorial Overlay",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S27",
+    "sourceFile": "tracking-modes.html",
+    "label": "S27-A · Alert Config · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S28",
+    "sourceFile": "exercises-detail.html",
+    "label": "S28-A · Exercise Detail · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S29",
+    "sourceFile": "exercises-detail.html",
+    "label": "S29-A · Achievements · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S30",
+    "sourceFile": "trends-bookmarks.html",
+    "label": "S30-A · Monthly Trends · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S31",
+    "sourceFile": "trends-bookmarks.html",
+    "label": "S31-A · Bookmarks · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S32",
+    "sourceFile": "telehealth-detail.html",
+    "label": "S32-A · Specialist · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S33",
+    "sourceFile": "telehealth-detail.html",
+    "label": "S33-A · Video Call",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S34",
+    "sourceFile": "privacy-health.html",
+    "label": "S34-A · Privacy · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S35",
+    "sourceFile": "privacy-health.html",
+    "label": "S35-A · Health Integrations",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S36",
+    "sourceFile": "privacy-health.html",
+    "label": "S36-A · Export Report",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S37",
+    "sourceFile": "tracking-modes.html",
+    "label": "S37-A · Daytime Tracking · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S38",
+    "sourceFile": "auth-screens.html",
+    "label": "S38-A · Email Login · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S39",
+    "sourceFile": "auth-screens.html",
+    "label": "S39 · Forgot Password · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S40",
+    "sourceFile": "auth-screens.html",
+    "label": "S40-A · Password Reset · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S41",
+    "sourceFile": "auth-screens.html",
+    "label": "S41-A · Email Verification · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S42",
+    "sourceFile": "auth-screens.html",
+    "label": "S42 · Two-Factor Auth · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S43",
+    "sourceFile": "auth-screens.html",
+    "label": "S43-A · Account Locked · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S44",
+    "sourceFile": "auth-screens.html",
+    "label": "S44-A · Biometric Login · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S45",
+    "sourceFile": "loading-states.html",
+    "label": "S45-A · App Loading · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S46",
+    "sourceFile": "loading-states.html",
+    "label": "S46-A · Skeleton Home · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S47",
+    "sourceFile": "empty-states.html",
+    "label": "S47-A · No Sessions · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S48",
+    "sourceFile": "empty-states.html",
+    "label": "S48-A · No Bookmarks · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S49",
+    "sourceFile": "empty-states.html",
+    "label": "S49-A · No Exercises · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S50",
+    "sourceFile": "error-states.html",
+    "label": "S50-A · Network Error · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S51",
+    "sourceFile": "error-states.html",
+    "label": "S51-A · Server Error · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S52",
+    "sourceFile": "error-states.html",
+    "label": "S52-A · Permission Denied · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S53",
+    "sourceFile": "error-states.html",
+    "label": "S53-A · Not Found · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S54",
+    "sourceFile": "booking-video-flow.html",
+    "label": "S54-A · Booking Confirmed · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S55",
+    "sourceFile": "booking-video-flow.html",
+    "label": "S55-A · Calendar Picker · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S56",
+    "sourceFile": "payment-subscription.html",
+    "label": "S56 · Payment Method · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S57",
+    "sourceFile": "session-extended.html",
+    "label": "S57 — Pre-Session Checklist",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S58",
+    "sourceFile": "session-extended.html",
+    "label": "S58 — Session Interruption",
+    "hasTabBar": false,
+    "phoneTheme": "dark"
+  },
+  {
+    "screenId": "S59",
+    "sourceFile": "booking-video-flow.html",
+    "label": "S59-A · Waiting Room · Light Context",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S60",
+    "sourceFile": "booking-video-flow.html",
+    "label": "S60-A · Session Complete · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S61",
+    "sourceFile": "session-extended.html",
+    "label": "S61 — Share Results",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S62",
+    "sourceFile": "profile-account.html",
+    "label": "S62-A · Edit Profile · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S63",
+    "sourceFile": "profile-account.html",
+    "label": "S63 · Change Password · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S64",
+    "sourceFile": "notification-settings.html",
+    "label": "S64-A — Light Mode",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S65",
+    "sourceFile": "settings-extended.html",
+    "label": "S65 — Sound &amp; Haptics",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S66",
+    "sourceFile": "settings-extended.html",
+    "label": "S66 — Appearance",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S67",
+    "sourceFile": "settings-extended.html",
+    "label": "S67 — Data &amp; Storage",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S68",
+    "sourceFile": "settings-extended.html",
+    "label": "S68 — Help &amp; Support",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S69",
+    "sourceFile": "settings-extended.html",
+    "label": "S69 — About / Legal",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S70",
+    "sourceFile": "profile-account.html",
+    "label": "S70-A · Delete Account · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S71",
+    "sourceFile": "gamification-social.html",
+    "label": "S71-A · Achievement Detail · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S72",
+    "sourceFile": "gamification-social.html",
+    "label": "S72-A · Leaderboard · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S73",
+    "sourceFile": "gamification-social.html",
+    "label": "S73-A · Challenge Detail · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S74",
+    "sourceFile": "gamification-social.html",
+    "label": "S74-A · Challenge Complete · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S75",
+    "sourceFile": "gamification-social.html",
+    "label": "S75-A · Journal Entry · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S76",
+    "sourceFile": "gamification-social.html",
+    "label": "S76-A · Journal History · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S77",
+    "sourceFile": "ai-insights.html",
+    "label": "S77-A · AI Sleep Coach · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S78",
+    "sourceFile": "ai-insights.html",
+    "label": "S78-A · Weekly Report · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S79",
+    "sourceFile": "content-programs.html",
+    "label": "S79-A · Smart Recommendations · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S80",
+    "sourceFile": "device-management.html",
+    "label": "S80 · Firmware Update · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S81",
+    "sourceFile": "device-management.html",
+    "label": "S81 · Tape Guide (Step 2) · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S82",
+    "sourceFile": "device-management.html",
+    "label": "S82 · Troubleshooting · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S83",
+    "sourceFile": "future-screens.html",
+    "label": "S83 · Tape Shop · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S84",
+    "sourceFile": "onboarding-finish.html",
+    "label": "S84-A · Health Screening · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S85",
+    "sourceFile": "modals-prompts.html",
+    "label": "S85-A · Goal Configuration · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S86",
+    "sourceFile": "onboarding-finish.html",
+    "label": "S86-A · Onboarding Complete · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S87",
+    "sourceFile": "analytics-advanced.html",
+    "label": "S87 · Breathing Patterns · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S88",
+    "sourceFile": "analytics-advanced.html",
+    "label": "S88 · Sleep Stages · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S89",
+    "sourceFile": "future-screens.html",
+    "label": "S89-A · Year in Review · Blue Accent",
+    "hasTabBar": false,
+    "phoneTheme": "dark"
+  },
+  {
+    "screenId": "S90",
+    "sourceFile": "analytics-advanced.html",
+    "label": "S90 · Compare Sessions · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S91",
+    "sourceFile": "search-results.html",
+    "label": "S91-A · Search Results · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S92",
+    "sourceFile": "content-programs.html",
+    "label": "S92-A · Exercise Program · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S93",
+    "sourceFile": "modals-prompts.html",
+    "label": "S93-A · Exercise Complete · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S94",
+    "sourceFile": "content-programs.html",
+    "label": "S94-A · Audio Player · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S95",
+    "sourceFile": "telehealth-referral.html",
+    "label": "S95-A · Reviews · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S96",
+    "sourceFile": "telehealth-extended.html",
+    "label": "S96-A · Appointments · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S97",
+    "sourceFile": "telehealth-extended.html",
+    "label": "S97-A · Reschedule · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S98",
+    "sourceFile": "telehealth-extended.html",
+    "label": "S98-A · Cancel · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S99",
+    "sourceFile": "payment-subscription.html",
+    "label": "S99 · Subscription · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S100",
+    "sourceFile": "payment-subscription.html",
+    "label": "S100 · Billing History · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S101",
+    "sourceFile": "payment-subscription.html",
+    "label": "S101 · Cancel Subscription · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S102",
+    "sourceFile": "payment-subscription.html",
+    "label": "S102 · Promo Code · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S103",
+    "sourceFile": "modals-prompts.html",
+    "label": "S103-A · Rate App · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S104",
+    "sourceFile": "modals-prompts.html",
+    "label": "S104-A · What's New · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S105",
+    "sourceFile": "telehealth-referral.html",
+    "label": "S105-A · Referral · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S106",
+    "sourceFile": "modals-prompts.html",
+    "label": "S106-A · Daily Tip · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S107",
+    "sourceFile": "core-modals.html",
+    "label": "S107-A · Confirm Action Sheet · Light",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S108",
+    "sourceFile": "core-modals.html",
+    "label": "S108-A · Offline Banner · Light",
+    "hasTabBar": true,
+    "phoneTheme": "light"
+  },
+  {
+    "screenId": "S109",
+    "sourceFile": "settings-extended.html",
+    "label": "S109 — Sync Status",
+    "hasTabBar": false,
+    "phoneTheme": "light"
+  }
+]

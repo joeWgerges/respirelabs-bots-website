@@ -1,0 +1,70 @@
+<div class="phone phone-light">
+
+
+      <!-- Dimmed home screen background at 0.3 opacity -->
+      <div style="opacity:0.3;position:absolute;top:0;left:0;right:0;bottom:0;">
+        <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect><rect x="2" y="3" width="14" height="6" rx="1"></rect><rect x="21" y="4" width="3" height="4" rx="1"></rect></svg></div></div>
+        <div class="nav-header">
+          <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"></path></svg><span class="nav-logo-text text-primary">RespireLabs</span></div>
+          <div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"></circle><path d="M10 1v2M10 17v2M1 10h2M17 10h2"></path></svg></div>
+        </div>
+        <!-- Faint card content behind -->
+        <div style="padding:0 20px;">
+          <div style="background:white;border-radius:24px;padding:24px;margin-bottom:12px;text-align:center;">
+            <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6B7280;margin-bottom:8px;">LAST SESSION</div>
+            <div style="position:relative;width:160px;height:160px;margin:0 auto;">
+              <svg width="160" height="160" viewBox="0 0 160 160">
+                <circle cx="80" cy="80" r="70" fill="none" stroke="#E5E7EB" stroke-width="6"></circle>
+                <circle cx="80" cy="80" r="70" fill="none" stroke="#206FF7" stroke-width="6" stroke-dasharray="395" stroke-dashoffset="47" stroke-linecap="round" transform="rotate(-90 80 80)"></circle>
+              </svg>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+                <div class="font-oddval" style="font-size:36px;font-weight:700;color:#0A0A0B;">8,560</div>
+                <div style="font-size:12px;color:#6B7280;">Breaths</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;background:white;border-radius:16px;padding:16px;">
+              <div style="font-size:12px;color:#6B7280;">Sleep</div>
+              <div class="font-oddval" style="font-size:24px;font-weight:700;">76</div>
+            </div>
+            <div style="flex:1;background:white;border-radius:16px;padding:16px;">
+              <div style="font-size:12px;color:#6B7280;">Streak</div>
+              <div class="font-oddval" style="font-size:24px;font-weight:700;">5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark scrim overlay -->
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);"></div>
+
+      <!-- Bottom sheet -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:32px 32px 0 0;padding:32px 24px;box-shadow:0 -8px 40px rgba(0,0,0,0.15);">
+        <!-- Handle -->
+        <div style="width:40px;height:4px;border-radius:2px;background:#E5E7EB;margin:0 auto 24px;"></div>
+
+        <!-- Warning icon -->
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4L2 28h28L16 4z" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+            <line x1="16" y1="13" x2="16" y2="20" stroke="#EF4444" stroke-width="2" stroke-linecap="round"></line>
+            <circle cx="16" cy="24" r="1" fill="#EF4444"></circle>
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <div class="font-oddval text-h2" style="text-align:center;color:#0A0A0B;margin-bottom:8px;">End Session?</div>
+
+        <!-- Description -->
+        <div class="text-body2 text-secondary" style="text-align:center;line-height:1.5;margin-bottom:28px;">Are you sure you want to end this session? Your current progress will be saved.</div>
+
+        <!-- Buttons -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-error">End Session</button>
+          <button class="btn btn-ghost">Continue Session</button>
+        </div>
+      </div>
+
+    
+</div>

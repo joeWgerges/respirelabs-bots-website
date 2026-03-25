@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs Mobile — Figma Mockups</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, sans-serif; background: #F5F5F7; padding: 48px; }
+  h1 { font-size: 36px; font-weight: 700; color: #0A0A0B; margin-bottom: 8px; }
+  .subtitle { font-size: 16px; color: #6B7280; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  a { text-decoration: none; }
+  .card {
+    background: white; border-radius: 16px; padding: 24px; transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); border: 1px solid #E5E7EB;
+  }
+  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .card-title { font-size: 18px; font-weight: 600; color: #0A0A0B; margin-bottom: 4px; }
+  .card-desc { font-size: 14px; color: #6B7280; margin-bottom: 12px; }
+  .card-count { font-size: 12px; color: #206FF7; font-weight: 600; }
+  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: white; padding: 4px 10px; border-radius: 6px; display: inline-block; margin-right: 8px; }
+</style>
+</head>
+<body>
+<h1>RespireLabs Mobile App</h1>
+<p class="subtitle">Figma Design Mockups — 121 Screens (S1-S109, C1-C5, D1-D3, H1-H4) · 307+ Connections</p>
+
+<!-- Interactive Prototype Hero -->
+<a href="prototype.html" style="text-decoration:none;display:block;margin-bottom:40px;">
+  <div style="background:linear-gradient(135deg,#206FF7 0%,#1a5ad4 50%,#0A0A2E 100%);border-radius:20px;padding:32px 40px;color:white;display:flex;align-items:center;justify-content:space-between;box-shadow:0 12px 40px rgba(32,111,247,0.3);transition:all 0.2s;">
+    <div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;opacity:0.8;">INTERACTIVE PROTOTYPE</div>
+      <div style="font-size:28px;font-weight:700;margin-bottom:8px;">Click-Through Experience</div>
+      <div style="font-size:15px;opacity:0.8;max-width:500px;">Navigate through all 121 screens with realistic transitions, tab bar, and navigation flows. Full iPhone 15 Pro frame with dev tools.</div>
+      <div style="display:flex;gap:12px;margin-top:16px;">
+        <span style="padding:6px 14px;background:rgba(255,255,255,0.15);border-radius:8px;font-size:12px;font-weight:600;">121 Screens</span>
+        <span style="padding:6px 14px;background:rgba(255,255,255,0.15);border-radius:8px;font-size:12px;font-weight:600;">307+ Nav Links</span>
+        <span style="padding:6px 14px;background:rgba(255,255,255,0.15);border-radius:8px;font-size:12px;font-weight:600;">10+ User Flows</span>
+      </div>
+    </div>
+    <div style="font-size:48px;opacity:0.6;">→</div>
+  </div>
+</a>
+
+<!-- ============================================================ -->
+<!-- ORIGINAL SCREENS (S1-S15)                                      -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#206FF7;margin-bottom:16px;">Original Screens (S1-S15)</h2>
+<div class="grid">
+  <a href="onboarding.html"><div class="card">
+    <div class="card-title">Onboarding</div>
+    <div class="card-desc">S1 Splash, S2 Permissions, S3 Carousel, S4 Goals</div>
+    <div class="card-count">12 frames (4 screens x 3 variants)</div>
+  </div></a>
+  <a href="home.html"><div class="card">
+    <div class="card-title">Home</div>
+    <div class="card-desc">S5 Empty State, S6 Active Dashboard</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+  <a href="session.html"><div class="card">
+    <div class="card-title">Session</div>
+    <div class="card-desc">S7 Playing (breathing ring), S8 Paused</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+  <a href="analytics.html"><div class="card">
+    <div class="card-title">Analytics</div>
+    <div class="card-desc">S9 Breathing Analysis, S10 Sleep Trends</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+  <a href="explore.html"><div class="card">
+    <div class="card-title">Explore</div>
+    <div class="card-desc">S11 Exercises, S12 Knowledge Center, S13 Article</div>
+    <div class="card-count">9 frames (3 screens x 3 variants)</div>
+  </div></a>
+  <a href="services.html"><div class="card">
+    <div class="card-title">Services</div>
+    <div class="card-desc">S14 Teleconsultation, S15 Tape Management</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+</div>
+
+<!-- ============================================================ -->
+<!-- TIER 1: MVP Must-Have (S16-S37)                                -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#22C55E;margin:32px 0 16px;">Tier 1: MVP Must-Have (S16-S37)</h2>
+<div class="grid">
+  <a href="session-results.html"><div class="card" style="border-color:#22C55E;">
+    <div class="card-title">Session Results</div>
+    <div class="card-desc">S16 Complete, S17 History List, S18 Detail View</div>
+    <div class="card-count">9 frames (3 screens x 3 variants)</div>
+  </div></a>
+  <a href="settings-subscription.html"><div class="card" style="border-color:#22C55E;">
+    <div class="card-title">Settings & Subscription</div>
+    <div class="card-desc">S21 Settings/Profile, S22 Paywall</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+  <a href="onboarding-extended.html"><div class="card" style="border-color:#22C55E;">
+    <div class="card-title">Onboarding Extended</div>
+    <div class="card-desc">S23 Notifications, S24 Questionnaire, S25 Summary, S26 Tutorial</div>
+    <div class="card-count">12 frames (4 screens x 3 variants)</div>
+  </div></a>
+  <a href="tracking-modes.html"><div class="card" style="border-color:#22C55E;">
+    <div class="card-title">Tracking Modes</div>
+    <div class="card-desc">S19 Night Mode, S27 Alert Config, S37 Daytime</div>
+    <div class="card-count">9 frames (3 screens x 3 variants)</div>
+  </div></a>
+  <a href="device-pairing.html"><div class="card" style="border-color:#22C55E;">
+    <div class="card-title">Device Pairing</div>
+    <div class="card-desc">S20 BLE Pairing Flow</div>
+    <div class="card-count">3 frames (1 screen x 3 variants)</div>
+  </div></a>
+</div>
+
+<!-- ============================================================ -->
+<!-- TIER 2: MVP Should-Have (S28-S36)                              -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#F59E0B;margin:32px 0 16px;">Tier 2: MVP Should-Have (S28-S36)</h2>
+<div class="grid">
+  <a href="exercises-detail.html"><div class="card" style="border-color:#F59E0B;">
+    <div class="card-title">Exercises & Achievements</div>
+    <div class="card-desc">S28 Exercise Detail/Timer, S29 Streak & Badges</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+  <a href="trends-bookmarks.html"><div class="card" style="border-color:#F59E0B;">
+    <div class="card-title">Trends & Bookmarks</div>
+    <div class="card-desc">S30 Monthly Trends, S31 Content Bookmarks</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+  <a href="telehealth-detail.html"><div class="card" style="border-color:#F59E0B;">
+    <div class="card-title">Telehealth Detail</div>
+    <div class="card-desc">S32 Specialist Detail, S33 Video Call</div>
+    <div class="card-count">6 frames (2 screens x 3 variants)</div>
+  </div></a>
+  <a href="privacy-health.html"><div class="card" style="border-color:#F59E0B;">
+    <div class="card-title">Privacy, Health & Export</div>
+    <div class="card-desc">S34 Privacy, S35 Health Integrations, S36 Export</div>
+    <div class="card-count">9 frames (3 screens x 3 variants)</div>
+  </div></a>
+</div>
+
+<!-- ============================================================ -->
+<!-- BONUS: Stakeholder Screens (C1-C5, D1-D3, H1-H4, F1-F4, G1-G4) -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:32px 0 16px;">Bonus: Stakeholder Screens</h2>
+<div class="grid">
+  <a href="premium-upsell.html"><div class="card" style="border-color:#8B5CF6;">
+    <div class="card-title">Premium & Monetization</div>
+    <div class="card-desc">C1 Soft Paywall, C2 Feature Gate, C3 Trial, C4 Success, C5 Compare</div>
+    <div class="card-count">9 frames (5 screens x ~2 variants)</div>
+  </div></a>
+  <a href="notifications-center.html"><div class="card" style="border-color:#8B5CF6;">
+    <div class="card-title">Notification Center</div>
+    <div class="card-desc">D1 Inbox, D2 Push Previews, D3 In-App Toasts</div>
+    <div class="card-count">9 frames (3 screens x 3 variants)</div>
+  </div></a>
+  <a href="onboarding-variations.html"><div class="card" style="border-color:#8B5CF6;">
+    <div class="card-title">Onboarding Variations</div>
+    <div class="card-desc">H1 Social Login, H2 Account, H3 Disclaimer, H4 Quick Start</div>
+    <div class="card-count">9 frames (4 screens x ~2 variants)</div>
+  </div></a>
+  <a href="platform-extensions.html"><div class="card" style="border-color:#8B5CF6;">
+    <div class="card-title">Platform Extensions</div>
+    <div class="card-desc">F1 Apple Watch, F2 iOS Widgets, F3 Android Widgets, F4 iPad</div>
+    <div class="card-count">12 frames (4 categories x 3 variants)</div>
+  </div></a>
+  <a href="accessibility-modes.html"><div class="card" style="border-color:#8B5CF6;">
+    <div class="card-title">Accessibility Modes</div>
+    <div class="card-desc">G1 High Contrast, G2 Large Text, G3 Reduced Motion, G4 Color Blind</div>
+    <div class="card-count">11 frames (4 modes x ~3 variants)</div>
+  </div></a>
+</div>
+
+<!-- ============================================================ -->
+<!-- NEW BATCH 1: MVP Critical (S38-S53, S54-S55, S59-S60, S62-S64, S70, S84, S86, S107-S108) -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#EF4444;margin:32px 0 16px;"><span class="section-label" style="background:#EF4444;">NEW</span> Batch 1: MVP Critical (S38-S108)</h2>
+<div class="grid">
+  <a href="auth-screens.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Authentication</div>
+    <div class="card-desc">S38 Email Login, S39 Forgot Password, S40 Reset, S41 Email Verify, S42 2FA, S43 Locked, S44 Biometric</div>
+    <div class="card-count">14 frames (7 screens x 2 variants)</div>
+  </div></a>
+  <a href="loading-states.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Loading States</div>
+    <div class="card-desc">S45 App Loading Splash, S46 Skeleton Home Dashboard</div>
+    <div class="card-count">4 frames (2 screens x 2 variants)</div>
+  </div></a>
+  <a href="empty-states.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Empty States</div>
+    <div class="card-desc">S47 No Sessions, S48 No Bookmarks, S49 No Exercises</div>
+    <div class="card-count">6 frames (3 screens x 2 variants)</div>
+  </div></a>
+  <a href="error-states.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Error States</div>
+    <div class="card-desc">S50 Network Error, S51 Server Error, S52 Permission Denied, S53 Not Found</div>
+    <div class="card-count">8 frames (4 screens x 2 variants)</div>
+  </div></a>
+  <a href="booking-video-flow.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Booking & Video Flow</div>
+    <div class="card-desc">S54 Booking Confirmation, S55 Calendar Picker, S59 Video Waiting Room, S60 Call End</div>
+    <div class="card-count">8 frames (4 screens x 2 variants)</div>
+  </div></a>
+  <a href="profile-account.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Profile & Account</div>
+    <div class="card-desc">S62 Edit Profile, S63 Change Password, S70 Delete Account</div>
+    <div class="card-count">6 frames (3 screens x 2 variants)</div>
+  </div></a>
+  <a href="notification-settings.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Notification Settings</div>
+    <div class="card-desc">S64 Toggle groups: Session, Progress, Tips, Device, Marketing, Quiet Hours</div>
+    <div class="card-count">2 frames (1 screen x 2 variants)</div>
+  </div></a>
+  <a href="onboarding-finish.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Onboarding Completion</div>
+    <div class="card-desc">S84 Health Screening, S86 Onboarding Complete</div>
+    <div class="card-count">4 frames (2 screens x 2 variants)</div>
+  </div></a>
+  <a href="core-modals.html"><div class="card" style="border-color:#EF4444;">
+    <div class="card-title">Core Modals & Overlays</div>
+    <div class="card-desc">S107 Confirm Action Sheet, S108 Offline Banner</div>
+    <div class="card-count">4 frames (2 screens x 2 variants)</div>
+  </div></a>
+</div>
+
+<!-- ============================================================ -->
+<!-- NEW BATCH 2: MVP Nice-to-Have (S56-S58, S61, S65-S69, S71, S77-S78, S80-S82, S85, S91, S93, S96-S106, S109) -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#F97316;margin:32px 0 16px;"><span class="section-label" style="background:#F97316;">NEW</span> Batch 2: MVP Nice-to-Have</h2>
+<div class="grid">
+  <a href="payment-subscription.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">Payments & Subscription</div>
+    <div class="card-desc">S56 Payment Method, S99 Manage, S100 History, S101 Cancel, S102 Promo</div>
+    <div class="card-count">10 frames (5 screens x 2 variants)</div>
+  </div></a>
+  <a href="session-extended.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">Session Extended</div>
+    <div class="card-desc">S57 Pre-Session Checklist, S58 Session Interruption, S61 Share Results</div>
+    <div class="card-count">6 frames (3 screens x 2 variants)</div>
+  </div></a>
+  <a href="device-management.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">Device Management</div>
+    <div class="card-desc">S80 Firmware Update, S81 Tape Application Guide, S82 Troubleshooting</div>
+    <div class="card-count">6 frames (3 screens x 2 variants)</div>
+  </div></a>
+  <a href="telehealth-extended.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">Telehealth Extended</div>
+    <div class="card-desc">S96 Appointment List, S97 Reschedule, S98 Cancel Confirmation</div>
+    <div class="card-count">6 frames (3 screens x 2 variants)</div>
+  </div></a>
+  <a href="settings-extended.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">Settings Extended</div>
+    <div class="card-desc">S65 Sound, S66 Appearance, S67 Data, S68 Help, S69 About, S109 Sync</div>
+    <div class="card-count">12 frames (6 screens x 2 variants)</div>
+  </div></a>
+  <a href="ai-insights.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">AI & Insights</div>
+    <div class="card-desc">S77 AI Sleep Coach Chat, S78 AI Weekly Report</div>
+    <div class="card-count">4 frames (2 screens x 2 variants)</div>
+  </div></a>
+  <a href="search-results.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">Search Results</div>
+    <div class="card-desc">S91 Search with tabs, results list, no-results state</div>
+    <div class="card-count">3 frames (1 screen x 3 variants)</div>
+  </div></a>
+  <a href="modals-prompts.html"><div class="card" style="border-color:#F97316;">
+    <div class="card-title">Modals & Prompts</div>
+    <div class="card-desc">S85 Goal Config, S93 Exercise Complete, S103 Rate App, S104 What's New, S106 Daily Tip</div>
+    <div class="card-count">10 frames (5 screens x 2 variants)</div>
+  </div></a>
+</div>
+
+<!-- ============================================================ -->
+<!-- NEW BATCH 3: V1 Features (S71-S76, S79, S87-S88, S90, S92, S94-S95, S105, S110-S113) -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#06B6D4;margin:32px 0 16px;"><span class="section-label" style="background:#06B6D4;">NEW</span> Batch 3: V1 Features</h2>
+<div class="grid">
+  <a href="gamification-social.html"><div class="card" style="border-color:#06B6D4;">
+    <div class="card-title">Gamification & Social</div>
+    <div class="card-desc">S71 Achievement, S72 Leaderboard, S73-S74 Challenges, S75-S76 Journal</div>
+    <div class="card-count">12 frames (6 screens x 2 variants)</div>
+  </div></a>
+  <a href="analytics-advanced.html"><div class="card" style="border-color:#06B6D4;">
+    <div class="card-title">Advanced Analytics</div>
+    <div class="card-desc">S87 Breathing Patterns, S88 Sleep Stages, S90 Compare Sessions</div>
+    <div class="card-count">6 frames (3 screens x 2 variants)</div>
+  </div></a>
+  <a href="content-programs.html"><div class="card" style="border-color:#06B6D4;">
+    <div class="card-title">Content & Programs</div>
+    <div class="card-desc">S79 Smart Recommendations, S92 Exercise Program, S94 Audio Player</div>
+    <div class="card-count">6 frames (3 screens x 2 variants)</div>
+  </div></a>
+  <a href="telehealth-referral.html"><div class="card" style="border-color:#06B6D4;">
+    <div class="card-title">Telehealth & Referral</div>
+    <div class="card-desc">S95 Specialist Reviews, S105 Referral Program</div>
+    <div class="card-count">4 frames (2 screens x 2 variants)</div>
+  </div></a>
+  <a href="platform-extensions-v2.html"><div class="card" style="border-color:#06B6D4;">
+    <div class="card-title">Platform Extensions V2</div>
+    <div class="card-desc">S110 Watch Complications, S111 Watch Session, S112 Live Activity, S113 Quick Actions</div>
+    <div class="card-count">8 frames (4 screens x 2 variants)</div>
+  </div></a>
+</div>
+
+<!-- ============================================================ -->
+<!-- NEW BATCH 4: V2 Future (S83, S89)                              -->
+<!-- ============================================================ -->
+<h2 style="font-size:20px;font-weight:600;color:#A855F7;margin:32px 0 16px;"><span class="section-label" style="background:#A855F7;">NEW</span> Batch 4: V2 Future</h2>
+<div class="grid">
+  <a href="future-screens.html"><div class="card" style="border-color:#A855F7;">
+    <div class="card-title">Future Screens</div>
+    <div class="card-desc">S89 Year in Review, S83 Tape Shop / Reorder</div>
+    <div class="card-count">4 frames (2 screens x 2 variants)</div>
+  </div></a>
+</div>
+
+<div style="margin-top:48px;padding:24px;background:white;border-radius:16px;border:1px solid #E5E7EB;">
+  <div style="font-size:14px;font-weight:600;color:#0A0A0B;margin-bottom:8px;">Summary</div>
+  <div style="font-size:13px;color:#6B7280;line-height:1.8;">
+    <strong>Original:</strong> 15 screens (S1-S15) + 16 bonus = ~53 screens, ~159 frames<br>
+    <strong>Batch 1 (MVP Critical):</strong> 23 screens (S38-S108), ~56 frames<br>
+    <strong>Batch 2 (MVP Nice-to-Have):</strong> 34 screens, ~57 frames<br>
+    <strong>Batch 3 (V1 Features):</strong> 18 screens, ~36 frames<br>
+    <strong>Batch 4 (V2 Future):</strong> 2 screens, ~4 frames<br>
+    <strong style="color:#206FF7;">Total: 121 screens, 307+ navigation connections, 180+ frames across 44 HTML files</strong><br>
+    <strong>Interactive Prototype:</strong> <a href="prototype.html" style="color:#206FF7;">prototype.html</a> — Full click-through with transitions & tab bar
+  </div>
+</div>
+
+</body>
+</html>

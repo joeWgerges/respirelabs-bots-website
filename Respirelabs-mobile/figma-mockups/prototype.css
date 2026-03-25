@@ -1,0 +1,545 @@
+/* ================================================
+   PROTOTYPE.CSS — Interactive Prototype Frame & Transitions
+   ================================================ */
+
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; }
+
+body.proto-body {
+  margin: 0;
+  padding: 0;
+  background: #1a1a2e;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Device Frame === */
+.proto-device {
+  position: relative;
+  width: 393px;
+  height: 852px;
+  border-radius: 44px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.1),
+    0 20px 80px rgba(0,0,0,0.5),
+    0 0 120px rgba(32,111,247,0.1);
+  background: #FAFAFA;
+}
+
+/* === Screen Container === */
+.proto-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* === Individual Screens === */
+.proto-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.proto-screen.active {
+  display: block;
+  z-index: 10;
+}
+
+.proto-screen.animating {
+  display: block;
+}
+
+/* Hide the phone wrapper inside proto-screen — we just need its contents */
+.proto-screen .phone {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* === Transition Animations === */
+
+/* Slide Right (push forward) */
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes slideOutLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-30%); opacity: 0.5; }
+}
+
+/* Slide Left (go back) */
+@keyframes slideInLeft {
+  from { transform: translateX(-30%); opacity: 0.5; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100%); }
+}
+
+/* Slide Up (modal open) */
+@keyframes slideInUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes slideOutDown {
+  from { transform: translateY(0); }
+  to   { transform: translateY(100%); }
+}
+
+/* Fade / Dissolve */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* Tab Switch (instant) */
+@keyframes instant {
+  from { opacity: 1; }
+  to   { opacity: 1; }
+}
+
+/* Transition classes */
+.transition-slide-in-right  { animation: slideInRight  300ms ease-out forwards; }
+.transition-slide-out-left  { animation: slideOutLeft  300ms ease-out forwards; }
+.transition-slide-in-left   { animation: slideInLeft   300ms ease-out forwards; }
+.transition-slide-out-right { animation: slideOutRight 300ms ease-out forwards; }
+.transition-slide-in-up     { animation: slideInUp    400ms cubic-bezier(0.32, 0.72, 0, 1) forwards; }
+.transition-slide-out-down  { animation: slideOutDown  300ms ease-in forwards; }
+.transition-fade-in         { animation: fadeIn  400ms ease-out forwards; }
+.transition-fade-out        { animation: fadeOut 300ms ease-in forwards; }
+
+/* === Modal Overlay === */
+.proto-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 15;
+  display: none;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.proto-modal-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+.proto-screen.modal-screen {
+  z-index: 20;
+  background: transparent;
+}
+
+.proto-screen.modal-screen .phone {
+  background: transparent !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* === Global Tab Bar (Prototype) === */
+.proto-tab-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 83px;
+  background: #FFFFFF;
+  border-top: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: 8px;
+  z-index: 50;
+  transition: transform 200ms ease;
+}
+
+.proto-tab-bar.hidden {
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+.proto-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #6B7280;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: color 150ms ease;
+}
+
+.proto-tab-item:active {
+  transform: scale(0.92);
+}
+
+.proto-tab-item.active {
+  color: #206FF7;
+}
+
+.proto-tab-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proto-tab-item.active .proto-tab-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(32,111,247,0.1);
+  border-radius: 10px;
+}
+
+/* === Interactive Elements — Cursor & Hover === */
+.proto-screen [data-nav],
+.proto-screen [data-back],
+.proto-screen [data-modal],
+.proto-screen [data-dismiss],
+.proto-screen .btn,
+.proto-screen .btn-primary,
+.proto-screen .btn-ghost,
+.proto-screen .btn-secondary,
+.proto-screen .btn-outline {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.proto-screen [data-nav]:active,
+.proto-screen [data-back]:active,
+.proto-screen [data-modal]:active,
+.proto-screen [data-dismiss]:active {
+  opacity: 0.7;
+  transform: scale(0.97);
+  transition: all 80ms ease;
+}
+
+/* === Dev Tools Panel === */
+.proto-dev-tools {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #fff;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 11px;
+  z-index: 1000;
+  min-width: 240px;
+  max-width: 320px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.proto-dev-tools-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.proto-dev-tools-title {
+  font-weight: 700;
+  font-size: 12px;
+  color: #206FF7;
+  letter-spacing: 0.5px;
+}
+
+.proto-dev-toggle {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: inherit;
+}
+
+.proto-dev-toggle:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.proto-dev-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.proto-dev-body.collapsed {
+  display: none;
+}
+
+.proto-dev-current {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #FFDC31;
+}
+
+.proto-dev-breadcrumb {
+  color: rgba(255,255,255,0.5);
+  font-size: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.proto-dev-select {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+
+.proto-dev-select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+.proto-dev-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.proto-dev-btn {
+  flex: 1;
+  background: rgba(32,111,247,0.2);
+  border: 1px solid rgba(32,111,247,0.3);
+  color: #206FF7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+}
+
+.proto-dev-btn:hover {
+  background: rgba(32,111,247,0.3);
+}
+
+.proto-dev-btn.reset {
+  background: rgba(239,68,68,0.2);
+  border-color: rgba(239,68,68,0.3);
+  color: #EF4444;
+}
+
+.proto-dev-btn.reset:hover {
+  background: rgba(239,68,68,0.3);
+}
+
+.proto-dev-stats {
+  color: rgba(255,255,255,0.4);
+  font-size: 9px;
+  text-align: center;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* === Screen content adjustments for prototype === */
+/* Ensure tab bars from extracted HTML don't interfere with global tab bar */
+.proto-screen .tab-bar {
+  display: none !important;
+}
+
+/* Ensure the phone contents fill the viewport */
+.proto-screen .phone > * {
+  /* Allow natural layout */
+}
+
+/* Bottom padding for screens with tab bar to prevent content overlap */
+.proto-screen[data-has-tab="true"] .phone {
+  padding-bottom: 83px;
+}
+
+/* === Responsive — Scale down on smaller viewports === */
+@media (max-height: 900px) {
+  .proto-device {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+}
+
+@media (max-height: 750px) {
+  .proto-device {
+    transform: scale(0.7);
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 500px) {
+  .proto-device {
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: none;
+  }
+
+  .proto-dev-tools {
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 12px 12px 0 0;
+    max-width: 100%;
+  }
+}
+
+/* === Enhanced Visual Polish === */
+
+/* Scroll fade indicator for scrollable areas */
+.proto-screen .phone::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, rgba(250,250,250,0.95));
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.proto-screen[data-has-tab="true"] .phone::after {
+  bottom: 83px;
+}
+
+.proto-screen .phone.scrolled::after {
+  opacity: 1;
+}
+
+/* Enhanced button hover states */
+.proto-screen .btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  transition: all 150ms ease;
+}
+
+.proto-screen .btn:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 80ms ease;
+}
+
+.proto-screen .btn-primary:hover {
+  box-shadow: 0 4px 16px rgba(32,111,247,0.3);
+}
+
+/* Enhanced card hover for clickable cards */
+.proto-screen [data-nav].hub-card:hover,
+.proto-screen [data-nav].card:hover,
+.proto-screen [data-nav].featured-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+  transition: all 200ms ease;
+}
+
+/* Focus rings for accessibility */
+.proto-screen [data-nav]:focus-visible,
+.proto-screen [data-back]:focus-visible,
+.proto-screen .btn:focus-visible {
+  outline: 2px solid #206FF7;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Splash breathing animation */
+@keyframes splashPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+#S1 .splash-logo-circle {
+  animation: splashPulse 3s ease-in-out infinite;
+}
+
+/* Real-time indicator pulse */
+@keyframes realtimePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+
+.status-dot {
+  animation: realtimePulse 2s ease-in-out infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+.proto-screen [data-nav],
+.proto-screen [data-back],
+.proto-screen .btn {
+  transition: transform 150ms ease, opacity 150ms ease, box-shadow 200ms ease, filter 150ms ease;
+}
+
+/* Settings item hover */
+.proto-screen .settings-item:hover {
+  background: rgba(32,111,247,0.03);
+  transition: background 150ms ease;
+}
+
+/* Modal backdrop enhancement */
+.proto-modal-overlay.active {
+  backdrop-filter: blur(4px);
+}
+
+/* will-change for animated elements */
+.proto-screen.animating {
+  will-change: transform, opacity;
+}
+
+/* === Loading indicator === */
+.proto-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #206FF7;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  z-index: 100;
+}

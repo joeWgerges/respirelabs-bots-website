@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Modals & Overlays — S107-S108</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1 class="page-title">Core Modals & Overlays</h1>
+<p class="page-subtitle">S107 Confirm Sheet &bull; S108 Offline Banner &mdash; 4 frames</p>
+
+<!-- ============================================================ -->
+<!-- S107 — Confirm Action Sheet                                     -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">S107 — Confirm Action Sheet</h2>
+
+<div class="screen-row">
+
+  <!-- S107-A: Light -->
+  <div class="screen-col">
+    <div class="screen-label">S107-A &middot; Confirm Action Sheet &middot; Light</div>
+    <div class="phone phone-light" style="overflow:hidden;">
+
+      <!-- Dimmed home screen background at 0.3 opacity -->
+      <div style="opacity:0.3;position:absolute;top:0;left:0;right:0;bottom:0;">
+        <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+        <div class="nav-header">
+          <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-primary">RespireLabs</span></div>
+          <div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/><path d="M10 1v2M10 17v2M1 10h2M17 10h2"/></svg></div>
+        </div>
+        <!-- Faint card content behind -->
+        <div style="padding:0 20px;">
+          <div style="background:white;border-radius:24px;padding:24px;margin-bottom:12px;text-align:center;">
+            <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6B7280;margin-bottom:8px;">LAST SESSION</div>
+            <div style="position:relative;width:160px;height:160px;margin:0 auto;">
+              <svg width="160" height="160" viewBox="0 0 160 160">
+                <circle cx="80" cy="80" r="70" fill="none" stroke="#E5E7EB" stroke-width="6"/>
+                <circle cx="80" cy="80" r="70" fill="none" stroke="#206FF7" stroke-width="6" stroke-dasharray="395" stroke-dashoffset="47" stroke-linecap="round" transform="rotate(-90 80 80)"/>
+              </svg>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+                <div class="font-oddval" style="font-size:36px;font-weight:700;color:#0A0A0B;">8,560</div>
+                <div style="font-size:12px;color:#6B7280;">Breaths</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;background:white;border-radius:16px;padding:16px;">
+              <div style="font-size:12px;color:#6B7280;">Sleep</div>
+              <div class="font-oddval" style="font-size:24px;font-weight:700;">76</div>
+            </div>
+            <div style="flex:1;background:white;border-radius:16px;padding:16px;">
+              <div style="font-size:12px;color:#6B7280;">Streak</div>
+              <div class="font-oddval" style="font-size:24px;font-weight:700;">5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark scrim overlay -->
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);"></div>
+
+      <!-- Bottom sheet -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:32px 32px 0 0;padding:32px 24px;box-shadow:0 -8px 40px rgba(0,0,0,0.15);">
+        <!-- Handle -->
+        <div style="width:40px;height:4px;border-radius:2px;background:#E5E7EB;margin:0 auto 24px;"></div>
+
+        <!-- Warning icon -->
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4L2 28h28L16 4z" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="16" y1="13" x2="16" y2="20" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="24" r="1" fill="#EF4444"/>
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <div class="font-oddval text-h2" style="text-align:center;color:#0A0A0B;margin-bottom:8px;">End Session?</div>
+
+        <!-- Description -->
+        <div class="text-body2 text-secondary" style="text-align:center;line-height:1.5;margin-bottom:28px;">Are you sure you want to end this session? Your current progress will be saved.</div>
+
+        <!-- Buttons -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-error">End Session</button>
+          <button class="btn btn-ghost">Continue Session</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- S107-B: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S107-B &middot; Confirm Action Sheet &middot; Dark</div>
+    <div class="phone phone-dark" style="overflow:hidden;">
+
+      <!-- Dimmed dark home screen background at 0.2 opacity -->
+      <div style="opacity:0.2;position:absolute;top:0;left:0;right:0;bottom:0;">
+        <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+        <div class="nav-header">
+          <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-blue">RespireLabs</span></div>
+          <div class="nav-settings" style="background:var(--surface-dark);"><svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="10" cy="10" r="3"/><path d="M10 1v2M10 17v2M1 10h2M17 10h2"/></svg></div>
+        </div>
+        <div style="padding:0 20px;">
+          <div style="background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:24px;margin-bottom:12px;text-align:center;">
+            <div style="position:relative;width:160px;height:160px;margin:0 auto;">
+              <svg width="160" height="160" viewBox="0 0 160 160">
+                <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>
+                <circle cx="80" cy="80" r="70" fill="none" stroke="#206FF7" stroke-width="6" stroke-dasharray="395" stroke-dashoffset="47" stroke-linecap="round" transform="rotate(-90 80 80)"/>
+              </svg>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+                <div class="font-oddval" style="font-size:36px;font-weight:700;color:white;">8,560</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.4);">Breaths</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;">
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);">Sleep</div>
+              <div class="font-oddval" style="font-size:24px;font-weight:700;color:white;">76</div>
+            </div>
+            <div style="flex:1;background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;">
+              <div style="font-size:12px;color:rgba(255,255,255,0.4);">Streak</div>
+              <div class="font-oddval" style="font-size:24px;font-weight:700;color:#FFDC31;">5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark scrim overlay -->
+      <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);"></div>
+
+      <!-- Bottom sheet (dark) -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:32px 32px 0 0;padding:32px 24px;box-shadow:0 -8px 40px rgba(0,0,0,0.4);">
+        <!-- Handle -->
+        <div style="width:40px;height:4px;border-radius:2px;background:rgba(255,255,255,0.2);margin:0 auto 24px;"></div>
+
+        <!-- Warning icon -->
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(239,68,68,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M16 4L2 28h28L16 4z" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="16" y1="13" x2="16" y2="20" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="24" r="1" fill="#EF4444"/>
+          </svg>
+        </div>
+
+        <!-- Title -->
+        <div class="font-oddval text-h2" style="text-align:center;color:white;margin-bottom:8px;">End Session?</div>
+
+        <!-- Description -->
+        <div class="text-body2" style="text-align:center;color:rgba(255,255,255,0.5);line-height:1.5;margin-bottom:28px;">Are you sure you want to end this session? Your current progress will be saved.</div>
+
+        <!-- Buttons -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-error">End Session</button>
+          <button class="btn btn-ghost" style="color:rgba(255,255,255,0.5);">Continue Session</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================ -->
+<!-- S108 — Offline Banner                                           -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin:20px 0 20px;">S108 — Offline Banner</h2>
+
+<div class="screen-row">
+
+  <!-- S108-A: Light -->
+  <div class="screen-col">
+    <div class="screen-label">S108-A &middot; Offline Banner &middot; Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+
+      <!-- Nav header -->
+      <div class="nav-header">
+        <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-primary">RespireLabs</span></div>
+        <div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/><path d="M10 1v2M10 17v2M1 10h2M17 10h2"/></svg></div>
+      </div>
+
+      <div style="padding:0 20px;">
+        <!-- Greeting -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div class="font-mont text-body1" style="font-weight:600;color:#0A0A0B;">Good Morning, Alex</div>
+          <div class="status-pill"><span class="status-dot"></span>Connected</div>
+        </div>
+
+        <!-- Offline Banner -->
+        <div style="background:#FF9500;border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+          <!-- Wifi-off icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <line x1="1" y1="1" x2="23" y2="23"/>
+            <path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/>
+            <path d="M5 12.55a10.94 10.94 0 015.17-2.95"/>
+            <path d="M10.71 5.05A16 16 0 0122.56 9"/>
+            <path d="M1.42 9a15.91 15.91 0 014.7-2.88"/>
+            <path d="M8.53 16.11a6 6 0 016.95 0"/>
+            <line x1="12" y1="20" x2="12.01" y2="20"/>
+          </svg>
+          <span style="color:white;font-weight:700;font-size:13px;font-family:'Montserrat',sans-serif;flex:1;">You're offline</span>
+          <span style="color:rgba(255,255,255,0.8);font-size:13px;font-family:'Montserrat',sans-serif;font-weight:500;">Dismiss</span>
+        </div>
+
+        <!-- Hero metric card (slightly dimmed) -->
+        <div style="background:white;border-radius:24px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.05);margin-bottom:12px;text-align:center;opacity:0.85;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <div class="text-overline text-secondary">LAST SESSION</div>
+            <div style="font-size:12px;color:#6B7280;background:#E5E7EB;padding:4px 10px;border-radius:100px;">4 hours</div>
+          </div>
+          <!-- Progress ring -->
+          <div style="position:relative;width:140px;height:140px;margin:0 auto 8px;">
+            <svg width="140" height="140" viewBox="0 0 140 140">
+              <circle cx="70" cy="70" r="60" fill="none" stroke="#E5E7EB" stroke-width="5"/>
+              <circle cx="70" cy="70" r="60" fill="none" stroke="#206FF7" stroke-width="5" stroke-dasharray="377" stroke-dashoffset="45" stroke-linecap="round" transform="rotate(-90 70 70)"/>
+            </svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+              <div class="font-oddval" style="font-size:30px;font-weight:700;color:#0A0A0B;">8,560</div>
+              <div style="font-size:11px;color:#6B7280;">Breaths</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick actions row -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;opacity:0.85;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:white;border-radius:16px;border:1px solid #E5E7EB;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" fill="none" stroke="#206FF7" stroke-width="2"><path d="M4 16l3-6 4 4 5-8"/></svg>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:#206FF7;font-family:'Montserrat',sans-serif;">Exercise</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:white;border-radius:16px;border:1px solid #E5E7EB;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(34,197,94,0.08);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2"><polygon points="6,3 18,10 6,17"/></svg>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:#22C55E;font-family:'Montserrat',sans-serif;">Track</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:white;border-radius:16px;border:1px solid #E5E7EB;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(239,68,68,0.08);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" fill="none" stroke="#EF4444" stroke-width="2"><path d="M9 2a3 3 0 00-3 3v3a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M14 8v1a5 5 0 01-10 0V8"/></svg>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:#EF4444;font-family:'Montserrat',sans-serif;">Record</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab bar light -->
+      <div class="tab-bar">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="#206FF7"><path d="M10 2L2 7v11a2 2 0 002 2h4v-7h4v7h4a2 2 0 002-2V7l-8-5z"/></svg></div><span>Home</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zm-11 11h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg></div><span>Track</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div><span>Tips</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M4 4h16v2H4V4zm0 5h16v2H4V9zm0 5h10v2H4v-2z"/></svg></div><span>Learn</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><circle cx="10" cy="8" r="4"/><path d="M2 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><span>Consult</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S108-B: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S108-B &middot; Offline Banner &middot; Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+
+      <!-- Nav header -->
+      <div class="nav-header">
+        <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-blue">RespireLabs</span></div>
+        <div class="nav-settings" style="background:var(--surface-dark);"><svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="10" cy="10" r="3"/><path d="M10 1v2M10 17v2M1 10h2M17 10h2"/></svg></div>
+      </div>
+
+      <div style="padding:0 20px;">
+        <!-- Greeting -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div class="font-mont text-body1" style="font-weight:600;color:white;">Good Morning, Alex</div>
+          <div class="status-pill"><span class="status-dot"></span>Connected</div>
+        </div>
+
+        <!-- Offline Banner (dark variant) -->
+        <div style="background:rgba(255,149,0,0.15);border:1px solid rgba(255,149,0,0.3);border-radius:12px;padding:10px 16px;display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+          <!-- Wifi-off icon -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF9500" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <line x1="1" y1="1" x2="23" y2="23"/>
+            <path d="M16.72 11.06A10.94 10.94 0 0119 12.55"/>
+            <path d="M5 12.55a10.94 10.94 0 015.17-2.95"/>
+            <path d="M10.71 5.05A16 16 0 0122.56 9"/>
+            <path d="M1.42 9a15.91 15.91 0 014.7-2.88"/>
+            <path d="M8.53 16.11a6 6 0 016.95 0"/>
+            <line x1="12" y1="20" x2="12.01" y2="20"/>
+          </svg>
+          <span style="color:#FF9500;font-weight:700;font-size:13px;font-family:'Montserrat',sans-serif;flex:1;">You're offline</span>
+          <span style="color:rgba(255,149,0,0.7);font-size:13px;font-family:'Montserrat',sans-serif;font-weight:500;">Dismiss</span>
+        </div>
+
+        <!-- Hero metric card (slightly dimmed) -->
+        <div style="background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:24px;margin-bottom:12px;text-align:center;opacity:0.85;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <div class="text-overline" style="color:rgba(255,255,255,0.4);">LAST SESSION</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.08);padding:4px 10px;border-radius:100px;">4 hours</div>
+          </div>
+          <!-- Progress ring -->
+          <div style="position:relative;width:140px;height:140px;margin:0 auto 8px;">
+            <svg width="140" height="140" viewBox="0 0 140 140">
+              <circle cx="70" cy="70" r="60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="5"/>
+              <circle cx="70" cy="70" r="60" fill="none" stroke="#206FF7" stroke-width="5" stroke-dasharray="377" stroke-dashoffset="45" stroke-linecap="round" transform="rotate(-90 70 70)" style="filter:drop-shadow(0 0 8px rgba(32,111,247,0.4));"/>
+            </svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+              <div class="font-oddval" style="font-size:30px;font-weight:700;color:white;">8,560</div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4);">Breaths</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick actions row -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;opacity:0.85;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#1A1A1C;border-radius:16px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(32,111,247,0.15);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" fill="none" stroke="#206FF7" stroke-width="2"><path d="M4 16l3-6 4 4 5-8"/></svg>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:#206FF7;font-family:'Montserrat',sans-serif;">Exercise</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#1A1A1C;border-radius:16px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(34,197,94,0.15);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2"><polygon points="6,3 18,10 6,17"/></svg>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:#22C55E;font-family:'Montserrat',sans-serif;">Track</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:#1A1A1C;border-radius:16px;border:1px solid rgba(255,255,255,0.08);">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(239,68,68,0.15);display:flex;align-items:center;justify-content:center;">
+              <svg width="18" height="18" fill="none" stroke="#EF4444" stroke-width="2"><path d="M9 2a3 3 0 00-3 3v3a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M14 8v1a5 5 0 01-10 0V8"/></svg>
+            </div>
+            <div style="font-size:11px;font-weight:600;color:#EF4444;font-family:'Montserrat',sans-serif;">Record</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab bar dark -->
+      <div class="tab-bar tab-bar-dark">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="#206FF7"><path d="M10 2L2 7v11a2 2 0 002 2h4v-7h4v7h4a2 2 0 002-2V7l-8-5z"/></svg></div><span style="color:#206FF7;">Home</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="rgba(255,255,255,0.3)"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zm-11 11h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg></div><span style="color:rgba(255,255,255,0.3);">Track</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="rgba(255,255,255,0.3)"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div><span style="color:rgba(255,255,255,0.3);">Tips</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="rgba(255,255,255,0.3)"><path d="M4 4h16v2H4V4zm0 5h16v2H4V9zm0 5h10v2H4v-2z"/></svg></div><span style="color:rgba(255,255,255,0.3);">Learn</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="rgba(255,255,255,0.3)"><circle cx="10" cy="8" r="4"/><path d="M2 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><span style="color:rgba(255,255,255,0.3);">Consult</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

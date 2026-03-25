@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs — Onboarding Screens</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  .splash-logo-circle {
+    width: 120px; height: 120px; border-radius: 50%; background: white;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .splash-lungs { width: 60px; height: 60px; color: var(--primary); }
+  .perm-card {
+    background: var(--surface-white); border-radius: var(--radius-lg);
+    padding: 20px; display: flex; gap: 16px; align-items: flex-start;
+  }
+  .perm-icon {
+    width: 48px; height: 48px; border-radius: 14px;
+    background: rgba(32,111,247,0.1); display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+    color: var(--primary);
+  }
+  .carousel-placeholder {
+    width: 280px; height: 280px; border-radius: var(--radius-lg);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+  .dot-active { background: var(--primary); width: 24px; border-radius: 4px; }
+  .goal-card {
+    aspect-ratio: 1; border-radius: var(--radius-lg);
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 12px; padding: 16px;
+    background: var(--surface-white); border: 2px solid var(--border);
+  }
+  .goal-card-selected {
+    border-color: var(--primary); background: rgba(32,111,247,0.04);
+  }
+  .goal-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(32,111,247,0.1); display: flex;
+    align-items: center; justify-content: center; font-size: 24px;
+  }
+  .gradient-splash {
+    background: linear-gradient(180deg, #206FF7 0%, #0A1F54 100%);
+  }
+  .glow-circle {
+    box-shadow: 0 0 60px rgba(32,111,247,0.4), 0 0 120px rgba(32,111,247,0.2);
+  }
+  .toggle-card {
+    background: var(--surface-white); border-radius: var(--radius-lg);
+    padding: 20px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .swipe-indicator {
+    width: 40px; height: 4px; border-radius: 2px; background: var(--primary); opacity: 0.5;
+  }
+  .goal-card-tall {
+    width: 140px; height: 200px; border-radius: var(--radius-lg); flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 12px; padding: 16px;
+    background: var(--surface-white); border: 2px solid var(--border);
+  }
+  .goal-card-tall-selected {
+    border-color: var(--primary); background: rgba(32,111,247,0.04);
+    box-shadow: 0 0 20px rgba(32,111,247,0.15);
+  }
+  .glow-dot { background: var(--primary); box-shadow: 0 0 8px var(--primary); }
+</style>
+</head>
+<body>
+<h1 class="page-title">Onboarding</h1>
+<p class="page-subtitle">S1 Splash Screen &bull; S2 Permissions &bull; S3 Value Prop Carousel &bull; S4 Goal Selection</p>
+
+<!-- ═══════════════ S1 — SPLASH SCREEN ═══════════════ -->
+<div class="screen-row">
+  <!-- Variant A: Faithful -->
+  <div class="screen-col">
+    <div class="screen-label">S1 — Splash Screen</div>
+    <div class="variant-label">Variant A — Faithful</div>
+    <div class="phone phone-blue" style="display:flex;align-items:center;justify-content:center;">
+      <div class="splash-logo-circle">
+        <svg class="splash-lungs" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 8v20M30 28c-4 0-14 2-16 14s-2 10 4 10c4 0 8-2 12-6M30 28c4 0 14 2 16 14s2 10-4 10c-4 0-8-2-12-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Gradient + wordmark -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Gradient + Wordmark</div>
+    <div class="phone gradient-splash" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;">
+      <div class="splash-logo-circle">
+        <svg class="splash-lungs" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 8v20M30 28c-4 0-14 2-16 14s-2 10 4 10c4 0 8-2 12-6M30 28c4 0 14 2 16 14s2 10-4 10c-4 0-8-2-12-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div style="text-align:center;">
+        <div class="font-oddval text-white" style="font-size:28px;font-weight:700;">RespireLabs</div>
+        <div class="font-mont text-white" style="font-size:14px;opacity:0.7;margin-top:4px;">Breathe better. Sleep better.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark navy + glow -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark + Glow</div>
+    <div class="phone phone-dark" style="display:flex;align-items:center;justify-content:center;">
+      <div class="splash-logo-circle glow-circle" style="background:rgba(32,111,247,0.15);">
+        <svg class="splash-lungs" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 10px rgba(32,111,247,0.5));">
+          <path d="M30 8v20M30 28c-4 0-14 2-16 14s-2 10 4 10c4 0 8-2 12-6M30 28c4 0 14 2 16 14s2 10-4 10c-4 0-8-2-12-6" stroke="#206FF7" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S2 — PERMISSIONS ═══════════════ -->
+<div class="screen-row">
+  <!-- Variant A -->
+  <div class="screen-col">
+    <div class="screen-label">S2 — Permissions</div>
+    <div class="variant-label">Variant A — Faithful</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <svg width="16" height="12" fill="currentColor"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg>
+          <svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg>
+        </div>
+      </div>
+      <div style="padding:0 24px;margin-top:40px;">
+        <div class="font-oddval text-h1 text-primary" style="margin-bottom:8px;">Privacy First.</div>
+        <div class="text-body2 text-secondary" style="margin-bottom:32px;">We need a few permissions to provide the best experience. All processing happens on your device.</div>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:auto;">
+          <div class="perm-card">
+            <div class="perm-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body1" style="font-weight:600;margin-bottom:4px;">Microphone Access</div>
+              <div class="text-caption text-secondary">Monitors breathing patterns during sleep using audio analysis. No recordings are stored.</div>
+            </div>
+          </div>
+          <div class="perm-card">
+            <div class="perm-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body1" style="font-weight:600;margin-bottom:4px;">Health Data</div>
+              <div class="text-caption text-secondary">Syncs with Apple Health to provide comprehensive sleep analysis and breathing insights.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;display:flex;flex-direction:column;gap:12px;">
+        <button class="btn btn-primary">Allow Permissions</button>
+        <button class="btn btn-ghost">Maybe Later</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Toggle style -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Toggle Cards</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="currentColor"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <div style="padding:0 24px;margin-top:40px;">
+        <div class="font-oddval text-h1 text-primary" style="margin-bottom:8px;">Privacy First.</div>
+        <div class="text-body2 text-secondary" style="margin-bottom:32px;">Toggle the permissions you'd like to enable.</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="toggle-card">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="perm-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/></svg></div>
+              <div><div class="text-body1" style="font-weight:600;">Microphone</div><div class="text-caption text-secondary">Breath monitoring</div></div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="toggle-card">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="perm-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+              <div><div class="text-body1" style="font-weight:600;">Health Data</div><div class="text-caption text-secondary">Sleep analysis sync</div></div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="toggle-card">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div class="perm-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+              <div><div class="text-body1" style="font-weight:600;">Notifications</div><div class="text-caption text-secondary">Reminders & insights</div></div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;">
+        <button class="btn btn-primary">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark mode -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="currentColor"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <div style="padding:0 24px;margin-top:40px;">
+        <div class="font-oddval text-h1" style="color:white;margin-bottom:8px;">Privacy First.</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.6);margin-bottom:32px;">We need a few permissions. All processing happens locally.</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="perm-card" style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);">
+            <div class="perm-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/><path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/></svg></div>
+            <div style="flex:1;"><div class="text-body1" style="font-weight:600;color:white;margin-bottom:4px;">Microphone Access</div><div class="text-caption" style="color:rgba(255,255,255,0.5);">Monitors breathing patterns during sleep.</div></div>
+          </div>
+          <div class="perm-card" style="background:var(--surface-dark);border:1px solid rgba(255,255,255,0.08);">
+            <div class="perm-icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+            <div style="flex:1;"><div class="text-body1" style="font-weight:600;color:white;margin-bottom:4px;">Health Data</div><div class="text-caption" style="color:rgba(255,255,255,0.5);">Syncs with Apple Health for sleep analysis.</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;display:flex;flex-direction:column;gap:12px;">
+        <button class="btn btn-primary">Allow Permissions</button>
+        <button class="btn btn-ghost" style="color:rgba(255,255,255,0.5);">Maybe Later</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S3 — VALUE PROP CAROUSEL ═══════════════ -->
+<div class="screen-row">
+  <!-- Variant A -->
+  <div class="screen-col">
+    <div class="screen-label">S3 — Value Prop Carousel</div>
+    <div class="variant-label">Variant A — Faithful</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="currentColor"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;padding:40px 24px;text-align:center;">
+        <div class="carousel-placeholder" style="background:rgba(32,111,247,0.08);margin-bottom:32px;">
+          <svg width="80" height="80" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.4"><circle cx="40" cy="40" r="30"/><path d="M40 25v15l10 8"/></svg>
+        </div>
+        <div class="font-oddval text-h2 text-primary" style="margin-bottom:12px;">Track Your Breathing</div>
+        <div class="text-body2 text-secondary" style="max-width:280px;margin-bottom:40px;">Monitor your nasal vs. mouth breathing ratio in real-time with smart audio analysis.</div>
+        <div style="display:flex;gap:6px;margin-bottom:40px;">
+          <div class="dot dot-active"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;display:flex;flex-direction:column;gap:12px;">
+        <button class="btn btn-primary">Next</button>
+        <button class="btn btn-ghost">Skip</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Large illustration -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Full Illustration</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="currentColor"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <!-- Large illustration area: 60% -->
+      <div style="height:460px;background:linear-gradient(180deg,rgba(32,111,247,0.05) 0%,rgba(32,111,247,0.12) 100%);display:flex;align-items:center;justify-content:center;">
+        <svg width="120" height="120" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.3"><circle cx="60" cy="60" r="50"/><path d="M60 30v30l18 12"/></svg>
+      </div>
+      <div style="padding:24px;text-align:center;">
+        <div class="font-oddval text-h2 text-primary" style="margin-bottom:8px;">Track Your Breathing</div>
+        <div class="text-body2 text-secondary" style="margin-bottom:24px;">Smart audio analysis monitors your patterns.</div>
+        <div style="display:flex;gap:6px;justify-content:center;margin-bottom:16px;">
+          <div class="dot dot-active"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        <div class="swipe-indicator" style="margin:0 auto;"></div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;">
+        <button class="btn btn-primary">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark mode -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="white"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;padding:40px 24px;text-align:center;">
+        <div class="carousel-placeholder" style="background:rgba(32,111,247,0.12);margin-bottom:32px;">
+          <svg width="80" height="80" fill="none" stroke="var(--primary)" stroke-width="2" style="filter:drop-shadow(0 0 10px rgba(32,111,247,0.3));"><circle cx="40" cy="40" r="30"/><path d="M40 25v15l10 8"/></svg>
+        </div>
+        <div class="font-oddval text-h2" style="color:white;margin-bottom:12px;">Track Your Breathing</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.6);max-width:280px;margin-bottom:40px;">Monitor your nasal vs. mouth breathing ratio in real-time.</div>
+        <div style="display:flex;gap:6px;margin-bottom:40px;">
+          <div class="dot glow-dot" style="width:24px;border-radius:4px;"></div>
+          <div class="dot" style="background:rgba(255,255,255,0.2);"></div>
+          <div class="dot" style="background:rgba(255,255,255,0.2);"></div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;display:flex;flex-direction:column;gap:12px;">
+        <button class="btn btn-primary">Next</button>
+        <button class="btn btn-ghost" style="color:rgba(255,255,255,0.5);">Skip</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S4 — GOAL SELECTION ═══════════════ -->
+<div class="screen-row">
+  <!-- Variant A: 2x2 grid -->
+  <div class="screen-col">
+    <div class="screen-label">S4 — Goal Selection</div>
+    <div class="variant-label">Variant A — Faithful (2x2 Grid)</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="currentColor"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <div style="padding:24px;">
+        <div class="font-oddval text-h1 text-primary" style="margin-bottom:8px;">What's your goal?</div>
+        <div class="text-body2 text-secondary" style="margin-bottom:32px;">Select what matters most to you. We'll personalize your experience.</div>
+        <div class="grid-2" style="gap:16px;">
+          <div class="goal-card goal-card-selected">
+            <div class="goal-icon">🌙</div>
+            <div class="text-body2 text-primary" style="font-weight:600;text-align:center;">Deep Sleep</div>
+          </div>
+          <div class="goal-card">
+            <div class="goal-icon">⚡</div>
+            <div class="text-body2" style="font-weight:600;text-align:center;">Better Energy</div>
+          </div>
+          <div class="goal-card">
+            <div class="goal-icon">🧠</div>
+            <div class="text-body2" style="font-weight:600;text-align:center;">Clarity & Focus</div>
+          </div>
+          <div class="goal-card">
+            <div class="goal-icon">💪</div>
+            <div class="text-body2" style="font-weight:600;text-align:center;">General Wellness</div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;">
+        <button class="btn btn-primary">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Horizontal scroll cards -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Horizontal Scroll</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="currentColor"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <div style="padding:24px;">
+        <div class="font-oddval text-h1 text-primary" style="margin-bottom:8px;">What's your goal?</div>
+        <div class="text-body2 text-secondary" style="margin-bottom:32px;">Swipe to explore, tap to select.</div>
+      </div>
+      <div style="display:flex;gap:12px;padding:0 24px;overflow:hidden;">
+        <div class="goal-card-tall goal-card-tall-selected">
+          <div class="goal-icon" style="width:56px;height:56px;font-size:28px;">🌙</div>
+          <div class="text-body1 text-primary" style="font-weight:600;text-align:center;">Deep Sleep</div>
+          <div class="text-caption text-secondary" style="text-align:center;">Improve sleep quality</div>
+        </div>
+        <div class="goal-card-tall">
+          <div class="goal-icon" style="width:56px;height:56px;font-size:28px;">⚡</div>
+          <div class="text-body1" style="font-weight:600;text-align:center;">Energy</div>
+          <div class="text-caption text-secondary" style="text-align:center;">Wake refreshed</div>
+        </div>
+        <div class="goal-card-tall" style="opacity:0.6;">
+          <div class="goal-icon" style="width:56px;height:56px;font-size:28px;">🧠</div>
+          <div class="text-body1" style="font-weight:600;text-align:center;">Focus</div>
+          <div class="text-caption text-secondary" style="text-align:center;">Mental clarity</div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;">
+        <button class="btn btn-primary">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark mode -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="16" height="12" fill="white"><rect x="0" y="2" width="4" height="10" rx="1"/><rect x="6" y="0" width="4" height="12" rx="1"/><rect x="12" y="4" width="4" height="8" rx="1"/></svg></div></div>
+      <div style="padding:24px;">
+        <div class="font-oddval text-h1" style="color:white;margin-bottom:8px;">What's your goal?</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.6);margin-bottom:32px;">Select what matters most to you.</div>
+        <div class="grid-2" style="gap:16px;">
+          <div class="goal-card" style="background:var(--surface-dark);border-color:var(--primary);box-shadow:0 0 20px rgba(32,111,247,0.2);">
+            <div class="goal-icon">🌙</div>
+            <div class="text-body2 text-blue" style="font-weight:600;text-align:center;">Deep Sleep</div>
+          </div>
+          <div class="goal-card" style="background:var(--surface-dark);border-color:rgba(255,255,255,0.1);">
+            <div class="goal-icon">⚡</div>
+            <div class="text-body2 text-white" style="font-weight:600;text-align:center;">Better Energy</div>
+          </div>
+          <div class="goal-card" style="background:var(--surface-dark);border-color:rgba(255,255,255,0.1);">
+            <div class="goal-icon">🧠</div>
+            <div class="text-body2 text-white" style="font-weight:600;text-align:center;">Clarity & Focus</div>
+          </div>
+          <div class="goal-card" style="background:var(--surface-dark);border-color:rgba(255,255,255,0.1);">
+            <div class="goal-icon">💪</div>
+            <div class="text-body2 text-white" style="font-weight:600;text-align:center;">General Wellness</div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:48px;left:24px;right:24px;">
+        <button class="btn btn-primary">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

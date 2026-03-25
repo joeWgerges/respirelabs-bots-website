@@ -1,0 +1,83 @@
+---
+export interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+
+const content = {
+  en: {
+    title: "Everything you need to breathe better.",
+    subtitle: "AI-powered detection, guided coaching, and real results.",
+    f1: { title: "Breathing Detection", desc: "Real-time AI audio analysis detects mouth breathing using your phone's microphone." },
+    f2: { title: "Sleep Tracking", desc: "Track nose vs. mouth breathing ratio overnight." },
+    f3: { title: "Guided Exercises", desc: "Evidence-based breathing exercises tailored for you." },
+    f4: { title: "Achievements", desc: "Stay motivated with gamification and streaks." },
+    f5: { title: "Teleconsultation", desc: "Connect with breathing specialists." },
+    cta: "Join the Waitlist"
+  },
+  de: {
+    title: "Alles für besseres Atmen.",
+    subtitle: "KI-gestützte Erkennung, geführtes Coaching und echte Ergebnisse.",
+    f1: { title: "Atemerkennung", desc: "Echtzeit-KI-Audioanalyse erkennt Mundatmung über das Mikrofon deines Telefons." },
+    f2: { title: "Schlaf-Tracking", desc: "Verfolge das Verhältnis von Nasen- zu Mundatmung über Nacht." },
+    f3: { title: "Geführte Übungen", desc: "Evidenzbasierte Atemübungen, auf dich zugeschnitten." },
+    f4: { title: "Erfolge", desc: "Bleib motiviert mit Gamification und Serien." },
+    f5: { title: "Telekonsultation", desc: "Verbinde dich mit Atemspezialisten." },
+    cta: "Auf die Warteliste"
+  },
+  pl: {
+    title: "Wszystko, czego potrzebujesz, by lepiej oddychać.",
+    subtitle: "Wykrywanie AI, coaching z przewodnikiem i realne wyniki.",
+    f1: { title: "Wykrywanie Oddychania", desc: "Analiza audio AI w czasie rzeczywistym wykrywa oddychanie przez usta za pomocą mikrofonu telefonu." },
+    f2: { title: "Śledzenie Snu", desc: "Śledź proporcje oddychania nosem vs. ustami przez noc." },
+    f3: { title: "Ćwiczenia z Przewodnikiem", desc: "Ćwiczenia oddechowe oparte na dowodach naukowych." },
+    f4: { title: "Osiągnięcia", desc: "Bądź zmotywowany dzięki grywalizacji i seriom." },
+    f5: { title: "Telekonsultacje", desc: "Połącz się ze specjalistami od oddychania." },
+    cta: "Dołącz do listy"
+  }
+};
+const t = content[lang as keyof typeof content] || content.en;
+---
+
+<section class="section-full bg-[#FAFAFA] flex flex-col items-center justify-center overflow-y-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="text-center mb-10 md:mb-14 reveal">
+      <h2 class="text-3xl md:text-5xl font-oddval font-bold text-brand-dark mb-4">{t.title}</h2>
+      <p class="text-base md:text-lg font-montserrat text-brand-grey font-light">{t.subtitle}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+      <div class="md:col-span-7 glass-panel rounded-[2rem] p-6 md:p-8 overflow-hidden reveal delay-100">
+        <div class="flex items-center gap-3 mb-3"><img src="/assets/icons/respire-labs-icons_microphone.svg" alt="" class="w-7 h-7" loading="lazy" /><h3 class="text-lg font-oddval font-bold text-brand-dark">{t.f1.title}</h3></div>
+        <p class="font-montserrat text-brand-grey font-light mb-4 text-sm">{t.f1.desc}</p>
+        <div class="phone-mockup-small mx-auto"><div class="phone-frame-small"><img src="/assets/app-screenshots/breathing-analysis.webp" alt="Breathing analysis" class="w-full h-full object-cover object-top rounded-[1rem]" loading="lazy" /></div></div>
+      </div>
+      <div class="md:col-span-5 bg-brand-dark rounded-[2rem] p-6 md:p-8 overflow-hidden reveal delay-200">
+        <div class="flex items-center gap-3 mb-3"><img src="/assets/icons/respire-labs-icons_sleep.svg" alt="" class="w-7 h-7" loading="lazy" /><h3 class="text-lg font-oddval font-bold text-white">{t.f2.title}</h3></div>
+        <p class="font-montserrat text-white/60 font-light mb-4 text-sm">{t.f2.desc}</p>
+        <div class="phone-mockup-small mx-auto"><div class="phone-frame-small"><img src="/assets/app-screenshots/breathing-pattern.webp" alt="Sleep patterns" class="w-full h-full object-cover object-top rounded-[1rem]" loading="lazy" /></div></div>
+      </div>
+      <div class="md:col-span-4 glass-panel rounded-[2rem] p-6 text-center reveal delay-100">
+        <img src="/assets/icons/respire-labs-icons_nose.svg" alt="" class="w-9 h-9 mx-auto mb-3" loading="lazy" />
+        <h3 class="text-base font-oddval font-bold text-brand-dark mb-2">{t.f3.title}</h3>
+        <p class="font-montserrat text-brand-grey font-light text-xs mb-3">{t.f3.desc}</p>
+        <div class="phone-mockup-tiny mx-auto"><img src="/assets/app-screenshots/daily-tips.webp" alt="Exercises" class="w-full rounded-xl shadow-md" loading="lazy" /></div>
+      </div>
+      <div class="md:col-span-4 glass-panel rounded-[2rem] p-6 text-center reveal delay-200">
+        <img src="/assets/icons/respire-labs-icons_monitor.svg" alt="" class="w-9 h-9 mx-auto mb-3" loading="lazy" />
+        <h3 class="text-base font-oddval font-bold text-brand-dark mb-2">{t.f4.title}</h3>
+        <p class="font-montserrat text-brand-grey font-light text-xs mb-3">{t.f4.desc}</p>
+        <div class="phone-mockup-tiny mx-auto"><img src="/assets/app-screenshots/achievements.webp" alt="Achievements" class="w-full rounded-xl shadow-md" loading="lazy" /></div>
+      </div>
+      <div class="md:col-span-4 glass-panel rounded-[2rem] p-6 text-center reveal delay-300">
+        <img src="/assets/icons/respire-labs-icons_tape.svg" alt="" class="w-9 h-9 mx-auto mb-3" loading="lazy" />
+        <h3 class="text-base font-oddval font-bold text-brand-dark mb-2">{t.f5.title}</h3>
+        <p class="font-montserrat text-brand-grey font-light text-xs mb-3">{t.f5.desc}</p>
+        <div class="phone-mockup-tiny mx-auto"><img src="/assets/app-screenshots/teleconsultation.webp" alt="Teleconsultation" class="w-full rounded-xl shadow-md" loading="lazy" /></div>
+      </div>
+    </div>
+    <!-- CTA -->
+    <div class="text-center mt-10 reveal">
+      <button type="button" class="cta-waitlist btn-shimmer inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold text-white bg-[#206FF7] hover:bg-[#1a5cd4] hover:shadow-lg hover:shadow-[#206FF7]/25 active:scale-[0.98] font-montserrat transition-all">{t.cta}</button>
+    </div>
+  </div>
+</section>

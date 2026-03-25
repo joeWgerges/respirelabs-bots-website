@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-size: 13px;
+      color: #333;
+      padding: 16px;
+      background: #fff;
+    }
+    h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    p {
+      color: #666;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    /* File picker */
+    .file-zone {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 32px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      margin-bottom: 16px;
+    }
+    .file-zone:hover, .file-zone.drag-over {
+      border-color: #18A0FB;
+      background: #f0f8ff;
+    }
+    .file-zone.loaded {
+      border-color: #1bc47d;
+      background: #f0fdf4;
+    }
+    .file-zone input[type="file"] {
+      display: none;
+    }
+    .file-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    .file-name {
+      font-weight: 500;
+      color: #1bc47d;
+      margin-top: 8px;
+    }
+
+    /* Stats */
+    .stats {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .stats.visible { display: block; }
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+    }
+    .stat-label { color: #666; }
+    .stat-value { font-weight: 600; }
+
+    /* Import button */
+    .btn-import {
+      width: 100%;
+      padding: 10px;
+      background: #18A0FB;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .btn-import:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .btn-import:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+
+    /* Progress */
+    .progress-area {
+      display: none;
+      margin-top: 16px;
+    }
+    .progress-area.visible { display: block; }
+    .progress-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #eee;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #18A0FB;
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.15s ease;
+    }
+    .progress-fill.done { background: #1bc47d; }
+    .progress-status {
+      font-size: 12px;
+      color: #666;
+      margin-top: 6px;
+    }
+
+    /* Log */
+    .log {
+      margin-top: 12px;
+      max-height: 120px;
+      overflow-y: auto;
+      font-size: 11px;
+      font-family: monospace;
+      color: #888;
+      background: #fafafa;
+      border-radius: 4px;
+      padding: 8px;
+      display: none;
+    }
+    .log.visible { display: block; }
+    .log .error { color: #e53e3e; }
+    .log .success { color: #1bc47d; }
+  </style>
+</head>
+<body>
+  <h2>Prototype Importer</h2>
+  <p>Select the <code>figma-bundle.json</code> file and the <code>screens/</code> folder to import your prototype.</p>
+
+  <!-- Step 1: JSON bundle -->
+  <div class="file-zone" id="jsonZone">
+    <div class="file-icon">{ }</div>
+    <div>Click to select <strong>figma-bundle.json</strong></div>
+    <div class="file-name" id="jsonFileName"></div>
+    <input type="file" id="jsonInput" accept=".json">
+  </div>
+
+  <!-- Step 2: Screen images folder -->
+  <div class="file-zone" id="imgZone">
+    <div class="file-icon">&#x1F4F7;</div>
+    <div>Click to select all <strong>screen PNGs</strong><br><small>(select all files inside screens/ folder)</small></div>
+    <div class="file-name" id="imgFileName"></div>
+    <input type="file" id="imgInput" accept=".png" multiple>
+  </div>
+
+  <!-- Stats preview -->
+  <div class="stats" id="stats">
+    <div class="stat-row"><span class="stat-label">Screens</span><span class="stat-value" id="statScreens">0</span></div>
+    <div class="stat-row"><span class="stat-label">Hotspots</span><span class="stat-value" id="statHotspots">0</span></div>
+    <div class="stat-row"><span class="stat-label">Tab-bar screens</span><span class="stat-value" id="statTabScreens">0</span></div>
+    <div class="stat-row"><span class="stat-label">Auto-delays</span><span class="stat-value" id="statAutoDelays">0</span></div>
+    <div class="stat-row"><span class="stat-label">Est. connections</span><span class="stat-value" id="statTotal">0</span></div>
+  </div>
+
+  <button class="btn-import" id="btnImport" disabled>Import Prototype</button>
+
+  <!-- Progress -->
+  <div class="progress-area" id="progressArea">
+    <div class="progress-label" id="progressLabel">Importing...</div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-status" id="progressStatus"></div>
+  </div>
+
+  <div class="log" id="log"></div>
+
+  <script>
+    // ── State ──
+    let bundleData = null;
+    let imageMap = {};  // screenId → Uint8Array
+
+    const jsonZone = document.getElementById('jsonZone');
+    const jsonInput = document.getElementById('jsonInput');
+    const jsonFileName = document.getElementById('jsonFileName');
+    const imgZone = document.getElementById('imgZone');
+    const imgInput = document.getElementById('imgInput');
+    const imgFileName = document.getElementById('imgFileName');
+    const stats = document.getElementById('stats');
+    const btnImport = document.getElementById('btnImport');
+    const progressArea = document.getElementById('progressArea');
+    const progressFill = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+    const progressStatus = document.getElementById('progressStatus');
+    const logEl = document.getElementById('log');
+
+    // ── File pickers ──
+
+    jsonZone.addEventListener('click', () => jsonInput.click());
+    imgZone.addEventListener('click', () => imgInput.click());
+
+    // Drag and drop
+    [jsonZone, imgZone].forEach(zone => {
+      zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+      zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+    });
+
+    jsonZone.addEventListener('drop', e => {
+      e.preventDefault();
+      jsonZone.classList.remove('drag-over');
+      if (e.dataTransfer.files.length) handleJsonFile(e.dataTransfer.files[0]);
+    });
+
+    imgZone.addEventListener('drop', e => {
+      e.preventDefault();
+      imgZone.classList.remove('drag-over');
+      if (e.dataTransfer.files.length) handleImageFiles(e.dataTransfer.files);
+    });
+
+    jsonInput.addEventListener('change', e => {
+      if (e.target.files.length) handleJsonFile(e.target.files[0]);
+    });
+
+    imgInput.addEventListener('change', e => {
+      if (e.target.files.length) handleImageFiles(e.target.files);
+    });
+
+    async function handleJsonFile(file) {
+      try {
+        const text = await file.text();
+        bundleData = JSON.parse(text);
+        jsonFileName.textContent = file.name + ' (' + bundleData.screens.length + ' screens)';
+        jsonZone.classList.add('loaded');
+        showStats();
+        checkReady();
+      } catch (err) {
+        jsonFileName.textContent = 'Error: ' + err.message;
+      }
+    }
+
+    async function handleImageFiles(files) {
+      imageMap = {};
+      let count = 0;
+      for (const file of files) {
+        if (!file.name.endsWith('.png')) continue;
+        const screenId = file.name.replace('.png', '');
+        const buffer = await file.arrayBuffer();
+        imageMap[screenId] = new Uint8Array(buffer);
+        count++;
+      }
+      imgFileName.textContent = count + ' images loaded';
+      imgZone.classList.add('loaded');
+      checkReady();
+    }
+
+    function showStats() {
+      if (!bundleData) return;
+      const totalHotspots = bundleData.screens.reduce((sum, s) => sum + s.hotspots.length, 0);
+      const tabScreens = bundleData.screens.filter(s => s.hasTabBar).length;
+      const tabConns = tabScreens * (bundleData.tabBar?.tabs?.length || 0);
+
+      document.getElementById('statScreens').textContent = bundleData.screens.length;
+      document.getElementById('statHotspots').textContent = totalHotspots;
+      document.getElementById('statTabScreens').textContent = tabScreens;
+      document.getElementById('statAutoDelays').textContent = bundleData.autoDelays?.length || 0;
+      document.getElementById('statTotal').textContent = '~' + (totalHotspots + tabConns + (bundleData.autoDelays?.length || 0));
+      stats.classList.add('visible');
+    }
+
+    function checkReady() {
+      btnImport.disabled = !(bundleData && Object.keys(imageMap).length > 0);
+    }
+
+    // ── Import ──
+
+    btnImport.addEventListener('click', () => {
+      if (!bundleData || Object.keys(imageMap).length === 0) return;
+      btnImport.disabled = true;
+      progressArea.classList.add('visible');
+      logEl.classList.add('visible');
+
+      // Send data to plugin in batches to avoid postMessage size limits.
+      // First send metadata, then send images one at a time.
+      const meta = {
+        version: bundleData.version,
+        dimensions: bundleData.dimensions,
+        startScreen: bundleData.startScreen,
+        screens: bundleData.screens,
+        tabBar: bundleData.tabBar,
+        autoDelays: bundleData.autoDelays,
+      };
+
+      parent.postMessage({ pluginMessage: { type: 'start-import', meta } }, '*');
+
+      // Send images sequentially
+      const screenIds = bundleData.screens.map(s => s.screenId);
+      let imgIdx = 0;
+
+      function sendNextImage() {
+        if (imgIdx >= screenIds.length) {
+          parent.postMessage({ pluginMessage: { type: 'all-images-sent' } }, '*');
+          return;
+        }
+        const sid = screenIds[imgIdx];
+        const imgBytes = imageMap[sid];
+        if (imgBytes) {
+          parent.postMessage({
+            pluginMessage: {
+              type: 'image-data',
+              screenId: sid,
+              bytes: imgBytes,
+            },
+          }, '*');
+        } else {
+          log('Missing image for ' + sid, 'error');
+          parent.postMessage({
+            pluginMessage: {
+              type: 'image-data',
+              screenId: sid,
+              bytes: null,
+            },
+          }, '*');
+        }
+        imgIdx++;
+      }
+
+      // Listen for acks from plugin
+      window.addEventListener('message', function handler(ev) {
+        const msg = ev.data?.pluginMessage;
+        if (!msg) return;
+
+        if (msg.type === 'request-next-image') {
+          sendNextImage();
+        } else if (msg.type === 'progress') {
+          updateProgress(msg.phase, msg.current, msg.total, msg.detail);
+        } else if (msg.type === 'log') {
+          log(msg.text, msg.level);
+        } else if (msg.type === 'done') {
+          progressFill.style.width = '100%';
+          progressFill.classList.add('done');
+          progressLabel.textContent = 'Import complete!';
+          progressStatus.textContent = msg.summary;
+          log(msg.summary, 'success');
+        } else if (msg.type === 'error') {
+          progressLabel.textContent = 'Error!';
+          log(msg.text, 'error');
+          btnImport.disabled = false;
+        }
+      });
+
+      // Send the first image
+      sendNextImage();
+    });
+
+    function updateProgress(phase, current, total, detail) {
+      const pct = total > 0 ? Math.round((current / total) * 100) : 0;
+      progressFill.style.width = pct + '%';
+      progressLabel.textContent = phase;
+      progressStatus.textContent = detail || (current + ' / ' + total);
+    }
+
+    function log(text, level) {
+      const line = document.createElement('div');
+      line.textContent = text;
+      if (level) line.className = level;
+      logEl.appendChild(line);
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+  </script>
+</body>
+</html>

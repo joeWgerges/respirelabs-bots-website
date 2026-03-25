@@ -1,0 +1,106 @@
+<div class="phone phone-light">
+
+      <div class="status-bar status-bar-light"><span>2:15</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="14" fill="#206FF7"></circle><text x="14" y="18" text-anchor="middle" fill="white" font-size="14" font-weight="700">R</text></svg>
+            <span class="nav-logo-text text-primary">RespireLabs</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="status-pill"><div class="status-dot"></div>Tracking</div>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Timer -->
+        <div style="text-align:center;margin:16px 0;">
+          <div style="font-size:14px;color:#6B7280;margin-bottom:4px;">Session Duration</div>
+          <div style="font-size:32px;font-weight:700;color:#0A0A0B;font-family:'Oddval',serif;">01:23:45</div>
+        </div>
+
+        <!-- Real-time breathing ring -->
+        <div style="display:flex;justify-content:center;margin:16px 0 20px;">
+          <div style="width:200px;height:200px;border-radius:50%;border:6px solid #206FF7;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(32,111,247,0.06) 0%,transparent 70%);">
+            <div style="text-align:center;">
+              <div style="font-size:40px;font-weight:700;color:#0A0A0B;">16</div>
+              <div style="font-size:12px;color:#6B7280;">breaths/min</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nose vs Mouth ratio bar -->
+        <div class="card" style="margin-bottom:12px;padding:16px 20px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+            <span class="text-body2 text-primary" style="font-weight:500;">Breathing Pattern</span>
+            <span class="text-caption text-secondary">Real-time</span>
+          </div>
+          <div style="display:flex;height:12px;border-radius:6px;overflow:hidden;margin-bottom:8px;">
+            <div style="width:78%;background:#22C55E;"></div>
+            <div style="width:22%;background:#EF4444;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></div>
+              <span class="text-caption text-primary">Nose 78%</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#EF4444;"></div>
+              <span class="text-caption text-primary">Mouth 22%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live stats row -->
+        <div class="grid-3" style="margin-bottom:12px;">
+          <div class="card" style="padding:12px;text-align:center;">
+            <div style="font-size:20px;font-weight:700;color:#206FF7;">3</div>
+            <div class="text-caption text-secondary">Alerts</div>
+          </div>
+          <div class="card" style="padding:12px;text-align:center;">
+            <div style="font-size:20px;font-weight:700;color:#22C55E;">Good</div>
+            <div class="text-caption text-secondary">Status</div>
+          </div>
+          <div class="card" style="padding:12px;text-align:center;">
+            <div style="font-size:20px;font-weight:700;color:#0A0A0B;">82%</div>
+            <div class="text-caption text-secondary">Score</div>
+          </div>
+        </div>
+
+        <!-- Timeline mini chart -->
+        <div class="card" style="padding:16px 20px;margin-bottom:16px;">
+          <div class="text-body2 text-primary mb-8" style="font-weight:500;">Session Timeline</div>
+          <div style="display:flex;align-items:flex-end;gap:3px;height:60px;">
+            <div style="flex:1;background:#22C55E;height:100%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:90%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:95%;border-radius:2px;"></div>
+            <div style="flex:1;background:#EF4444;height:30%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:85%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:92%;border-radius:2px;"></div>
+            <div style="flex:1;background:#EF4444;height:25%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:88%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:96%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:80%;border-radius:2px;"></div>
+            <div style="flex:1;background:#EF4444;height:20%;border-radius:2px;"></div>
+            <div style="flex:1;background:#22C55E;height:94%;border-radius:2px;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;">
+            <span class="text-caption text-secondary">12:52</span>
+            <span class="text-caption text-secondary">Now</span>
+          </div>
+        </div>
+
+        <!-- Stop button -->
+        <button class="btn btn-error" style="margin-bottom:100px;">Stop Tracking</button>
+      </div>
+
+      <!-- Tab bar -->
+      <div class="tab-bar">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="#206FF7"><path d="M10 2L2 7v11a2 2 0 002 2h4v-7h4v7h4a2 2 0 002-2V7l-8-5z"></path></svg></div><span>Home</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zm-11 11h7v7H3v-7zm11 0h7v7h-7v-7z"></path></svg></div><span>Track</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path></svg></div><span>Tips</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M4 4h16v2H4V4zm0 5h16v2H4V9zm0 5h10v2H4v-2z"></path></svg></div><span>Learn</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><circle cx="10" cy="8" r="4"></circle><path d="M2 20c0-4 4-6 8-6s8 2 8 6"></path></svg></div><span>Consult</span></div>
+      </div>
+    
+</div>

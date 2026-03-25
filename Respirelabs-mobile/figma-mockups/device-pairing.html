@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Device Pairing — S20 BLE Pairing Flow</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1 class="page-title">Device Pairing</h1>
+<p class="page-subtitle">S20 — BLE Pairing / Device Setup Flow — 3 frames</p>
+
+<!-- ============================================================ -->
+<!-- S20 — BLE Pairing / Device Setup                             -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">S20 — BLE Pairing Flow</h2>
+
+<div class="screen-row">
+
+  <!-- S20-A: Scanning -->
+  <div class="screen-col">
+    <div class="screen-label">S20-A · Scanning · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 8l-7 7-7-7"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Pair Device</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Bluetooth illustration -->
+        <div style="text-align:center;margin:32px 0 24px;">
+          <div style="width:140px;height:140px;border-radius:50%;background:linear-gradient(135deg,rgba(32,111,247,0.1) 0%,rgba(32,111,247,0.05) 100%);margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;">
+            <!-- Animated ripple rings -->
+            <div style="position:absolute;width:180px;height:180px;border-radius:50%;border:2px solid rgba(32,111,247,0.1);"></div>
+            <div style="position:absolute;width:220px;height:220px;border-radius:50%;border:1px solid rgba(32,111,247,0.05);"></div>
+            <!-- BLE icon -->
+            <svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 8l16 16-8 8V8l8 8L8 32"/>
+            </svg>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-bottom:24px;">
+          <div class="text-h2 font-oddval text-primary" style="margin-bottom:8px;">Searching for Smart Tape</div>
+          <p class="text-body2 text-secondary">Make sure your Smart Tape is turned on and nearby. Remove the pull tab to activate.</p>
+        </div>
+
+        <!-- Scanning animation placeholder -->
+        <div class="card" style="margin-bottom:16px;padding:20px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <div style="width:12px;height:12px;border-radius:50%;border:2px solid #206FF7;border-top-color:transparent;"></div>
+            <span class="text-body2 text-primary" style="font-weight:500;">Scanning for devices...</span>
+          </div>
+
+          <!-- Found devices (empty for scanning state) -->
+          <div style="padding:20px;text-align:center;border:2px dashed #E5E7EB;border-radius:16px;">
+            <svg width="32" height="32" fill="none" stroke="#E5E7EB" stroke-width="2" style="margin-bottom:8px;"><path d="M8 8l16 16-8 8V8l8 8L8 32"/></svg>
+            <div class="text-body2 text-secondary">Looking for nearby devices</div>
+          </div>
+        </div>
+
+        <!-- Instructions -->
+        <div style="padding:16px 20px;background:#F7F7F9;border-radius:16px;margin-bottom:20px;">
+          <div class="text-body2 text-primary mb-8" style="font-weight:600;">Setup tips:</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <span style="font-size:14px;">1️⃣</span>
+              <span class="text-body2 text-secondary">Remove the activation pull tab</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <span style="font-size:14px;">2️⃣</span>
+              <span class="text-body2 text-secondary">Keep device within 30cm of phone</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <span style="font-size:14px;">3️⃣</span>
+              <span class="text-body2 text-secondary">Enable Bluetooth in Settings</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-ghost" style="margin-bottom:20px;">Having trouble? Get help</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- S20-B: Device Found + Pairing -->
+  <div class="screen-col">
+    <div class="screen-label">S20-B · Found & Pairing</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 8l-7 7-7-7"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Pair Device</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Success illustration -->
+        <div style="text-align:center;margin:32px 0 24px;">
+          <div style="width:140px;height:140px;border-radius:50%;background:rgba(34,197,94,0.1);margin:0 auto;display:flex;align-items:center;justify-content:center;">
+            <svg width="56" height="56" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 28l8 8 20-20"/>
+            </svg>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-bottom:24px;">
+          <div class="text-h2 font-oddval text-primary" style="margin-bottom:8px;">Device Found!</div>
+          <p class="text-body2 text-secondary">Your Smart Tape is ready to pair.</p>
+        </div>
+
+        <!-- Device card -->
+        <div class="card" style="margin-bottom:16px;border:2px solid #22C55E;padding:20px;">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#206FF7 0%,#1a5ad4 100%);display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" fill="white"><rect x="4" y="8" width="20" height="12" rx="6"/><circle cx="14" cy="14" r="3" fill="rgba(255,255,255,0.5)"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body1 text-primary" style="font-weight:600;">RespireLabs Smart Tape</div>
+              <div class="text-caption text-secondary">Model: RT-100 · FW v2.1.0</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></div>
+              <span class="text-caption" style="color:#22C55E;font-weight:500;">Found</span>
+            </div>
+          </div>
+
+          <!-- Device info -->
+          <div style="display:flex;gap:16px;padding:12px;background:#F7F7F9;border-radius:12px;">
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:18px;font-weight:700;color:#206FF7;">96%</div>
+              <div class="text-caption text-secondary">Battery</div>
+            </div>
+            <div style="width:1px;background:#E5E7EB;"></div>
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:18px;font-weight:700;color:#22C55E;">Strong</div>
+              <div class="text-caption text-secondary">Signal</div>
+            </div>
+            <div style="width:1px;background:#E5E7EB;"></div>
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:18px;font-weight:700;color:#0A0A0B;">v2.1</div>
+              <div class="text-caption text-secondary">Firmware</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pair button -->
+        <button class="btn btn-primary" style="margin-bottom:12px;">
+          <svg width="20" height="20" fill="white" style="margin-right:8px;"><path d="M8 8l8 8-4 4V8l4 4L8 20"/></svg>
+          Pair Smart Tape
+        </button>
+        <button class="btn btn-ghost" style="margin-bottom:20px;">Scan again</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- S20-C: Dark / Connected Success -->
+  <div class="screen-col">
+    <div class="screen-label">S20-C · Connected · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2"><path d="M15 8l-7 7-7-7"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Pair Device</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Connected celebration -->
+        <div style="text-align:center;margin:40px 0 24px;">
+          <div style="width:140px;height:140px;border-radius:50%;background:rgba(34,197,94,0.15);margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;">
+            <!-- Confetti dots -->
+            <div style="position:absolute;top:-10px;left:20px;width:8px;height:8px;border-radius:50%;background:#FFDC31;"></div>
+            <div style="position:absolute;top:10px;right:5px;width:6px;height:6px;border-radius:50%;background:#206FF7;"></div>
+            <div style="position:absolute;bottom:10px;left:10px;width:6px;height:6px;border-radius:50%;background:#22C55E;"></div>
+            <div style="position:absolute;top:30px;left:-5px;width:4px;height:4px;border-radius:50%;background:#EF4444;"></div>
+            <svg width="56" height="56" fill="none" stroke="#22C55E" stroke-width="3" stroke-linecap="round"><path d="M14 28l8 8 20-20"/></svg>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-bottom:24px;">
+          <div class="text-h2 font-oddval" style="color:white;margin-bottom:8px;">Successfully Connected!</div>
+          <p class="text-body2" style="color:rgba(255,255,255,0.5);">Your Smart Tape is paired and ready to track your breathing.</p>
+        </div>
+
+        <!-- Connected device card -->
+        <div class="card-dark" style="padding:20px;border-radius:24px;margin-bottom:16px;border-color:rgba(34,197,94,0.3);">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
+            <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#FFDC31 0%,#f0c800 100%);display:flex;align-items:center;justify-content:center;">
+              <svg width="28" height="28" fill="#0A0A0B"><rect x="4" y="8" width="20" height="12" rx="6"/><circle cx="14" cy="14" r="3" fill="rgba(0,0,0,0.3)"/></svg>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body1" style="color:white;font-weight:600;">RespireLabs Smart Tape</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">Connected · RT-100</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:4px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#22C55E;"></div>
+              <span class="text-caption" style="color:#22C55E;font-weight:500;">Paired</span>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:16px;padding:12px;background:rgba(255,255,255,0.05);border-radius:12px;">
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:18px;font-weight:700;color:#FFDC31;">96%</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">Battery</div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:18px;font-weight:700;color:#22C55E;">Strong</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">Signal</div>
+            </div>
+            <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:18px;font-weight:700;color:white;">v2.1</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">Firmware</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What's next -->
+        <div class="text-overline" style="color:rgba(255,255,255,0.4);margin-bottom:12px;">WHAT'S NEXT</div>
+        <div class="card-dark" style="padding:0;border-radius:24px;margin-bottom:20px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,220,49,0.1);display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:16px;">🌙</span>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="color:white;font-weight:500;">Start Night Tracking</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">Track your sleep breathing</div>
+            </div>
+            <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M6 3l7 7-7 7"/></svg>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,220,49,0.1);display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:16px;">☀️</span>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="color:white;font-weight:500;">Start Daytime Tracking</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">Real-time breathing alerts</div>
+            </div>
+            <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M6 3l7 7-7 7"/></svg>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 20px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,220,49,0.1);display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:16px;">📊</span>
+            </div>
+            <div style="flex:1;">
+              <div class="text-body2" style="color:white;font-weight:500;">View Tutorial</div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);">Learn how to use Smart Tape</div>
+            </div>
+            <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M6 3l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <!-- Done button -->
+        <button class="btn" style="background:#FFDC31;color:#0A0A0B;margin-bottom:20px;">Go to Home</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

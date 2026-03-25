@@ -1,0 +1,133 @@
+<div class="phone phone-light">
+
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"></rect><rect x="2" y="3" width="14" height="6" rx="1"></rect><rect x="21" y="4" width="3" height="4" rx="1"></rect></svg></div></div>
+      <div class="nav-header">
+        <div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"></path></svg><span class="nav-logo-text text-primary">RespireLabs</span></div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="nav-search" style="width:36px;height:36px;border-radius:50%;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;cursor:pointer;"><svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="8" cy="8" r="5"></circle><path d="M13 13l3 3"></path></svg></div>
+          <div class="nav-bell" style="width:36px;height:36px;border-radius:50%;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;"><svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="1.5"><path d="M10 2a5 5 0 00-5 5c0 5-2 6-2 6h14s-2-1-2-6a5 5 0 00-5-5zM8 15a2 2 0 004 0"></path></svg><div style="position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:var(--error);border:2px solid var(--surface-white);"></div></div>
+          <div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"></circle><path d="M10 1v2M10 17v2M1 10h2M17 10h2"></path></svg></div>
+        </div>
+      </div>
+      <div style="padding:0 20px;overflow-y:auto;max-height:calc(100% - 120px);">
+        <!-- 1. Greeting row -->
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-top:4px;">
+          <div class="font-mont text-body1" style="font-weight:600;">Good Morning, Alex</div>
+          <div class="status-pill"><span class="status-dot"></span>Connected</div>
+        </div>
+
+        <!-- 2. AI Coach card -->
+        <div class="ai-coach-card hub-card" style="background:linear-gradient(135deg,rgba(32,111,247,0.08),rgba(96,165,250,0.08));border-color:rgba(32,111,247,0.15);margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#206FF7,#60A5FA);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" fill="none" stroke="white" stroke-width="1.5"><path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"></path><path d="M19 10v1a7 7 0 01-14 0v-1"></path><path d="M12 19v2"></path></svg></div>
+          <div style="flex:1;">
+            <div class="text-body2" style="font-weight:600;color:var(--primary);">AI Sleep Coach</div>
+            <div class="text-caption text-secondary">Your weekly insights are ready</div>
+          </div>
+          <svg width="16" height="16" fill="none" stroke="#206FF7" stroke-width="2"><path d="M6 12l4-4-4-4"></path></svg>
+        </div>
+
+        <!-- 3. Quick Actions (3-col grid) -->
+        <div class="grid-3" style="margin-bottom:12px;">
+          <div class="quick-action" data-id="start-session">
+            <div class="quick-action-icon" style="background:rgba(32,111,247,0.08);color:var(--primary);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 00-3 3v3a3 3 0 006 0V5a3 3 0 00-3-3z"></path><path d="M17 8v1a5 5 0 01-10 0V8"></path></svg></div>
+            <div class="text-caption text-blue" style="font-weight:600;text-align:center;">Start Session</div>
+          </div>
+          <div class="quick-action" data-id="exercise">
+            <div class="quick-action-icon" style="background:rgba(34,197,94,0.08);color:var(--success);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 16l3-6 4 4 5-8"></path></svg></div>
+            <div class="text-caption" style="font-weight:600;text-align:center;color:var(--success);">Exercise</div>
+          </div>
+          <div class="quick-action" data-id="track">
+            <div class="quick-action-icon" style="background:rgba(239,68,68,0.08);color:var(--error);width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;">▶</div>
+            <div class="text-caption" style="font-weight:600;text-align:center;color:var(--error);">Track</div>
+          </div>
+        </div>
+
+        <!-- 4. Compact Progress Ring -->
+        <div class="hero-card" style="display:flex;align-items:center;gap:16px;margin-bottom:12px;">
+          <div style="position:relative;width:100px;height:100px;flex-shrink:0;">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#E5E7EB" stroke-width="5"></circle>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#206FF7" stroke-width="5" stroke-dasharray="264" stroke-dashoffset="32" stroke-linecap="round" transform="rotate(-90 50 50)"></circle>
+            </svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+              <div class="font-oddval text-primary" style="font-size:22px;font-weight:700;">88%</div>
+            </div>
+          </div>
+          <div>
+            <div class="text-overline text-secondary mb-4">LAST SESSION</div>
+            <div class="font-oddval text-h3">Nasal Ratio</div>
+            <div class="text-caption text-secondary" style="margin-top:4px;">4 hours • Last night</div>
+          </div>
+        </div>
+
+        <!-- 5. Tappable Stat Cards (3-col) -->
+        <div class="grid-3" style="margin-bottom:12px;">
+          <div class="stat-sleep hub-card" style="text-align:center;padding:12px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(32,111,247,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;"><svg width="16" height="16" fill="none" stroke="#206FF7" stroke-width="2"><path d="M14 10a7 7 0 11-14 0"></path><circle cx="7" cy="7" r="2"></circle></svg></div>
+            <div class="font-oddval" style="font-size:20px;font-weight:700;">76</div>
+            <div class="text-caption text-secondary" style="font-size:10px;">Sleep Quality</div>
+          </div>
+          <div class="stat-exercise hub-card" style="text-align:center;padding:12px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(34,197,94,0.08);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;"><svg width="16" height="16" fill="none" stroke="#22C55E" stroke-width="2"><path d="M4 12l2-4 3 3 4-6"></path></svg></div>
+            <div class="font-oddval" style="font-size:20px;font-weight:700;">2<span style="font-size:12px;color:var(--text-secondary);">/7</span></div>
+            <div class="text-caption text-secondary" style="font-size:10px;">Exercises</div>
+          </div>
+          <div class="stat-progress hub-card" style="text-align:center;padding:12px;">
+            <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,220,49,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 6px;"><svg width="16" height="16" fill="none" stroke="#EAB308" stroke-width="2"><polyline points="3 12 6 6 9 9 13 3"></polyline></svg></div>
+            <div class="font-oddval" style="font-size:20px;font-weight:700;">75%</div>
+            <div class="text-caption text-secondary" style="font-size:10px;">Progress</div>
+          </div>
+        </div>
+
+        <!-- 6. Daily Tip -->
+        <div class="daily-tip-card hub-card" style="margin-bottom:12px;display:flex;align-items:center;gap:12px;background:rgba(255,220,49,0.06);border-color:rgba(255,220,49,0.2);">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,220,49,0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">💡</div>
+          <div style="flex:1;">
+            <div class="text-caption" style="font-weight:600;color:var(--text-primary);">Daily Tip</div>
+            <div class="text-caption text-secondary">Try nasal breathing during your commute</div>
+          </div>
+          <svg width="14" height="14" fill="none" stroke="#6B7280" stroke-width="2"><path d="M5 10l3-3-3-3"></path></svg>
+        </div>
+
+        <!-- 7. Recent Session -->
+        <div class="recent-session-card hub-card" style="margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div class="text-caption" style="font-weight:600;">Last Night</div>
+            <div class="text-caption text-secondary">4h ago</div>
+          </div>
+          <div style="display:flex;gap:16px;">
+            <div><span class="text-caption text-secondary">Nasal</span><span class="font-oddval text-primary" style="margin-left:4px;font-weight:700;">88%</span></div>
+            <div><span class="text-caption text-secondary">Sleep</span><span class="font-oddval" style="margin-left:4px;font-weight:700;">76</span></div>
+            <div><span class="text-caption text-secondary">Breaths</span><span class="font-oddval" style="margin-left:4px;font-weight:700;">8,560</span></div>
+          </div>
+        </div>
+
+        <!-- 8. Weekly Report -->
+        <div class="weekly-report-card hub-card" style="margin-bottom:12px;display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(34,197,94,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="18" height="18" fill="none" stroke="#22C55E" stroke-width="2"><polyline points="4 14 8 6 12 10 16 2"></polyline></svg></div>
+          <div style="flex:1;">
+            <div class="text-caption" style="font-weight:600;">Weekly Report</div>
+            <div class="text-caption" style="color:var(--success);">12% improvement this week</div>
+          </div>
+          <svg width="14" height="14" fill="none" stroke="#6B7280" stroke-width="2"><path d="M5 10l3-3-3-3"></path></svg>
+        </div>
+
+        <!-- 9. Achievements -->
+        <div class="achievements-card hub-card" style="margin-bottom:16px;display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,220,49,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;">🏆</div>
+          <div style="flex:1;">
+            <div class="text-caption" style="font-weight:600;">Achievements</div>
+            <div class="text-caption text-secondary">14-day streak • 3 new badges</div>
+          </div>
+          <svg width="14" height="14" fill="none" stroke="#6B7280" stroke-width="2"><path d="M5 10l3-3-3-3"></path></svg>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"></circle><path d="M10 6v4l3 2"></path></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"></polyline></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"></line><line x1="3" y1="10" x2="17" y2="10"></line><line x1="3" y1="14" x2="12" y2="14"></line></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"></path></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"></rect><path d="M15 4l-5 5-5-5"></path></svg></div>Consult</div>
+      </div>
+    
+</div>

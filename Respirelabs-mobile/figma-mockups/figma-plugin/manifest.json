@@ -1,0 +1,11 @@
+{
+  "name": "RespireLabs Prototype Importer",
+  "id": "respirelabs-prototype-importer",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html",
+  "editorType": ["figma"],
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
+}

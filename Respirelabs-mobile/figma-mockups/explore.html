@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs — Explore Screens</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+<style>
+  .featured-card {
+    background: linear-gradient(135deg, #206FF7 0%, #1555C4 100%);
+    border-radius: var(--radius-lg); padding: 24px; color: white;
+    position: relative; overflow: hidden; min-height: 160px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .exercise-item {
+    display: flex; align-items: center; gap: 16px; padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exercise-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(32,111,247,0.08); display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .play-btn {
+    width: 36px; height: 36px; border-radius: 50%; background: var(--primary);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .article-card {
+    background: var(--surface-white); border-radius: var(--radius-lg);
+    overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .article-image {
+    height: 200px; background: linear-gradient(135deg, #E8EFF9 0%, #D4E0F3 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .article-thumb {
+    width: 64px; height: 64px; border-radius: 12px;
+    background: linear-gradient(135deg, #E8EFF9 0%, #D4E0F3 100%);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .hero-image-area {
+    height: 300px; background: linear-gradient(180deg, #E8EFF9 0%, #FAFAFA 100%);
+    position: relative; display: flex; align-items: center; justify-content: center;
+  }
+  .back-circle {
+    width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.9);
+    display: flex; align-items: center; justify-content: center;
+    position: absolute; top: 16px; left: 16px; font-size: 18px;
+    color: var(--text-secondary); box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .quote-box {
+    border-left: 3px solid var(--primary); padding: 12px 16px;
+    background: rgba(32,111,247,0.04); border-radius: 0 8px 8px 0;
+    font-style: italic; color: var(--text-secondary); font-size: 14px;
+  }
+  .grid-card {
+    background: var(--surface-white); border-radius: var(--radius-md);
+    overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .grid-card-image {
+    height: 100px; background: linear-gradient(135deg, #E8EFF9 0%, #D4E0F3 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+</style>
+</head>
+<body>
+<h1 class="page-title">Explore</h1>
+<p class="page-subtitle">S11 Exercise Library &bull; S12 Knowledge Center &bull; S13 Article Detail</p>
+
+<!-- ═══════════════ S11 — EXERCISE LIBRARY ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S11 — Exercise Library</div>
+    <div class="variant-label">Variant A — Faithful</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:var(--text-secondary);">←</div><span class="font-oddval text-h3">Exercises</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="category-pills mb-16">
+          <div class="cat-pill cat-pill-active">All</div>
+          <div class="cat-pill cat-pill-inactive">Sleep</div>
+          <div class="cat-pill cat-pill-inactive">Focus</div>
+          <div class="cat-pill cat-pill-inactive">Calm</div>
+          <div class="cat-pill cat-pill-inactive">Energy</div>
+        </div>
+        <div class="featured-card mb-16">
+          <div style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.2);padding:4px 10px;border-radius:var(--radius-pill);font-size:11px;font-weight:600;">FEATURED</div>
+          <div style="font-family:'Oddval',serif;font-size:20px;font-weight:600;margin-bottom:4px;">4-7-8 Sleep Technique</div>
+          <div style="font-size:13px;opacity:0.8;">Relaxation breathing for deeper sleep</div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-icon"><svg width="20" height="20" fill="none" stroke="#206FF7" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>
+          <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Box Breathing</div><div class="text-caption text-secondary">4-4-4-4 pattern &bull; 5 min</div></div>
+          <div class="play-btn"><svg width="14" height="14" fill="white"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-icon"><svg width="20" height="20" fill="none" stroke="#206FF7" stroke-width="2"><path d="M17 10a7 7 0 11-14 0"/><circle cx="10" cy="10" r="3"/></svg></div>
+          <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Diaphragmatic Breathing</div><div class="text-caption text-secondary">Deep belly breathing &bull; 8 min</div></div>
+          <div class="play-btn"><svg width="14" height="14" fill="white"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+        <div class="exercise-item">
+          <div class="exercise-icon"><svg width="20" height="20" fill="none" stroke="#206FF7" stroke-width="2"><path d="M4 16l3-6 4 4 5-8"/></svg></div>
+          <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Coherent Breathing</div><div class="text-caption text-secondary">5.5 breaths/min &bull; 10 min</div></div>
+          <div class="play-btn"><svg width="14" height="14" fill="white"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+        <div class="exercise-item" style="border-bottom:none;">
+          <div class="exercise-icon"><svg width="20" height="20" fill="none" stroke="#206FF7" stroke-width="2"><path d="M5 12h10M10 7v10"/></svg></div>
+          <div style="flex:1;"><div class="text-body2" style="font-weight:600;">Alternate Nostril</div><div class="text-caption text-secondary">Balance technique &bull; 7 min</div></div>
+          <div class="play-btn"><svg width="14" height="14" fill="white"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: 2-column grid -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Grid Cards</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:var(--text-secondary);">←</div><span class="font-oddval text-h3">Exercises</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="category-pills mb-16">
+          <div class="cat-pill cat-pill-active">All</div><div class="cat-pill cat-pill-inactive">Sleep</div><div class="cat-pill cat-pill-inactive">Focus</div><div class="cat-pill cat-pill-inactive">Calm</div>
+        </div>
+        <div class="grid-2" style="gap:12px;">
+          <div class="grid-card">
+            <div class="grid-card-image" style="background:linear-gradient(135deg,#206FF7 0%,#1555C4 100%);"><svg width="32" height="32" fill="none" stroke="white" stroke-width="2" opacity="0.6"><circle cx="16" cy="16" r="12"/><path d="M16 10v6l4 3"/></svg></div>
+            <div style="padding:12px;">
+              <div class="text-body2" style="font-weight:600;margin-bottom:2px;">Box Breathing</div>
+              <div class="text-caption text-secondary">4-4-4-4 &bull; 5 min</div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="grid-card-image"><svg width="32" height="32" fill="none" stroke="#206FF7" stroke-width="2" opacity="0.4"><path d="M8 24l6-12 8 8 10-16"/></svg></div>
+            <div style="padding:12px;">
+              <div class="text-body2" style="font-weight:600;margin-bottom:2px;">4-7-8 Technique</div>
+              <div class="text-caption text-secondary">Sleep &bull; 7 min</div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="grid-card-image"><svg width="32" height="32" fill="none" stroke="#206FF7" stroke-width="2" opacity="0.4"><circle cx="16" cy="16" r="12"/></svg></div>
+            <div style="padding:12px;">
+              <div class="text-body2" style="font-weight:600;margin-bottom:2px;">Diaphragmatic</div>
+              <div class="text-caption text-secondary">Calm &bull; 8 min</div>
+            </div>
+          </div>
+          <div class="grid-card">
+            <div class="grid-card-image"><svg width="32" height="32" fill="none" stroke="#206FF7" stroke-width="2" opacity="0.4"><path d="M8 16h16M16 8v16"/></svg></div>
+            <div style="padding:12px;">
+              <div class="text-body2" style="font-weight:600;margin-bottom:2px;">Alternate Nostril</div>
+              <div class="text-caption text-secondary">Balance &bull; 7 min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:rgba(255,255,255,0.5);">←</div><span class="font-oddval text-h3" style="color:white;">Exercises</span></div><div class="nav-settings" style="background:var(--surface-dark);"><svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="category-pills mb-16">
+          <div class="cat-pill cat-pill-active">All</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Sleep</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Focus</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Calm</div>
+        </div>
+        <div class="featured-card mb-16" style="background:linear-gradient(135deg,#206FF7 0%,#0A3A8F 100%);">
+          <div style="font-family:'Oddval',serif;font-size:20px;font-weight:600;margin-bottom:4px;">4-7-8 Sleep Technique</div>
+          <div style="font-size:13px;opacity:0.8;">Relaxation breathing for deeper sleep</div>
+        </div>
+        <div class="exercise-item" style="border-color:rgba(255,255,255,0.06);">
+          <div class="exercise-icon" style="background:rgba(32,111,247,0.15);"><svg width="20" height="20" fill="none" stroke="#206FF7" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>
+          <div style="flex:1;"><div class="text-body2" style="font-weight:600;color:white;">Box Breathing</div><div class="text-caption" style="color:rgba(255,255,255,0.4);">4-4-4-4 &bull; 5 min</div></div>
+          <div class="play-btn"><svg width="14" height="14" fill="white"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+        <div class="exercise-item" style="border-color:rgba(255,255,255,0.06);">
+          <div class="exercise-icon" style="background:rgba(32,111,247,0.15);"><svg width="20" height="20" fill="none" stroke="#206FF7" stroke-width="2"><path d="M17 10a7 7 0 11-14 0"/><circle cx="10" cy="10" r="3"/></svg></div>
+          <div style="flex:1;"><div class="text-body2" style="font-weight:600;color:white;">Diaphragmatic</div><div class="text-caption" style="color:rgba(255,255,255,0.4);">Deep belly &bull; 8 min</div></div>
+          <div class="play-btn"><svg width="14" height="14" fill="white"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+        <div class="exercise-item" style="border:none;">
+          <div class="exercise-icon" style="background:rgba(32,111,247,0.15);"><svg width="20" height="20" fill="none" stroke="#206FF7" stroke-width="2"><path d="M4 16l3-6 4 4 5-8"/></svg></div>
+          <div style="flex:1;"><div class="text-body2" style="font-weight:600;color:white;">Coherent Breathing</div><div class="text-caption" style="color:rgba(255,255,255,0.4);">5.5 bpm &bull; 10 min</div></div>
+          <div class="play-btn"><svg width="14" height="14" fill="white"><polygon points="4,2 14,8 4,14"/></svg></div>
+        </div>
+      </div>
+      <div class="tab-bar tab-bar-dark">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S12 — KNOWLEDGE CENTER ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S12 — Knowledge Center</div>
+    <div class="variant-label">Variant A — Faithful (IMG_1577)</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-primary">RespireLabs</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="font-oddval text-h1 mb-4">Knowledge Center</div>
+        <div class="text-body2 text-secondary mb-16">Learn about sleep health</div>
+        <div class="search-bar mb-16"><svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M13 13l4 4"/></svg>Search articles...</div>
+        <div class="category-pills mb-16">
+          <div class="cat-pill cat-pill-active">All</div><div class="cat-pill cat-pill-inactive">Articles</div><div class="cat-pill cat-pill-inactive">Videos</div><div class="cat-pill cat-pill-inactive">Blog</div>
+        </div>
+        <div class="article-card">
+          <div class="article-image"><svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="1.5" opacity="0.3"><rect x="4" y="8" width="40" height="32" rx="4"/><path d="M12 20h24M12 28h16"/></svg></div>
+          <div style="padding:16px;">
+            <div class="text-caption text-blue mb-4" style="font-weight:600;">Articles</div>
+            <div class="font-oddval text-h3 mb-4">The Science Behind Mouth Taping</div>
+            <div class="text-caption text-secondary mb-8">Discover how mouth taping can improve your sleep quality and overall health.</div>
+            <div class="text-body2 text-blue" style="font-weight:600;">Read More →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Magazine layout -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Magazine Layout</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:var(--text-secondary);">←</div><span class="font-oddval text-h3">Learn</span></div><div class="nav-settings"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="search-bar mb-12"><svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M13 13l4 4"/></svg>Search...</div>
+        <!-- Full-width featured -->
+        <div style="background:linear-gradient(180deg,#E8EFF9,#D4E0F3);border-radius:var(--radius-lg);padding:20px;margin-bottom:12px;min-height:140px;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div class="text-caption text-blue mb-4" style="font-weight:600;">FEATURED</div>
+          <div class="font-oddval text-h3">The Science of Mouth Taping</div>
+        </div>
+        <!-- 2 column grid -->
+        <div class="grid-2" style="gap:12px;">
+          <div class="grid-card"><div class="grid-card-image"></div><div style="padding:10px;"><div class="text-caption text-secondary">5 min</div><div class="text-body2" style="font-weight:600;">Nose Breathing Benefits</div></div></div>
+          <div class="grid-card"><div class="grid-card-image"></div><div style="padding:10px;"><div class="text-caption text-secondary">8 min</div><div class="text-body2" style="font-weight:600;">Sleep Hygiene Guide</div></div></div>
+        </div>
+      </div>
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div class="nav-logo"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v10M14 14c-2 0-7 1-8 7s-1 5 2 5c2 0 4-1 6-3M14 14c2 0 7 1 8 7s1 5-2 5c-2 0-4-1-6-3" stroke="#206FF7" stroke-width="2" stroke-linecap="round"/></svg><span class="nav-logo-text text-blue">RespireLabs</span></div><div class="nav-settings" style="background:var(--surface-dark);"><svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><circle cx="10" cy="10" r="3"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="font-oddval text-h1 mb-4" style="color:white;">Knowledge Center</div>
+        <div class="text-body2 mb-16" style="color:rgba(255,255,255,0.5);">Learn about sleep health</div>
+        <div class="search-bar mb-16" style="background:var(--surface-dark);border-color:rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);"><svg width="18" height="18" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M13 13l4 4"/></svg>Search articles...</div>
+        <div class="category-pills mb-16">
+          <div class="cat-pill cat-pill-active">All</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Articles</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Videos</div>
+        </div>
+        <div style="background:var(--surface-dark);border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+          <div style="height:180px;background:linear-gradient(135deg,rgba(32,111,247,0.15),rgba(32,111,247,0.05));display:flex;align-items:center;justify-content:center;">
+            <svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="1.5" opacity="0.4"><rect x="4" y="8" width="40" height="32" rx="4"/><path d="M12 20h24M12 28h16"/></svg>
+          </div>
+          <div style="padding:16px;">
+            <div class="text-caption text-blue mb-4" style="font-weight:600;">Articles</div>
+            <div class="font-oddval text-h3 mb-4" style="color:white;">The Science Behind Mouth Taping</div>
+            <div class="text-caption mb-8" style="color:rgba(255,255,255,0.4);">Discover how mouth taping improves sleep.</div>
+            <div class="text-body2 text-blue" style="font-weight:600;">Read More →</div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-bar tab-bar-dark">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/></svg></div>Tips</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ S13 — ARTICLE DETAIL ═══════════════ -->
+<div class="screen-row">
+  <div class="screen-col">
+    <div class="screen-label">S13 — Article Detail</div>
+    <div class="variant-label">Variant A — Faithful</div>
+    <div class="phone phone-light" style="overflow:hidden;">
+      <div class="hero-image-area">
+        <svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="1.5" opacity="0.3"><rect x="4" y="8" width="40" height="32" rx="4"/><path d="M12 20h24M12 28h16"/></svg>
+        <div class="back-circle">←</div>
+      </div>
+      <div style="background:var(--bg-light);border-radius:24px 24px 0 0;margin-top:-30px;position:relative;padding:24px 20px;min-height:560px;">
+        <div class="text-caption text-blue mb-8" style="font-weight:600;">ARTICLES</div>
+        <div class="font-oddval text-h2 mb-8">The Science Behind Mouth Taping</div>
+        <div style="width:40px;height:3px;background:var(--primary);border-radius:2px;margin-bottom:16px;"></div>
+        <div class="text-body2 text-secondary" style="line-height:1.7;margin-bottom:16px;">Mouth taping during sleep is a practice that encourages nasal breathing by gently keeping the mouth closed. Research suggests this can improve sleep quality and reduce snoring.</div>
+        <div class="quote-box mb-16">"Nasal breathing filters, warms, and humidifies air, which is optimal for lung health."</div>
+        <div class="text-body2 text-secondary" style="line-height:1.7;">Studies show that consistent nasal breathing during sleep leads to better oxygen saturation and deeper sleep cycles.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant B: Wider layout -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant B — Clean Layout</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+      <div class="nav-header"><div style="display:flex;align-items:center;gap:12px;"><div style="color:var(--text-secondary);">←</div><span class="text-body1" style="font-weight:600;">Article</span></div><div style="display:flex;gap:8px;"><svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="1.5"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13"/></svg></div></div>
+      <div style="padding:0 20px;">
+        <div class="text-caption text-blue mb-8" style="font-weight:600;">ARTICLES &bull; 5 MIN READ</div>
+        <div class="font-oddval text-h1 mb-12">The Science Behind Mouth Taping</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+          <div class="avatar" style="width:36px;height:36px;font-size:14px;background:var(--primary);">RL</div>
+          <div><div class="text-caption" style="font-weight:600;">RespireLabs Team</div><div class="text-caption text-secondary">Feb 15, 2026</div></div>
+        </div>
+        <div class="divider mb-16"></div>
+        <div class="text-body1 text-secondary" style="line-height:1.8;margin-bottom:16px;">Mouth taping during sleep is a practice that encourages nasal breathing by gently keeping the mouth closed.</div>
+        <div class="quote-box mb-16">"Nasal breathing filters, warms, and humidifies air, which is optimal for lung health."</div>
+        <div class="text-body1 text-secondary" style="line-height:1.8;">Studies show that consistent nasal breathing leads to better oxygen saturation and deeper sleep cycles.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant C: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">&nbsp;</div>
+    <div class="variant-label">Variant C — Dark Mode</div>
+    <div class="phone phone-dark" style="overflow:hidden;">
+      <div style="height:300px;background:linear-gradient(180deg,rgba(32,111,247,0.1),var(--bg-dark));position:relative;display:flex;align-items:center;justify-content:center;">
+        <svg width="48" height="48" fill="none" stroke="#206FF7" stroke-width="1.5" opacity="0.3"><rect x="4" y="8" width="40" height="32" rx="4"/><path d="M12 20h24M12 28h16"/></svg>
+        <div class="back-circle" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.6);">←</div>
+      </div>
+      <div style="background:var(--bg-dark);border-radius:24px 24px 0 0;margin-top:-30px;position:relative;padding:24px 20px;">
+        <div class="text-caption text-blue mb-8" style="font-weight:600;">ARTICLES</div>
+        <div class="font-oddval text-h2 mb-8" style="color:white;">The Science Behind Mouth Taping</div>
+        <div style="width:40px;height:3px;background:var(--primary);border-radius:2px;margin-bottom:16px;"></div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:16px;">Mouth taping during sleep encourages nasal breathing by keeping the mouth closed. Research shows this improves sleep quality.</div>
+        <div style="border-left:3px solid var(--primary);padding:12px 16px;background:rgba(32,111,247,0.06);border-radius:0 8px 8px 0;font-style:italic;color:rgba(255,255,255,0.5);font-size:14px;margin-bottom:16px;">"Nasal breathing is optimal for lung health."</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.6);line-height:1.7;">Consistent nasal breathing leads to better oxygen saturation and deeper sleep cycles.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

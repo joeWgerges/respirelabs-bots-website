@@ -1,0 +1,3122 @@
+{
+  "version": 1,
+  "dimensions": {
+    "width": 393,
+    "height": 852
+  },
+  "startScreen": "S1",
+  "screens": [
+    {
+      "screenId": "C1",
+      "label": "C1-A · Soft Paywall · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/C1.png",
+      "hotspots": [
+        {
+          "id": "C1_nav_0",
+          "x": 180,
+          "y": 396,
+          "width": 140,
+          "height": 24,
+          "type": "nav",
+          "target": "S22",
+          "transition": "push",
+          "label": "Upgrade to Premium"
+        }
+      ]
+    },
+    {
+      "screenId": "C2",
+      "label": "C2 · Feature Gate Modal",
+      "hasTabBar": false,
+      "imageFile": "screens/C2.png",
+      "hotspots": [
+        {
+          "id": "C2_nav_0",
+          "x": 24,
+          "y": 810,
+          "width": 369,
+          "height": 42,
+          "type": "nav",
+          "target": "S22",
+          "transition": "push",
+          "label": "Start 7-Day Free Trial"
+        }
+      ]
+    },
+    {
+      "screenId": "C3",
+      "label": "C3 · Trial Expiring",
+      "hasTabBar": true,
+      "imageFile": "screens/C3.png",
+      "hotspots": [
+        {
+          "id": "C3_nav_0",
+          "x": 40,
+          "y": 206,
+          "width": 350,
+          "height": 36,
+          "type": "nav",
+          "target": "S22",
+          "transition": "push",
+          "label": "Subscribe Now"
+        }
+      ]
+    },
+    {
+      "screenId": "C4",
+      "label": "C4 · Subscription Success",
+      "hasTabBar": false,
+      "imageFile": "screens/C4.png",
+      "hotspots": [
+        {
+          "id": "C4_nav_0",
+          "x": 32,
+          "y": 721,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S6",
+          "transition": "push",
+          "label": "Go to Home"
+        }
+      ]
+    },
+    {
+      "screenId": "C5",
+      "label": "C5-A · Plan Comparison · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/C5.png",
+      "hotspots": [
+        {
+          "id": "C5_nav_0",
+          "x": 42,
+          "y": 657,
+          "width": 351,
+          "height": 38,
+          "type": "nav",
+          "target": "S56",
+          "transition": "push",
+          "label": "Start Free Trial"
+        }
+      ]
+    },
+    {
+      "screenId": "D1",
+      "label": "D1-A · Inbox · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/D1.png",
+      "hotspots": [
+        {
+          "id": "D1_nav_0",
+          "x": 72,
+          "y": 161,
+          "width": 321,
+          "height": 24,
+          "type": "nav",
+          "target": "S18",
+          "transition": "push",
+          "label": "Your sleep report for last night is read"
+        },
+        {
+          "id": "D1_nav_1",
+          "x": 72,
+          "y": 305,
+          "width": 321,
+          "height": 24,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Daily Tip"
+        },
+        {
+          "id": "D1_back_2",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "D2",
+      "label": "D2 · Push Previews",
+      "hasTabBar": false,
+      "imageFile": "screens/D2.png",
+      "hotspots": [
+        {
+          "id": "D2_back_0",
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 54,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "D3",
+      "label": "D3 · In-App Toasts",
+      "hasTabBar": false,
+      "imageFile": "screens/D3.png",
+      "hotspots": [
+        {
+          "id": "D3_back_0",
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 54,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "H1",
+      "label": "H1-A · Social Login · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/H1.png",
+      "hotspots": [
+        {
+          "id": "H1_nav_1",
+          "x": 32,
+          "y": 665,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S38",
+          "transition": "push",
+          "label": "Sign up with Email"
+        },
+        {
+          "id": "H1_nav_0",
+          "x": 32,
+          "y": 496,
+          "width": 361,
+          "height": 46,
+          "type": "nav",
+          "target": "S4",
+          "transition": "push",
+          "label": "Continue with Apple"
+        }
+      ]
+    },
+    {
+      "screenId": "H2",
+      "label": "H2 · Account Creation",
+      "hasTabBar": false,
+      "imageFile": "screens/H2.png",
+      "hotspots": [
+        {
+          "id": "H2_back_0",
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 54,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        },
+        {
+          "id": "H2_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "H3",
+      "label": "H3 · Health Disclaimer",
+      "hasTabBar": false,
+      "imageFile": "screens/H3.png",
+      "hotspots": [
+        {
+          "id": "H3_back_0",
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 54,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "H4",
+      "label": "H4 · Quick Start",
+      "hasTabBar": false,
+      "imageFile": "screens/H4.png",
+      "hotspots": [
+        {
+          "id": "H4_back_0",
+          "x": 0,
+          "y": 0,
+          "width": 393,
+          "height": 54,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S1",
+      "label": "S1 — Splash Screen",
+      "hasTabBar": false,
+      "imageFile": "screens/S1.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S2",
+      "label": "S2 — Permissions",
+      "hasTabBar": false,
+      "imageFile": "screens/S2.png",
+      "hotspots": [
+        {
+          "id": "S2_nav_0",
+          "x": 24,
+          "y": 790,
+          "width": 369,
+          "height": 50,
+          "type": "nav",
+          "target": "S23",
+          "transition": "push",
+          "label": "Allow Permissions"
+        }
+      ]
+    },
+    {
+      "screenId": "S3",
+      "label": "S3 — Value Prop Carousel",
+      "hasTabBar": false,
+      "imageFile": "screens/S3.png",
+      "hotspots": [
+        {
+          "id": "S3_nav_0",
+          "x": 24,
+          "y": 790,
+          "width": 369,
+          "height": 50,
+          "type": "nav",
+          "target": "S2",
+          "transition": "push",
+          "label": "Next"
+        }
+      ]
+    },
+    {
+      "screenId": "S4",
+      "label": "S4 — Goal Selection",
+      "hasTabBar": false,
+      "imageFile": "screens/S4.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S5",
+      "label": "S5 — Home Empty State",
+      "hasTabBar": true,
+      "imageFile": "screens/S5.png",
+      "hotspots": [
+        {
+          "id": "S5_nav_0",
+          "x": 362,
+          "y": 118,
+          "width": 31,
+          "height": 27,
+          "type": "nav",
+          "target": "S20",
+          "transition": "push",
+          "label": "Disconnected"
+        }
+      ]
+    },
+    {
+      "screenId": "S6",
+      "label": "S6 — Home Active State",
+      "hasTabBar": true,
+      "imageFile": "screens/S6.png",
+      "hotspots": [
+        {
+          "id": "S6_nav_0",
+          "x": 20,
+          "y": 114,
+          "width": 373,
+          "height": 259,
+          "type": "nav",
+          "target": "S57",
+          "transition": "push",
+          "label": "LAST SESSION\n4 hours\n8,560\nBreaths"
+        }
+      ]
+    },
+    {
+      "screenId": "S7",
+      "label": "S7 — Session Playing",
+      "hasTabBar": false,
+      "imageFile": "screens/S7.png",
+      "hotspots": [
+        {
+          "id": "S7_nav_0",
+          "x": 0,
+          "y": 378,
+          "width": 393,
+          "height": 131,
+          "type": "nav",
+          "target": "S16",
+          "transition": "push",
+          "label": "Cycle 4 of 10\nEnd Session"
+        },
+        {
+          "id": "S7_nav_1",
+          "x": 170,
+          "y": 411,
+          "width": 160,
+          "height": 50,
+          "type": "nav",
+          "target": "S16",
+          "transition": "push",
+          "label": "End Session"
+        }
+      ]
+    },
+    {
+      "screenId": "S8",
+      "label": "S8 — Session Paused",
+      "hasTabBar": false,
+      "imageFile": "screens/S8.png",
+      "hotspots": [
+        {
+          "id": "S8_nav_0",
+          "x": 24,
+          "y": 350,
+          "width": 369,
+          "height": 50,
+          "type": "nav",
+          "target": "S7",
+          "transition": "push",
+          "label": "Resume"
+        },
+        {
+          "id": "S8_nav_1",
+          "x": 24,
+          "y": 412,
+          "width": 369,
+          "height": 50,
+          "type": "nav",
+          "target": "S93",
+          "transition": "push",
+          "label": "End Session"
+        }
+      ]
+    },
+    {
+      "screenId": "S9",
+      "label": "S9 — Breathing Analysis",
+      "hasTabBar": true,
+      "imageFile": "screens/S9.png",
+      "hotspots": [
+        {
+          "id": "S9_nav_0",
+          "x": 44,
+          "y": 563,
+          "width": 349,
+          "height": 30,
+          "type": "nav",
+          "target": "S10",
+          "transition": "push",
+          "label": "Your nasal breathing improved 12% this w"
+        }
+      ]
+    },
+    {
+      "screenId": "S10",
+      "label": "S10 — Sleep Trends",
+      "hasTabBar": true,
+      "imageFile": "screens/S10.png",
+      "hotspots": [
+        {
+          "id": "S10_nav_0",
+          "x": 46,
+          "y": 70,
+          "width": 110,
+          "height": 24,
+          "type": "nav",
+          "target": "S30",
+          "transition": "push",
+          "label": "Sleep Trends"
+        }
+      ]
+    },
+    {
+      "screenId": "S11",
+      "label": "S11 — Exercise Library",
+      "hasTabBar": true,
+      "imageFile": "screens/S11.png",
+      "hotspots": [
+        {
+          "id": "S11_nav_0",
+          "x": 20,
+          "y": 164,
+          "width": 373,
+          "height": 160,
+          "type": "nav",
+          "target": "S28",
+          "transition": "push",
+          "label": "FEATURED\n4-7-8 Sleep Technique\nRelaxatio"
+        },
+        {
+          "id": "S11_nav_1",
+          "x": 84,
+          "y": 359,
+          "width": 309,
+          "height": 24,
+          "type": "nav",
+          "target": "S28",
+          "transition": "push",
+          "label": "Box Breathing"
+        }
+      ]
+    },
+    {
+      "screenId": "S12",
+      "label": "S12 — Knowledge Center",
+      "hasTabBar": true,
+      "imageFile": "screens/S12.png",
+      "hotspots": [
+        {
+          "id": "S12_nav_1",
+          "x": 20,
+          "y": 302,
+          "width": 373,
+          "height": 333,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Articles\nThe Science Behind Mouth Taping"
+        },
+        {
+          "id": "S12_nav_0",
+          "x": 76,
+          "y": 252,
+          "width": 81,
+          "height": 34,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Articles"
+        }
+      ]
+    },
+    {
+      "screenId": "S13",
+      "label": "S13 — Article Detail",
+      "hasTabBar": false,
+      "imageFile": "screens/S13.png",
+      "hotspots": [
+        {
+          "id": "S13_back_0",
+          "x": 16,
+          "y": 16,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S14",
+      "label": "S14 — Teleconsultation",
+      "hasTabBar": true,
+      "imageFile": "screens/S14.png",
+      "hotspots": [
+        {
+          "id": "S14_nav_0",
+          "x": 20,
+          "y": 188,
+          "width": 373,
+          "height": 186,
+          "type": "nav",
+          "target": "S32",
+          "transition": "push",
+          "label": "Upcoming Appointment\nDL\nDr. Louise Olive"
+        },
+        {
+          "id": "S14_nav_4",
+          "x": 20,
+          "y": 425,
+          "width": 373,
+          "height": 117,
+          "type": "nav",
+          "target": "S32",
+          "transition": "push",
+          "label": "DL\nDr. Louise Oliver\nGP & Functional Bre"
+        },
+        {
+          "id": "S14_nav_5",
+          "x": 20,
+          "y": 554,
+          "width": 373,
+          "height": 117,
+          "type": "nav",
+          "target": "S32",
+          "transition": "push",
+          "label": "RW\nRoel Wilbers\nSleep Specialist & Breat"
+        },
+        {
+          "id": "S14_nav_2",
+          "x": 40,
+          "y": 310,
+          "width": 205,
+          "height": 44,
+          "type": "nav",
+          "target": "S97",
+          "transition": "push",
+          "label": "Reschedule"
+        },
+        {
+          "id": "S14_nav_1",
+          "x": 40,
+          "y": 205,
+          "width": 353,
+          "height": 24,
+          "type": "nav",
+          "target": "S96",
+          "transition": "push",
+          "label": "Upcoming Appointment"
+        },
+        {
+          "id": "S14_nav_6",
+          "x": 108,
+          "y": 567,
+          "width": 285,
+          "height": 24,
+          "type": "nav",
+          "target": "S32",
+          "transition": "push",
+          "label": "Roel Wilbers"
+        },
+        {
+          "id": "S14_nav_3",
+          "x": 257,
+          "y": 310,
+          "width": 136,
+          "height": 44,
+          "type": "nav",
+          "target": "S98",
+          "transition": "push",
+          "label": "Cancel"
+        }
+      ]
+    },
+    {
+      "screenId": "S15",
+      "label": "S15 — Tape Management",
+      "hasTabBar": true,
+      "imageFile": "screens/S15.png",
+      "hotspots": [
+        {
+          "id": "S15_nav_1",
+          "x": 20,
+          "y": 388,
+          "width": 373,
+          "height": 70,
+          "type": "nav",
+          "target": "S81",
+          "transition": "push",
+          "label": "Calibration\n›"
+        },
+        {
+          "id": "S15_nav_0",
+          "x": 20,
+          "y": 319,
+          "width": 373,
+          "height": 69,
+          "type": "nav",
+          "target": "S82",
+          "transition": "push",
+          "label": "Auto-Sync Data"
+        },
+        {
+          "id": "S15_nav_2",
+          "x": 20,
+          "y": 458,
+          "width": 373,
+          "height": 69,
+          "type": "nav",
+          "target": "S80",
+          "transition": "push",
+          "label": "Firmware Update\nNEW"
+        },
+        {
+          "id": "S15_nav_3",
+          "x": 20,
+          "y": 473,
+          "width": 174,
+          "height": 40,
+          "type": "nav",
+          "target": "S80",
+          "transition": "push",
+          "label": "Firmware Update"
+        }
+      ]
+    },
+    {
+      "screenId": "S16",
+      "label": "S16 — Session Complete",
+      "hasTabBar": false,
+      "imageFile": "screens/S16.png",
+      "hotspots": [
+        {
+          "id": "S16_nav_1",
+          "x": 20,
+          "y": 680,
+          "width": 373,
+          "height": 52,
+          "type": "nav",
+          "target": "S61",
+          "transition": "push",
+          "label": "Share with Clinician"
+        },
+        {
+          "id": "S16_nav_0",
+          "x": 20,
+          "y": 618,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S18",
+          "transition": "push",
+          "label": "View Detailed Report"
+        }
+      ]
+    },
+    {
+      "screenId": "S17",
+      "label": "S17 — Session History",
+      "hasTabBar": true,
+      "imageFile": "screens/S17.png",
+      "hotspots": [
+        {
+          "id": "S17_nav_1",
+          "x": 20,
+          "y": 280,
+          "width": 373,
+          "height": 81,
+          "type": "nav",
+          "target": "S18",
+          "transition": "push",
+          "label": "Daytime Tracking\n1h 15m • 2,340 breaths\n"
+        },
+        {
+          "id": "S17_nav_3",
+          "x": 20,
+          "y": 477,
+          "width": 373,
+          "height": 81,
+          "type": "nav",
+          "target": "S18",
+          "transition": "push",
+          "label": "Breathing Exercise\n12m • 4-7-8 Rhythm\n✓\n"
+        },
+        {
+          "id": "S17_nav_0",
+          "x": 20,
+          "y": 200,
+          "width": 373,
+          "height": 80,
+          "type": "nav",
+          "target": "S18",
+          "transition": "push",
+          "label": "Night Session\n4h 23m • 8,560 breaths\n88%"
+        },
+        {
+          "id": "S17_nav_2",
+          "x": 20,
+          "y": 397,
+          "width": 373,
+          "height": 80,
+          "type": "nav",
+          "target": "S18",
+          "transition": "push",
+          "label": "Night Session\n6h 12m • 11,200 breaths\n85"
+        },
+        {
+          "id": "S17_back_4",
+          "x": 20,
+          "y": 62,
+          "width": 164,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S18",
+      "label": "S18 — Session Detail",
+      "hasTabBar": true,
+      "imageFile": "screens/S18.png",
+      "hotspots": [
+        {
+          "id": "S18_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 147,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S19",
+      "label": "S19-A · Night Mode · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S19.png",
+      "hotspots": [
+        {
+          "id": "S19_nav_0",
+          "x": 20,
+          "y": 683,
+          "width": 373,
+          "height": 52,
+          "type": "nav",
+          "target": "S7",
+          "transition": "push",
+          "label": "Start Sleep Tracking"
+        },
+        {
+          "id": "S19_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S20",
+      "label": "S20-A · Scanning · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S20.png",
+      "hotspots": [
+        {
+          "id": "S20_nav_0",
+          "x": 20,
+          "y": 755,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S15",
+          "transition": "push",
+          "label": "Having trouble? Get help"
+        },
+        {
+          "id": "S20_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S21",
+      "label": "S21 — Settings / Profile",
+      "hasTabBar": false,
+      "imageFile": "screens/S21.png",
+      "hotspots": [
+        {
+          "id": "S21_nav_4",
+          "x": 36,
+          "y": 407,
+          "width": 357,
+          "height": 70,
+          "type": "nav",
+          "target": "S35",
+          "transition": "push",
+          "label": "Health Integrations"
+        },
+        {
+          "id": "S21_nav_6",
+          "x": 36,
+          "y": 586,
+          "width": 357,
+          "height": 70,
+          "type": "nav",
+          "target": "S65",
+          "transition": "push",
+          "label": "Haptic Alerts"
+        },
+        {
+          "id": "S21_nav_7",
+          "x": 36,
+          "y": 656,
+          "width": 357,
+          "height": 70,
+          "type": "nav",
+          "target": "S66",
+          "transition": "push",
+          "label": "Face ID Login"
+        },
+        {
+          "id": "S21_nav_2",
+          "x": 36,
+          "y": 338,
+          "width": 357,
+          "height": 69,
+          "type": "nav",
+          "target": "S15",
+          "transition": "push",
+          "label": "Smart Tape\nConnected"
+        },
+        {
+          "id": "S21_nav_5",
+          "x": 36,
+          "y": 517,
+          "width": 357,
+          "height": 69,
+          "type": "nav",
+          "target": "S64",
+          "transition": "push",
+          "label": "Notifications"
+        },
+        {
+          "id": "S21_nav_8",
+          "x": 36,
+          "y": 766,
+          "width": 357,
+          "height": 69,
+          "type": "nav",
+          "target": "S34",
+          "transition": "push",
+          "label": "Privacy & Consent"
+        },
+        {
+          "id": "S21_nav_9",
+          "x": 36,
+          "y": 828,
+          "width": 357,
+          "height": 24,
+          "type": "nav",
+          "target": "S36",
+          "transition": "push",
+          "label": "Export My Data"
+        },
+        {
+          "id": "S21_nav_0",
+          "x": 108,
+          "y": 123,
+          "width": 285,
+          "height": 24,
+          "type": "nav",
+          "target": "S62",
+          "transition": "push",
+          "label": "Alex Gerges"
+        },
+        {
+          "id": "S21_nav_1",
+          "x": 88,
+          "y": 243,
+          "width": 123,
+          "height": 24,
+          "type": "nav",
+          "target": "S22",
+          "transition": "push",
+          "label": "Premium Plan"
+        },
+        {
+          "id": "S21_back_10",
+          "x": 20,
+          "y": 62,
+          "width": 100,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        },
+        {
+          "id": "S21_nav_3",
+          "x": 88,
+          "y": 353,
+          "width": 77,
+          "height": 24,
+          "type": "nav",
+          "target": "S15",
+          "transition": "push",
+          "label": "Smart Tape"
+        }
+      ]
+    },
+    {
+      "screenId": "S22",
+      "label": "S22 — Paywall",
+      "hasTabBar": false,
+      "imageFile": "screens/S22.png",
+      "hotspots": [
+        {
+          "id": "S22_nav_0",
+          "x": 20,
+          "y": 614,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "C4",
+          "transition": "push",
+          "label": "Start 7-Day Free Trial"
+        },
+        {
+          "id": "S22_nav_1",
+          "x": 20,
+          "y": 672,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "C5",
+          "transition": "push",
+          "label": "Restore Purchases"
+        }
+      ]
+    },
+    {
+      "screenId": "S23",
+      "label": "S23 — Notification Permission",
+      "hasTabBar": false,
+      "imageFile": "screens/S23.png",
+      "hotspots": [
+        {
+          "id": "S23_nav_0",
+          "x": 24,
+          "y": 690,
+          "width": 369,
+          "height": 50,
+          "type": "nav",
+          "target": "S4",
+          "transition": "push",
+          "label": "Enable Notifications"
+        }
+      ]
+    },
+    {
+      "screenId": "S24",
+      "label": "S24 — Personalization",
+      "hasTabBar": false,
+      "imageFile": "screens/S24.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S25",
+      "label": "S25 — Daily Summary",
+      "hasTabBar": true,
+      "imageFile": "screens/S25.png",
+      "hotspots": [
+        {
+          "id": "S25_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 187,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S26",
+      "label": "S26 — Tutorial Overlay",
+      "hasTabBar": true,
+      "imageFile": "screens/S26.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S27",
+      "label": "S27-A · Alert Config · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S27.png",
+      "hotspots": [
+        {
+          "id": "S27_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S28",
+      "label": "S28-A · Exercise Detail · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S28.png",
+      "hotspots": [
+        {
+          "id": "S28_nav_0",
+          "x": 44,
+          "y": 329,
+          "width": 77,
+          "height": 24,
+          "type": "nav",
+          "target": "S7",
+          "transition": "push",
+          "label": "BEGINNER"
+        },
+        {
+          "id": "S28_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S29",
+      "label": "S29-A · Achievements · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S29.png",
+      "hotspots": [
+        {
+          "id": "S29_nav_0",
+          "x": 20,
+          "y": 110,
+          "width": 373,
+          "height": 249,
+          "type": "nav",
+          "target": "S71",
+          "transition": "push",
+          "label": "🔥\n14\nDay Streak\nM\nT\nW\nT\nF\nS\nS\n?"
+        },
+        {
+          "id": "S29_nav_1",
+          "x": 20,
+          "y": 375,
+          "width": 145,
+          "height": 75,
+          "type": "nav",
+          "target": "S71",
+          "transition": "push",
+          "label": "47\nSessions"
+        },
+        {
+          "id": "S29_nav_2",
+          "x": 177,
+          "y": 375,
+          "width": 145,
+          "height": 75,
+          "type": "nav",
+          "target": "S71",
+          "transition": "push",
+          "label": "82%\nAvg Score"
+        },
+        {
+          "id": "S29_back_3",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S30",
+      "label": "S30-A · Monthly Trends · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S30.png",
+      "hotspots": [
+        {
+          "id": "S30_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S31",
+      "label": "S31-A · Bookmarks · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S31.png",
+      "hotspots": [
+        {
+          "id": "S31_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S32",
+      "label": "S32-A · Specialist · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S32.png",
+      "hotspots": [
+        {
+          "id": "S32_nav_1",
+          "x": 20,
+          "y": 828,
+          "width": 373,
+          "height": 24,
+          "type": "nav",
+          "target": "S55",
+          "transition": "push",
+          "label": "Book Appointment — $85"
+        },
+        {
+          "id": "S32_nav_0",
+          "x": 243,
+          "y": 268,
+          "width": 97,
+          "height": 24,
+          "type": "nav",
+          "target": "S95",
+          "transition": "push",
+          "label": "4.9 (128 reviews)"
+        },
+        {
+          "id": "S32_back_2",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S33",
+      "label": "S33-A · Video Call",
+      "hasTabBar": false,
+      "imageFile": "screens/S33.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S34",
+      "label": "S34-A · Privacy · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S34.png",
+      "hotspots": [
+        {
+          "id": "S34_nav_0",
+          "x": 20,
+          "y": 553,
+          "width": 373,
+          "height": 49,
+          "type": "nav",
+          "target": "S36",
+          "transition": "push",
+          "label": "Export my data"
+        },
+        {
+          "id": "S34_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S35",
+      "label": "S35-A · Health Integrations",
+      "hasTabBar": false,
+      "imageFile": "screens/S35.png",
+      "hotspots": [
+        {
+          "id": "S35_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        },
+        {
+          "id": "S35_nav_0",
+          "x": 369,
+          "y": 392,
+          "width": 24,
+          "height": 26,
+          "type": "nav",
+          "target": "S35",
+          "transition": "push",
+          "label": "Connect"
+        }
+      ]
+    },
+    {
+      "screenId": "S36",
+      "label": "S36-A · Export Report",
+      "hasTabBar": false,
+      "imageFile": "screens/S36.png",
+      "hotspots": [
+        {
+          "id": "S36_nav_0",
+          "x": 20,
+          "y": 768,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S61",
+          "transition": "push",
+          "label": "Share Report"
+        },
+        {
+          "id": "S36_nav_1",
+          "x": 20,
+          "y": 826,
+          "width": 373,
+          "height": 26,
+          "type": "nav",
+          "target": "S21",
+          "transition": "back",
+          "label": "Download to device"
+        },
+        {
+          "id": "S36_back_2",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S37",
+      "label": "S37-A · Daytime Tracking · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S37.png",
+      "hotspots": [
+        {
+          "id": "S37_nav_0",
+          "x": 20,
+          "y": 742,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S16",
+          "transition": "push",
+          "label": "Stop Tracking"
+        }
+      ]
+    },
+    {
+      "screenId": "S38",
+      "label": "S38-A · Email Login · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S38.png",
+      "hotspots": [
+        {
+          "id": "S38_nav_1",
+          "x": 32,
+          "y": 602,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S6",
+          "transition": "push",
+          "label": "Log In"
+        },
+        {
+          "id": "S38_nav_0",
+          "x": 32,
+          "y": 557,
+          "width": 361,
+          "height": 24,
+          "type": "nav",
+          "target": "S39",
+          "transition": "push",
+          "label": "Forgot password?"
+        }
+      ]
+    },
+    {
+      "screenId": "S39",
+      "label": "S39 · Forgot Password · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S39.png",
+      "hotspots": [
+        {
+          "id": "S39_nav_0",
+          "x": 24,
+          "y": 384,
+          "width": 369,
+          "height": 50,
+          "type": "nav",
+          "target": "S40",
+          "transition": "push",
+          "label": "Send Reset Link"
+        },
+        {
+          "id": "S39_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S40",
+      "label": "S40-A · Password Reset · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S40.png",
+      "hotspots": [
+        {
+          "id": "S40_nav_0",
+          "x": 0,
+          "y": 54,
+          "width": 393,
+          "height": 56,
+          "type": "nav",
+          "target": "S41",
+          "transition": "push",
+          "label": "Reset Password"
+        },
+        {
+          "id": "S40_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S41",
+      "label": "S41-A · Email Verification · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S41.png",
+      "hotspots": [
+        {
+          "id": "S41_nav_0",
+          "x": 32,
+          "y": 441,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S42",
+          "transition": "push",
+          "label": "Verify"
+        },
+        {
+          "id": "S41_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S42",
+      "label": "S42 · Two-Factor Auth · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S42.png",
+      "hotspots": [
+        {
+          "id": "S42_nav_0",
+          "x": 32,
+          "y": 451,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S6",
+          "transition": "push",
+          "label": "Verify"
+        },
+        {
+          "id": "S42_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S43",
+      "label": "S43-A · Account Locked · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S43.png",
+      "hotspots": [
+        {
+          "id": "S43_nav_1",
+          "x": 32,
+          "y": 695,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S68",
+          "transition": "push",
+          "label": "Contact Support"
+        },
+        {
+          "id": "S43_nav_0",
+          "x": 52,
+          "y": 489,
+          "width": 341,
+          "height": 24,
+          "type": "nav",
+          "target": "S38",
+          "transition": "push",
+          "label": "Try again in"
+        }
+      ]
+    },
+    {
+      "screenId": "S44",
+      "label": "S44-A · Biometric Login · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S44.png",
+      "hotspots": [
+        {
+          "id": "S44_nav_0",
+          "x": 32,
+          "y": 625,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S38",
+          "transition": "push",
+          "label": "Use Password Instead"
+        }
+      ]
+    },
+    {
+      "screenId": "S45",
+      "label": "S45-A · App Loading · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S45.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S46",
+      "label": "S46-A · Skeleton Home · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S46.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S47",
+      "label": "S47-A · No Sessions · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S47.png",
+      "hotspots": [
+        {
+          "id": "S47_nav_0",
+          "x": 140,
+          "y": 493,
+          "width": 220,
+          "height": 50,
+          "type": "nav",
+          "target": "S19",
+          "transition": "push",
+          "label": "Start Session"
+        }
+      ]
+    },
+    {
+      "screenId": "S48",
+      "label": "S48-A · No Bookmarks · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S48.png",
+      "hotspots": [
+        {
+          "id": "S48_nav_0",
+          "x": 140,
+          "y": 493,
+          "width": 220,
+          "height": 50,
+          "type": "nav",
+          "target": "S12",
+          "transition": "push",
+          "label": "Browse Content"
+        },
+        {
+          "id": "S48_back_1",
+          "x": 202,
+          "y": 296,
+          "width": 96,
+          "height": 96,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S49",
+      "label": "S49-A · No Exercises · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S49.png",
+      "hotspots": [
+        {
+          "id": "S49_nav_0",
+          "x": 140,
+          "y": 493,
+          "width": 220,
+          "height": 50,
+          "type": "nav",
+          "target": "S11",
+          "transition": "push",
+          "label": "Explore Exercises"
+        }
+      ]
+    },
+    {
+      "screenId": "S50",
+      "label": "S50-A · Network Error · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S50.png",
+      "hotspots": [
+        {
+          "id": "S50_nav_0",
+          "x": 150,
+          "y": 518,
+          "width": 200,
+          "height": 50,
+          "type": "nav",
+          "target": "S6",
+          "transition": "push",
+          "label": "Retry"
+        }
+      ]
+    },
+    {
+      "screenId": "S51",
+      "label": "S51-A · Server Error · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S51.png",
+      "hotspots": [
+        {
+          "id": "S51_nav_0",
+          "x": 130,
+          "y": 468,
+          "width": 240,
+          "height": 50,
+          "type": "nav",
+          "target": "S6",
+          "transition": "push",
+          "label": "Retry"
+        }
+      ]
+    },
+    {
+      "screenId": "S52",
+      "label": "S52-A · Permission Denied · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S52.png",
+      "hotspots": [
+        {
+          "id": "S52_nav_0",
+          "x": 120,
+          "y": 561,
+          "width": 260,
+          "height": 50,
+          "type": "nav",
+          "target": "S22",
+          "transition": "push",
+          "label": "Upgrade to Premium"
+        },
+        {
+          "id": "S52_nav_1",
+          "x": 120,
+          "y": 623,
+          "width": 260,
+          "height": 50,
+          "type": "nav",
+          "target": "S6",
+          "transition": "back",
+          "label": "Go Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S53",
+      "label": "S53-A · Not Found · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S53.png",
+      "hotspots": [
+        {
+          "id": "S53_nav_0",
+          "x": 150,
+          "y": 592,
+          "width": 200,
+          "height": 50,
+          "type": "nav",
+          "target": "S6",
+          "transition": "push",
+          "label": "Go Home"
+        }
+      ]
+    },
+    {
+      "screenId": "S54",
+      "label": "S54-A · Booking Confirmed · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S54.png",
+      "hotspots": [
+        {
+          "id": "S54_nav_0",
+          "x": 20,
+          "y": 624,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S96",
+          "transition": "push",
+          "label": "View Details"
+        },
+        {
+          "id": "S54_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S55",
+      "label": "S55-A · Calendar Picker · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S55.png",
+      "hotspots": [
+        {
+          "id": "S55_nav_0",
+          "x": 20,
+          "y": 593,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S54",
+          "transition": "push",
+          "label": "Confirm Booking"
+        },
+        {
+          "id": "S55_back_2",
+          "x": 40,
+          "y": 211,
+          "width": 353,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        },
+        {
+          "id": "S55_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S56",
+      "label": "S56 · Payment Method · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S56.png",
+      "hotspots": [
+        {
+          "id": "S56_nav_0",
+          "x": 0,
+          "y": 54,
+          "width": 393,
+          "height": 56,
+          "type": "nav",
+          "target": "C4",
+          "transition": "push",
+          "label": "Payment"
+        },
+        {
+          "id": "S56_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S57",
+      "label": "S57 — Pre-Session Checklist",
+      "hasTabBar": false,
+      "imageFile": "screens/S57.png",
+      "hotspots": [
+        {
+          "id": "S57_nav_0",
+          "x": 20,
+          "y": 711,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S19",
+          "transition": "push",
+          "label": "Start Session"
+        },
+        {
+          "id": "S57_nav_1",
+          "x": 20,
+          "y": 773,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S19",
+          "transition": "push",
+          "label": "Skip Checklist"
+        },
+        {
+          "id": "S57_back_2",
+          "x": 20,
+          "y": 62,
+          "width": 216,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S58",
+      "label": "S58 — Session Interruption",
+      "hasTabBar": false,
+      "imageFile": "screens/S58.png",
+      "hotspots": [
+        {
+          "id": "S58_nav_0",
+          "x": 24,
+          "y": 461,
+          "width": 369,
+          "height": 50,
+          "type": "nav",
+          "target": "S37",
+          "transition": "push",
+          "label": "Resume Session"
+        }
+      ]
+    },
+    {
+      "screenId": "S59",
+      "label": "S59-A · Waiting Room · Light Context",
+      "hasTabBar": false,
+      "imageFile": "screens/S59.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S60",
+      "label": "S60-A · Session Complete · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S60.png",
+      "hotspots": [
+        {
+          "id": "S60_nav_0",
+          "x": 20,
+          "y": 663,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S96",
+          "transition": "push",
+          "label": "Done"
+        }
+      ]
+    },
+    {
+      "screenId": "S61",
+      "label": "S61 — Share Results",
+      "hasTabBar": false,
+      "imageFile": "screens/S61.png",
+      "hotspots": [
+        {
+          "id": "S61_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 149,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S62",
+      "label": "S62-A · Edit Profile · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S62.png",
+      "hotspots": [
+        {
+          "id": "S62_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S63",
+      "label": "S63 · Change Password · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S63.png",
+      "hotspots": [
+        {
+          "id": "S63_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S64",
+      "label": "S64-A — Light Mode",
+      "hasTabBar": false,
+      "imageFile": "screens/S64.png",
+      "hotspots": [
+        {
+          "id": "S64_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 140,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S65",
+      "label": "S65 — Sound &amp; Haptics",
+      "hasTabBar": false,
+      "imageFile": "screens/S65.png",
+      "hotspots": [
+        {
+          "id": "S65_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 179,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S66",
+      "label": "S66 — Appearance",
+      "hasTabBar": false,
+      "imageFile": "screens/S66.png",
+      "hotspots": [
+        {
+          "id": "S66_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 135,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S67",
+      "label": "S67 — Data &amp; Storage",
+      "hasTabBar": false,
+      "imageFile": "screens/S67.png",
+      "hotspots": [
+        {
+          "id": "S67_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 165,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S68",
+      "label": "S68 — Help &amp; Support",
+      "hasTabBar": false,
+      "imageFile": "screens/S68.png",
+      "hotspots": [
+        {
+          "id": "S68_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 170,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S69",
+      "label": "S69 — About / Legal",
+      "hasTabBar": false,
+      "imageFile": "screens/S69.png",
+      "hotspots": [
+        {
+          "id": "S69_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 85,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S70",
+      "label": "S70-A · Delete Account · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S70.png",
+      "hotspots": [
+        {
+          "id": "S70_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        },
+        {
+          "id": "S70_nav_0",
+          "x": 56,
+          "y": 439,
+          "width": 46,
+          "height": 24,
+          "type": "nav",
+          "target": "S38",
+          "transition": "push",
+          "label": "DELETE"
+        }
+      ]
+    },
+    {
+      "screenId": "S71",
+      "label": "S71-A · Achievement Detail · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S71.png",
+      "hotspots": [
+        {
+          "id": "S71_nav_0",
+          "x": 20,
+          "y": 555,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S61",
+          "transition": "push",
+          "label": "Share Achievement"
+        },
+        {
+          "id": "S71_nav_1",
+          "x": 20,
+          "y": 617,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S29",
+          "transition": "push",
+          "label": "View All Badges"
+        },
+        {
+          "id": "S71_back_2",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S72",
+      "label": "S72-A · Leaderboard · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S72.png",
+      "hotspots": [
+        {
+          "id": "S72_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S73",
+      "label": "S73-A · Challenge Detail · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S73.png",
+      "hotspots": [
+        {
+          "id": "S73_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S74",
+      "label": "S74-A · Challenge Complete · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S74.png",
+      "hotspots": [
+        {
+          "id": "S74_nav_1",
+          "x": 20,
+          "y": 617,
+          "width": 373,
+          "height": 52,
+          "type": "nav",
+          "target": "S73",
+          "transition": "push",
+          "label": "Next Challenge"
+        },
+        {
+          "id": "S74_nav_0",
+          "x": 20,
+          "y": 555,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S61",
+          "transition": "push",
+          "label": "Share"
+        }
+      ]
+    },
+    {
+      "screenId": "S75",
+      "label": "S75-A · Journal Entry · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S75.png",
+      "hotspots": [
+        {
+          "id": "S75_nav_0",
+          "x": 20,
+          "y": 638,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S76",
+          "transition": "push",
+          "label": "Save Entry"
+        },
+        {
+          "id": "S75_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S76",
+      "label": "S76-A · Journal History · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S76.png",
+      "hotspots": [
+        {
+          "id": "S76_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S77",
+      "label": "S77-A · AI Sleep Coach · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S77.png",
+      "hotspots": [
+        {
+          "id": "S77_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S78",
+      "label": "S78-A · Weekly Report · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S78.png",
+      "hotspots": [
+        {
+          "id": "S78_back_0",
+          "x": 20,
+          "y": 64,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S79",
+      "label": "S79-A · Smart Recommendations · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S79.png",
+      "hotspots": [
+        {
+          "id": "S79_nav_1",
+          "x": 20,
+          "y": 338,
+          "width": 373,
+          "height": 164,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Sleep Position Guide\nYour data shows sid"
+        },
+        {
+          "id": "S79_nav_0",
+          "x": 20,
+          "y": 177,
+          "width": 373,
+          "height": 149,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Alternate Nostril Breathing\nRecommended "
+        },
+        {
+          "id": "S79_nav_2",
+          "x": 20,
+          "y": 514,
+          "width": 373,
+          "height": 149,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Dr. Sarah Chen\nMatches your focus area: "
+        }
+      ]
+    },
+    {
+      "screenId": "S80",
+      "label": "S80 · Firmware Update · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S80.png",
+      "hotspots": [
+        {
+          "id": "S80_nav_0",
+          "x": 20,
+          "y": 659,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S15",
+          "transition": "push",
+          "label": "Update Now"
+        },
+        {
+          "id": "S80_nav_1",
+          "x": 20,
+          "y": 721,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S15",
+          "transition": "back",
+          "label": "Later"
+        }
+      ]
+    },
+    {
+      "screenId": "S81",
+      "label": "S81 · Tape Guide (Step 2) · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S81.png",
+      "hotspots": [
+        {
+          "id": "S81_nav_0",
+          "x": 20,
+          "y": 608,
+          "width": 86,
+          "height": 50,
+          "type": "nav",
+          "target": "S15",
+          "transition": "back",
+          "label": "Back"
+        },
+        {
+          "id": "S81_nav_1",
+          "x": 365,
+          "y": 608,
+          "width": 28,
+          "height": 50,
+          "type": "nav",
+          "target": "S15",
+          "transition": "push",
+          "label": "Next"
+        }
+      ]
+    },
+    {
+      "screenId": "S82",
+      "label": "S82 · Troubleshooting · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S82.png",
+      "hotspots": [
+        {
+          "id": "S82_nav_1",
+          "x": 20,
+          "y": 680,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S68",
+          "transition": "push",
+          "label": "Contact Support"
+        },
+        {
+          "id": "S82_nav_0",
+          "x": 42,
+          "y": 516,
+          "width": 351,
+          "height": 42,
+          "type": "nav",
+          "target": "S15",
+          "transition": "push",
+          "label": "Try Again"
+        }
+      ]
+    },
+    {
+      "screenId": "S83",
+      "label": "S83 · Tape Shop · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S83.png",
+      "hotspots": [
+        {
+          "id": "S83_nav_0",
+          "x": 20,
+          "y": 809,
+          "width": 373,
+          "height": 43,
+          "type": "nav",
+          "target": "S56",
+          "transition": "push",
+          "label": "Add to Cart — $49.98"
+        }
+      ]
+    },
+    {
+      "screenId": "S84",
+      "label": "S84-A · Health Screening · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S84.png",
+      "hotspots": [
+        {
+          "id": "S84_nav_0",
+          "x": 20,
+          "y": 765,
+          "width": 373,
+          "height": 87,
+          "type": "nav",
+          "target": "S26",
+          "transition": "push",
+          "label": "Continue"
+        }
+      ]
+    },
+    {
+      "screenId": "S85",
+      "label": "S85-A · Goal Configuration · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S85.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S86",
+      "label": "S86-A · Onboarding Complete · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S86.png",
+      "hotspots": [
+        {
+          "id": "S86_nav_0",
+          "x": 32,
+          "y": 695,
+          "width": 361,
+          "height": 50,
+          "type": "nav",
+          "target": "S5",
+          "transition": "push",
+          "label": "Start First Session"
+        }
+      ]
+    },
+    {
+      "screenId": "S87",
+      "label": "S87 · Breathing Patterns · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S87.png",
+      "hotspots": [
+        {
+          "id": "S87_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S88",
+      "label": "S88 · Sleep Stages · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S88.png",
+      "hotspots": [
+        {
+          "id": "S88_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S89",
+      "label": "S89-A · Year in Review · Blue Accent",
+      "hasTabBar": false,
+      "imageFile": "screens/S89.png",
+      "hotspots": [
+        {
+          "id": "S89_nav_0",
+          "x": 20,
+          "y": 800,
+          "width": 373,
+          "height": 52,
+          "type": "nav",
+          "target": "S61",
+          "transition": "push",
+          "label": "✨ Share Your Year"
+        }
+      ]
+    },
+    {
+      "screenId": "S90",
+      "label": "S90 · Compare Sessions · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S90.png",
+      "hotspots": [
+        {
+          "id": "S90_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S91",
+      "label": "S91-A · Search Results · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S91.png",
+      "hotspots": [
+        {
+          "id": "S91_nav_1",
+          "x": 20,
+          "y": 241,
+          "width": 373,
+          "height": 80,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Benefits of Nose Breathing During Sleep\n"
+        },
+        {
+          "id": "S91_nav_3",
+          "x": 82,
+          "y": 255,
+          "width": 311,
+          "height": 52,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Benefits of Nose Breathing During Sleep\n"
+        },
+        {
+          "id": "S91_nav_0",
+          "x": 76,
+          "y": 166,
+          "width": 81,
+          "height": 34,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": "Articles"
+        },
+        {
+          "id": "S91_nav_2",
+          "x": 20,
+          "y": 257,
+          "width": 48,
+          "height": 48,
+          "type": "nav",
+          "target": "S13",
+          "transition": "push",
+          "label": ""
+        }
+      ]
+    },
+    {
+      "screenId": "S92",
+      "label": "S92-A · Exercise Program · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S92.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S93",
+      "label": "S93-A · Exercise Complete · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S93.png",
+      "hotspots": [
+        {
+          "id": "S93_nav_1",
+          "x": 20,
+          "y": 581,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S11",
+          "transition": "push",
+          "label": "Done"
+        },
+        {
+          "id": "S93_nav_0",
+          "x": 114,
+          "y": 267,
+          "width": 272,
+          "height": 24,
+          "type": "nav",
+          "target": "S11",
+          "transition": "push",
+          "label": "Great job finishing your breathing sessi"
+        }
+      ]
+    },
+    {
+      "screenId": "S94",
+      "label": "S94-A · Audio Player · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S94.png",
+      "hotspots": [
+        {
+          "id": "S94_back_0",
+          "x": 218,
+          "y": 553,
+          "width": 64,
+          "height": 64,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S95",
+      "label": "S95-A · Reviews · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S95.png",
+      "hotspots": [
+        {
+          "id": "S95_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S96",
+      "label": "S96-A · Appointments · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S96.png",
+      "hotspots": [
+        {
+          "id": "S96_nav_2",
+          "x": 20,
+          "y": 560,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S55",
+          "transition": "push",
+          "label": "Book New Appointment"
+        },
+        {
+          "id": "S96_nav_1",
+          "x": 360,
+          "y": 474,
+          "width": 33,
+          "height": 38,
+          "type": "nav",
+          "target": "S32",
+          "transition": "push",
+          "label": "Details"
+        },
+        {
+          "id": "S96_nav_0",
+          "x": 369,
+          "y": 285,
+          "width": 24,
+          "height": 36,
+          "type": "nav",
+          "target": "S59",
+          "transition": "push",
+          "label": "Join"
+        }
+      ]
+    },
+    {
+      "screenId": "S97",
+      "label": "S97-A · Reschedule · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S97.png",
+      "hotspots": [
+        {
+          "id": "S97_nav_0",
+          "x": 0,
+          "y": 54,
+          "width": 393,
+          "height": 56,
+          "type": "nav",
+          "target": "S96",
+          "transition": "push",
+          "label": "Reschedule"
+        },
+        {
+          "id": "S97_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        },
+        {
+          "id": "S97_back_2",
+          "x": 232,
+          "y": 232,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S98",
+      "label": "S98-A · Cancel · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S98.png",
+      "hotspots": [
+        {
+          "id": "S98_nav_0",
+          "x": 0,
+          "y": 54,
+          "width": 393,
+          "height": 56,
+          "type": "nav",
+          "target": "S96",
+          "transition": "push",
+          "label": "Cancel Appointment"
+        },
+        {
+          "id": "S98_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S99",
+      "label": "S99 · Subscription · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S99.png",
+      "hotspots": [
+        {
+          "id": "S99_nav_0",
+          "x": 20,
+          "y": 455,
+          "width": 373,
+          "height": 50,
+          "type": "nav",
+          "target": "S101",
+          "transition": "push",
+          "label": "Cancel Subscription"
+        },
+        {
+          "id": "S99_back_1",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S100",
+      "label": "S100 · Billing History · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S100.png",
+      "hotspots": [
+        {
+          "id": "S100_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S101",
+      "label": "S101 · Cancel Subscription · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S101.png",
+      "hotspots": [
+        {
+          "id": "S101_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S102",
+      "label": "S102 · Promo Code · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S102.png",
+      "hotspots": [
+        {
+          "id": "S102_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S103",
+      "label": "S103-A · Rate App · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S103.png",
+      "hotspots": [
+        {
+          "id": "S103_dismiss_0",
+          "x": 48,
+          "y": 519,
+          "width": 345,
+          "height": 45,
+          "type": "dismiss",
+          "target": null,
+          "transition": "dismiss",
+          "label": "Dismiss"
+        },
+        {
+          "id": "S103_dismiss_1",
+          "x": 48,
+          "y": 574,
+          "width": 345,
+          "height": 36,
+          "type": "dismiss",
+          "target": null,
+          "transition": "dismiss",
+          "label": "Dismiss"
+        }
+      ]
+    },
+    {
+      "screenId": "S104",
+      "label": "S104-A · What's New · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S104.png",
+      "hotspots": [
+        {
+          "id": "S104_dismiss_0",
+          "x": 48,
+          "y": 619,
+          "width": 345,
+          "height": 45,
+          "type": "dismiss",
+          "target": null,
+          "transition": "dismiss",
+          "label": "Dismiss"
+        }
+      ]
+    },
+    {
+      "screenId": "S105",
+      "label": "S105-A · Referral · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S105.png",
+      "hotspots": [
+        {
+          "id": "S105_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 36,
+          "height": 36,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    },
+    {
+      "screenId": "S106",
+      "label": "S106-A · Daily Tip · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S106.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S107",
+      "label": "S107-A · Confirm Action Sheet · Light",
+      "hasTabBar": false,
+      "imageFile": "screens/S107.png",
+      "hotspots": [
+        {
+          "id": "S107_nav_0",
+          "x": 24,
+          "y": 806,
+          "width": 369,
+          "height": 46,
+          "type": "nav",
+          "target": "S16",
+          "transition": "push",
+          "label": "End Session"
+        }
+      ]
+    },
+    {
+      "screenId": "S108",
+      "label": "S108-A · Offline Banner · Light",
+      "hasTabBar": true,
+      "imageFile": "screens/S108.png",
+      "hotspots": []
+    },
+    {
+      "screenId": "S109",
+      "label": "S109 — Sync Status",
+      "hasTabBar": false,
+      "imageFile": "screens/S109.png",
+      "hotspots": [
+        {
+          "id": "S109_back_0",
+          "x": 20,
+          "y": 62,
+          "width": 131,
+          "height": 24,
+          "type": "back",
+          "target": null,
+          "transition": "back",
+          "label": "Back"
+        }
+      ]
+    }
+  ],
+  "tabBar": {
+    "height": 83,
+    "tabs": [
+      {
+        "name": "Home",
+        "target": "S6",
+        "x": 23,
+        "y": 876,
+        "width": 53,
+        "height": 48
+      },
+      {
+        "name": "Track",
+        "target": "S9",
+        "x": 123,
+        "y": 876,
+        "width": 51,
+        "height": 48
+      },
+      {
+        "name": "Tips",
+        "target": "S11",
+        "x": 221,
+        "y": 876,
+        "width": 48,
+        "height": 48
+      },
+      {
+        "name": "Learn",
+        "target": "S12",
+        "x": 316,
+        "y": 876,
+        "width": 52,
+        "height": 48
+      },
+      {
+        "name": "Consult",
+        "target": "S14",
+        "x": 415,
+        "y": 876,
+        "width": 62,
+        "height": 48
+      }
+    ]
+  },
+  "autoDelays": [
+    {
+      "screenId": "S1",
+      "delayMs": 2000,
+      "target": "S3",
+      "transition": "dissolve"
+    },
+    {
+      "screenId": "S44",
+      "delayMs": 1500,
+      "target": "S6",
+      "transition": "dissolve"
+    },
+    {
+      "screenId": "S45",
+      "delayMs": 2000,
+      "target": "S46",
+      "transition": "dissolve"
+    },
+    {
+      "screenId": "S46",
+      "delayMs": 1500,
+      "target": "S6",
+      "transition": "dissolve"
+    },
+    {
+      "screenId": "S59",
+      "delayMs": 3000,
+      "target": "S33",
+      "transition": "dissolve"
+    }
+  ]
+}

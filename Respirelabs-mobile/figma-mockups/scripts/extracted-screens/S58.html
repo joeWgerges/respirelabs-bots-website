@@ -1,0 +1,64 @@
+<div class="phone phone-dark">
+
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-dark">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <span style="color:white;">📶</span><span style="color:white;">🔋</span>
+        </div>
+      </div>
+
+      <!-- Content centered -->
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;">
+
+        <!-- Warning icon -->
+        <div class="warning-circle">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 22h20L12 2z" fill="none" stroke="#FF9500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <line x1="12" y1="9" x2="12" y2="13" stroke="#FF9500" stroke-width="2" stroke-linecap="round"></line>
+            <circle cx="12" cy="17" r="1" fill="#FF9500"></circle>
+          </svg>
+        </div>
+
+        <!-- Headline -->
+        <div class="font-oddval text-h2" style="color:white;text-align:center;margin-bottom:8px;">Session Interrupted</div>
+        <div class="text-body2" style="color:rgba(255,255,255,0.5);text-align:center;margin-bottom:32px;max-width:300px;">Your breathing session was interrupted. Here's what we recorded:</div>
+
+        <!-- Partial data card -->
+        <div style="width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px;margin-bottom:32px;">
+          <!-- Duration row -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+            <div>
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:4px;">Duration</div>
+              <div class="font-oddval text-h2" style="color:white;">3h 42m</div>
+            </div>
+            <div style="text-align:right;">
+              <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:4px;">Target</div>
+              <div class="text-body2" style="color:rgba(255,255,255,0.3);">8h 00m</div>
+            </div>
+          </div>
+
+          <!-- Nose breathing -->
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div class="text-body2" style="color:rgba(255,255,255,0.5);">Nose Breathing</div>
+            <div class="font-oddval text-h3" style="color:#206FF7;">72%</div>
+          </div>
+
+          <!-- Progress bar -->
+          <div class="partial-progress">
+            <div class="partial-progress-fill" style="width:46%;"></div>
+          </div>
+          <div class="text-caption" style="color:rgba(255,255,255,0.3);margin-top:6px;">46% of session completed</div>
+        </div>
+
+        <!-- Buttons -->
+        <div style="width:100%;display:flex;flex-direction:column;gap:12px;">
+          <button class="btn btn-primary">Resume Session</button>
+          <button class="btn btn-ghost" style="color:rgba(255,255,255,0.5);">Save Partial Data</button>
+        </div>
+
+        <!-- Timestamp -->
+        <div class="text-caption" style="color:rgba(255,255,255,0.25);margin-top:24px;">Interrupted at 3:24 AM</div>
+      </div>
+    
+</div>

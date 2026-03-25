@@ -1,0 +1,13 @@
+{
+  "name": "respirelabs-prototype-importer",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npx tsc && cp dist/code.js code.js",
+    "watch": "npx tsc --watch"
+  },
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.100.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs — Notification Settings</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .notif-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .notif-card-dark {
+    background: var(--surface-dark);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: none;
+  }
+  .notif-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+  .notif-row-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    padding-right: 16px;
+  }
+  .notif-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .notif-title-dark {
+    color: #FAFAFA;
+  }
+  .notif-caption {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+  }
+  .notif-caption-dark {
+    color: rgba(255,255,255,0.4);
+  }
+  .notif-divider {
+    height: 1px;
+    background: var(--border);
+    width: 100%;
+  }
+  .notif-divider-dark {
+    background: rgba(255,255,255,0.06);
+  }
+  .notif-group-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+  .notif-group-label-dark {
+    color: rgba(255,255,255,0.3);
+  }
+  .toggle-yellow {
+    background: #FFDC31 !important;
+  }
+  .toggle-yellow::after {
+    background: #0A0A0B !important;
+  }
+  .quiet-time {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .quiet-time-dark {
+    color: var(--accent-yellow);
+  }
+</style>
+</head>
+<body>
+<h1 class="page-title">Notification Settings</h1>
+<p class="page-subtitle">S64 &mdash; Notification Preferences &mdash; 2 frames</p>
+
+<!-- ═══════════════ S64 — NOTIFICATION SETTINGS ═══════════════ -->
+<div class="screen-row">
+
+  <!-- ────── S64-A: Light Mode ────── -->
+  <div class="screen-col">
+    <div class="screen-label">S64-A — Light Mode</div>
+    <div class="phone phone-light">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-light">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg>
+        </div>
+      </div>
+
+      <!-- Nav Header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="24" height="24" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span class="font-oddval text-h3">Notifications</span>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Scrollable Content -->
+      <div style="padding:0 20px;overflow:hidden;padding-bottom:20px;">
+
+        <!-- Card 1: Session Reminders -->
+        <div class="notif-group-label">SESSION REMINDERS</div>
+        <div class="notif-card">
+          <!-- Bedtime Reminder -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Bedtime Reminder</div>
+              <div class="notif-caption">Remind me to start sleep tracking</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="notif-divider"></div>
+          <!-- Morning Report -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Morning Report</div>
+              <div class="notif-caption">Get your daily sleep summary</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="notif-divider"></div>
+          <!-- Session End -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Session End</div>
+              <div class="notif-caption">Notify when session completes</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+        </div>
+
+        <!-- Card 2: Progress & Goals -->
+        <div class="notif-group-label">PROGRESS & GOALS</div>
+        <div class="notif-card">
+          <!-- Daily Progress -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Daily Progress</div>
+              <div class="notif-caption">Updates on your breathing goals</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="notif-divider"></div>
+          <!-- Weekly Summary -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Weekly Summary</div>
+              <div class="notif-caption">Weekly breathing report</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+          <div class="notif-divider"></div>
+          <!-- Streak Alerts -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Streak Alerts</div>
+              <div class="notif-caption">Get notified about your streak</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+        </div>
+
+        <!-- Card 3: Tips & Content -->
+        <div class="notif-group-label">TIPS & CONTENT</div>
+        <div class="notif-card">
+          <!-- Daily Tips -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Daily Tips</div>
+              <div class="notif-caption">Breathing tips and techniques</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="notif-divider"></div>
+          <!-- New Content -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">New Content</div>
+              <div class="notif-caption">New exercises and articles</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+        </div>
+
+        <!-- Card 4: Device -->
+        <div class="notif-group-label">DEVICE</div>
+        <div class="notif-card">
+          <!-- Battery Alerts -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Battery Alerts</div>
+              <div class="notif-caption">Low battery warnings</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+          <div class="notif-divider"></div>
+          <!-- Connection Status -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Connection Status</div>
+              <div class="notif-caption">Bluetooth disconnection alerts</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+        </div>
+
+        <!-- Card 5: Marketing -->
+        <div class="notif-group-label">MARKETING</div>
+        <div class="notif-card">
+          <!-- Product Updates -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Product Updates</div>
+              <div class="notif-caption">New features and improvements</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+          <div class="notif-divider"></div>
+          <!-- Promotions -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Promotions</div>
+              <div class="notif-caption">Special offers and discounts</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+        </div>
+
+        <!-- Card 6: Quiet Hours -->
+        <div class="notif-group-label">SCHEDULE</div>
+        <div class="notif-card">
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title">Quiet Hours</div>
+              <div class="notif-caption">No notifications during these hours</div>
+              <div class="quiet-time" style="margin-top:4px;">10:00 PM &ndash; 7:00 AM</div>
+            </div>
+            <div class="toggle"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ────── S64-B: Dark Mode ────── -->
+  <div class="screen-col">
+    <div class="screen-label">S64-B — Dark Mode</div>
+    <div class="phone phone-dark">
+      <!-- Status Bar -->
+      <div class="status-bar status-bar-dark">
+        <span>9:41</span>
+        <div class="status-bar-icons">
+          <svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg>
+        </div>
+      </div>
+
+      <!-- Nav Header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <svg width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <span class="font-oddval text-h3 text-white">Notifications</span>
+        </div>
+        <div></div>
+      </div>
+
+      <!-- Scrollable Content -->
+      <div style="padding:0 20px;overflow:hidden;padding-bottom:20px;">
+
+        <!-- Card 1: Session Reminders -->
+        <div class="notif-group-label notif-group-label-dark">SESSION REMINDERS</div>
+        <div class="notif-card notif-card-dark">
+          <!-- Bedtime Reminder -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Bedtime Reminder</div>
+              <div class="notif-caption notif-caption-dark">Remind me to start sleep tracking</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+          <div class="notif-divider notif-divider-dark"></div>
+          <!-- Morning Report -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Morning Report</div>
+              <div class="notif-caption notif-caption-dark">Get your daily sleep summary</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+          <div class="notif-divider notif-divider-dark"></div>
+          <!-- Session End -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Session End</div>
+              <div class="notif-caption notif-caption-dark">Notify when session completes</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+        </div>
+
+        <!-- Card 2: Progress & Goals -->
+        <div class="notif-group-label notif-group-label-dark">PROGRESS & GOALS</div>
+        <div class="notif-card notif-card-dark">
+          <!-- Daily Progress -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Daily Progress</div>
+              <div class="notif-caption notif-caption-dark">Updates on your breathing goals</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+          <div class="notif-divider notif-divider-dark"></div>
+          <!-- Weekly Summary -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Weekly Summary</div>
+              <div class="notif-caption notif-caption-dark">Weekly breathing report</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+          <div class="notif-divider notif-divider-dark"></div>
+          <!-- Streak Alerts -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Streak Alerts</div>
+              <div class="notif-caption notif-caption-dark">Get notified about your streak</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+        </div>
+
+        <!-- Card 3: Tips & Content -->
+        <div class="notif-group-label notif-group-label-dark">TIPS & CONTENT</div>
+        <div class="notif-card notif-card-dark">
+          <!-- Daily Tips -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Daily Tips</div>
+              <div class="notif-caption notif-caption-dark">Breathing tips and techniques</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+          <div class="notif-divider notif-divider-dark"></div>
+          <!-- New Content -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">New Content</div>
+              <div class="notif-caption notif-caption-dark">New exercises and articles</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+        </div>
+
+        <!-- Card 4: Device -->
+        <div class="notif-group-label notif-group-label-dark">DEVICE</div>
+        <div class="notif-card notif-card-dark">
+          <!-- Battery Alerts -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Battery Alerts</div>
+              <div class="notif-caption notif-caption-dark">Low battery warnings</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+          <div class="notif-divider notif-divider-dark"></div>
+          <!-- Connection Status -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Connection Status</div>
+              <div class="notif-caption notif-caption-dark">Bluetooth disconnection alerts</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+        </div>
+
+        <!-- Card 5: Marketing -->
+        <div class="notif-group-label notif-group-label-dark">MARKETING</div>
+        <div class="notif-card notif-card-dark">
+          <!-- Product Updates -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Product Updates</div>
+              <div class="notif-caption notif-caption-dark">New features and improvements</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+          <div class="notif-divider notif-divider-dark"></div>
+          <!-- Promotions -->
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Promotions</div>
+              <div class="notif-caption notif-caption-dark">Special offers and discounts</div>
+            </div>
+            <div class="toggle toggle-off"></div>
+          </div>
+        </div>
+
+        <!-- Card 6: Quiet Hours -->
+        <div class="notif-group-label notif-group-label-dark">SCHEDULE</div>
+        <div class="notif-card notif-card-dark">
+          <div class="notif-row">
+            <div class="notif-row-left">
+              <div class="notif-title notif-title-dark">Quiet Hours</div>
+              <div class="notif-caption notif-caption-dark">No notifications during these hours</div>
+              <div class="quiet-time quiet-time-dark" style="margin-top:4px;">10:00 PM &ndash; 7:00 AM</div>
+            </div>
+            <div class="toggle toggle-yellow"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

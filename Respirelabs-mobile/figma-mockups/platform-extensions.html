@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform Extensions — RespireLabs Mobile</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Apple Watch frame */
+  .watch {
+    width: 198px;
+    height: 242px;
+    border-radius: 48px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    background: #000;
+  }
+  .watch-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+  }
+
+  /* Widget frames */
+  .widget-small {
+    width: 170px;
+    height: 170px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+  .widget-medium {
+    width: 364px;
+    height: 170px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+  .widget-large {
+    width: 364px;
+    height: 376px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+  }
+
+  /* iPad frame */
+  .ipad {
+    width: 820px;
+    height: 560px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    background: var(--bg-light);
+    position: relative;
+  }
+
+  /* Widget inner */
+  .widget-inner {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Material You style */
+  .material-widget {
+    background: #E8F0FE;
+    border-radius: 28px;
+  }
+  .material-widget-dark {
+    background: #1A2236;
+    border-radius: 28px;
+  }
+</style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</head>
+<body>
+<h1 class="page-title">F — Platform Extensions</h1>
+<p class="page-subtitle">Apple Watch, iOS Widgets, Android Widgets, iPad Layout — 12 frames</p>
+
+<!-- F1: Apple Watch -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">F1 — Apple Watch (4 Variants)</h2>
+<div class="screen-row">
+  <!-- F1a: Glance / Complication -->
+  <div class="screen-col">
+    <div class="screen-label">F1a — Watch Glance</div>
+    <div class="watch">
+      <div class="watch-content" style="justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:10px;color:#999;font-weight:500;">RESPIRELABS</span>
+          <span style="font-size:10px;color:#999;">9:41</span>
+        </div>
+        <div style="text-align:center;">
+          <!-- Progress ring -->
+          <div style="width:100px;height:100px;margin:0 auto;position:relative;">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#333" stroke-width="8"/>
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#206FF7" stroke-width="8" stroke-dasharray="198 264" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+            </svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+              <div style="font-size:22px;font-weight:700;color:white;">75%</div>
+              <div style="font-size:9px;color:#999;">Nose</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:0 4px;">
+          <div style="text-align:center;">
+            <div style="font-size:14px;font-weight:600;color:white;">6.2h</div>
+            <div style="font-size:8px;color:#999;">Sleep</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:14px;font-weight:600;color:#22C55E;">14</div>
+            <div style="font-size:8px;color:#999;">BPM</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-size:14px;font-weight:600;color:#FFDC31;">3</div>
+            <div style="font-size:8px;color:#999;">Alerts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F1b: Active Session -->
+  <div class="screen-col">
+    <div class="screen-label">F1b — Active Session</div>
+    <div class="watch">
+      <div class="watch-content" style="justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:10px;color:#22C55E;font-weight:600;">● RECORDING</span>
+          <span style="font-size:10px;color:#999;">01:23</span>
+        </div>
+        <div style="text-align:center;">
+          <!-- Breathing ring -->
+          <div style="width:110px;height:110px;margin:0 auto;border-radius:50%;border:6px solid #206FF7;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(32,111,247,0.15) 0%,transparent 70%);">
+            <div>
+              <div style="font-size:11px;font-weight:600;color:#206FF7;letter-spacing:1px;">INHALE</div>
+              <div style="font-size:28px;font-weight:700;color:white;margin-top:2px;">4s</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <div style="flex:1;background:#333;border-radius:12px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:#EF4444;">⏸</div>
+            <div style="font-size:8px;color:#999;margin-top:2px;">Pause</div>
+          </div>
+          <div style="flex:1;background:#EF4444;border-radius:12px;padding:8px;text-align:center;">
+            <div style="font-size:10px;color:white;">■</div>
+            <div style="font-size:8px;color:white;margin-top:2px;">Stop</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F1c: Complication -->
+  <div class="screen-col">
+    <div class="screen-label">F1c — Watch Face Complications</div>
+    <div class="watch" style="background:#1A1A2E;">
+      <div class="watch-content" style="justify-content:center;align-items:center;gap:16px;">
+        <!-- Simulated watch face with complications -->
+        <div style="font-size:40px;font-weight:200;color:white;letter-spacing:-2px;">10:09</div>
+        <div style="font-size:12px;color:#666;">Friday, Jan 17</div>
+        <div style="display:flex;gap:12px;margin-top:8px;">
+          <!-- Corner complications -->
+          <div style="width:52px;height:52px;border-radius:50%;background:#1E293B;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#206FF7" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span style="font-size:8px;color:#206FF7;font-weight:600;margin-top:2px;">75%</span>
+          </div>
+          <div style="width:52px;height:52px;border-radius:50%;background:#1E293B;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <span style="font-size:14px;">😴</span>
+            <span style="font-size:8px;color:#22C55E;font-weight:600;margin-top:2px;">6.2h</span>
+          </div>
+          <div style="width:52px;height:52px;border-radius:50%;background:#1E293B;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <span style="font-size:14px;">🔥</span>
+            <span style="font-size:8px;color:#F59E0B;font-weight:600;margin-top:2px;">7 day</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F1d: Notification -->
+  <div class="screen-col">
+    <div class="screen-label">F1d — Watch Notification</div>
+    <div class="watch">
+      <div class="watch-content" style="justify-content:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:#206FF7;display:flex;align-items:center;justify-content:center;margin:0 auto;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:11px;color:#999;font-weight:500;">RESPIRELABS</div>
+          <div style="font-size:14px;color:white;font-weight:600;margin-top:6px;">Mouth Breathing Detected</div>
+          <div style="font-size:11px;color:#999;margin-top:6px;line-height:1.4;">Close your mouth and breathe through your nose. Tap for exercise.</div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:4px;">
+          <div style="flex:1;background:#206FF7;border-radius:10px;padding:8px;text-align:center;font-size:11px;color:white;font-weight:600;">Exercise</div>
+          <div style="flex:1;background:#333;border-radius:10px;padding:8px;text-align:center;font-size:11px;color:white;font-weight:500;">Dismiss</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- F2: iOS Widgets -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">F2 — iOS Widgets (3 Sizes)</h2>
+<div class="screen-row" style="align-items:flex-start;flex-wrap:wrap;">
+  <!-- F2a: Small Widget -->
+  <div class="screen-col">
+    <div class="screen-label">F2a — Small Widget</div>
+    <div class="widget-small" style="background:white;">
+      <div class="widget-inner" style="justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#206FF7"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+          <span style="font-size:10px;font-weight:600;color:#0A0A0B;">RespireLabs</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:72px;height:72px;margin:0 auto;position:relative;">
+            <svg width="72" height="72" viewBox="0 0 72 72">
+              <circle cx="36" cy="36" r="30" fill="none" stroke="#E5E7EB" stroke-width="6"/>
+              <circle cx="36" cy="36" r="30" fill="none" stroke="#206FF7" stroke-width="6" stroke-dasharray="141 188" stroke-linecap="round" transform="rotate(-90 36 36)"/>
+            </svg>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+              <div style="font-size:18px;font-weight:700;color:#0A0A0B;">75%</div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;font-size:10px;color:#6B7280;">Nose breathing today</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F2b: Medium Widget -->
+  <div class="screen-col">
+    <div class="screen-label">F2b — Medium Widget</div>
+    <div class="widget-medium" style="background:white;">
+      <div class="widget-inner" style="flex-direction:row;gap:16px;">
+        <!-- Left: Score -->
+        <div style="display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#206FF7"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span style="font-size:10px;font-weight:600;color:#0A0A0B;">RespireLabs</span>
+          </div>
+          <div>
+            <div style="font-size:36px;font-weight:700;color:#0A0A0B;">75%</div>
+            <div style="font-size:11px;color:#22C55E;font-weight:500;">↑ 5% from yesterday</div>
+          </div>
+          <div style="font-size:10px;color:#6B7280;">Nose breathing</div>
+        </div>
+        <!-- Right: Weekly chart -->
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div style="display:flex;align-items:flex-end;gap:4px;height:80px;">
+            <div style="flex:1;background:#E8EEFB;border-radius:4px;height:40%;"></div>
+            <div style="flex:1;background:#E8EEFB;border-radius:4px;height:55%;"></div>
+            <div style="flex:1;background:#E8EEFB;border-radius:4px;height:65%;"></div>
+            <div style="flex:1;background:#E8EEFB;border-radius:4px;height:50%;"></div>
+            <div style="flex:1;background:#E8EEFB;border-radius:4px;height:72%;"></div>
+            <div style="flex:1;background:#E8EEFB;border-radius:4px;height:60%;"></div>
+            <div style="flex:1;background:#206FF7;border-radius:4px;height:75%;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:4px;">
+            <span style="font-size:8px;color:#999;">M</span>
+            <span style="font-size:8px;color:#999;">T</span>
+            <span style="font-size:8px;color:#999;">W</span>
+            <span style="font-size:8px;color:#999;">T</span>
+            <span style="font-size:8px;color:#999;">F</span>
+            <span style="font-size:8px;color:#999;">S</span>
+            <span style="font-size:8px;color:#206FF7;font-weight:600;">S</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F2c: Large Widget -->
+  <div class="screen-col">
+    <div class="screen-label">F2c — Large Widget</div>
+    <div class="widget-large" style="background:white;">
+      <div class="widget-inner" style="gap:12px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#206FF7"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span style="font-size:12px;font-weight:600;color:#0A0A0B;">RespireLabs</span>
+          </div>
+          <span style="font-size:10px;color:#6B7280;">Today</span>
+        </div>
+        <!-- Score row -->
+        <div style="display:flex;gap:12px;">
+          <div style="flex:1;background:#F7F7F9;border-radius:12px;padding:12px;text-align:center;">
+            <div style="font-size:24px;font-weight:700;color:#206FF7;">75%</div>
+            <div style="font-size:10px;color:#6B7280;margin-top:2px;">Nose Breathing</div>
+          </div>
+          <div style="flex:1;background:#F7F7F9;border-radius:12px;padding:12px;text-align:center;">
+            <div style="font-size:24px;font-weight:700;color:#0A0A0B;">6.2h</div>
+            <div style="font-size:10px;color:#6B7280;margin-top:2px;">Sleep Duration</div>
+          </div>
+          <div style="flex:1;background:#F7F7F9;border-radius:12px;padding:12px;text-align:center;">
+            <div style="font-size:24px;font-weight:700;color:#22C55E;">14</div>
+            <div style="font-size:10px;color:#6B7280;margin-top:2px;">Breath/min</div>
+          </div>
+        </div>
+        <!-- Chart -->
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;">
+          <div style="font-size:11px;font-weight:600;color:#0A0A0B;margin-bottom:8px;">Weekly Breathing Score</div>
+          <div style="display:flex;align-items:flex-end;gap:6px;height:100px;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+              <div style="width:100%;background:#E8EEFB;border-radius:4px;height:48px;"></div>
+              <span style="font-size:8px;color:#999;">Mon</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+              <div style="width:100%;background:#E8EEFB;border-radius:4px;height:62px;"></div>
+              <span style="font-size:8px;color:#999;">Tue</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+              <div style="width:100%;background:#E8EEFB;border-radius:4px;height:72px;"></div>
+              <span style="font-size:8px;color:#999;">Wed</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+              <div style="width:100%;background:#E8EEFB;border-radius:4px;height:55px;"></div>
+              <span style="font-size:8px;color:#999;">Thu</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+              <div style="width:100%;background:#E8EEFB;border-radius:4px;height:80px;"></div>
+              <span style="font-size:8px;color:#999;">Fri</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+              <div style="width:100%;background:#E8EEFB;border-radius:4px;height:68px;"></div>
+              <span style="font-size:8px;color:#999;">Sat</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">
+              <div style="width:100%;background:#206FF7;border-radius:4px;height:84px;"></div>
+              <span style="font-size:8px;color:#206FF7;font-weight:600;">Sun</span>
+            </div>
+          </div>
+        </div>
+        <!-- Streak -->
+        <div style="display:flex;align-items:center;gap:8px;background:#FEF9E7;border-radius:10px;padding:10px 14px;">
+          <span style="font-size:16px;">🔥</span>
+          <span style="font-size:12px;font-weight:600;color:#0A0A0B;">7 Day Streak</span>
+          <span style="font-size:11px;color:#6B7280;margin-left:auto;">Keep it up!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- F3: Android / Material You Widgets -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">F3 — Android Material You Widgets (3 Variants)</h2>
+<div class="screen-row" style="align-items:flex-start;flex-wrap:wrap;">
+  <!-- F3a: Small (Material You Light) -->
+  <div class="screen-col">
+    <div class="screen-label">F3a — Small (Material You)</div>
+    <div class="widget-small material-widget">
+      <div class="widget-inner" style="justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div style="width:20px;height:20px;background:#206FF7;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+          </div>
+          <span style="font-size:10px;font-weight:600;color:#1A2236;">Respire</span>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:32px;font-weight:700;color:#1A2236;">75%</div>
+          <div style="font-size:10px;color:#5F6B82;">Nose score</div>
+        </div>
+        <div style="height:4px;background:#C5D4F6;border-radius:2px;overflow:hidden;">
+          <div style="height:100%;width:75%;background:#206FF7;border-radius:2px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F3b: Medium (Material You Light) -->
+  <div class="screen-col">
+    <div class="screen-label">F3b — Medium (Material You)</div>
+    <div class="widget-medium material-widget">
+      <div class="widget-inner" style="flex-direction:row;gap:16px;">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:20px;height:20px;background:#206FF7;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            </div>
+            <span style="font-size:10px;font-weight:600;color:#1A2236;">RespireLabs</span>
+          </div>
+          <div>
+            <div style="font-size:28px;font-weight:700;color:#1A2236;">75%</div>
+            <div style="font-size:11px;color:#22C55E;font-weight:500;">↑ 5%</div>
+          </div>
+          <div style="display:flex;gap:6px;">
+            <div style="background:#D1DBEF;border-radius:8px;padding:6px 10px;font-size:9px;color:#1A2236;font-weight:500;">6.2h 😴</div>
+            <div style="background:#D1DBEF;border-radius:8px;padding:6px 10px;font-size:9px;color:#1A2236;font-weight:500;">🔥 7d</div>
+          </div>
+        </div>
+        <div style="width:1px;background:#C5D4F6;"></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="font-size:10px;color:#5F6B82;font-weight:500;">This Week</div>
+          <div style="display:flex;align-items:flex-end;gap:3px;height:80px;">
+            <div style="flex:1;background:#C5D4F6;border-radius:4px;height:40%;"></div>
+            <div style="flex:1;background:#C5D4F6;border-radius:4px;height:55%;"></div>
+            <div style="flex:1;background:#C5D4F6;border-radius:4px;height:65%;"></div>
+            <div style="flex:1;background:#C5D4F6;border-radius:4px;height:50%;"></div>
+            <div style="flex:1;background:#C5D4F6;border-radius:4px;height:72%;"></div>
+            <div style="flex:1;background:#C5D4F6;border-radius:4px;height:60%;"></div>
+            <div style="flex:1;background:#206FF7;border-radius:4px;height:75%;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <span style="font-size:7px;color:#999;">M</span>
+            <span style="font-size:7px;color:#999;">T</span>
+            <span style="font-size:7px;color:#999;">W</span>
+            <span style="font-size:7px;color:#999;">T</span>
+            <span style="font-size:7px;color:#999;">F</span>
+            <span style="font-size:7px;color:#999;">S</span>
+            <span style="font-size:7px;color:#206FF7;font-weight:600;">S</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F3c: Medium (Material You Dark) -->
+  <div class="screen-col">
+    <div class="screen-label">F3c — Medium (Material Dark)</div>
+    <div class="widget-medium material-widget-dark">
+      <div class="widget-inner" style="flex-direction:row;gap:16px;">
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <div style="width:20px;height:20px;background:#FFDC31;border-radius:6px;display:flex;align-items:center;justify-content:center;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#0A0A0B"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            </div>
+            <span style="font-size:10px;font-weight:600;color:#E5E7EB;">RespireLabs</span>
+          </div>
+          <div>
+            <div style="font-size:28px;font-weight:700;color:white;">75%</div>
+            <div style="font-size:11px;color:#22C55E;font-weight:500;">↑ 5%</div>
+          </div>
+          <div style="display:flex;gap:6px;">
+            <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:6px 10px;font-size:9px;color:#E5E7EB;font-weight:500;">6.2h 😴</div>
+            <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:6px 10px;font-size:9px;color:#FFDC31;font-weight:500;">🔥 7d</div>
+          </div>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="font-size:10px;color:#888;font-weight:500;">This Week</div>
+          <div style="display:flex;align-items:flex-end;gap:3px;height:80px;">
+            <div style="flex:1;background:rgba(255,220,49,0.2);border-radius:4px;height:40%;"></div>
+            <div style="flex:1;background:rgba(255,220,49,0.2);border-radius:4px;height:55%;"></div>
+            <div style="flex:1;background:rgba(255,220,49,0.2);border-radius:4px;height:65%;"></div>
+            <div style="flex:1;background:rgba(255,220,49,0.2);border-radius:4px;height:50%;"></div>
+            <div style="flex:1;background:rgba(255,220,49,0.2);border-radius:4px;height:72%;"></div>
+            <div style="flex:1;background:rgba(255,220,49,0.2);border-radius:4px;height:60%;"></div>
+            <div style="flex:1;background:#FFDC31;border-radius:4px;height:75%;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <span style="font-size:7px;color:#666;">M</span>
+            <span style="font-size:7px;color:#666;">T</span>
+            <span style="font-size:7px;color:#666;">W</span>
+            <span style="font-size:7px;color:#666;">T</span>
+            <span style="font-size:7px;color:#666;">F</span>
+            <span style="font-size:7px;color:#666;">S</span>
+            <span style="font-size:7px;color:#FFDC31;font-weight:600;">S</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- F4: iPad Layout -->
+<h2 style="font-size:20px;font-weight:600;color:#8B5CF6;margin:24px 0 16px;">F4 — iPad Split-View Layout (2 Variants)</h2>
+<div class="screen-row" style="flex-direction:column;gap:40px;">
+  <!-- F4a: iPad Light -->
+  <div class="screen-col">
+    <div class="screen-label">F4a — iPad Split View (Light)</div>
+    <div class="ipad">
+      <!-- iPad Status Bar -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;font-size:13px;font-weight:600;color:#0A0A0B;">
+        <span>9:41 AM</span>
+        <span style="display:flex;gap:6px;align-items:center;">
+          <span style="font-size:11px;">📶</span>
+          <span style="font-size:11px;">🔋</span>
+        </span>
+      </div>
+      <div style="display:flex;height:calc(100% - 40px);">
+        <!-- Sidebar -->
+        <div style="width:280px;background:#F7F7F9;border-right:1px solid #E5E7EB;padding:20px;display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#206FF7"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span style="font-family:'Oddval',serif;font-size:16px;font-weight:700;color:#0A0A0B;">RespireLabs</span>
+          </div>
+          <div style="background:#206FF7;color:white;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:10px;">
+            <span>🏠</span> Home
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#6B7280;display:flex;align-items:center;gap:10px;">
+            <span>📊</span> Track
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#6B7280;display:flex;align-items:center;gap:10px;">
+            <span>💨</span> Tips
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#6B7280;display:flex;align-items:center;gap:10px;">
+            <span>📚</span> Learn
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#6B7280;display:flex;align-items:center;gap:10px;">
+            <span>🩺</span> Consult
+          </div>
+          <div style="flex:1;"></div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#6B7280;display:flex;align-items:center;gap:10px;">
+            <span>⚙️</span> Settings
+          </div>
+        </div>
+        <!-- Main Content -->
+        <div style="flex:1;padding:24px;overflow:hidden;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+            <div>
+              <div style="font-size:11px;color:#6B7280;font-weight:500;">Good morning, Jan</div>
+              <div style="font-family:'Oddval',serif;font-size:24px;font-weight:700;color:#0A0A0B;">Dashboard</div>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <div style="width:36px;height:36px;border-radius:10px;background:#F7F7F9;display:flex;align-items:center;justify-content:center;font-size:14px;">🔔</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ddd,#bbb);"></div>
+            </div>
+          </div>
+          <!-- Metrics Row -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;">
+            <div style="background:white;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size:11px;color:#6B7280;margin-bottom:4px;">Nose Breathing</div>
+              <div style="font-size:28px;font-weight:700;color:#206FF7;">75%</div>
+              <div style="font-size:10px;color:#22C55E;">↑ 5% vs yesterday</div>
+            </div>
+            <div style="background:white;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size:11px;color:#6B7280;margin-bottom:4px;">Sleep Duration</div>
+              <div style="font-size:28px;font-weight:700;color:#0A0A0B;">6.2h</div>
+              <div style="font-size:10px;color:#EF4444;">↓ 0.5h</div>
+            </div>
+            <div style="background:white;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size:11px;color:#6B7280;margin-bottom:4px;">Streak</div>
+              <div style="font-size:28px;font-weight:700;color:#F59E0B;">🔥 7</div>
+              <div style="font-size:10px;color:#6B7280;">days</div>
+            </div>
+          </div>
+          <!-- Charts Row -->
+          <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:12px;">
+            <div style="background:white;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size:13px;font-weight:600;color:#0A0A0B;margin-bottom:12px;">Weekly Breathing Trend</div>
+              <div style="display:flex;align-items:flex-end;gap:8px;height:120px;">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#E8EEFB;border-radius:4px;height:50px;"></div><span style="font-size:9px;color:#999;">Mon</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#E8EEFB;border-radius:4px;height:66px;"></div><span style="font-size:9px;color:#999;">Tue</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#E8EEFB;border-radius:4px;height:78px;"></div><span style="font-size:9px;color:#999;">Wed</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#E8EEFB;border-radius:4px;height:60px;"></div><span style="font-size:9px;color:#999;">Thu</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#E8EEFB;border-radius:4px;height:84px;"></div><span style="font-size:9px;color:#999;">Fri</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#E8EEFB;border-radius:4px;height:72px;"></div><span style="font-size:9px;color:#999;">Sat</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#206FF7;border-radius:4px;height:90px;"></div><span style="font-size:9px;color:#206FF7;font-weight:600;">Sun</span>
+                </div>
+              </div>
+            </div>
+            <div style="background:white;border-radius:16px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+              <div style="font-size:13px;font-weight:600;color:#0A0A0B;margin-bottom:12px;">Quick Actions</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="background:#206FF7;color:white;padding:12px;border-radius:12px;font-size:12px;font-weight:600;text-align:center;">Start Night Session</div>
+                <div style="background:#F7F7F9;padding:12px;border-radius:12px;font-size:12px;font-weight:500;text-align:center;color:#0A0A0B;">Start Breathing Exercise</div>
+                <div style="background:#F7F7F9;padding:12px;border-radius:12px;font-size:12px;font-weight:500;text-align:center;color:#0A0A0B;">View Sleep Report</div>
+                <div style="background:#F7F7F9;padding:12px;border-radius:12px;font-size:12px;font-weight:500;text-align:center;color:#0A0A0B;">Book Consultation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F4b: iPad Dark -->
+  <div class="screen-col">
+    <div class="screen-label">F4b — iPad Split View (Dark)</div>
+    <div class="ipad" style="background:#0A0A0B;">
+      <!-- iPad Status Bar -->
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;font-size:13px;font-weight:600;color:white;">
+        <span>9:41 AM</span>
+        <span style="display:flex;gap:6px;align-items:center;">
+          <span style="font-size:11px;">📶</span>
+          <span style="font-size:11px;">🔋</span>
+        </span>
+      </div>
+      <div style="display:flex;height:calc(100% - 40px);">
+        <!-- Sidebar -->
+        <div style="width:280px;background:#1A1A1C;border-right:1px solid rgba(255,255,255,0.08);padding:20px;display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFDC31"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/></svg>
+            <span style="font-family:'Oddval',serif;font-size:16px;font-weight:700;color:white;">RespireLabs</span>
+          </div>
+          <div style="background:#FFDC31;color:#0A0A0B;padding:12px 16px;border-radius:12px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:10px;">
+            <span>🏠</span> Home
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#999;display:flex;align-items:center;gap:10px;">
+            <span>📊</span> Track
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#999;display:flex;align-items:center;gap:10px;">
+            <span>💨</span> Tips
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#999;display:flex;align-items:center;gap:10px;">
+            <span>📚</span> Learn
+          </div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#999;display:flex;align-items:center;gap:10px;">
+            <span>🩺</span> Consult
+          </div>
+          <div style="flex:1;"></div>
+          <div style="padding:12px 16px;border-radius:12px;font-size:13px;color:#999;display:flex;align-items:center;gap:10px;">
+            <span>⚙️</span> Settings
+          </div>
+        </div>
+        <!-- Main Content -->
+        <div style="flex:1;padding:24px;overflow:hidden;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+            <div>
+              <div style="font-size:11px;color:#999;font-weight:500;">Good morning, Jan</div>
+              <div style="font-family:'Oddval',serif;font-size:24px;font-weight:700;color:white;">Dashboard</div>
+            </div>
+            <div style="display:flex;gap:8px;">
+              <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:14px;">🔔</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#555,#333);"></div>
+            </div>
+          </div>
+          <!-- Metrics Row -->
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;">
+            <div style="background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;">
+              <div style="font-size:11px;color:#999;margin-bottom:4px;">Nose Breathing</div>
+              <div style="font-size:28px;font-weight:700;color:#FFDC31;">75%</div>
+              <div style="font-size:10px;color:#22C55E;">↑ 5% vs yesterday</div>
+            </div>
+            <div style="background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;">
+              <div style="font-size:11px;color:#999;margin-bottom:4px;">Sleep Duration</div>
+              <div style="font-size:28px;font-weight:700;color:white;">6.2h</div>
+              <div style="font-size:10px;color:#EF4444;">↓ 0.5h</div>
+            </div>
+            <div style="background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;">
+              <div style="font-size:11px;color:#999;margin-bottom:4px;">Streak</div>
+              <div style="font-size:28px;font-weight:700;color:#F59E0B;">🔥 7</div>
+              <div style="font-size:10px;color:#999;">days</div>
+            </div>
+          </div>
+          <!-- Charts Row -->
+          <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:12px;">
+            <div style="background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;">
+              <div style="font-size:13px;font-weight:600;color:white;margin-bottom:12px;">Weekly Breathing Trend</div>
+              <div style="display:flex;align-items:flex-end;gap:8px;height:120px;">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:rgba(255,220,49,0.2);border-radius:4px;height:50px;"></div><span style="font-size:9px;color:#666;">Mon</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:rgba(255,220,49,0.2);border-radius:4px;height:66px;"></div><span style="font-size:9px;color:#666;">Tue</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:rgba(255,220,49,0.2);border-radius:4px;height:78px;"></div><span style="font-size:9px;color:#666;">Wed</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:rgba(255,220,49,0.2);border-radius:4px;height:60px;"></div><span style="font-size:9px;color:#666;">Thu</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:rgba(255,220,49,0.2);border-radius:4px;height:84px;"></div><span style="font-size:9px;color:#666;">Fri</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:rgba(255,220,49,0.2);border-radius:4px;height:72px;"></div><span style="font-size:9px;color:#666;">Sat</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+                  <div style="width:100%;background:#FFDC31;border-radius:4px;height:90px;"></div><span style="font-size:9px;color:#FFDC31;font-weight:600;">Sun</span>
+                </div>
+              </div>
+            </div>
+            <div style="background:#1A1A1C;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;">
+              <div style="font-size:13px;font-weight:600;color:white;margin-bottom:12px;">Quick Actions</div>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="background:#FFDC31;color:#0A0A0B;padding:12px;border-radius:12px;font-size:12px;font-weight:600;text-align:center;">Start Night Session</div>
+                <div style="background:rgba(255,255,255,0.08);padding:12px;border-radius:12px;font-size:12px;font-weight:500;text-align:center;color:white;">Start Breathing Exercise</div>
+                <div style="background:rgba(255,255,255,0.08);padding:12px;border-radius:12px;font-size:12px;font-weight:500;text-align:center;color:white;">View Sleep Report</div>
+                <div style="background:rgba(255,255,255,0.08);padding:12px;border-radius:12px;font-size:12px;font-weight:500;text-align:center;color:white;">Book Consultation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

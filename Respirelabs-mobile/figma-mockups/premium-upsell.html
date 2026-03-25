@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Upsell — C1-C5 Monetization Screens</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1 class="page-title">Premium & Monetization</h1>
+<p class="page-subtitle">C1 Soft Paywall · C2 Feature Gate · C3 Trial Expiring · C4 Success · C5 Comparison — 9 frames</p>
+
+<!-- ============================================================ -->
+<!-- C1 — Soft Paywall (Inline Blur)                               -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">C1 — Soft Paywall (Inline)</h2>
+
+<div class="screen-row">
+
+  <!-- C1-A: After session blur -->
+  <div class="screen-col">
+    <div class="screen-label">C1-A · Soft Paywall · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Session Results</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Visible free metrics -->
+        <div class="card" style="margin-bottom:12px;">
+          <div class="text-overline text-blue mb-8">SESSION COMPLETE</div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:12px;">
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:32px;font-weight:700;color:#22C55E;">78%</div>
+              <div class="text-caption text-secondary">Nose Breathing</div>
+            </div>
+            <div style="text-align:center;flex:1;">
+              <div style="font-size:32px;font-weight:700;color:#0A0A0B;">7h 23m</div>
+              <div class="text-caption text-secondary">Duration</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blurred premium insights -->
+        <div style="position:relative;margin-bottom:12px;">
+          <div class="card" style="filter:blur(6px);pointer-events:none;">
+            <div class="text-body2 text-primary mb-8" style="font-weight:600;">AI Sleep Insights</div>
+            <p class="text-body2 text-secondary">Your breathing patterns show a 23% improvement in REM cycles. Mouth breathing occurred primarily between 2-4 AM, suggesting nasal congestion.</p>
+            <div style="height:80px;background:#F7F7F9;border-radius:12px;margin-top:12px;"></div>
+          </div>
+          <!-- Overlay CTA -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;">
+            <div style="width:56px;height:56px;border-radius:50%;background:#206FF7;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;">
+              <svg width="24" height="24" fill="white"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+            </div>
+            <div style="font-size:16px;font-weight:700;color:#0A0A0B;margin-bottom:4px;">Unlock AI Insights</div>
+            <div style="font-size:13px;color:#6B7280;">Upgrade to Premium</div>
+          </div>
+        </div>
+
+        <!-- Blurred trends -->
+        <div style="position:relative;margin-bottom:16px;">
+          <div class="card" style="filter:blur(6px);pointer-events:none;">
+            <div class="text-body2 text-primary mb-8" style="font-weight:600;">Weekly Comparison</div>
+            <div style="height:100px;background:#F7F7F9;border-radius:12px;"></div>
+          </div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);padding:8px 20px;background:#206FF7;border-radius:100px;color:white;font-size:13px;font-weight:600;">
+            <svg width="14" height="14" fill="white" style="vertical-align:middle;margin-right:6px;"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg>
+            Premium Only
+          </div>
+        </div>
+
+        <button class="btn btn-primary" style="margin-bottom:8px;">Try Premium Free — 7 Days</button>
+        <button class="btn btn-ghost" style="margin-bottom:20px;">Maybe later</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- C2 — Feature Gate Modal -->
+  <div class="screen-col">
+    <div class="screen-label">C2 · Feature Gate Modal</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <!-- Background screen (dimmed) -->
+      <div style="opacity:0.3;padding:0 20px;margin-top:16px;">
+        <div class="card" style="height:200px;"></div>
+      </div>
+      <!-- Modal overlay -->
+      <div style="position:absolute;bottom:0;left:0;right:0;background:white;border-radius:32px 32px 0 0;padding:32px 24px;box-shadow:0 -8px 40px rgba(0,0,0,0.15);">
+        <!-- Handle -->
+        <div style="width:40px;height:4px;border-radius:2px;background:#E5E7EB;margin:0 auto 24px;"></div>
+
+        <div style="text-align:center;">
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,rgba(32,111,247,0.1),rgba(255,220,49,0.1));margin:0 auto 16px;display:flex;align-items:center;justify-content:center;">
+            <svg width="32" height="32" fill="#206FF7"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          </div>
+          <div class="text-h2 font-oddval text-primary" style="margin-bottom:8px;">Premium Feature</div>
+          <p class="text-body2 text-secondary" style="margin-bottom:24px;">AI Sleep Insights are available with RespireLabs Premium. Get personalized analysis of your breathing patterns.</p>
+
+          <!-- Features included -->
+          <div style="text-align:left;margin-bottom:24px;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <svg width="20" height="20" fill="#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span class="text-body2 text-primary">AI-powered sleep insights</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <svg width="20" height="20" fill="#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span class="text-body2 text-primary">Unlimited session history</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <svg width="20" height="20" fill="#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span class="text-body2 text-primary">Export health reports</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <svg width="20" height="20" fill="#22C55E"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              <span class="text-body2 text-primary">Priority specialist access</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="margin-bottom:8px;">Start 7-Day Free Trial</button>
+          <button class="btn btn-ghost">Not now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C3 — Trial Expiring -->
+  <div class="screen-col">
+    <div class="screen-label">C3 · Trial Expiring</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div class="nav-logo">
+            <svg width="28" height="28" viewBox="0 0 28 28"><circle cx="14" cy="14" r="14" fill="#206FF7"/><text x="14" y="18" text-anchor="middle" fill="white" font-size="14" font-weight="700">R</text></svg>
+            <span class="nav-logo-text text-primary">RespireLabs</span>
+          </div>
+        </div>
+        <div class="nav-settings"><svg width="18" height="18" fill="none" stroke="#6B7280" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 3"/></svg></div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Trial expiring banner -->
+        <div style="background:linear-gradient(135deg,#FF9500,#FF6B00);border-radius:20px;padding:20px;margin-bottom:16px;color:white;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+            <svg width="20" height="20" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <span style="font-size:14px;font-weight:700;">Trial ends in 2 days</span>
+          </div>
+          <p style="font-size:13px;opacity:0.9;margin-bottom:12px;">Your free trial of RespireLabs Premium expires on March 2. Subscribe now to keep your AI insights and unlimited history.</p>
+          <div style="display:flex;gap:8px;">
+            <button style="flex:1;padding:10px;border-radius:100px;background:white;color:#FF6B00;border:none;font-size:14px;font-weight:600;">Subscribe Now</button>
+            <button style="padding:10px 16px;border-radius:100px;background:rgba(255,255,255,0.2);color:white;border:none;font-size:13px;">Later</button>
+          </div>
+        </div>
+
+        <!-- Normal home content below -->
+        <div class="card" style="margin-bottom:12px;">
+          <div class="text-overline text-blue mb-8">TODAY'S PROGRESS</div>
+          <div style="display:flex;justify-content:center;margin:16px 0;">
+            <div class="progress-ring-container" style="width:140px;height:140px;">
+              <svg width="140" height="140" viewBox="0 0 140 140">
+                <circle cx="70" cy="70" r="60" fill="none" stroke="#E5E7EB" stroke-width="8"/>
+                <circle cx="70" cy="70" r="60" fill="none" stroke="#206FF7" stroke-width="8" stroke-dasharray="282" stroke-dashoffset="85" transform="rotate(-90 70 70)" stroke-linecap="round"/>
+              </svg>
+              <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;">
+                <div style="font-size:32px;font-weight:700;color:#0A0A0B;">70%</div>
+                <div style="font-size:11px;color:#6B7280;">Daily Goal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="grid-2" style="margin-bottom:100px;">
+          <div class="card" style="text-align:center;padding:16px;">
+            <div style="font-size:28px;margin-bottom:4px;">🌙</div>
+            <div class="text-body2 text-primary" style="font-weight:500;">Night Mode</div>
+          </div>
+          <div class="card" style="text-align:center;padding:16px;">
+            <div style="font-size:28px;margin-bottom:4px;">☀️</div>
+            <div class="text-body2 text-primary" style="font-weight:500;">Day Track</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-bar">
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="#206FF7"><path d="M10 2L2 7v11a2 2 0 002 2h4v-7h4v7h4a2 2 0 002-2V7l-8-5z"/></svg></div><span>Home</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zm-11 11h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg></div><span>Track</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div><span>Tips</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><path d="M4 4h16v2H4V4zm0 5h16v2H4V9zm0 5h10v2H4v-2z"/></svg></div><span>Learn</span></div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="#6B7280"><circle cx="10" cy="8" r="4"/><path d="M2 20c0-4 4-6 8-6s8 2 8 6"/></svg></div><span>Consult</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Row 2: C4 Success + C5 Comparison -->
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin:20px 0 20px;">C4 — Subscription Success · C5 — Plan Comparison</h2>
+
+<div class="screen-row">
+
+  <!-- C4 — Subscription Success -->
+  <div class="screen-col">
+    <div class="screen-label">C4 · Subscription Success</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:calc(100% - 54px);padding:0 32px;background:linear-gradient(180deg,#FAFAFA 0%,rgba(32,111,247,0.05) 100%);">
+        <!-- Confetti celebration -->
+        <div style="position:relative;margin-bottom:32px;">
+          <div style="width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,rgba(32,111,247,0.15),rgba(34,197,94,0.15));display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:56px;">🎉</span>
+          </div>
+          <div style="position:absolute;top:-12px;left:-8px;font-size:20px;">✨</div>
+          <div style="position:absolute;top:8px;right:-12px;font-size:16px;">⭐</div>
+          <div style="position:absolute;bottom:-4px;left:4px;font-size:14px;">🎊</div>
+          <div style="position:absolute;bottom:16px;right:-8px;font-size:12px;">✨</div>
+        </div>
+
+        <div class="text-overline text-blue" style="margin-bottom:8px;">WELCOME TO PREMIUM</div>
+        <div class="text-h2 font-oddval text-primary" style="text-align:center;margin-bottom:8px;">You're all set!</div>
+        <p class="text-body2 text-secondary" style="text-align:center;margin-bottom:32px;">Enjoy unlimited AI insights, advanced analytics, and priority specialist access.</p>
+
+        <!-- Unlocked features -->
+        <div style="width:100%;margin-bottom:32px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <span class="text-body2 text-primary">AI Sleep Insights unlocked</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <span class="text-body2 text-primary">Unlimited history & exports</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <span class="text-body2 text-primary">Priority specialist access</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" style="margin-bottom:12px;">Explore Premium Features</button>
+        <button class="btn btn-ghost">Go to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- C5 — Plan Comparison -->
+  <div class="screen-col">
+    <div class="screen-label">C5-A · Plan Comparison · Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><span>📶</span><span>🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:#E5E7EB;display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="#0A0A0B" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Plans</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Plan toggle -->
+        <div style="display:flex;background:#F7F7F9;border-radius:12px;padding:4px;margin-bottom:16px;">
+          <div style="flex:1;padding:8px;text-align:center;background:white;border-radius:8px;font-size:13px;font-weight:600;color:#0A0A0B;box-shadow:0 1px 3px rgba(0,0,0,0.1);">Monthly</div>
+          <div style="flex:1;padding:8px;text-align:center;font-size:13px;font-weight:500;color:#6B7280;">Annual <span style="color:#22C55E;font-size:11px;">Save 40%</span></div>
+        </div>
+
+        <!-- Free plan -->
+        <div class="card" style="margin-bottom:12px;padding:20px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div>
+              <div class="text-h3 text-primary" style="font-weight:600;">Free</div>
+              <div class="text-caption text-secondary">Basic tracking</div>
+            </div>
+            <div style="font-size:24px;font-weight:700;color:#0A0A0B;">$0</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary">Basic breathing tracking</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary">3 exercises</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary">7-day history</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#E5E7EB"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg><span class="text-caption text-secondary" style="text-decoration:line-through;">AI insights</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#E5E7EB"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg><span class="text-caption text-secondary" style="text-decoration:line-through;">Health reports</span></div>
+          </div>
+          <button class="btn btn-secondary" style="margin-top:12px;padding:10px;">Current Plan</button>
+        </div>
+
+        <!-- Premium plan -->
+        <div class="card" style="border:2px solid #206FF7;margin-bottom:12px;padding:20px;position:relative;">
+          <div style="position:absolute;top:-10px;right:16px;padding:4px 12px;background:#206FF7;border-radius:100px;font-size:11px;font-weight:600;color:white;">RECOMMENDED</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div>
+              <div class="text-h3 text-blue" style="font-weight:600;">Premium</div>
+              <div class="text-caption text-secondary">Full experience</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:24px;font-weight:700;color:#206FF7;">$9.99</div>
+              <div class="text-caption text-secondary">/month</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary">Everything in Free</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary"><strong>AI sleep insights</strong></span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary"><strong>Unlimited history</strong></span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary">All exercises & programs</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary">Health report export</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="16" height="16" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption text-primary">Priority specialist access</span></div>
+          </div>
+          <button class="btn btn-primary" style="margin-top:12px;padding:10px;">Start Free Trial</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C5-C: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">C5-C · Comparison · Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><span style="color:white;">📶</span><span style="color:white;">🔋</span></div></div>
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;">
+            <svg width="18" height="18" fill="none" stroke="white" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Plans</span>
+        </div>
+      </div>
+      <div class="phone-content" style="padding:0 20px;">
+        <!-- Toggle dark -->
+        <div style="display:flex;background:rgba(255,255,255,0.06);border-radius:12px;padding:4px;margin-bottom:16px;">
+          <div style="flex:1;padding:8px;text-align:center;background:rgba(255,255,255,0.1);border-radius:8px;font-size:13px;font-weight:600;color:white;">Monthly</div>
+          <div style="flex:1;padding:8px;text-align:center;font-size:13px;font-weight:500;color:rgba(255,255,255,0.4);">Annual <span style="color:#22C55E;font-size:11px;">-40%</span></div>
+        </div>
+
+        <!-- Free dark -->
+        <div class="card-dark" style="padding:20px;border-radius:24px;margin-bottom:12px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div><div class="text-h3" style="color:white;font-weight:600;">Free</div><div class="text-caption" style="color:rgba(255,255,255,0.4);">Basic</div></div>
+            <div style="font-size:24px;font-weight:700;color:white;">$0</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption" style="color:rgba(255,255,255,0.6);">Basic tracking</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption" style="color:rgba(255,255,255,0.6);">3 exercises</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="rgba(255,255,255,0.15)"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg><span class="text-caption" style="color:rgba(255,255,255,0.3);text-decoration:line-through;">AI insights</span></div>
+          </div>
+          <button class="btn" style="background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);margin-top:12px;padding:10px;">Current</button>
+        </div>
+
+        <!-- Premium dark -->
+        <div class="card-dark" style="padding:20px;border-radius:24px;border:2px solid #FFDC31;margin-bottom:12px;position:relative;">
+          <div style="position:absolute;top:-10px;right:16px;padding:4px 12px;background:#FFDC31;border-radius:100px;font-size:11px;font-weight:600;color:#0A0A0B;">RECOMMENDED</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <div><div class="text-h3" style="color:#FFDC31;font-weight:600;">Premium</div><div class="text-caption" style="color:rgba(255,255,255,0.4);">Full experience</div></div>
+            <div style="text-align:right;"><div style="font-size:24px;font-weight:700;color:#FFDC31;">$9.99</div><div class="text-caption" style="color:rgba(255,255,255,0.4);">/month</div></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption" style="color:white;">Everything in Free</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption" style="color:white;font-weight:600;">AI sleep insights</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption" style="color:white;font-weight:600;">Unlimited history</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption" style="color:white;">All exercises</span></div>
+            <div style="display:flex;align-items:center;gap:8px;"><svg width="14" height="14" fill="#22C55E"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg><span class="text-caption" style="color:white;">Export reports</span></div>
+          </div>
+          <button class="btn" style="background:#FFDC31;color:#0A0A0B;margin-top:12px;padding:10px;">Start Free Trial</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespireLabs — Search Results</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .search-active {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid var(--primary);
+    background: var(--surface-white);
+  }
+  .search-active-dark {
+    background: var(--surface-dark);
+    border-color: var(--primary);
+  }
+  .search-input-text {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .search-clear {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .search-clear-dark {
+    background: rgba(255,255,255,0.12);
+  }
+  .result-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+  }
+  .result-item + .result-item {
+    border-top: 1px solid var(--border);
+  }
+  .result-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .result-icon-article {
+    background: rgba(32,111,247,0.08);
+  }
+  .result-icon-exercise {
+    background: rgba(34,197,94,0.08);
+  }
+  .result-icon-specialist {
+    background: linear-gradient(135deg, #206FF7 0%, #1555C4 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .result-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .result-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .result-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .result-meta {
+    font-size: 11px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .result-chevron {
+    flex-shrink: 0;
+    color: var(--text-secondary);
+  }
+  .available-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    display: inline-block;
+  }
+  .no-results-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(32,111,247,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Search Results</h1>
+<p class="page-subtitle">S91 &mdash; Search Results &bull; Light + Dark + No Results &mdash; 3 frames</p>
+
+<!-- ============================================================ -->
+<!-- S91 — SEARCH RESULTS                                          -->
+<!-- ============================================================ -->
+
+<h2 style="font-family:'Oddval',serif;font-size:22px;font-weight:600;color:#206FF7;margin-bottom:20px;">S91 — Search Results</h2>
+
+<div class="screen-row">
+
+  <!-- S91-A: Light -->
+  <div class="screen-col">
+    <div class="screen-label">S91-A &middot; Search Results &middot; Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+
+      <!-- Nav header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="color:var(--text-secondary);font-size:18px;cursor:pointer;">
+            <svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="2"><path d="M15 18l-8-8 8-8"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Search</span>
+        </div>
+      </div>
+
+      <div style="padding:0 20px;">
+        <!-- Active search bar with blue border -->
+        <div class="search-active" style="margin-bottom:16px;">
+          <svg width="18" height="18" fill="none" stroke="#206FF7" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M13 13l4 4"/></svg>
+          <span class="search-input-text">nose breathing</span>
+          <div class="search-clear">
+            <svg width="12" height="12" fill="none" stroke="#6B7280" stroke-width="2"><path d="M3 3l6 6M9 3l-6 6"/></svg>
+          </div>
+        </div>
+
+        <!-- Tab pills -->
+        <div class="category-pills" style="margin-bottom:14px;">
+          <div class="cat-pill cat-pill-active">All</div>
+          <div class="cat-pill cat-pill-inactive">Articles</div>
+          <div class="cat-pill cat-pill-inactive">Exercises</div>
+          <div class="cat-pill cat-pill-inactive">Specialists</div>
+        </div>
+
+        <!-- Results count -->
+        <div class="text-caption text-secondary" style="margin-bottom:12px;">12 results for &lsquo;nose breathing&rsquo;</div>
+
+        <!-- Results list -->
+        <div>
+          <!-- Result 1: Article -->
+          <div class="result-item">
+            <div class="result-icon result-icon-article">
+              <svg width="22" height="22" fill="none" stroke="#206FF7" stroke-width="1.5"><path d="M4 3h10l4 4v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v4h4"/><path d="M7 10h8M7 14h5"/></svg>
+            </div>
+            <div class="result-content">
+              <div class="result-title" style="color:var(--text-primary);">Benefits of Nose Breathing During Sleep</div>
+              <div class="result-desc">Learn why nasal breathing improves oxygen uptake and sleep...</div>
+              <div class="result-meta">Article &middot; 5 min read</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="#6B7280" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- Result 2: Exercise -->
+          <div class="result-item">
+            <div class="result-icon result-icon-exercise">
+              <svg width="22" height="22" fill="none" stroke="#22C55E" stroke-width="1.5"><path d="M4 16l3-6 4 4 5-8"/><circle cx="16" cy="6" r="2"/></svg>
+            </div>
+            <div class="result-content">
+              <div class="result-title" style="color:var(--text-primary);">Alternate Nostril Breathing</div>
+              <div class="result-desc">A classic pranayama technique for balancing the nervous...</div>
+              <div class="result-meta">Exercise &middot; 8 min</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="#6B7280" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- Result 3: Article -->
+          <div class="result-item">
+            <div class="result-icon result-icon-article">
+              <svg width="22" height="22" fill="none" stroke="#206FF7" stroke-width="1.5"><path d="M4 3h10l4 4v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v4h4"/><path d="M7 10h8M7 14h5"/></svg>
+            </div>
+            <div class="result-content">
+              <div class="result-title" style="color:var(--text-primary);">How Mouth Tape Promotes Nasal Breathing</div>
+              <div class="result-desc">Discover the science behind mouth taping and how it trains...</div>
+              <div class="result-meta">Article &middot; 3 min read</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="#6B7280" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- Result 4: Specialist -->
+          <div class="result-item" style="border-bottom:none;">
+            <div class="result-icon result-icon-specialist">Dr</div>
+            <div class="result-content">
+              <div class="result-title" style="color:var(--text-primary);">Dr. Sarah Chen</div>
+              <div class="result-desc">Sleep specialist with focus on breathing disorders and...</div>
+              <div class="result-meta">Specialist &middot; <span class="available-dot"></span> Available</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="#6B7280" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab bar -->
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S91-B: Dark -->
+  <div class="screen-col">
+    <div class="screen-label">S91-B &middot; Search Results &middot; Dark</div>
+    <div class="phone phone-dark">
+      <div class="status-bar status-bar-dark"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="white"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="white" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+
+      <!-- Nav header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="color:rgba(255,255,255,0.5);font-size:18px;cursor:pointer;">
+            <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M15 18l-8-8 8-8"/></svg>
+          </div>
+          <span class="font-oddval text-h3" style="color:white;">Search</span>
+        </div>
+      </div>
+
+      <div style="padding:0 20px;">
+        <!-- Active search bar dark -->
+        <div class="search-active search-active-dark" style="margin-bottom:16px;">
+          <svg width="18" height="18" fill="none" stroke="#206FF7" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M13 13l4 4"/></svg>
+          <span class="search-input-text" style="color:white;">nose breathing</span>
+          <div class="search-clear search-clear-dark">
+            <svg width="12" height="12" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><path d="M3 3l6 6M9 3l-6 6"/></svg>
+          </div>
+        </div>
+
+        <!-- Tab pills dark -->
+        <div class="category-pills" style="margin-bottom:14px;">
+          <div class="cat-pill cat-pill-active">All</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Articles</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Exercises</div>
+          <div class="cat-pill" style="background:var(--surface-dark);color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.1);">Specialists</div>
+        </div>
+
+        <!-- Results count -->
+        <div class="text-caption" style="color:rgba(255,255,255,0.4);margin-bottom:12px;">12 results for &lsquo;nose breathing&rsquo;</div>
+
+        <!-- Results list dark -->
+        <div>
+          <!-- Result 1: Article -->
+          <div class="result-item" style="border-color:rgba(255,255,255,0.06);">
+            <div class="result-icon" style="background:rgba(32,111,247,0.15);">
+              <svg width="22" height="22" fill="none" stroke="#206FF7" stroke-width="1.5"><path d="M4 3h10l4 4v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v4h4"/><path d="M7 10h8M7 14h5"/></svg>
+            </div>
+            <div class="result-content">
+              <div class="result-title" style="color:white;">Benefits of Nose Breathing During Sleep</div>
+              <div class="result-desc" style="color:rgba(255,255,255,0.4);">Learn why nasal breathing improves oxygen uptake and sleep...</div>
+              <div class="result-meta" style="color:rgba(255,255,255,0.35);">Article &middot; 5 min read</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- Result 2: Exercise -->
+          <div class="result-item" style="border-color:rgba(255,255,255,0.06);">
+            <div class="result-icon" style="background:rgba(34,197,94,0.15);">
+              <svg width="22" height="22" fill="none" stroke="#22C55E" stroke-width="1.5"><path d="M4 16l3-6 4 4 5-8"/><circle cx="16" cy="6" r="2"/></svg>
+            </div>
+            <div class="result-content">
+              <div class="result-title" style="color:white;">Alternate Nostril Breathing</div>
+              <div class="result-desc" style="color:rgba(255,255,255,0.4);">A classic pranayama technique for balancing the nervous...</div>
+              <div class="result-meta" style="color:rgba(255,255,255,0.35);">Exercise &middot; 8 min</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- Result 3: Article -->
+          <div class="result-item" style="border-color:rgba(255,255,255,0.06);">
+            <div class="result-icon" style="background:rgba(32,111,247,0.15);">
+              <svg width="22" height="22" fill="none" stroke="#206FF7" stroke-width="1.5"><path d="M4 3h10l4 4v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M14 3v4h4"/><path d="M7 10h8M7 14h5"/></svg>
+            </div>
+            <div class="result-content">
+              <div class="result-title" style="color:white;">How Mouth Tape Promotes Nasal Breathing</div>
+              <div class="result-desc" style="color:rgba(255,255,255,0.4);">Discover the science behind mouth taping and how it trains...</div>
+              <div class="result-meta" style="color:rgba(255,255,255,0.35);">Article &middot; 3 min read</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+
+          <!-- Result 4: Specialist -->
+          <div class="result-item" style="border:none;">
+            <div class="result-icon" style="background:linear-gradient(135deg, #206FF7 0%, #1555C4 100%);color:white;font-weight:700;font-size:13px;font-family:'Montserrat',sans-serif;">Dr</div>
+            <div class="result-content">
+              <div class="result-title" style="color:white;">Dr. Sarah Chen</div>
+              <div class="result-desc" style="color:rgba(255,255,255,0.4);">Sleep specialist with focus on breathing disorders and...</div>
+              <div class="result-meta" style="color:rgba(255,255,255,0.35);">Specialist &middot; <span class="available-dot"></span> Available</div>
+            </div>
+            <div class="result-chevron">
+              <svg width="16" height="16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"><path d="M6 4l4 4-4 4"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab bar dark -->
+      <div class="tab-bar tab-bar-dark">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S91-C: No Results (Light) -->
+  <div class="screen-col">
+    <div class="screen-label">S91-C &middot; No Results &middot; Light</div>
+    <div class="phone phone-light">
+      <div class="status-bar status-bar-light"><span>9:41</span><div class="status-bar-icons"><svg width="24" height="12" fill="currentColor"><rect x="0" y="1" width="20" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="3" width="14" height="6" rx="1"/><rect x="21" y="4" width="3" height="4" rx="1"/></svg></div></div>
+
+      <!-- Nav header -->
+      <div class="nav-header">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="color:var(--text-secondary);font-size:18px;cursor:pointer;">
+            <svg width="20" height="20" fill="none" stroke="#6B7280" stroke-width="2"><path d="M15 18l-8-8 8-8"/></svg>
+          </div>
+          <span class="font-oddval text-h3 text-primary">Search</span>
+        </div>
+      </div>
+
+      <div style="padding:0 20px;">
+        <!-- Active search bar -->
+        <div class="search-active" style="margin-bottom:16px;">
+          <svg width="18" height="18" fill="none" stroke="#206FF7" stroke-width="2"><circle cx="8" cy="8" r="6"/><path d="M13 13l4 4"/></svg>
+          <span class="search-input-text">xylophone therapy</span>
+          <div class="search-clear">
+            <svg width="12" height="12" fill="none" stroke="#6B7280" stroke-width="2"><path d="M3 3l6 6M9 3l-6 6"/></svg>
+          </div>
+        </div>
+
+        <!-- Tab pills -->
+        <div class="category-pills" style="margin-bottom:14px;">
+          <div class="cat-pill cat-pill-active">All</div>
+          <div class="cat-pill cat-pill-inactive">Articles</div>
+          <div class="cat-pill cat-pill-inactive">Exercises</div>
+          <div class="cat-pill cat-pill-inactive">Specialists</div>
+        </div>
+
+        <!-- Results count -->
+        <div class="text-caption text-secondary" style="margin-bottom:12px;">0 results for &lsquo;xylophone therapy&rsquo;</div>
+
+        <!-- No results empty state -->
+        <div style="text-align:center;padding:60px 20px 0;">
+          <div class="no-results-icon">
+            <svg width="36" height="36" fill="none" stroke="#206FF7" stroke-width="1.5" opacity="0.6">
+              <circle cx="16" cy="16" r="12"/>
+              <path d="M25 25l6 6"/>
+              <path d="M12 13h8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="font-oddval text-h3" style="color:var(--text-primary);margin-bottom:8px;">No results found</div>
+          <div class="text-body2 text-secondary" style="line-height:1.6;margin-bottom:24px;">We couldn't find anything matching your search. Try different keywords or browse our categories.</div>
+          <button class="btn btn-secondary" style="width:auto;display:inline-flex;padding:12px 28px;font-size:14px;">Browse All Content</button>
+        </div>
+      </div>
+
+      <!-- Tab bar -->
+      <div class="tab-bar">
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 2"/></svg></div>Home</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 16 8 8 12 12 16 4"/></svg></div>Track</div>
+        <div class="tab-item active"><div class="tab-icon-active"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="17" y2="6"/><line x1="3" y1="10" x2="17" y2="10"/><line x1="3" y1="14" x2="12" y2="14"/></svg></div>Tips</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h6v14H2zM12 4h6v14h-6z"/></svg></div>Learn</div>
+        <div class="tab-item"><div class="tab-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="16" height="12" rx="2"/></svg></div>Consult</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+</body>
+</html>
